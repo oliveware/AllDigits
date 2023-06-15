@@ -41,8 +41,3 @@ struct GroupeTige: View {
     }
 }
 
-struct GroupeTige_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupeTige(tigroup:Tigroup(Tige([Pile(1,5,.enbas),Pile(5,1,.enhaut)]), 4, 0))
-    }
-}

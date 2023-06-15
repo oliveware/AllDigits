@@ -30,8 +30,4 @@ struct CircleRow: View {
     }
 }
 
-struct CircleRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleRow(nc:9)
-    }
-}
+

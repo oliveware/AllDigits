@@ -88,13 +88,3 @@ struct Boulier: View {
     
 }
 
-struct Boulier_Previews: PreviewProvider {
-    static var previews: some View {
-
-        Boulier(start:false)
-            .environmentObject(Manager())
-    //    Boulier(abacus: Livabacus(.suanpan))
-    //    Boulier(abacus: Livabacus(.yiking), edited:[0,3])
-
-    }
-}

@@ -60,28 +60,3 @@ struct Unartext: View {
 
     }
 }
-
-struct Unartext_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            HStack {
-                ForEach(1...10, id: \.self) {
-                    val in
-                    Unartext(value: val)
-                }
-            }
-            HStack {
-                ForEach(11...15, id: \.self) {
-                    val in
-                    Unartext(value: val)
-                }
-            }
-            HStack {
-                ForEach(16...19, id: \.self) {
-                    val in
-                    Unartext(value: val)
-                }
-            }.frame(width:990)
-        }
-    }
-}

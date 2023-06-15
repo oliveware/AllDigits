@@ -19,11 +19,3 @@ struct Boule: View {
 
 }
 
-struct Boule_Previews: PreviewProvider {
-    static var previews: some View {
-        HStack(spacing: 20) {
-            Boule(width:50, height:20)
-            Boule(color:Color.orange)
-        }
-    }
-}

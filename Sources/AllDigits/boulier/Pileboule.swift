@@ -64,31 +64,3 @@ struct Pileboule: View {
     
 }
 
-struct Pileboule_Previews: PreviewProvider {
-    static var previews: some View {
-        
-       VStack(spacing:25) {
-            HStack(spacing:10) {
-                Text("soroban").padding(.trailing,15)
-                Pileboule(pile:Pile(4,0,.enhaut))
-                Pileboule(pile:Pile(3,1))
-                Pileboule(pile:Pile(2,2))
-                Pileboule(pile:Pile(1,3))
-                Pileboule(pile:Pile(0,4))
-            }.padding(.bottom,25)
-            HStack(spacing:5) {
-                Text("chinois").padding(.trailing,15)
-                Pileboule(pile:Pile(5,0))
-                Pileboule(pile:Pile(4,1))
-                Pileboule(pile:Pile(3,2))
-                Pileboule(pile:Pile(2,3))
-                Pileboule(pile:Pile(1,4))
-                Pileboule(pile:Pile(0,5))
-            }.padding(.bottom,25)
-        }
-        //    Boulier(boules:[1,4], avechiffres:true)
-         //   Boulier(rangs:[2,5])
-        //    Boulier(chiffres:[2,3,5,7],rangs:[2,5])
-        //    Boulier(rangs:[7,7])
-    }
-}

@@ -40,16 +40,4 @@ struct Aramblock: View {
     }
 }
 
-struct Aramblock_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            ForEach ( 1...9 , id: \.self) { v in
-                HStack {
-                    Aramblock(value:v)
-                    Aramblock(value:v, style:.méso)
-                    Aramblock(value:v, style:.minos)
-                }
-            }
-        }
-    }
-}
+

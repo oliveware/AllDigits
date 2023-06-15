@@ -47,18 +47,3 @@ struct Cistunit: View {
     }
 }
 
-struct Cistunit_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Cistunit(value:1)
-            Cistunit(value:2)
-            Cistunit(value:3)
-            Cistunit(value:4)
-            Cistunit(value:5)
-            Cistunit(value:6)
-            Cistunit(value:7)
-            Cistunit(value:8)
-            Cistunit(value:9)
-        }
-    }
-}

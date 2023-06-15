@@ -31,33 +31,4 @@ struct ChiffreMaya: View {
     }
 }
 
-struct ChiffreMaya_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack(spacing:20) {
-            HStack(spacing:12) {
-                ForEach(0...4, id: \.self) {
-                    index in
-                    ChiffreMaya(value :index)
-                }
-            }
-            HStack(spacing:12) {
-                ForEach(5...9, id: \.self) {
-                    index in
-                    ChiffreMaya(value :index, size:4)
-                }
-            }
-            HStack(spacing:12) {
-                ForEach(10...14, id: \.self) {
-                    index in
-                    ChiffreMaya(value :index, size:5)
-                }
-            }
-            HStack(spacing:12) {
-                ForEach(15...19, id: \.self) {
-                    index in
-                    ChiffreMaya(value :index, size:7)
-                }
-            }
-        }.background(Color.black)
-    }
-}
+

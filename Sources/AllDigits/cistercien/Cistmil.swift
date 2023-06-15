@@ -47,18 +47,4 @@ struct Cistmil: View {
     }
 }
 
-struct Cistmil_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Cistmil(value:1)
-            Cistmil(value:2)
-            Cistmil(value:3)
-            Cistmil(value:4)
-            Cistmil(value:5)
-            Cistmil(value:6)
-            Cistmil(value:7)
-            Cistmil(value:8)
-            Cistmil(value:9)
-        }
-    }
-}
+

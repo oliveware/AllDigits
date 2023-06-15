@@ -30,8 +30,4 @@ struct BarStack: View {
     }
 }
 
-struct BarStack_Previews: PreviewProvider {
-    static var previews: some View {
-        BarStack()
-    }
-}
+

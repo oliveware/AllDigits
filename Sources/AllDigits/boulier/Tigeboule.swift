@@ -47,15 +47,3 @@ struct Tigeboule: View {
     }
 }
 
-struct Tigeboule_Previews: PreviewProvider {
-    static var previews: some View {
-
-           
-        //    Boulier(boules:[1,4], avechiffres:true)
-         Boulier()
-            .environmentObject(Manager())
-        //    Boulier(chiffres:[2,3,5,7],rangs:[2,5])
-       //     Boulier(rangs:[7,7])
-
-    }
-}

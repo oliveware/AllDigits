@@ -23,9 +23,3 @@ struct Chiffrenbase10: View {
     }
 }
 
-struct Chiffrenbase10_Previews: PreviewProvider {
-    static var previews: some View {
-        Chiffrenbase10()
-        Chiffrenbase10(size:50)
-    }
-}

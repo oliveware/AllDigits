@@ -32,9 +32,4 @@ struct ChiffreHexa64: View {
     }
 }
 
-struct ChiffreHexa64_Previews: PreviewProvider {
-    static var previews: some View {
-        ChiffreHexa64()
-        ChiffreHexa64(size:3)
-    }
-}
+

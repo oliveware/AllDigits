@@ -47,18 +47,3 @@ struct Cistcent: View {
     }
 }
 
-struct Cistcent_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Cistcent(value:1)
-            Cistcent(value:2)
-            Cistcent(value:3)
-            Cistcent(value:4)
-            Cistcent(value:5)
-            Cistcent(value:6)
-            Cistcent(value:7)
-            Cistcent(value:8)
-            Cistcent(value:9)
-        }
-    }
-}

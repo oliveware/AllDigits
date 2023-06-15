@@ -17,9 +17,3 @@ struct Vbar: View {
     }
 }
 
-struct Vbar_Previews: PreviewProvider {
-    static var previews: some View {
-        Vbar()
-
-    }
-}

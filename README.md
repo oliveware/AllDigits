@@ -1,3 +1,3 @@
 # AllDigits
 
-A description of this package.
+Un chiffre est défini par un index dans un ensemble de glyphes

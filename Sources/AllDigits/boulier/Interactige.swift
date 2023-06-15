@@ -91,13 +91,3 @@ struct Interactige: View {
 
 }
 
-struct Interactige_Previews: PreviewProvider {
-    static var previews: some View {
-        HStack(spacing:-5) {
-            Interactige(tige:Tige([Pile(1, 6, .enbas, 0), Pile(5, 1, .enhaut, 1)]), edited:.constant([-1,-1]))
-            Interactige(tige:Tige([Pile(1, 6, .enbas, 0), Pile(5, 1, .enhaut, 1)]),edited:.constant([1,1]))
-            Interactige(tige:Tige([Pile(1, 6, .enbas, 0), Pile(5, 1, .enhaut, 1)]),edited:.constant([0,2]), avechiffre: true)
-            Interactige(tige:Tige([Pile(1, 6, .enbas, 0), Pile(5, 1, .enhaut, 1)]),edited:.constant([0,3]), avechiffre: true)
-        }.frame(alignment:.center)
-    }
-}

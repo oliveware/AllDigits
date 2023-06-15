@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 // jeux de chiffres compatibles avec une langue
-@available(iOS 13.0, *)
-    @available(macOS 10.15, *)
 public var ecrinums : [Ecriture:[Numicode]] = [
     .af:[.global],
     .als:[.global],
@@ -85,8 +83,6 @@ public enum Numictype: String {
 }
 
 // Jeux de chiffres
-@available(iOS 13.0, *)
-@available(macOS 10.15, *)
 public struct Numicodeset {
     public let name: LocalizedStringKey
     public let set:[Numicode]
@@ -122,8 +118,6 @@ public struct Numicodeset {
     }
 }
 
-@available(iOS 13.0, *)
-    @available(macOS 10.15, *)
 public enum Numicode: LocalizedStringKey {
     case j72        = "numic72"
     case global     = "globalnumic"
@@ -178,8 +172,6 @@ public enum Clavier: String {
     case additif    = "additif antique"
 }
 
-@available(iOS 13.0, *)
-    @available(macOS 10.15, *)
 public class Numeration{
 
     public var glyphes: [[String]] = []     // caractères unicode utilisés comme chiffres

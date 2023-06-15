@@ -101,21 +101,3 @@ struct UnaryDigit: View {
 
 }
 
-struct UnaryDigit_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack(alignment: .center){
-            UnaryDigit(value:8,style:.arame)
-            UnaryDigit(value:8,style:.aramh)
-            UnaryDigit(value:9,style:.minoan)
-            UnaryDigit(value:18,style:.carunar)
-            UnaryDigit(value:8, style:.bat)
-            UnaryDigit(value:8, style:.gbat)
-        }
-            VStack {
-            UnaryDigit(value:18, style:.V)
-            UnaryDigit(value:18, style:.X)
-            UnaryDigit(value:18, style:.barre)
-            UnaryDigit(value:18, size:15, style:.diag)
-        }
-    }
-}

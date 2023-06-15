@@ -47,18 +47,4 @@ struct Cistdiz: View {
     }
 }
 
-struct Cistdiz_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Cistdiz(value:1)
-            Cistdiz(value:2)
-            Cistdiz(value:3)
-            Cistdiz(value:4)
-            Cistdiz(value:5)
-            Cistdiz(value:6)
-            Cistdiz(value:7)
-            Cistdiz(value:8)
-            Cistdiz(value:9)
-        }
-    }
-}
+

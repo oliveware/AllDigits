@@ -70,19 +70,3 @@ struct Unarblock: View {
     }
 }
 
-struct Unarblock_Previews: PreviewProvider {
-    static var previews: some View {
-        HStack(alignment:.top, spacing:15) {
-            ForEach(1...10, id: \.self) {
-                val in
-                VStack {
-    
-                    Unarblock(value: val, style: .barre)
-                    Unarblock(value: val, style: .diag)
-                    Unarblock(value: val, style: .V)
-                }
-            }
-
-        }
-    }
-}

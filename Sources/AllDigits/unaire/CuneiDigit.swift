@@ -28,10 +28,4 @@ struct CuneiDigit: View {
     }
 }
 
-struct CuneiDigit_Previews: PreviewProvider {
-    static var previews: some View {
-        CuneiDigit()
-        CuneiDigit(value: 40)
-        CuneiDigit(value: 59)
-    }
-}
+

@@ -64,8 +64,3 @@ struct Chiffrenboules: View {
     }
 }
 
-struct Chiffrenboules_Previews: PreviewProvider {
-    static var previews: some View {
-        Chiffrenboules()
-    }
-}
