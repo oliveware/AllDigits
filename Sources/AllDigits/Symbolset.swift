@@ -9,7 +9,7 @@ import Foundation
 
 protocol Symbolset {
     enum Kind
-    static func symbols(_ kind:Kind) -> [String]
+    static func symbols(_ kind:Kind) -> Glypheset
 }
 
 struct Mesopotamie: Symbolset {
@@ -194,6 +194,7 @@ struct Grec : Symbolset {
     }
     
 }
+
 struct Romain : Symbolset {
     enum Kind {
         case unit
@@ -244,38 +245,6 @@ struct Shadok : Symbolset {
         case .base5 :
             // avec zérobinet
             return ["\u{1F6B0}","Ga","Bu","Zo","Meu"]
-        }
-    }
-}
-    
-struct Graphic : Symbolset {
-    enum Kind {
-        case bibi
-        case maya
-        case yiking
-        case h64
-    }
-
-    static func symbols(_ kind:Kind) -> [String] {
-        switch kind {
-            // bibi-binaire base 16
-        case .bibi:
-            return compose(16)
-            // précolombien base 20
-        case .maya:
-            return compose(20)
-            /* les caractères unicode maya ne fonctionnent pas avec Swift
-             return ["\u{1D2E0}", "\u{1D2E1}", "\u{1D2E2}", "\u{1D2E3}", "\u{1D2E4}", "\u{1D2E5}", "\u{1D2E6}", "\u{1D2E7}", "\u{1D2E8}", "\u{1D2E9}", "\u{1D2EA}", "\u{1D2EB}", "\u{1D2EC}", "\u{1D2ED}", "\u{1D2EE}", "\u{1D2EF}", "\u{1D2F0}", "\u{1D2F1}", "\u{1D2F2}", "\u{1D2F3}"]
-             */
-            // chinois base 64
-        case .yiking, .h64:
-            return compose(64)
-        }
-    }
-    func compose(_ base:Int) -> [String] {
-        var symbols = []
-        for i in 0..<base {
-            symbols.append(String(i))
         }
     }
 }
@@ -336,6 +305,93 @@ struct Decimal : Symbolset {
             return ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","aA","aB","aC","aD","aE","aF","aG","aH","aI","aJ","aK","aL","aM","aN","aO","aP","aQ","aR","aS","aT","aU","aV","aW","aX","aY","aZ"]
             
             //return ["\u{A8E0}","\u{A8E1}","\u{A8E2}","\u{A8E3}","\u{A8E4}","\u{A8E5}","\u{A8E6}","\u{A8E7}","\u{A8E8}","\u{A8E9}"]
+        }
+    }
+}
+
+struct Graphic : Symbolset {
+    enum Kind {
+        case bibi
+        case maya
+        case yiking
+        case h64
+    }
+
+    static func symbols(_ kind:Kind) -> [String] {
+        switch kind {
+            // bibi-binaire base 16
+        case .bibi:
+            return compose(16)
+            // précolombien base 20
+        case .maya:
+            return compose(20)
+            /* les caractères unicode maya ne fonctionnent pas avec Swift
+             return ["\u{1D2E0}", "\u{1D2E1}", "\u{1D2E2}", "\u{1D2E3}", "\u{1D2E4}", "\u{1D2E5}", "\u{1D2E6}", "\u{1D2E7}", "\u{1D2E8}", "\u{1D2E9}", "\u{1D2EA}", "\u{1D2EB}", "\u{1D2EC}", "\u{1D2ED}", "\u{1D2EE}", "\u{1D2EF}", "\u{1D2F0}", "\u{1D2F1}", "\u{1D2F2}", "\u{1D2F3}"]
+             */
+            // chinois base 64
+        case .yiking, .h64:
+            return compose(64)
+        }
+    }
+    func compose(_ base:Int) -> [String] {
+        var symbols = []
+        for i in 0..<base {
+            symbols.append(String(i))
+        }
+        return symbols
+    }
+}
+
+struct Generic : Symbolset {
+    enum Kind {
+        case ghost
+        case gen74
+    }
+    
+    var car: String = ""
+    var nb: Int = 2
+    
+    init(t:String, n:Int = 2){
+        car = t
+        nb = n
+    }
+
+    static func symbols(_ kind:Kind) -> [String] {
+        switch kind {
+        case .ghost:
+           var symbols = []
+            for _ in 1...nb {
+                symbols.append(car)
+            }
+            return symbols
+        case .gen74:
+            var symbols = ["0","1"]
+            if nb > 2 {
+                let kanji  = Chinois.symbols(.kanji)
+                symbols.append(kanji[4])
+                if nb > 3 {
+                    let global = Decimal.symbols(.global)
+                    let greek1       = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "λ"]
+                    let greek2       = ["μ", "ν", "ξ", "π", "ρ", "σ", "τ", "φ", "ψ", "ω"]
+                    let cyrillic     = ["б", "д", "ж", "и", "л", "э", "η", "я", "ι", "κ"]
+                    let newar1        = ["𑐀", "𑐂", "𑐄", "𑐆", "𑐊", "𑐎", "𑐐", "𑐒", "𑐔", "𑐕"]
+                    let newar2        = ["𑐗", "𑐙", "𑐝", "𑐠", "𑐡", "𑐪", "𑐱", "𑐳", "𑐮", "𑑙"]
+
+                    for i in 0...9 {
+                        symbols.append(global[i+2])
+                        symbols.append(greek1[i])
+                        symbols.append(global[i+12])
+                        symbols.append(newar[i])
+                        symbols.append(cyrillic[i])
+                        symbols.append(greek2[i])
+                        symbols.append(newar2[i])
+                    }
+                    if nb == 74 {
+                        symbols.append(kanji[6])
+                    }
+                }
+            }
+            return symbols
         }
     }
 }
