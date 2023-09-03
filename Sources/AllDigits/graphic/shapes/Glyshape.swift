@@ -7,14 +7,15 @@
 
 import SwiftUI
 
+@available(macOS 10.15.0, *)
 struct Glyshape: View {
-    var value = 1
-    var size :CGFloat = 3
+    var index = 1
+  //  var size :CGFloat = 3
     var weight :CGFloat = 1
     var set:[[Glypath]] = bibibinaire
     
     var shapath : Shapath {
-        Shapath(value, set)
+        Shapath(index, set)
     }
     
     var body: some View {

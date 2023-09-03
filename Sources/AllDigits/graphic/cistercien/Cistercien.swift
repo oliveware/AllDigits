@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct Cistercien: View {
-    var value: Int
+struct Cistercien: View {
+    var value: [Int] = [0,0,0,0]
     var size: CGFloat = 50
     var color = Color("glyph")
     
-    var group:[Int] {
+   /* var group:[Int] {
         
         var val = [0,0,0,0]
-        if value == 0 {
+        if value == val {
             return val
         } else {
             let group = suite[groupindex]
@@ -36,7 +36,7 @@ public struct Cistercien: View {
             }
             return val
         }
-    }
+    }*/
     
     var body: some View {
 

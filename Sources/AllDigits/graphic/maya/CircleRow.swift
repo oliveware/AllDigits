@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(macOS 10.15, *)
 struct CircleRow: View {
     var nc = 3
     var size : CGFloat = 12

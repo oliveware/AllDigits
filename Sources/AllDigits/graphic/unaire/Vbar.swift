@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(macOS 10.15, *)
 struct Vbar: View {
     var size :CGFloat = 10
     var color = Color("glyph")

@@ -15,7 +15,7 @@ enum Aramstyle {
 }
 
 struct Aramblock: View {
-    var value = 3
+    var index = 3
     var size :CGFloat = 3
     var color = Color("glyph")
     var style = Aramstyle.egypt
@@ -35,7 +35,7 @@ struct Aramblock: View {
     
     var body: some View {
 
-            Glyshape(value:value,size:size,set:set)
+        Glyshape(index:index, weight: 1, set:set)
 
     }
 }
