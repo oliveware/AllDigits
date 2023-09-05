@@ -10,7 +10,7 @@ import SwiftUI
 
 public enum Numictype: String {
     case all = "all numic"
-    case dead = "dead numic"
+    case antik = "antik numic"
     case artificial = "artificial numic"
     case live = "live numic"
 }
@@ -25,8 +25,8 @@ public struct Numicodeset {
         switch type {
         case .all:
             set = [.global, .aegypt, .arab, .babyash, .babygesh, .bali, .bibi, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .roman, .shadok,.shadok5, .sumerash, .sumergesh, .telugu, .thai, .yiking, .alphabet,.base72 ]
-        case .dead:
-            set = [.sumerash,.sumergesh, .babyash, .babygesh, .aegypt, .attic, .alpha, .roman, .maya,.cister]
+        case .antik:
+            set = [.sumerash, .sumergesh, .babyash, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister]
         case .artificial:
             set = [.bibi, .shadok, .shadok5, .yiking, .alphabet, .base72 ]
         case .live:
@@ -94,6 +94,19 @@ public enum Numicode: LocalizedStringKey {
     case sumerash   = "sumerian ash"
     case sumergesh  = "sumerian gesh"
     case sumerdish  = "sumerian dish"
+    
+    // archaïque
+    case unarbat    = "unarstyle.bat"
+    case unargat    = "unarstyle.gbat"
+    case unarbar    = "unarstyle.barre"
+    case unardiag   = "unarstyle.diag"
+    case unarame    = "unarstyle.arame"
+    case unaramh    = "unarstyle.aramh"
+    case unarpalm   = "unarstyle.palmyre"
+    case unarmino   = "unarstyle.minoan"
+    case unarcar    = "unar.carre"
+    case unarV      = "unarstyle.V"
+    case unarX      = "unarstyle.X"
    
 }
 
@@ -102,6 +115,6 @@ public enum Graphism : String {
     // case aztek   = "aztèque"
     case maya       = "maya"
     case yiking     = "yiking"
+    
     case none       = "none"
-    case boulier    = "boulier"
 }

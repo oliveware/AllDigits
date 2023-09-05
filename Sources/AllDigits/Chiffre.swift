@@ -13,12 +13,13 @@ public struct Chiffre: View {
     // valeur du chiffre dans la base et rang dans touches
     var index = 7
     var classifier : String = ""
-    var symbols : [String] = []
-    var graphism: Graphism = .none
+    var numeration : Numeration
+    var power: Int = 0
     var config: Digiconfig
     
    public var body: some View {
-       switch graphism {
+       switch numeration.graphism {
+        // case aztek
         case .bibi:
             Glyshape(index: index, set:bibibinaire)
                 .frame(width: config.large, height: config.haut)
@@ -26,11 +27,10 @@ public struct Chiffre: View {
            ChiffreMaya(index: index, config: config)
         case .yiking:
            ChiffreHexa(index, config, .yijing)
-        case .boulier:
-            Text("b")
-          //  Tigeboule(tige:Tige(face.abacus.type, index),width:size, height:size * 7)
         case .none:
-           Chiffretext(symbols:symbols, index:index, classifier:classifier, conf:config)
+           Chiffretext(symbols:numeration.symbols(power),
+                       index:index,
+                       classifier:classifier, conf:config)
         }
     }
 }
@@ -48,15 +48,10 @@ struct Chiffretext: View {
         self.conf = conf
     }
     
-    private var fw = Font.Weight.bold
-    private var cf:CTFont {
-        CTFontCreateUIFontForLanguage(.system, conf.haut*2,  nil)!
-    }
-    
     var body : some View {
         let symbol = symbols[index]
         Text(symbol + (index == 0 ? "" : classifier))
-            .font(Font(cf))
-            .fontWeight(fw)
+            .font(conf.font)
+            .fontWeight(conf.weight)
     }
 }

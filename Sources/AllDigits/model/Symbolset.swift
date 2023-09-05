@@ -32,7 +32,9 @@ struct Classifierset {
 }
 
 struct Mesopotamie {
+    
     static let cuneicodes : [Numicode] = [.babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
+    
     //glyphes unités
     static let gesh2 = ["", "\u{12415}", "\u{12416}", "\u{12417}", "\u{12418}", "\u{12419}", "\u{1241A}", "\u{1241B}", "\u{1241C}", "\u{1241D}"]// GESH2
     static let ash = ["", "\u{12038}", "\u{12400}", "\u{12401}", "\u{12402}", "\u{12403}", "\u{12404}", "\u{12405}", "\u{12406}", "\u{12407}"] // ASH
@@ -43,18 +45,47 @@ struct Mesopotamie {
                  "\u{12411}","\u{12412}", "\u{12413}","\u{12414}"]
             
     // chiffres de la base 60
-    static let sumergesh = compose(gesh2, sumer)
-    static let babyash = compose(ash, geshu)
+    static let sumergesh = compose(sumer, gesh2)[0]
+    static let babyash = compose( geshu, ash)[0]
     
 // composition des chiffres de la base 60 à partie des unités et dizaines
-    static func compose(_ units:[String], _ tens:[String]) -> [String] {
+    
+    static func compose(_ tens:[String], _ units:[String]) -> [[String]] {
         var digits = units
         for d in 1...5 {
             for u in 0...9 {
                 digits.append(tens[d] + units[u])
             }
         }
-        return digits
+        return [digits, tens, units]
+    }
+    static func glyphes(_ numicode:Numicode) -> [[String]] {
+        switch numicode {
+        case .babyash:
+           return compose(geshu, ash)
+        case .babydish:
+            return compose(geshu, dish)
+        case .babygesh:
+            return compose(geshu, gesh2)
+        case .cuneiash:
+            return [ash]
+        case .cuneidish:
+            return [dish]
+        case .cuneigesh:
+            return [gesh2]
+        case .geshu:
+            return [geshu]
+        case .sumer:
+            return [sumer]
+        case .sumerash:
+            return compose(sumer, ash)
+        case .sumergesh:
+            return compose(sumer, gesh2)
+        case .sumerdish:
+            return compose(sumer, dish)
+        default:
+            return []
+        }
     }
 }
 
@@ -114,26 +145,27 @@ struct Chinois {
 //=============================
 struct Hieroglyph {
     // glyphes des unités
-static let baton = ["","\u{133FA}","\u{133FB}","\u{133FC}","\u{133FD}","\u{133FE}","\u{133FF}","\u{13400}","\u{13401}","\u{13402}"]
-    // dizaines
-static let anse = ["","\u{13386}","\u{13387}","\u{13388}","\u{13389}","\u{1338A}","\u{1338B}","\u{1338C}","\u{1338D}","\u{1338E}"]
-    // centaines
-static let corde = ["","\u{13362}","\u{13363}","\u{13364}","\u{13365}","\u{13366}","\u{13367}","\u{13368}","\u{13369}","\u{1336A}"]
-    // milliers
-static let lotus = ["","\u{131BC}","\u{131BD}","\u{131BE}","\u{131BF}","\u{131C0}","\u{131C1}","\u{131C2}","\u{131C3}","\u{131C4}"]
-    // myriades
-static let index = ["","\u{130AD}","\u{130AE}","\u{130AF}","\u{130B0}","\u{130B1}","\u{130B2}","\u{130B3}","\u{130B4}","\u{130B5}"]
-    // 100 000 - dizaines de myriades
-static let rond =
-    // remplace le tétard qui n'existe pas dans les hiéroglyphes unicode
-    ["","\u{130C9}","\u{130CA}","\u{130CB}","\u{130CC}","\u{130CD}","\u{130CE}","\u{130CF}","\u{130D0}","\u{130D1}"]
-    // million
-static let dieu = ["","\u{13068}","\u{13068}"+"\u{13068}","\u{13068}"+"\u{13068}"+"\u{13068}"]
-    
-static let glyphes : [[String]] = [ rond, index, lotus, corde, anse, baton ]
-    
-static func symbols(_ power:Int) -> [String] {
-        glyphes[power % 6]
+    static let baton = ["","\u{133FA}","\u{133FB}","\u{133FC}","\u{133FD}","\u{133FE}","\u{133FF}","\u{13400}","\u{13401}","\u{13402}"]
+        // dizaines
+    static let anse = ["","\u{13386}","\u{13387}","\u{13388}","\u{13389}","\u{1338A}","\u{1338B}","\u{1338C}","\u{1338D}","\u{1338E}"]
+        // centaines
+    static let corde = ["","\u{13362}","\u{13363}","\u{13364}","\u{13365}","\u{13366}","\u{13367}","\u{13368}","\u{13369}","\u{1336A}"]
+        // milliers
+    static let lotus = ["","\u{131BC}","\u{131BD}","\u{131BE}","\u{131BF}","\u{131C0}","\u{131C1}","\u{131C2}","\u{131C3}","\u{131C4}"]
+        // myriades
+    static let index = ["","\u{130AD}","\u{130AE}","\u{130AF}","\u{130B0}","\u{130B1}","\u{130B2}","\u{130B3}","\u{130B4}","\u{130B5}"]
+        // 100 000 - dizaines de myriades
+    static let rond =
+        // remplace le tétard qui n'existe pas dans les hiéroglyphes unicode
+        ["","\u{130C9}","\u{130CA}","\u{130CB}","\u{130CC}","\u{130CD}","\u{130CE}","\u{130CF}","\u{130D0}","\u{130D1}"]
+        // million
+    static let dieu = ["","\u{13068}","\u{13068}"+"\u{13068}","\u{13068}"+"\u{13068}"+"\u{13068}"]
+        
+    static let glyphes : [[String]] = [ rond, index, lotus, corde, anse, baton ]
+        
+    static func symbols(_ power:Int) -> [String] {
+        let max = glyphes.count
+        return glyphes[power % max]
     }
 }
 
@@ -156,7 +188,8 @@ struct Grec {
     static let acroglyphes = [units, tens, cents, mil, myr]
     
     static func acrophonic(_ power:Int) -> [String] {
-        return acroglyphes[power % 5]
+        let max = acroglyphes.count
+        return acroglyphes[power % max]
     }
 
 // lettres-chiffres de la numération alphabétique
@@ -164,7 +197,8 @@ struct Grec {
     static let aristerikerea = "\u{0375}"
     
     static func alphabetic(_ power:Int) -> [String] {
-       return alphaglyphes[power % 6]
+        let max = alphaglyphes.count
+       return alphaglyphes[power % max]
     }
     static let alphaglyphes = [alpha, deka, hekto, kilo, myriad, dekamyr]
    
@@ -190,7 +224,8 @@ struct Romain {
     static let glyphes = [unit, diz, cent, mil, myr, dizmyr]
     
     static func symbols(_ power:Int) -> [String] {
-          return glyphes[power % 6]
+        let max = glyphes.count
+        return glyphes[power % max]
     }
     
     // glyphes des unités

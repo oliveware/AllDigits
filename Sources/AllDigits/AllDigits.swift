@@ -1,9 +1,12 @@
 import SwiftUI
 import Digiconf
 
+// Interface du package
+
 // nombre écrit avec les chiffres de la numération
 public struct Enchiffres: View {
-    var config:Digiconfig
+    var config = Conf.show
+    var haut : CGFloat = 100
     var numeration : Numeration
     var chiffres: [Int] = []
     
@@ -13,25 +16,52 @@ public struct Enchiffres: View {
                 power in
                 Chiffre(
                     index:chiffres[power],
-                    symbols:numeration.symbols(power),
-                    graphism:numeration.graphism,
+                    numeration:numeration,
+                    power:chiffres.count - 1 - power,
                     config: config
                 )
+            }
+        }.frame(height: haut)
+    }
+}
+
+// nota: la présentation en boules est fournie par Abacus
+    
+public struct Pad: View {
+    @State var chiffres = Chiffres()
+    var numeration : Numeration
+    var linear = false
+    
+    public var body: some View {
+        VStack {
+            Enchiffres(
+                haut: Conf.height * 0.2,
+                numeration: numeration,
+                chiffres:chiffres.values
+            )
+            Spacer()
+            if Mesopotamie.cuneicodes.contains(numeration.numicode) {
+                Cuneipad(
+                    height:Conf.height * 0.8,
+                    chiffres:$chiffres)
+            } else {
+                Unipad(
+                    height: linear ? 80 : Conf.height*0.8,
+                    linear:linear,
+                    numeration:numeration,
+                    chiffres: $chiffres)
             }
         }
     }
 }
-    
-public struct Pad: View {
-    var chiffres: Chiffres
-    
-    public var body: some View {
-        VStack {
-            
-        }
-        
-    }
 
+struct Conf {
+    static let width : CGFloat = 1200
+    static let height : CGFloat = 800
+    
+    static var show = Digiconfig()
+    static var pad = Digiconfig()
+    static var log = Digiconfig()
 }
 
 

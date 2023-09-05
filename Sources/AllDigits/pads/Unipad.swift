@@ -15,14 +15,11 @@ struct Unipad: View {
     
     var linear = false
     
-    var nbtouches = 10
-    var symbols : [String] = Numeration(.global,10).glyphes[0]
-    var graphism:Graphism = .none
-    var config:Digiconfig = Digiconfig()
+    // touches du clavier
+    var numeration = Numeration(.global,10)
     
+    // nombre saisi avec le clavier
     @Binding var chiffres : Chiffres
-    var value10 : Int = 0
-
     
     var body: some View {
         HStack(alignment: .top) {
@@ -31,18 +28,11 @@ struct Unipad: View {
                     range in
                     HStack(spacing:2) {
                         ForEach(range, id: \.self) {
-                            value in
-                            Button( action: {input(value)} )
-                                { Chiffre(
-                                    index: value,
-                                    symbols:symbols,
-                                    graphism:graphism,
-                                    config: config.size(wt/3, ht/3)
-                                    )
-                                }
-                                .modern(w: wt, h:ht)
-                                 //   .keyboardShortcut(key)
-                                .disabled(value==0 && chiffres.empty)
+                            index in
+                            Touche(index:index,
+                                   numeration: numeration,
+                                   width:wt, height:ht,
+                                   chiffres:$chiffres)
                         }
                     }.padding(0)
                 }
@@ -52,14 +42,10 @@ struct Unipad: View {
         .padding(0)
     }
     
-    func input (_ value:Int) {
-        chiffres.add(value)
-    }
-    
-    // faceul du nombre de colonnes et de lignes
-    
+    // calcul du nombre de colonnes et de lignes
+    var nbtouches: Int { numeration.base }
     var ranges:[ClosedRange<Int>] {
-
+        
         if linear {
             switch nbtouches {
             case 20,30,40:

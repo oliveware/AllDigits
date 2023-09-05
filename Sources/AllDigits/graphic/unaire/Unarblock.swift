@@ -11,7 +11,7 @@ struct Unarblock: View {
     var value = 3
     var size :CGFloat = 10
     var color = Color("glyph")
-    var style = Unarstyle.bat
+    var style = Numicode.unarbat
     
     var body: some View {
         switch value {
@@ -23,7 +23,7 @@ struct Unarblock: View {
                 }
             }
         case 5:
-            if style == .bat || style == .gbat {
+            if style == .unarbat || style == .unargat {
                 HStack(spacing:size*0.5) {
                     ForEach(1...5, id: \.self) {
                         _ in
@@ -38,7 +38,7 @@ struct Unarblock: View {
                             Vbar(size:size, color:color)
                         }
                     }
-                    if style == .barre {
+                    if style == .unarbar {
                         Rectangle().fill(color)
                             .frame(width:size*4.5, height: size*0.4)
                     } else {

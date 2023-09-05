@@ -24,23 +24,22 @@ struct Digit60: ButtonStyle {
 
 struct Cuneipad: View {
     
-    var width:CGFloat = 200
-    var height:CGFloat = 180
-    
-    var symbols : [String] = Mesopotamie.sumergesh
-    var config = Digiconfig()
-    
+    var width = Conf.width
+    var height = Conf.height * 0.8
+
+    var config = Conf.pad
     var base = 60
-    var units = Mesopotamie.sumer
-    var tens = Mesopotamie.geshu
-    @State var chiffres = Chiffres(.sumergesh,60)
-    @State var compose = Chiffres(.sumergesh,60)
+    
+    var numeration = Numeration(.sumergesh,60)
+    
+    @Binding var chiffres : Chiffres
+    @State var compose = Chiffres()
     
     var body: some View {
         VStack {
             HStack(alignment:.top) {
                 Button(action: add) {
-                    Text(symbols[compose.values[0]])
+                    Text(numeration.symbols()[compose.values[0]])
                 }
                 .buttonStyle(Digit60())
                 .disabled(compose.empty)
@@ -48,14 +47,14 @@ struct Cuneipad: View {
                 .padding(.top, 5)
                 .padding(.bottom,20)
             
-            HStack {
+            HStack(spacing:15) {
                 Unipad(width:width*0.4, height: height,
-                       nbtouches: 6, symbols:tens,
-                       config:config, chiffres: $compose)
+                       numeration: numeration.composants[0],
+                       chiffres: $compose)
 
                 Unipad(width:width*0.6, height: height,
-                       nbtouches: 10, symbols:units,
-                       config:config, chiffres: $compose)
+                       numeration: numeration.composants[1],
+                       chiffres: $compose)
             }
         }.padding(5)
     }
@@ -69,7 +68,7 @@ struct Cuneipad: View {
 
 struct Cuneipad_Previews: PreviewProvider {
     static var previews: some View {
-        Cuneipad()
+        Cuneipad(chiffres:.constant( Chiffres()))
             
     }
 }

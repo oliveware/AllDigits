@@ -11,7 +11,7 @@ struct Unartext: View {
     var value = 3
     var size :CGFloat = 20
     var color = Color("glyph")
-    var style = Unarstyle.bat
+    var style = Numicode.unarbat
     
     func fontsize(_ glyph: String) -> CGFloat {
         glyph == "|" ? size*4 : size*4.9
@@ -41,7 +41,7 @@ struct Unartext: View {
                 Unartext(value: value-5, size: size, color: color, style: style)
             }
         case 10:
-            if style == .V {
+            if style == .unarV {
                 HStack(spacing:size*0.4) {
                     symbol("V")
                     symbol("V")

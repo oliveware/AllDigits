@@ -12,11 +12,8 @@ public var multibasemax = 72
 
 public struct Numeration{
 
-    public var glyphes: [[String]] = []     // caractères unicode utilisés comme chiffres
     var classifiers = Classifierset() // caractères unicode des classifieurs
     public var numicode = Numicode.global
-    public var graphism = Graphism.none
-    public var isgraphic: Bool {graphism != .none}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
     public var base = 10
     public var nativebase = 10
     public var baserange : ClosedRange<Int> = 2...10
@@ -32,7 +29,54 @@ public struct Numeration{
         numicode == .global && base == 10
     }
     
-    public func symbols(_ power:Int) -> [String] {
+    public var graphism : Graphism {
+        switch numicode {
+        case .bibi:
+            return .bibi
+        case .maya:
+            return .maya
+        case .yiking:
+            return .yiking
+        default:
+            return .none
+        }
+    }
+    public var isgraphic: Bool {graphism != .none}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
+    
+    public var powermax: Int {
+        switch numicode {
+        case .aegypt:
+            return Hieroglyph.glyphes.count
+        case.attic:
+            return Grec.acroglyphes.count
+        case .alpha:
+            return Grec.alphaglyphes.count
+        case .roman:
+            return Romain.glyphes.count
+        default:
+            return 0
+        }
+    }
+    var composants : [Numeration] {
+        switch numicode {
+        case .babyash:
+            return [Numeration(.geshu,6), Numeration(.cuneiash,10)]
+        case .babydish:
+            return [Numeration(.geshu,6), Numeration(.cuneidish,10)]
+        case .babygesh:
+            return [Numeration(.geshu,6), Numeration(.cuneigesh,10)]
+        case .sumerash:
+            return [Numeration(.sumer,6), Numeration(.cuneiash,10)]
+        case .sumergesh:
+            return [Numeration(.sumer,6), Numeration(.cuneigesh,10)]
+        case .sumerdish:
+            return [Numeration(.sumer,6), Numeration(.cuneidish,10)]
+        default:
+            return [Numeration(.shadok,5), Numeration(.shadok,5)]
+        }
+    }
+    
+    public func symbols(_ power:Int = 0) -> [String] {
         switch numicode {
         case .base72:  // multibase
             return Extended.base72
@@ -65,11 +109,11 @@ public struct Numeration{
         case .kanji:
             return Chinois.kanji
         case .khmer:
-            return  Decimal.khmer
+            return Decimal.khmer
         case .kor:
             return Chinois.hangeul
         case .lao:
-            return  Decimal.lao
+            return Decimal.lao
         case .roman:
             return Romain.symbols(power)
         case .shadok:
@@ -121,37 +165,20 @@ public struct Numeration{
             groupby = 6
         case .alphabet:
             baserange = setbaserange(2, 26)
-        case .arab:
-            baserange = setbaserange(2, 10)
-            // correspondingScript = .ar
-        case .cuneiash, .cuneidish, .cuneigesh:
-            baserange = setbaserange(2, 10)
         case .geshu, .sumer :
             baserange = setbaserange(2, 6)
         case .sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh:
              baserange = setbaserange(2, 60)
             groupby = 3
-        case .bali:
-            baserange = setbaserange(2, 10)
-        case .bengali:
-            baserange = setbaserange(2, 10)
         case .bibi:
-             graphism = .bibi
             baserange = setbaserange(2, 16)
             //  correspondingScript = .bibi
-        case .birman:
-            baserange = setbaserange(2, 10)
         case .brahmi:
             baserange = setbaserange(2, 10)
             groupby = 2
         case .cister:
             baserange = setbaserange(10, 10)
             groupby = 4
-        case .devanagari:
-            baserange = setbaserange(2, 10)
-            groupby = 2
-        case .farsi:
-            baserange = setbaserange(2, 10)
         case .attic:
             baserange = setbaserange(2, 10)
             greatest = 9999
@@ -173,18 +200,12 @@ public struct Numeration{
             groupby = 4
             greatest = 999999999999999999
             //  correspondingScript = .japa
-        case .khmer:
-            baserange = setbaserange(2, 10)
-            // glyphes[0] et glyphes[1] servent à Digigroup
         case .kor:
             baserange = setbaserange(2, 10)
             // correspondingScript = .kor
             groupby = 4
             greatest = 999999999999999999
-        case .lao:
-            baserange = setbaserange(2, 10)
         case .maya:
-            graphism = .maya
             baserange = setbaserange(2, 20)
         case .roman:
             baserange = setbaserange(2, 10)
@@ -195,13 +216,10 @@ public struct Numeration{
             baserange = setbaserange(2, 4)
         case .shadok5:
             baserange = setbaserange(2, 5)
-        case .telugu:
-            baserange = setbaserange(2, 10)
-        case .thai:
-            baserange = setbaserange(2, 10)
         case .yiking:
-            graphism = .yiking
             baserange = setbaserange(2, 64)
+        default:
+            baserange = setbaserange(2, 10)
         }
     }
     
@@ -294,7 +312,6 @@ public struct Numeration{
     }
     
     public mutating func change(_ choice:Numicode,_ b:Int, _ locked:Bool = false){
-        graphism = .none
         groupby = 3
         set(choice)
         // base est encore l'ancienne base

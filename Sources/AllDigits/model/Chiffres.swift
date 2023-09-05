@@ -8,15 +8,10 @@
 import Foundation
 
 struct Chiffres {
-    var numeration: Numeration
-    var values : [Int]
+
+    var values : [Int] = []
     
     var empty:Bool {values.count == 0}
-    
-    init(_ numic:Numicode, _ base:Int) {
-        numeration = Numeration(numic, base)
-        values = []
-    }
     
     mutating func add(_ value:Int) {
         values.append(value)
