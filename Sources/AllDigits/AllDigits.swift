@@ -32,6 +32,11 @@ public struct Pad: View {
     var numeration : Numeration
     var linear = false
     
+    public init(_ numic:Numicode = .global,_ base:Int = 10, _ linear:Bool = false) {
+        numeration = Numeration(numic, base)
+        self.linear = linear
+    }
+    
     public var body: some View {
         VStack {
             Enchiffres(
