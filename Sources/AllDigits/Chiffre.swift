@@ -22,18 +22,18 @@ public struct Chiffre: View {
         // case aztek
         case .bibi:
            Glyshape(index: index, color:config.lun,
-                    weight:4,
+                    weight:5,
                     set:bibibinaire)
                 .frame(width: config.large, height: config.haut)
                 .background(config.fond)
         case .maya:
-           ChiffreMaya(index: index, config: config.scale(0.3))
+           ChiffreMaya(index: index, config: config.scale(0.15))
         case .yiking:
-           ChiffreHexa(index, config, .yijing)
+           ChiffreHexa(index, config.scale(0.9), .yijing)
         case .none:
            Chiffretext(symbols:numeration.symbols(power),
                        index:index,
-                       classifier:classifier, conf:config)
+                       classifier:classifier, conf:config.scale(0.7))
         }
     }
 }
@@ -57,6 +57,7 @@ struct Chiffretext: View {
         Text(symbol + (index == 0 ? "" : classifier))
             .font(conf.font)
             .fontWeight(conf.weight)
+            .frame(height:conf.haut)
     }
 }
 
@@ -64,6 +65,10 @@ struct Chiffre_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Chiffre(numeration:Numeration(.farsi,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.hanzi,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.kanji,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.kor,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.telugu,10), config: Digiconfig())
             Chiffre(numeration:Numeration(.bibi,16), config: Digiconfig())
             Chiffre(numeration:Numeration(.maya,20), config: Digiconfig())
             Chiffre(numeration:Numeration(.yiking,64), config: Digiconfig())

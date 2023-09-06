@@ -32,8 +32,8 @@ public struct Pad: View {
     var numeration : Numeration
     var linear = false
     
-    public init(_ conf:Digiconfig, _ numic:Numicode = .global,_ base:Int = 10, _ linear:Bool = false) {
-        numeration = Numeration(numic, base)
+    public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false) {
+        self.numeration = numeration
         self.linear = linear
         Conf.pad = conf
     }
