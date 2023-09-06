@@ -24,7 +24,7 @@ struct Touche: View {
                 index: index,
                 numeration:numeration,
                 power:power,
-                config: Conf.show.size(width,height)
+                config: Conf.pad.size(width,height)
                 )
             }
             .modern(w: width, h:height)
