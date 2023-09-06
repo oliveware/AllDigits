@@ -12,27 +12,22 @@ struct Touche: View {
     var index:Int = 3
     var numeration:Numeration = Numeration(.global,10)
     
-    var width: CGFloat = 30
-    var height: CGFloat = 30
+    var width: CGFloat = 70
+    var height: CGFloat = 100
     
     @Binding var chiffres: Chiffres
     @State var power:Int = 0
-    
-    var config:Digiconfig {
-        var conf = Conf.show
-        conf.size(width, height)
-        return conf
-    }
     
     var body: some View {
         Button( action: {input(index)} )
             { Chiffre(
                 index: index,
                 numeration:numeration,
-                config: config
+                power:power,
+                config: Conf.show.size(width,height)
                 )
             }
-            .modern(w: width*3, h:height*3)
+            .modern(w: width, h:height)
              //   .keyboardShortcut(key)
             .disabled(index==0 && chiffres.empty)
     }

@@ -61,7 +61,7 @@ extension View {
         styleTouch(fore: Color("trigofore"), back: Color("trigoback"), width: size*1.5, height: size, fonte:.title)
     }
     func modern(w:CGFloat,h:CGFloat)->some View {
-        styleTouch(fore: Color("glyph"), back: Color("touche"), width: w, height: h, fonte:.title)
+        styleTouch(width: w, height: h, fonte:.title)
     }
     func dot(size:CGFloat)->some View {
         styleTouch(fore: Color("touche"), back: Color("glyph"), width: size, height: size, fonte:.title)

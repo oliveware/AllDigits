@@ -40,6 +40,7 @@ struct Chiffretext: View {
     var index: Int
     var classifier : String = ""
     var conf: Digiconfig
+
     
     init(symbols: [String], index: Int, classifier: String, conf: Digiconfig) {
         self.symbols = symbols
@@ -53,5 +54,14 @@ struct Chiffretext: View {
         Text(symbol + (index == 0 ? "" : classifier))
             .font(conf.font)
             .fontWeight(conf.weight)
+    }
+}
+
+struct Chiffre_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Chiffre(numeration:Numeration(.farsi,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.telugu,10), config: Digiconfig())
+        }
     }
 }
