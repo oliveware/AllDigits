@@ -79,7 +79,7 @@ extension View {
         styleTouch(fore: .green, back: Color("glyph"), width: size, height: size)
     }
     func fond(w:CGFloat,h:CGFloat)->some View {
-        styleTouch(fore: Color("glyph"), back: Color("showback"), width:w, height: h,fonte:.title2)
+        styleTouch(fore: Color.yellow, back: Color.gray, width:w, height: h,fonte:.title2)
     }
     func plumoins(size:CGFloat)->some View {
         styleTouch(fore: Color.white, back: Color.gray, width:size, height: size*0.4, fonte:.title)

@@ -20,20 +20,22 @@ struct BasEditor: View {
             VStack(alignment:.center,spacing: 5) {
                // Text("Base").font(.title2)
                 
-              /*  Button(action:{face.baselock.toggle()}){
+                Button(action:{numeration.baselock()}){
                     Image(systemName:
-                            face.baselock ? "lock.fill"  : "lock.open")
+                            numeration.baselocked ? "lock.fill"  : "lock.open")
                 }.fond(w: w, h: h)
                 
-                if face.notnativebase {
-                    Button(action:face.preferredbase){
+                if !numeration.baseisnative {
+                    Button(action:{numeration.setbasetonative()})
+                    {
                         Text("native")
                     }.fond(w: w, h: h)
-                }*/
+                }
                 
                 Button(action: inc){
                     Image(systemName: "chevron.up")
                 }.fond(w: w, h: h)
+                .disabled(numeration.baselocked)
                 
                 Text("base \(numeration.base)")
                     .font(.title2)
@@ -42,6 +44,7 @@ struct BasEditor: View {
                 Button(action: dec){
                     Image(systemName: "chevron.down")
                 }.fond(w: w, h: h)
+                .disabled(numeration.baselocked)
                 
             }.frame(width: w+30, alignment: .top)
         }

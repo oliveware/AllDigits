@@ -241,6 +241,8 @@ public struct Numeration{
         return range
     }
     
+    var baseisnative:Bool { nativebase == base }
+    
     mutating func setnativebase() {
         switch numicode {
         case .shadok:
@@ -264,9 +266,8 @@ public struct Numeration{
         }
     }
     
-    mutating func setbasetonative()-> Int {
+    mutating func setbasetonative(){
         base = nativebase
-        return base
     }
     
     mutating func set(_ asked:Int) {
@@ -305,6 +306,11 @@ public struct Numeration{
         change(numicode, b)
     }
     
+    var baselocked = false
+    mutating func baselock() {
+        baselocked = !baselocked
+    }
+    
     public mutating func setbase(_ newbase: Int) {
         if baserange.contains(newbase) {
             change(numicode, newbase)
@@ -315,7 +321,7 @@ public struct Numeration{
         groupby = 3
         set(choice)
         // base est encore l'ancienne base
-        if locked {
+        if baselocked {
            if !baserange.contains(base) {
                 set(b)
            }

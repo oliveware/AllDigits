@@ -12,7 +12,7 @@ public struct Show: View {
     @State var numeration = Numeration(.global,10)
     @State var linear = false
     
-    var cote:CGFloat = 25
+    var cote:CGFloat = 50
     
     public init(_ numic:Numicode, _ b:Int, _ l:Bool = false) {
         numeration = Numeration(numic, b)
@@ -20,11 +20,11 @@ public struct Show: View {
     }
     
     public var body: some View {
-        HStack {
+        HStack(spacing:50) {
             Button(action: {  numerationsetting = true }
             ){
                 Image(systemName: "123.rectangle" )
-            }.fond(w: cote, h: cote)
+            }.modern(w: cote, h: cote)
             .sheet(isPresented:$numerationsetting) {
                 NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
                 }
