@@ -152,8 +152,12 @@ public struct Numeration{
     
     public var scale:CGFloat {
         switch numicode {
-        case .bali, .hanzi:
+        case .bali, .hanzi, .kanji:
             return 0.8
+        case .shadok, .shadok5:
+            return 0.6
+        case .roman, .alpha:
+            return 0.5
         default:
             return 1
         }
