@@ -32,9 +32,10 @@ public struct Pad: View {
     var numeration : Numeration
     var linear = false
     
-    public init(_ numic:Numicode = .global,_ base:Int = 10, _ linear:Bool = false) {
+    public init(_ conf:Digiconfig, _ numic:Numicode = .global,_ base:Int = 10, _ linear:Bool = false) {
         numeration = Numeration(numic, base)
         self.linear = linear
+        Conf.pad = conf
     }
     
     public var body: some View {
