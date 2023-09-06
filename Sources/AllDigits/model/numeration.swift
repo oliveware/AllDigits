@@ -149,6 +149,15 @@ public struct Numeration{
         set(numic)
         set(b)
     }
+    
+    public var scale:CGFloat {
+        switch numicode {
+        case .bali, .hanzi:
+            return 0.8
+        default:
+            return 1
+        }
+    }
 
     private mutating func set(_ numic:Numicode) {
         numicode = numic

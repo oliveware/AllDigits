@@ -53,7 +53,7 @@ struct NumerationChoice: View {
             }
             Button(action: {isPresented = false}){
                 Image(systemName: "checkmark")
-            }.modern(w: bs, h: bs)
+            }.fond(w: bs, h: bs)
         }.padding(10)
 
     }

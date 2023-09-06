@@ -33,7 +33,7 @@ public struct Chiffre: View {
         case .none:
            Chiffretext(symbols:numeration.symbols(power),
                        index:index,
-                       classifier:classifier, conf:config.scale(0.7))
+                   classifier:classifier, conf:config.scale(0.7 * numeration.scale))
         }
     }
 }

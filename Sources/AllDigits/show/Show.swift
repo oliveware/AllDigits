@@ -24,7 +24,7 @@ public struct Show: View {
             Button(action: {  numerationsetting = true }
             ){
                 Image(systemName: "123.rectangle" )
-            }.modern(w: cote, h: cote)
+            }.fond(w: cote, h: cote)
             .sheet(isPresented:$numerationsetting) {
                 NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
                 }
