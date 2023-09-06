@@ -39,7 +39,7 @@ struct Cuneipad: View {
         VStack {
             HStack(alignment:.top) {
                 Button(action: add) {
-                    Text(numeration.symbols()[compose.values[0]])
+                    Text( compose.empty ? "" : numeration.symbols()[compose.values[0]])
                 }
                 .buttonStyle(Digit60())
                 .disabled(compose.empty)
