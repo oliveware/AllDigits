@@ -154,10 +154,10 @@ public struct Numeration{
         switch numicode {
         case .bali, .hanzi, .kanji:
             return 0.8
-        case .shadok, .shadok5, .aegypt:
+        case .shadok, .shadok5:
             return 0.6
-        case .roman, .alpha:
-            return 0.5
+        case .roman, .alpha, .attic,  .aegypt:
+            return 0.4
         default:
             return 1
         }
