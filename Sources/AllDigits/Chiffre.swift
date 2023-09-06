@@ -21,10 +21,13 @@ public struct Chiffre: View {
        switch numeration.graphism {
         // case aztek
         case .bibi:
-            Glyshape(index: index, set:bibibinaire)
+           Glyshape(index: index, color:config.lun,
+                    weight:4,
+                    set:bibibinaire)
                 .frame(width: config.large, height: config.haut)
+                .background(config.fond)
         case .maya:
-           ChiffreMaya(index: index, config: config)
+           ChiffreMaya(index: index, config: config.scale(0.3))
         case .yiking:
            ChiffreHexa(index, config, .yijing)
         case .none:
@@ -61,7 +64,9 @@ struct Chiffre_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Chiffre(numeration:Numeration(.farsi,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.telugu,10), config: Digiconfig())
+            Chiffre(numeration:Numeration(.bibi,16), config: Digiconfig())
+            Chiffre(numeration:Numeration(.maya,20), config: Digiconfig())
+            Chiffre(numeration:Numeration(.yiking,64), config: Digiconfig())
         }
     }
 }

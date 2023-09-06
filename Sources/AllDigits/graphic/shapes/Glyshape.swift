@@ -10,7 +10,7 @@ import SwiftUI
 @available(macOS 10.15.0, *)
 struct Glyshape: View {
     var index = 1
-  //  var size :CGFloat = 3
+    var color = Color.yellow
     var weight :CGFloat = 1
     var set:[[Glypath]] = bibibinaire
     
@@ -57,7 +57,7 @@ struct Glyshape: View {
                       }
                   }
               }.stroke(lineWidth:weight)
-              .foregroundColor(Color("glyph"))
+              .foregroundColor(color)
           }.aspectRatio(1, contentMode: .fit)
       }
 }

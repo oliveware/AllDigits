@@ -27,11 +27,12 @@ struct ChiffreMaya: View {
         } else {
             VStack(alignment:.center, spacing:config.haut*0.7){
                 CircleRow(nc: index % 5,
-                          size: config.large)
+                          size: config.large, color:config.lun)
                 BarStack(nb: (index - index % 5) / 5,
-                         size: config.large)
+                         size: config.large, color: config.lun)
             }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
                 .padding(config.large/3)
+                .background(config.fond)
         }
     }
 }

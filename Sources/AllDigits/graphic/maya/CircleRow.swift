@@ -11,7 +11,7 @@ import SwiftUI
 struct CircleRow: View {
     var nc = 3
     var size : CGFloat = 12
-    var color = Color("glyph")
+    var color = Color(.yellow)
     
     var circle : some View {
         Circle().fill(color)
