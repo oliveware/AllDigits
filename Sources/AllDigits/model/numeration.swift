@@ -131,6 +131,14 @@ public struct Numeration{
             return Generic.symbols(.digits, 72)
         }
     }
+    
+    var iscunei: Bool {
+        let cuneidigits: [Numicode] = [.cuneiash, .cuneidish, .cuneigesh, .geshu, .sumer]
+        return cuneidigits.contains(numicode)
+    }
+    var iscuneiten: Bool {
+        return numicode == .geshu || numicode == .sumer
+    }
    
     
     public func isnot(_ numer:Numeration) -> Bool {

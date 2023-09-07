@@ -41,8 +41,11 @@ struct Touche: View {
         } else {
             power = 0
         }
-        
-        chiffres.add(value, numeration.numicode)
+        if numeration.iscunei {
+            chiffres.compose60(value, numeration.iscuneiten)
+        } else {
+            chiffres.add(value)
+        }
     }
 }
 
