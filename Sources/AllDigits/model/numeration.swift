@@ -72,7 +72,7 @@ public struct Numeration{
         case .sumerdish:
             return [Numeration(.sumer,6), Numeration(.cuneidish,10)]
         default:
-            return [Numeration(.shadok,5), Numeration(.shadok,5)]
+            return [Numeration(.global,6), Numeration(.global,10)]
         }
     }
     
@@ -124,6 +124,29 @@ public struct Numeration{
             return Decimal.telugu
         case .thai:
             return Decimal.thai
+            
+        case .babyash:
+            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.ash)[0]
+        case .babydish:
+            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.dish)[0]
+        case .babygesh:
+            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.gesh2)[0]
+        case .sumerash:
+            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.ash)[0]
+        case .sumerdish:
+            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.dish)[0]
+        case .sumergesh:
+            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.gesh2)[0]
+        case .geshu:
+            return Mesopotamie.geshu
+        case .sumer:
+            return Mesopotamie.sumer
+        case .cuneigesh:
+            return Mesopotamie.gesh2
+        case .cuneidish:
+            return Mesopotamie.dish
+        case .cuneiash:
+            return Mesopotamie.ash
         default:
             return Generic.symbols(.digits, 72)
         }

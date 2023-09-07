@@ -44,9 +44,9 @@ struct Mesopotamie {
     static let sumer = ["","\u{1230B}","\u{12399}","\u{1230D}","\u{1240F}","\u{12410}",
                  "\u{12411}","\u{12412}", "\u{12413}","\u{12414}"]
             
-    // chiffres de la base 60
-    static let sumergesh = compose(sumer, gesh2)[0]
-    static let babyash = compose( geshu, ash)[0]
+    // les chiffres de la base 60 sont calculés par Numeration
+    //static let sumergesh = compose(sumer, gesh2)[0]
+    //static let babyash = compose( geshu, ash)[0]
     
 // composition des chiffres de la base 60 à partie des unités et dizaines
     
