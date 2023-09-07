@@ -169,6 +169,8 @@ public struct Numeration{
             return 0.6
         case .roman, .alpha, .attic,  .aegypt:
             return 0.4
+        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
+            return 0.5
         default:
             return 1
         }

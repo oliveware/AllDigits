@@ -32,7 +32,7 @@ struct Chiffres {
                 }
             } else {
                 if deja < 10 {
-                    values[0] += value
+                    values[0] += value * 10
                 }
             }
         }
