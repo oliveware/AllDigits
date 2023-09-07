@@ -50,16 +50,16 @@ struct Mesopotamie {
     
 // composition des chiffres de la base 60 à partie des unités et dizaines
     
-    static func compose(_ tens:[String], _ units:[String]) -> [[String]] {
+    static func compose(_ tens:[String], _ units:[String]) -> [String] {
         var digits = units
         for d in 1...5 {
             for u in 0...9 {
                 digits.append(tens[d] + units[u])
             }
         }
-        return [digits, tens, units]
+        return digits
     }
-    static func glyphes(_ numicode:Numicode) -> [[String]] {
+    static func symbols(_ numicode:Numicode) -> [String] {
         switch numicode {
         case .babyash:
            return compose(geshu, ash)
@@ -68,15 +68,15 @@ struct Mesopotamie {
         case .babygesh:
             return compose(geshu, gesh2)
         case .cuneiash:
-            return [ash]
+            return ash
         case .cuneidish:
-            return [dish]
+            return dish
         case .cuneigesh:
-            return [gesh2]
+            return gesh2
         case .geshu:
-            return [geshu]
+            return geshu
         case .sumer:
-            return [sumer]
+            return sumer
         case .sumerash:
             return compose(sumer, ash)
         case .sumergesh:

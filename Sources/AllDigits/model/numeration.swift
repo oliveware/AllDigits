@@ -125,28 +125,8 @@ public struct Numeration{
         case .thai:
             return Decimal.thai
             
-        case .babyash:
-            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.ash)[0]
-        case .babydish:
-            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.dish)[0]
-        case .babygesh:
-            return Mesopotamie.compose(Mesopotamie.geshu,Mesopotamie.gesh2)[0]
-        case .sumerash:
-            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.ash)[0]
-        case .sumerdish:
-            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.dish)[0]
-        case .sumergesh:
-            return Mesopotamie.compose(Mesopotamie.sumer,Mesopotamie.gesh2)[0]
-        case .geshu:
-            return Mesopotamie.geshu
-        case .sumer:
-            return Mesopotamie.sumer
-        case .cuneigesh:
-            return Mesopotamie.gesh2
-        case .cuneidish:
-            return Mesopotamie.dish
-        case .cuneiash:
-            return Mesopotamie.ash
+        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
+            return Mesopotamie.symbols(numicode)
         default:
             return Generic.symbols(.digits, 72)
         }
