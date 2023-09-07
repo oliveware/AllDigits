@@ -26,7 +26,7 @@ public struct Numicodeset {
         case .all:
             set = [.global, .aegypt, .arab, .babyash, .babygesh, .bali, .bibi, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .roman, .shadok,.shadok5, .sumerash, .sumergesh, .telugu, .thai, .yiking, .alphabet,.base72 ]
         case .antik:
-            set = [.sumerash, .sumergesh, .babyash, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister]
+            set = [.sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister]
         case .artificial:
             set = [.bibi, .shadok, .shadok5, .yiking, .alphabet, .base72 ]
         case .live:

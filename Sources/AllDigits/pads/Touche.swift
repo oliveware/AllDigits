@@ -32,6 +32,8 @@ struct Touche: View {
             .disabled(index==0 && chiffres.empty)
     }
     
+
+    
     func input (_ value:Int) {
         let max = numeration.powermax
         if max > 0 {
@@ -39,7 +41,8 @@ struct Touche: View {
         } else {
             power = 0
         }
-        chiffres.add(value)
+        
+        chiffres.add(value, numeration.numicode)
     }
 }
 

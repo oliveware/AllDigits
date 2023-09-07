@@ -13,8 +13,14 @@ struct Chiffres {
     
     var empty:Bool {values.count == 0}
     
-    mutating func add(_ value:Int) {
-        values.append(value)
+    mutating func add(_ value:Int, _ numicode:Numicode) {
+        let cuneidigits: [Numicode] = [.cuneiash, .cuneidish, .cuneigesh, .geshu, .sumer]
+        if cuneidigits.contains(numicode) {
+            let ten = numicode == .geshu || numicode == .sumer
+            compose60(value, !ten)
+        } else {
+            values.append(value)
+        }
     }
     
     mutating func clear() {
