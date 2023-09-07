@@ -16,7 +16,7 @@ struct Touche: View {
     var height: CGFloat = 100
     
     @Binding var chiffres: Chiffres
-    @State var power:Int = 0
+    @Binding var power:Int
     
     var body: some View {
         Button( action: {input(index)} )
@@ -51,6 +51,6 @@ struct Touche: View {
 
 struct Touche_Previews: PreviewProvider {
     static var previews: some View {
-        Touche(chiffres:.constant(Chiffres()))
+        Touche(chiffres:.constant(Chiffres()), power:.constant(0))
     }
 }

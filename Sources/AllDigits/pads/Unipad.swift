@@ -20,6 +20,7 @@ struct Unipad: View {
     
     // nombre saisi avec le clavier
     @Binding var chiffres : Chiffres
+    @State var power: Int = 0
     
     var body: some View {
         HStack(alignment: .top) {
@@ -32,7 +33,8 @@ struct Unipad: View {
                             Touche(index:index,
                                    numeration: numeration,
                                    width:wt, height:ht,
-                                   chiffres:$chiffres)
+                                   chiffres:$chiffres,
+                                   power:$power)
                         }
                     }.padding(0)
                 }
