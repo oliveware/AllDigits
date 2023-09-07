@@ -21,17 +21,17 @@ struct Chiffres {
         values = []
     }
     
-    mutating func compose60(_ value:Int,_ ten:Bool) {
+    mutating func compose60(_ value:Int) {
         if values.count == 0 {
             values = [value]
         } else {
             let deja = values[0]
-            if ten {
-                if deja < 10 {
-                    values[0] += value * 10
+            if deja < 10 {
+                if value > 9 {
+                    values[0] += value
                 }
             } else {
-                if deja % 10 == 0 {
+                if value < 10 && deja % 10 == 0 {
                     values[0] += value
                 }
             }

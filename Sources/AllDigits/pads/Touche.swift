@@ -42,7 +42,7 @@ struct Touche: View {
             power = 0
         }
         if numeration.iscunei {
-            chiffres.compose60(value, numeration.iscuneiten)
+            chiffres.compose60( numeration.iscuneiten ? value * 10 : value)
         } else {
             chiffres.add(value)
         }
