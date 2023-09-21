@@ -12,7 +12,7 @@ public var multibasemax = 72
 
 public struct Numeration{
 
-    var classifiers = Classifierset() // caractères unicode des classifieurs
+    // var classifiers = Classifierset() // caractères unicode des classifieurs
     public var numicode = Numicode.global
     public var base = 10
     public var nativebase = 10
@@ -105,13 +105,13 @@ public struct Numeration{
         case .alpha:
             return Grec.alphabetic(power)
         case .hanzi:
-            return Chinois.hanzi
+            return Chinois.hanzi(power)
         case .kanji:
-            return Chinois.kanji
+            return Chinois.kanji(power)
         case .khmer:
             return Decimal.khmer
         case .kor:
-            return Chinois.hangeul
+            return Chinois.hangeul(power)
         case .lao:
             return Decimal.lao
         case .roman:
@@ -178,7 +178,7 @@ public struct Numeration{
 
     private mutating func set(_ numic:Numicode) {
         numicode = numic
-        classifiers = Classifierset(numic)
+       // classifiers = Classifierset(numic)
         setnativebase()
         switch numic {
         case .base72:  // multibase

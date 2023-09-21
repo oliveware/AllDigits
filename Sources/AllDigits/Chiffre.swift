@@ -14,47 +14,49 @@ public struct Chiffre: View {
     var index = 7
     var classifier : String = ""
     var numeration : Numeration
-    var power: Int = 0
+    var power: Int = 4
     var config: Digiconfig
     
    public var body: some View {
-       switch numeration.graphism {
-        // case aztek
-        case .bibi:
-           Glyshape(index: index, color:config.lun,
-                    weight:5,
-                    set:bibibinaire)
-                .frame(width: config.large, height: config.haut)
-                .background(config.fond)
-        case .maya:
-           ChiffreMaya(index: index, config: config.scale(0.15))
-        case .yiking:
-           ChiffreHexa(index, config.scale(0.9), .yijing)
-        case .none:
-           Chiffretext(symbols:numeration.symbols(power),
-                       index:index,
-                   classifier:classifier, conf:config.scale(0.7 * numeration.scale))
-        }
+       if index < numeration.base {
+           switch numeration.graphism {
+               // case aztek
+           case .bibi:
+               Glyshape(index: index, color:config.lun,
+                        weight:5,
+                        set:bibibinaire)
+               .frame(width: config.large, height: config.haut)
+               .background(config.fond)
+           case .maya:
+               ChiffreMaya(index: index, config: config.scale(0.15))
+           case .yiking:
+               ChiffreHexa(index, config.scale(0.9), .yijing)
+           case .none:
+               Chiffretext(numeration:numeration,
+                           power:power,
+                           index:index,
+                           config:config)
+           }
+       } else {
+           Text("?")
+       }
     }
 }
 
 struct Chiffretext: View {
     var symbols : [String]
     var index: Int
-    var classifier : String = ""
     var conf: Digiconfig
 
     
-    init(symbols: [String], index: Int, classifier: String, conf: Digiconfig) {
-        self.symbols = symbols
+    init(numeration:Numeration, power:Int, index: Int, config: Digiconfig) {
+        self.symbols = numeration.symbols(power)
         self.index = index
-        self.classifier = classifier
-        self.conf = conf
+        self.conf = config.scale(0.7 * numeration.scale)
     }
     
     var body : some View {
-        let symbol = symbols[index]
-        Text(symbol + (index == 0 ? "" : classifier))
+        Text(symbols[index])
             .font(conf.font)
             .fontWeight(conf.weight)
             .frame(height:conf.haut)

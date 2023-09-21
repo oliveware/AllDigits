@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Classifierset {
+/*struct Classifierset {
     var high: [String] = []
     var low: [String] = []
     var kot: [String] = []   // kind fo thing
@@ -29,7 +29,7 @@ struct Classifierset {
             kot = [""]
         }
     }
-}
+}*/
 
 struct Mesopotamie {
     
@@ -96,34 +96,48 @@ struct Chinois {
     
 // glyphes des unités et du clavier décimal
     // l'index est la valeur du chiffre
-    static let kanji = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
-    static let hanzi = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
-    static let hangeul = ["〇", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+    static let kanjiset = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
+    static let hanziset = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
+    static let hangeulset = ["〇", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
     
 // composition chinoise d'un groupe de quatre chiffres .global
     // dizaines, centaines et milliers sont composés de deux glyphes
-    static func hanzilow(_ power:Int) -> [String] {
+    static func hanzi(_ power:Int) -> [String] {
         var digits : [String] = []
+        let classifier = classifier(power, hanzi_10, hanzi_wan)
         for u in 0...9 {
-            digits.append(hanzi[u] + hanzi_10[power])
+            digits.append(hanziset[u] + classifier)
         }
         return digits
     }
-    static func kanjilow(_ power:Int) -> [String] {
+    static func kanji(_ power:Int) -> [String] {
         var digits : [String] = []
+        let classifier = classifier(power, kanji_10, kanji_man)
         for u in 0...9 {
-            digits.append(kanji[u] + kanji_10[power])
+            digits.append(kanjiset[u] + classifier)
         }
         return digits
     }
-    static func hangeulow(_ power:Int) -> [String] {
+    static func hangeul(_ power:Int) -> [String] {
         var digits : [String] = []
+        let classifier = classifier(power, hangeul_10, hangeul_man)
         for u in 0...9 {
-            digits.append(hangeul[u] + hangeul_10[power])
+            digits.append(hangeulset[u] + classifier)
         }
         return digits
     }
     
+    static func classifier(_ power: Int,_ bas:[String],_ myr:[String]) -> String {
+        var classifier = ""
+        let low = power % 4
+        let high = ( power - low ) / 4
+        if low == 0 {
+            if high > 0 { classifier = myr[high] }
+        } else {
+            classifier = bas[low]
+        }
+        return classifier
+    }
     
     // glyphes des puissances de 10 (1, 10, 100 et 1000)
     // l'index est une puissance de 10
@@ -310,7 +324,7 @@ struct Generic {
         case .gen74:
             symbols = ["0","1"]
             if nb > 2 {
-                let kanji  = Chinois.kanji
+                let kanji  = Chinois.kanjiset
                 symbols.append(kanji[4])
                 if nb > 3 {
                     let global = Extended.global
