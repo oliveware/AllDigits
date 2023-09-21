@@ -38,8 +38,8 @@ public struct Pad: View {
     var configshow: Digiconfig
     var numeration : Numeration
     var linear = false
-    var width : CGFloat = 1200
-    var height : CGFloat = 800
+    var width : CGFloat = 600
+    var height : CGFloat = 400
     
     public init(_ conftouch:Digiconfig, _ confshow:Digiconfig,
                 _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false,

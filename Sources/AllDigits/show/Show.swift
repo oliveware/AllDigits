@@ -12,12 +12,16 @@ public struct Show: View {
     @State var numerationsetting = false
     @State var numeration = Numeration(.global,10)
     @State var linear = false
+    var width : CGFloat = 600
+    var height : CGFloat = 400
     
     var cote:CGFloat = 50
     
-    public init(_ numic:Numicode, _ b:Int, _ l:Bool = false) {
+    public init(_ numic:Numicode, _ b:Int = 10, _ l:Bool = false, _ w: CGFloat = 600, _ h: CGFloat = 400) {
         numeration = Numeration(numic, b)
         linear = l
+        width = w
+        height = h
     }
     
     public var body: some View {
@@ -29,7 +33,7 @@ public struct Show: View {
             .sheet(isPresented:$numerationsetting) {
                 NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
                 }
-            Pad(Digiconfig(), Digiconfig(), numeration, linear)
+            Pad(Digiconfig(), Digiconfig(), numeration, linear, width, height)
         }
     }
 }
