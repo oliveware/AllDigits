@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Digiconf
 
 public struct Show: View {
     @State var numerationsetting = false
@@ -28,7 +29,7 @@ public struct Show: View {
             .sheet(isPresented:$numerationsetting) {
                 NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
                 }
-            Pad(Conf.pad, numeration, linear)
+            Pad(Digiconfig(), Digiconfig(), numeration, linear)
         }
     }
 }

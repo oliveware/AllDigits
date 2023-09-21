@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "digiconf",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Digiconf",
+      "state" : {
+        "branch" : "main",
+        "revision" : "aa60574b5718f79551e66aad3b67f1aa1c08b46e"
+      }
+    },
+    {
+      "identity" : "hexaglyphes",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Hexaglyphes",
+      "state" : {
+        "branch" : "main",
+        "revision" : "07b7cc99954c7d4dd0e2ec79b9a9b0955dfaf16b"
+      }
+    }
+  ],
+  "version" : 2
+}

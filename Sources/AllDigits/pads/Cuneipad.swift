@@ -24,10 +24,10 @@ struct Digit60: ButtonStyle {
 
 struct Cuneipad: View {
     
-    var width = Conf.width
-    var height = Conf.height * 0.8
+    var width : CGFloat = 600
+    var height : CGFloat = 400
 
-    var config = Conf.pad
+    var config = Digiconfig()
     var base = 60
     
     var numeration = Numeration(.sumergesh,60)

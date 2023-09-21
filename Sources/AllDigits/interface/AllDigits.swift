@@ -5,10 +5,15 @@ import Digiconf
 
 // nombre écrit avec les chiffres de la numération
 public struct Enchiffres: View {
-    var config = Conf.show
-    var haut : CGFloat = 100
     var numeration : Numeration
     var chiffres: [Int] = []
+    var config: Digiconfig
+    
+    public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10),_ chiffres:[Int]) {
+        self.numeration = numeration
+        self.chiffres = chiffres
+        config = conf
+    }
     
     public var body: some View {
         HStack {
@@ -21,7 +26,7 @@ public struct Enchiffres: View {
                     config: config
                 )
             }
-        }.frame(height: haut)
+        }.frame(height: config.haut)
     }
 }
 
@@ -29,30 +34,39 @@ public struct Enchiffres: View {
     
 public struct Pad: View {
     @State var chiffres = Chiffres()
+    var configtouch: Digiconfig
+    var configshow: Digiconfig
     var numeration : Numeration
     var linear = false
+    var width : CGFloat = 1200
+    var height : CGFloat = 800
     
-    public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false) {
+    public init(_ conftouch:Digiconfig, _ confshow:Digiconfig,
+                _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false,
+                    _ w : CGFloat = 1200,_ h : CGFloat = 800) {
         self.numeration = numeration
         self.linear = linear
-        Conf.pad = conf
+        configtouch = conftouch
+        configshow = confshow
+        width = w
+        height = h
     }
     
     public var body: some View {
         VStack {
-            Enchiffres(
-                haut: Conf.height * 0.2,
-                numeration: numeration,
-                chiffres:chiffres.values
-            )
+            Enchiffres( configshow, numeration, chiffres.values )
             Spacer()
             if Mesopotamie.cuneicodes.contains(numeration.numicode) {
                 Cuneipad(
-                    height:Conf.height * 0.8,
+                    width:width,
+                    height:height * 0.8,
+                    config:configtouch,
                     chiffres:$chiffres)
             } else {
                 Unipad(
-                    height: linear ? 80 : Conf.height*0.8,
+                    width:width,
+                    height: linear ? configtouch.haut : height*0.8,
+                    config:configtouch,
                     linear:linear,
                     numeration:numeration,
                     chiffres: $chiffres)
@@ -61,13 +75,12 @@ public struct Pad: View {
     }
 }
 
-struct Conf {
+/*struct Conf {
     static let width : CGFloat = 1200
     static let height : CGFloat = 800
     
     static var show = Digiconfig()
-    static var pad = Digiconfig()
-    static var log = Digiconfig()
-}
+    static var touch = Digiconfig()
+}*/
 
 

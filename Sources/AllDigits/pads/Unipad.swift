@@ -12,7 +12,8 @@ struct Unipad: View {
         
     var width:CGFloat = 600
     var height:CGFloat = 400
-    
+
+    var config = Digiconfig()
     var linear = false
     
     // touches du clavier

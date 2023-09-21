@@ -14,6 +14,7 @@ struct Touche: View {
     
     var width: CGFloat = 70
     var height: CGFloat = 100
+    var config = Digiconfig()
     
     @Binding var chiffres: Chiffres
     @Binding var power:Int
@@ -24,7 +25,7 @@ struct Touche: View {
                 index: index,
                 numeration:numeration,
                 power:power,
-                config: Conf.pad.size(width,height)
+                config: config.size(width,height)
                 )
             }
             .modern(w: width, h:height)
