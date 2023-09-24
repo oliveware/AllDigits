@@ -57,6 +57,8 @@ public struct Numeration{
                 return Chinois.kanji(maxpower - 1 - power)[index]
             case .kor:
                 return Chinois.hangeul(maxpower - 1 - power)[index]
+            case .aegypt, .attic, .alpha, .roman:
+                return symbols(maxpower - 1 - power)[index]
             default:
                 return symbols()[index]
             }
