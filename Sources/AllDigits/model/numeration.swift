@@ -48,15 +48,15 @@ public struct Numeration{
         }
     }
     
-    func chiffre(_ power:Int, _ index:Int) -> String {
+    func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
         if power < powermax && index < base {
             switch numicode {
             case .hanzi:
-                return Chinois.hanzi(power).reversed()[index]
+                return Chinois.hanzi(maxpower - 1 - power)[index]
             case .kanji:
-                return Chinois.kanji(power).reversed()[index]
+                return Chinois.kanji(maxpower - 1 - power)[index]
             case .kor:
-                return Chinois.hangeul(power).reversed()[index]
+                return Chinois.hangeul(maxpower - 1 - power)[index]
             default:
                 return symbols()[index]
             }
