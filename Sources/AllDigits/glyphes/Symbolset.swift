@@ -87,6 +87,28 @@ struct Mesopotamie {
             return []
         }
     }
+    static func tens(_ numicode:Numicode) -> [String] {
+        switch numicode {
+        case .babyash, .babydish, .babygesh:
+            return geshu
+        case .sumerash, .sumergesh, .sumerdish:
+            return sumer
+        default:
+            return []
+        }
+    }
+    static func units(_ numicode:Numicode) -> [String] {
+        switch numicode {
+        case .babyash, .sumerash:
+            return ash
+        case .babydish, .sumerdish:
+            return dish
+        case .babygesh, .sumergesh:
+            return gesh2
+        default:
+            return []
+        }
+    }
 }
 
 //====================
@@ -175,7 +197,7 @@ struct Hieroglyph {
         // million
     static let dieu = ["","\u{13068}","\u{13068}"+"\u{13068}","\u{13068}"+"\u{13068}"+"\u{13068}"]
         
-    static let glyphes : [[String]] = [ rond, index, lotus, corde, anse, baton ]
+    static let glyphes : [[String]] = [ baton, anse, corde, lotus, index, rond]
         
     static func symbols(_ power:Int) -> [String] {
         let max = glyphes.count

@@ -115,6 +115,4 @@ public enum Graphism : String {
     // case aztek   = "aztèque"
     case maya       = "maya"
     case yiking     = "yiking"
-    
-    case none       = "none"
 }

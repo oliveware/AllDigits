@@ -17,7 +17,9 @@ struct Unipad: View {
     var linear = false
     
     // touches du clavier
-    var numeration = Numeration(.global,10)
+    var touches: [String]
+    var nbtouches: Int = 10
+    var graphism : Graphism?
     
     // nombre saisi avec le clavier
     @Binding var chiffres : Chiffres
@@ -32,10 +34,11 @@ struct Unipad: View {
                         ForEach(range, id: \.self) {
                             index in
                             Touche(index:index,
-                                   numeration: numeration,
+                                   clavier:touches,
+                                   graphism:graphism,
                                    width:wt, height:ht,
-                                   chiffres:$chiffres,
-                                   power:$power)
+                                   chiffres:$chiffres
+                            )
                         }
                     }.padding(0)
                 }
@@ -46,7 +49,7 @@ struct Unipad: View {
     }
     
     // calcul du nombre de colonnes et de lignes
-    var nbtouches: Int { numeration.base }
+    
     var ranges:[ClosedRange<Int>] {
         
         if linear {

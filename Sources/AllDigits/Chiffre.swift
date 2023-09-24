@@ -9,17 +9,15 @@ import SwiftUI
 import Hexaglyphes
 import Digiconf
 
-public struct Chiffre: View {
+public struct Chiffregraphic: View {
     // valeur du chiffre dans la base et rang dans touches
     var index = 7
-    var classifier : String = ""
-    var numeration : Numeration
-    var power: Int = 4
+    var graphism: Graphism
     var config: Digiconfig
     
    public var body: some View {
-       if index < numeration.base {
-           switch numeration.graphism {
+       
+           switch graphism {
                // case aztek
            case .bibi:
                Glyshape(index: index, color:config.lun,
@@ -31,49 +29,36 @@ public struct Chiffre: View {
                ChiffreMaya(index: index, config: config.scale(0.15))
            case .yiking:
                ChiffreHexa(index, config.scale(0.9), .yijing)
-           case .none:
-               Chiffretext(numeration:numeration,
-                           power:power,
-                           index:index,
-                           config:config)
            }
-       } else {
-           Text("?")
-       }
+       
     }
 }
 
-struct Chiffretext: View {
-    var symbols : [String]
-    var index: Int
-    var conf: Digiconfig
-
+struct Chiffreunicode: View {
+    var symbol : String
     
-    init(numeration:Numeration, power:Int, index: Int, config: Digiconfig) {
-        self.symbols = numeration.symbols(power)
-        self.index = index
-        self.conf = config.scale(0.7 * numeration.scale)
-    }
+    var config: Digiconfig
     
     var body : some View {
-        Text(symbols[index])
-            .font(conf.font)
-            .fontWeight(conf.weight)
-            .frame(height:conf.haut)
+        Text(symbol)
+            .font(config.font)
+            .fontWeight(config.weight)
+            .frame(height:config.haut)
     }
 }
 
 struct Chiffre_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Chiffre(numeration:Numeration(.farsi,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.hanzi,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.kanji,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.kor,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.telugu,10), config: Digiconfig())
-            Chiffre(numeration:Numeration(.bibi,16), config: Digiconfig())
-            Chiffre(numeration:Numeration(.maya,20), config: Digiconfig())
-            Chiffre(numeration:Numeration(.yiking,64), config: Digiconfig())
+            Chiffreunicode(symbol:Decimal.farsi[5], config: Digiconfig())
+            Chiffreunicode(symbol:Chinois.hanzi(0)[5], config: Digiconfig())
+            Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig())
+            Chiffreunicode(symbol:Chinois.kanji(4)[5], config: Digiconfig())
+            Chiffreunicode(symbol:Chinois.hangeul(10)[5], config: Digiconfig())
+            Chiffreunicode(symbol:Decimal.telugu[5], config: Digiconfig())
+            Chiffregraphic(graphism:.bibi, config: Digiconfig())
+            Chiffregraphic(graphism:.maya, config: Digiconfig())
+            Chiffregraphic(graphism:.yiking, config: Digiconfig())
         }
     }
 }

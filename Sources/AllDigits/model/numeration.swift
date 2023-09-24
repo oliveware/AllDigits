@@ -29,51 +29,41 @@ public struct Numeration{
         numicode == .global && base == 10
     }
     
-    public var graphism : Graphism {
-        switch numicode {
-        case .bibi:
-            return .bibi
-        case .maya:
-            return .maya
-        case .yiking:
-            return .yiking
-        default:
-            return .none
-        }
-    }
-    public var isgraphic: Bool {graphism != .none}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
+    public var graphism : Graphism?
+
+    public var isgraphic: Bool {graphism != nil}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
     
     public var powermax: Int {
         switch numicode {
         case .aegypt:
-            return Hieroglyph.glyphes.count
+            return Hieroglyph.glyphes.count - 1
         case.attic:
-            return Grec.acroglyphes.count
+            return Grec.acroglyphes.count - 1
         case .alpha:
-            return Grec.alphaglyphes.count
+            return Grec.alphaglyphes.count - 1
         case .roman:
-            return Romain.glyphes.count
+            return Romain.glyphes.count - 1
         default:
             return 0
         }
     }
-    var composants : [Numeration] {
-        switch numicode {
-        case .babyash:
-            return [Numeration(.geshu,6), Numeration(.cuneiash,10)]
-        case .babydish:
-            return [Numeration(.geshu,6), Numeration(.cuneidish,10)]
-        case .babygesh:
-            return [Numeration(.geshu,6), Numeration(.cuneigesh,10)]
-        case .sumerash:
-            return [Numeration(.sumer,6), Numeration(.cuneiash,10)]
-        case .sumergesh:
-            return [Numeration(.sumer,6), Numeration(.cuneigesh,10)]
-        case .sumerdish:
-            return [Numeration(.sumer,6), Numeration(.cuneidish,10)]
-        default:
-            return [Numeration(.global,6), Numeration(.global,10)]
+    
+    func chiffre(_ power:Int, _ index:Int) -> String {
+        if power < powermax && index < base {
+            switch numicode {
+            case .hanzi:
+                return Chinois.hanzi(power)[index]
+            case .kanji:
+                return Chinois.kanji(power)[index]
+            case .kor:
+                return Chinois.hangeul(power)[index]
+            default:
+                return symbols()[index]
+            }
+        } else {
+            return "?"
         }
+        
     }
     
     public func symbols(_ power:Int = 0) -> [String] {
@@ -132,13 +122,13 @@ public struct Numeration{
         }
     }
     
-    var iscunei: Bool {
+    /*var iscunei: Bool {
         let cuneidigits: [Numicode] = [.cuneiash, .cuneidish, .cuneigesh, .geshu, .sumer]
         return cuneidigits.contains(numicode)
     }
     var iscuneiten: Bool {
         return numicode == .geshu || numicode == .sumer
-    }
+    }*/
    
     
     public func isnot(_ numer:Numeration) -> Bool {

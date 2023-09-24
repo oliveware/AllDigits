@@ -28,9 +28,10 @@ struct Cuneipad: View {
     var height : CGFloat = 400
 
     var config = Digiconfig()
-    var base = 60
     
-    var numeration = Numeration(.sumergesh,60)
+    var doubles : [String] = Mesopotamie.symbols(.sumerash)
+    var tens : [String] = Mesopotamie.sumer
+    var units : [String] = Mesopotamie.ash
     
     @Binding var chiffres : Chiffres
     @State var compose = Chiffres()
@@ -39,7 +40,7 @@ struct Cuneipad: View {
         VStack {
             HStack(alignment:.top) {
                 Button(action: add) {
-                    Text( compose.empty ? "" : numeration.symbols()[compose.values[0]])
+                    Text( compose.empty ? "" : doubles[compose.values[0]])
                 }
                 .buttonStyle(Digit60())
                 .disabled(compose.empty)
@@ -49,11 +50,13 @@ struct Cuneipad: View {
             
             HStack(spacing:15) {
                 Unipad(width:width*0.4, height: height,
-                       numeration: numeration.composants[0],
+                       config: config,
+                       touches:tens,
                        chiffres: $compose)
 
                 Unipad(width:width*0.6, height: height,
-                       numeration: numeration.composants[1],
+                       config:config,
+                       touches:units,
                        chiffres: $compose)
             }
         }.padding(5)

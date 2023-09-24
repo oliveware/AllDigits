@@ -10,40 +10,43 @@ import Digiconf
 
 struct Touche: View {
     var index:Int = 3
-    var numeration:Numeration = Numeration(.global,10)
+    var clavier:[String] = Decimal.arab
+    var graphism:Graphism?
     
     var width: CGFloat = 70
     var height: CGFloat = 100
     var config = Digiconfig()
+    var scale: CGFloat = 1
     
     @Binding var chiffres: Chiffres
-    @Binding var power:Int
+    var cuneiten = false
+    var cuneiunit = false
     
     var body: some View {
         Button( action: {input(index)} )
-            { Chiffre(
+        {   if graphism != nil {
+            Chiffregraphic(
                 index: index,
-                numeration:numeration,
-                power:power,
+                graphism:graphism!,
                 config: config.size(width,height)
+            )
+            } else {
+                Chiffreunicode(symbol:clavier[index],
+                    config: config.scale(0.7 * scale)
                 )
             }
-            .modern(w: width, h:height)
-             //   .keyboardShortcut(key)
-            .disabled(index==0 && chiffres.empty)
+        }
+        .modern(w: width, h:height)
+         //   .keyboardShortcut(key)
+        .disabled(index==0 && chiffres.empty)
     }
     
 
     
     func input (_ value:Int) {
-        let max = numeration.powermax
-        if max > 0 {
-            power = max - chiffres.values.count
-        } else {
-            power = 0
-        }
-        if numeration.iscunei {
-            chiffres.compose60( numeration.iscuneiten ? value * 10 : value)
+
+        if cuneiten || cuneiunit {
+            chiffres.compose60( cuneiten ? value * 10 : value)
         } else {
             chiffres.add(value)
         }
@@ -52,6 +55,6 @@ struct Touche: View {
 
 struct Touche_Previews: PreviewProvider {
     static var previews: some View {
-        Touche(chiffres:.constant(Chiffres()), power:.constant(0))
+        Touche(chiffres:.constant(Chiffres()))
     }
 }

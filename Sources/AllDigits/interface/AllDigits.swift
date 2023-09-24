@@ -8,9 +8,11 @@ public struct Enchiffres: View {
     var numeration : Numeration
     var chiffres: [Int] = []
     var config: Digiconfig
+    var graphic = false
     
     public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10),_ chiffres:[Int]) {
         self.numeration = numeration
+        graphic = numeration.graphism != nil
         self.chiffres = chiffres
         config = conf
     }
@@ -19,12 +21,18 @@ public struct Enchiffres: View {
         HStack {
             ForEach(0..<chiffres.count, id:\.self) {
                 power in
-                Chiffre(
-                    index:chiffres[power],
-                    numeration:numeration,
-                    power:chiffres.count - 1 - power,
-                    config: config
-                )
+                if graphic {
+                    Chiffregraphic(
+                        index:chiffres[power],
+                        graphism:numeration.graphism!,
+                        config: config
+                    )
+                } else {
+                    Chiffreunicode(
+                        symbol:numeration.chiffre(power, chiffres[power]),
+                        config: config
+                    )
+                }
             }
         }.frame(height: config.haut)
     }
@@ -61,6 +69,9 @@ public struct Pad: View {
                     width:width,
                     height:height * 0.8,
                     config:configtouch,
+                    doubles:Mesopotamie.symbols(numeration.numicode),
+                    tens:Mesopotamie.tens(numeration.numicode),
+                    units:Mesopotamie.units(numeration.numicode),
                     chiffres:$chiffres)
             } else {
                 Unipad(
@@ -68,7 +79,9 @@ public struct Pad: View {
                     height: linear ? configtouch.haut : height*0.8,
                     config:configtouch,
                     linear:linear,
-                    numeration:numeration,
+                    touches:numeration.symbols(0),
+                    nbtouches:numeration.base,
+                    graphism:numeration.graphism,
                     chiffres: $chiffres)
             }
         }
