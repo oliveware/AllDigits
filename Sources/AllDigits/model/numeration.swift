@@ -44,7 +44,7 @@ public struct Numeration{
         case .roman:
             return Romain.glyphes.count - 1
         default:
-            return 0
+            return 10       // à raffiner
         }
     }
     
