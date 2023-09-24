@@ -36,13 +36,13 @@ public struct Numeration{
     public var powermax: Int {
         switch numicode {
         case .aegypt:
-            return Hieroglyph.glyphes.count - 1
+            return Hieroglyph.glyphes.count
         case.attic:
-            return Grec.acroglyphes.count - 1
+            return Grec.acroglyphes.count
         case .alpha:
-            return Grec.alphaglyphes.count - 1
+            return Grec.alphaglyphes.count
         case .roman:
-            return Romain.glyphes.count - 1
+            return Romain.glyphes.count
         default:
             return 10       // à raffiner
         }
@@ -52,11 +52,11 @@ public struct Numeration{
         if power < powermax && index < base {
             switch numicode {
             case .hanzi:
-                return Chinois.hanzi(power)[index]
+                return Chinois.hanzi(power).reversed()[index]
             case .kanji:
-                return Chinois.kanji(power)[index]
+                return Chinois.kanji(power).reversed()[index]
             case .kor:
-                return Chinois.hangeul(power)[index]
+                return Chinois.hangeul(power).reversed()[index]
             default:
                 return symbols()[index]
             }
