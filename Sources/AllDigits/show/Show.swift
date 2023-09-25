@@ -13,6 +13,7 @@ public struct Show: View {
     @State var numeration = Numeration(.global,10)
     @State var scalar : Chiffres
     @State var linear = false
+    @State var clavieradditif = false
     var width : CGFloat = 600
     var height : CGFloat = 400
     var configtouch: Digiconfig
@@ -33,17 +34,35 @@ public struct Show: View {
         scalar = Chiffres(values:decimal)
     }
     
+    var parambar: some View {
+        VStack {
+            Button(action: {  scalar.clear() } )
+            {
+                Image(systemName: "trash" )
+            }.fond(w: cote, h: cote)
+            Spacer()
+            Button(action: {  numerationsetting = true } )
+            {
+                Image(systemName: "123.rectangle" )
+            }.fond(w: cote, h: cote)
+                .sheet(isPresented:$numerationsetting) {
+                    NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
+                }
+            Spacer()
+            Button(action: {  linear.toggle() } )
+            {
+                Image(systemName: linear ? "square.split.2x2" : "rectangle.split.2x1" )
+            }.fond(w: cote, h: cote)
+            Button(action: {  clavieradditif.toggle() } )
+            {
+                Image(systemName: clavieradditif ? "square" : "square.and.line.vertical.and.square" )
+            }.fond(w: cote, h: cote)
+        }
+    }
+    
     public var body: some View {
         HStack(spacing:50) {
-            VStack {
-                Button(action: {  numerationsetting = true } )
-                {
-                    Image(systemName: "123.rectangle" )
-                }.fond(w: cote, h: cote)
-                    .sheet(isPresented:$numerationsetting) {
-                        NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
-                    }
-            }
+            parambar
             Pad(Digiconfig(), Digiconfig(), scalar, numeration, linear, width, height)
         }
     }
