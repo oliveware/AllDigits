@@ -84,6 +84,7 @@ public struct Pad: View {
                     touches:numeration.symbols(0),
                     nbtouches:numeration.base,
                     graphism:numeration.graphism,
+                    zeroisknown:numeration.zeroisknown,
                     chiffres: $chiffres)
             }
         }

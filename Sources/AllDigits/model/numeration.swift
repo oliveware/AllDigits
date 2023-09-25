@@ -33,6 +33,8 @@ public struct Numeration{
 
     public var isgraphic: Bool {graphism != nil}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
     
+    var zeroisknown = true
+    
     public var powermax: Int {
         switch numicode {
         case .aegypt:
@@ -181,6 +183,7 @@ public struct Numeration{
             baserange = setbaserange(10, 10)
             greatest = 999999
             groupby = 6
+            zeroisknown = false
         case .alphabet:
             baserange = setbaserange(2, 26)
         case .geshu, .sumer :
@@ -201,11 +204,12 @@ public struct Numeration{
             baserange = setbaserange(2, 10)
             greatest = 9999
             groupby = 3
+            zeroisknown = false
         case .alpha:
             baserange = setbaserange(2, 10)
             greatest = 9999
             groupby = 3
-            // glyphes[0] et glyphes[1] servent à Digigroup
+            zeroisknown = false
         case .hanzi:
             baserange = setbaserange(2, 10)
             //  correspondingScript = .zh
@@ -229,9 +233,10 @@ public struct Numeration{
             baserange = setbaserange(2, 10)
             greatest = 399999
             groupby = 6
-            //  correspondingScript = .latin
+            zeroisknown = false
         case .shadok:
             baserange = setbaserange(2, 4)
+            zeroisknown = false
         case .shadok5:
             baserange = setbaserange(2, 5)
         case .yiking:

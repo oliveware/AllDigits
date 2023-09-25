@@ -20,6 +20,7 @@ struct Unipad: View {
     var touches: [String]
     var nbtouches: Int = 10
     var graphism : Graphism?
+    var zeroisknown = false
     
     // nombre saisi avec le clavier
     @Binding var chiffres : Chiffres
@@ -33,12 +34,16 @@ struct Unipad: View {
                     HStack(spacing:2) {
                         ForEach(range, id: \.self) {
                             index in
-                            Touche(index:index,
-                                   clavier:touches,
-                                   graphism:graphism,
-                                   width:wt, height:ht,
-                                   chiffres:$chiffres
-                            )
+                            if index == 0 && !zeroisknown {
+                                HStack{}.frame(width:wt, height:ht)
+                            } else {
+                                Touche(index:index,
+                                       clavier:touches,
+                                       graphism:graphism,
+                                       width:wt, height:ht,
+                                       chiffres:$chiffres
+                                )
+                            }
                         }
                     }.padding(0)
                 }
