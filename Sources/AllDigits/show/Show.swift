@@ -63,7 +63,7 @@ public struct Show: View {
     public var body: some View {
         HStack(spacing:50) {
             parambar
-            Pad(Digiconfig(), Digiconfig(), scalar, numeration, linear, width, height)
+            Pad(configshow, configtouch, scalar, numeration, linear, width, height)
         }
     }
 }
