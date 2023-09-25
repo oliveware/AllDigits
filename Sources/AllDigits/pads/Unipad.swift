@@ -39,6 +39,7 @@ struct Unipad: View {
                                        clavier:touches,
                                        graphism:graphism,
                                        width:wt, height:ht,
+                                       config:config,
                                        chiffres:$chiffres
                                 )
                             }
