@@ -34,9 +34,7 @@ struct Unipad: View {
                     HStack(spacing:2) {
                         ForEach(range, id: \.self) {
                             index in
-                            if index == 0 && !zeroisknown {
-                                HStack{}.frame(width:wt, height:ht)
-                            } else {
+                            if index != 0 || zeroisknown {
                                 Touche(index:index,
                                        clavier:touches,
                                        graphism:graphism,
