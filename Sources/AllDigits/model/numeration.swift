@@ -52,11 +52,11 @@ public struct Numeration{
         if power < powermax && index < base {
             switch numicode {
             case .hanzi:
-                return Chinois.hanzi(maxpower - 1 - power)[index]
+                return index == 0 ? "" : Chinois.hanzi(maxpower - 1 - power)[index]
             case .kanji:
-                return Chinois.kanji(maxpower - 1 - power)[index]
+                return index == 0 ? "" : Chinois.kanji(maxpower - 1 - power)[index]
             case .kor:
-                return Chinois.hangeul(maxpower - 1 - power)[index]
+                return index == 0 ? "" : Chinois.hangeul(maxpower - 1 - power)[index]
             case .aegypt, .attic, .alpha, .roman:
                 return symbols(maxpower - 1 - power)[index]
             default:
