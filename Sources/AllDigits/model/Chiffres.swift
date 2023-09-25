@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Chiffres {
+public struct Chiffres {
 
-    var values : [Int] = []
+    public var values : [Int] = []
     
     var empty:Bool {values.count == 0}
     
