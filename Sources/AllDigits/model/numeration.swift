@@ -174,6 +174,7 @@ public struct Numeration{
         numicode = numic
        // classifiers = Classifierset(numic)
         setnativebase()
+        zeroisknown = true
         switch numic {
         case .base72:  // multibase
             baserange = setbaserange(2, 72)
