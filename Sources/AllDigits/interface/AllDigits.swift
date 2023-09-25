@@ -49,7 +49,7 @@ public struct Pad: View {
     var width : CGFloat = 600
     var height : CGFloat = 400
     
-    public init(_ conftouch:Digiconfig, _ confshow:Digiconfig,
+    public init(_ confshow:Digiconfig, _ conftouch:Digiconfig,
                 _ scalar : Chiffres,
                 _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false,
                     _ w : CGFloat = 1200,_ h : CGFloat = 800) {

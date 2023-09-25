@@ -22,7 +22,7 @@ public struct Show: View {
     var cote:CGFloat = 50
     
     public init(_ show: Digiconfig, _ touch:Digiconfig,
-                _ decimal:[Int] = [],
+                _ decimal:[Int] = [1,3],
                 _ numic:Numicode, _ b:Int = 10, _ l:Bool = false,
                 _ w: CGFloat = 600, _ h: CGFloat = 400) {
         numeration = Numeration(numic, b)
@@ -70,6 +70,6 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(30, 50), Digiconfig(20,40),[5,9], .global,10)
+        Show(Digiconfig(30, 50), Digiconfig(10,20),[5,9], .global,10)
     }
 }
