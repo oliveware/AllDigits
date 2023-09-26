@@ -116,37 +116,37 @@ struct Mesopotamie {
 //====================
 struct Chinois {
     
-// glyphes des unités et du clavier décimal
+// clavier
     // l'index est la valeur du chiffre
     static let kanjiset = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
     static let hanziset = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
     static let hangeulset = ["〇", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
     
-// composition chinoise d'un groupe de quatre chiffres .global
+// chiffres
     // dizaines, centaines et milliers sont composés de deux glyphes
-    static func hanzi(_ power:Int) -> [String] {
-        var digits : [String] = []
-        let classifier = classifier(power, hanzi_10, hanzi_wan)
-        for u in 0...9 {
-            digits.append(hanziset[u] + classifier)
+    static func hanzi(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        if index == 0 {
+            return ""
+        } else {
+            let classifier = classifier(maxpower - 1 - power, hanzi_10, hanzi_wan)
+            return hanziset[index] + classifier
         }
-        return digits
     }
-    static func kanji(_ power:Int) -> [String] {
-        var digits : [String] = []
-        let classifier = classifier(power, kanji_10, kanji_man)
-        for u in 0...9 {
-            digits.append(kanjiset[u] + classifier)
+    static func kanji(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        if index == 0 {
+            return ""
+        } else {
+            let classifier = classifier(maxpower - 1 - power, kanji_10, kanji_man)
+            return kanjiset[index] + classifier
         }
-        return digits
     }
-    static func hangeul(_ power:Int) -> [String] {
-        var digits : [String] = []
-        let classifier = classifier(power, hangeul_10, hangeul_man)
-        for u in 0...9 {
-            digits.append(hangeulset[u] + classifier)
+    static func hangeul(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        if index == 0 {
+            return ""
+        } else {
+            let classifier = classifier(maxpower - 1 - power, hangeul_10, hangeul_man)
+            return hangeulset[index] + classifier
         }
-        return digits
     }
     
     static func classifier(_ power: Int,_ bas:[String],_ myr:[String]) -> String {
@@ -197,11 +197,15 @@ struct Hieroglyph {
         // million
     static let dieu = ["","\u{13068}","\u{13068}"+"\u{13068}","\u{13068}"+"\u{13068}"+"\u{13068}"]
         
-    static let glyphes : [[String]] = [ baton, anse, corde, lotus, index, rond]
+    static let claviers : [[String]] = [ baton, anse, corde, lotus, index, rond]
         
-    static func symbols(_ power:Int) -> [String] {
-        let max = glyphes.count
-        return glyphes[power % max]
+    static func clavier(_ power:Int) -> [String] {
+        let max = claviers.count
+        return claviers[power % max]
+    }
+    
+    static func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        return clavier(maxpower - power)[index]
     }
 }
 
@@ -221,22 +225,32 @@ struct Grec {
     static let mil = ["","X","XX","XXX","XXXX","\u{10146}","\u{10146}X","\u{10146}XX","\u{10146}XXX","\u{10146}XXXX"]
     static let myr = ["","M","MM","MMM","MMMM","\u{10147}","\u{10147}M","\u{10147}MM","\u{10147}MMM","\u{10147}MMMM"]
     
-    static let acroglyphes = [units, tens, cents, mil, myr]
+    static let acroclaviers = [units, tens, cents, mil, myr]
     
-    static func acrophonic(_ power:Int) -> [String] {
-        let max = acroglyphes.count
-        return acroglyphes[power % max]
+    static func acrophoniclavier(_ power:Int) -> [String] {
+        let max = acroclaviers.count
+        return acroclaviers[power % max]
+    }
+    static func acrochiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        return acrophoniclavier(maxpower - power)[index]
     }
 
 // lettres-chiffres de la numération alphabétique
     static let kerea = "\u{0374}"
     static let aristerikerea = "\u{0375}"
     
-    static func alphabetic(_ power:Int) -> [String] {
-        let max = alphaglyphes.count
-       return alphaglyphes[power % max]
+    static func alphachiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        let prefix = power == maxpower && maxpower > 2 ? aristerikerea : ""
+        let suffix = power == 0 ? kerea : ""
+        return prefix + alphabeticlavier(maxpower - power)[index] + suffix
     }
-    static let alphaglyphes = [alpha, deka, hekto, kilo, myriad, dekamyr]
+    
+    static func alphabeticlavier(_ power:Int) -> [String] {
+        let max = alphaclaviers.count
+       return alphaclaviers[power % max]
+    }
+    static let alphaclaviers = [alpha, deka, hekto, kilo, myriad, dekamyr]
+    
    
     // glyphes des unités
     static let alpha = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DD}","\u{03B6}","\u{03B7}","\u{03B8}"]
@@ -257,11 +271,11 @@ struct Grec {
 //=============================
 struct Romain {
     
-    static let glyphes = [unit, diz, cent, mil, myr, dizmyr]
+    static let claviers = [unit, diz, cent, mil, myr, dizmyr]
     
-    static func symbols(_ power:Int) -> [String] {
-        let max = glyphes.count
-        return glyphes[power % max]
+    static func clavier(_ power:Int) -> [String] {
+        let max = claviers.count
+        return claviers[power % max]
     }
     
     // glyphes des unités
@@ -277,6 +291,10 @@ struct Romain {
             // unique chiffre romain 100000
             // u{2188}, le glyphe unicode pour 100 000 est inopérant. Il est remplacé ici par le M encadré 1F13C
         ["","\u{1F13C}","\u{1F13C}\u{1F13C}","\u{1F13C}\u{1F13C}\u{1F13C}","","","","","",""]
+    
+    static func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+        return clavier(maxpower - power)[index]
+    }
 }
 
 //=============================

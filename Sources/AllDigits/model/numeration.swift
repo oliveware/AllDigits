@@ -39,13 +39,13 @@ public struct Numeration{
     public var powermax: Int {
         switch numicode {
         case .aegypt:
-            return Hieroglyph.glyphes.count
+            return Hieroglyph.claviers.count
         case.attic:
-            return Grec.acroglyphes.count
+            return Grec.acroclaviers.count
         case .alpha:
-            return Grec.alphaglyphes.count
+            return Grec.alphaclaviers.count
         case .roman:
-            return Romain.glyphes.count
+            return Romain.claviers.count
         default:
             return 10       // à raffiner
         }
@@ -55,15 +55,21 @@ public struct Numeration{
         if power < powermax && index < base {
             switch numicode {
             case .hanzi:
-                return index == 0 ? "" : Chinois.hanzi(maxpower - 1 - power)[index]
+                return Chinois.hanzi(maxpower, power, index)
             case .kanji:
-                return index == 0 ? "" : Chinois.kanji(maxpower - 1 - power)[index]
+                return Chinois.kanji(maxpower, power, index)
             case .kor:
-                return index == 0 ? "" : Chinois.hangeul(maxpower - 1 - power)[index]
-            case .aegypt, .attic, .alpha, .roman:
-                return symbols(maxpower - 1 - power)[index]
+                return Chinois.hangeul(maxpower, power, index)
+            case .aegypt:
+                return Hieroglyph.chiffre(maxpower, power, index)
+            case .attic:
+                return Grec.acrochiffre(maxpower, power, index)
+            case .alpha:
+                return Grec.alphachiffre(maxpower, power, index)
+            case .roman:
+                return Romain.chiffre(maxpower, power, index)
             default:
-                return symbols()[index]
+                return clavier()[index]
             }
         } else {
             return "?"
@@ -71,14 +77,14 @@ public struct Numeration{
         
     }
     
-    public func symbols(_ power:Int = 0) -> [String] {
+    public func clavier(_ power:Int = 0) -> [String] {
         switch numicode {
         case .base72:  // multibase
             return Extended.base72
         case .global:
             return Extended.global
         case .aegypt:
-            return Hieroglyph.symbols(powermax - power)
+            return Hieroglyph.clavier(power)
         case .alphabet:
             return Extended.alphabet
         case .arab:
@@ -96,21 +102,21 @@ public struct Numeration{
         case .farsi:
             return  Decimal.farsi
         case .attic:
-            return Grec.acrophonic(powermax - power)
+            return Grec.acrophoniclavier(power)
         case .alpha:
-            return Grec.alphabetic(powermax - power)
+            return Grec.alphabeticlavier(power)
         case .hanzi:
-            return Chinois.hanzi(power)
+            return Chinois.hanziset
         case .kanji:
-            return Chinois.kanji(power)
+            return Chinois.kanjiset
         case .khmer:
             return Decimal.khmer
         case .kor:
-            return Chinois.hangeul(power)
+            return Chinois.hangeulset
         case .lao:
             return Decimal.lao
         case .roman:
-            return Romain.symbols(powermax - power)
+            return Romain.clavier(power)
         case .shadok:
             return Shadok.symbols(4)
         case .shadok5:
@@ -254,7 +260,7 @@ public struct Numeration{
     }
     
     func setbaserange(_ a:Int,_ b:Int)->ClosedRange<Int> {
-        var nbc = symbols(0).count
+        var nbc = clavier(0).count
         if nbc > multibasemax { nbc = multibasemax }
         let min = a <= b ? a : b
         let max = a <= b ? b : a
