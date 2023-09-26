@@ -15,6 +15,7 @@ struct Unipad: View {
 
     var config = Digiconfig()
     var linear = false
+    //var additif = false
     
     // touches du clavier
     var touches: [String]

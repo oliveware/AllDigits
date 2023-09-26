@@ -53,17 +53,19 @@ public struct Show: View {
             {
                 Image(systemName: linear ? "square.split.2x2" : "rectangle.split.2x1" )
             }.fond(w: cote, h: cote)
-            Button(action: {  clavieradditif.toggle() } )
-            {
-                Image(systemName: clavieradditif ? "square" : "square.and.line.vertical.and.square" )
-            }.fond(w: cote, h: cote)
+            if numeration.isadditive {
+                Button(action: {  clavieradditif.toggle() } )
+                {
+                    Image(systemName: clavieradditif ? "square" : "square.and.line.vertical.and.square" )
+                }.fond(w: cote, h: cote)
+            }
         }
     }
     
     public var body: some View {
         HStack(spacing:50) {
             parambar
-            Pad(configshow, configtouch, scalar, numeration, linear, width, height)
+            Pad(configshow, configtouch, scalar, numeration, linear, width, height, clavieradditif)
         }
     }
 }

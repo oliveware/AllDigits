@@ -34,6 +34,7 @@ public struct Numeration{
     public var isgraphic: Bool {graphism != nil}   // true si les chiffres sont des graphismes composés par des programmes SwiftUI
     
     var zeroisknown = true
+    var isadditive = false
     
     public var powermax: Int {
         switch numicode {
@@ -77,7 +78,7 @@ public struct Numeration{
         case .global:
             return Extended.global
         case .aegypt:
-            return Hieroglyph.symbols(power)
+            return Hieroglyph.symbols(powermax - power)
         case .alphabet:
             return Extended.alphabet
         case .arab:
@@ -95,9 +96,9 @@ public struct Numeration{
         case .farsi:
             return  Decimal.farsi
         case .attic:
-            return Grec.acrophonic(power)
+            return Grec.acrophonic(powermax - power)
         case .alpha:
-            return Grec.alphabetic(power)
+            return Grec.alphabetic(powermax - power)
         case .hanzi:
             return Chinois.hanzi(power)
         case .kanji:
@@ -109,7 +110,7 @@ public struct Numeration{
         case .lao:
             return Decimal.lao
         case .roman:
-            return Romain.symbols(power)
+            return Romain.symbols(powermax - power)
         case .shadok:
             return Shadok.symbols(4)
         case .shadok5:
@@ -175,6 +176,7 @@ public struct Numeration{
        // classifiers = Classifierset(numic)
         setnativebase()
         zeroisknown = true
+        isadditive = false
         switch numic {
         case .base72:  // multibase
             baserange = setbaserange(2, 72)
@@ -185,6 +187,7 @@ public struct Numeration{
             greatest = 999999
             groupby = 6
             zeroisknown = false
+            isadditive = true
         case .alphabet:
             baserange = setbaserange(2, 26)
         case .geshu, .sumer :
@@ -206,11 +209,13 @@ public struct Numeration{
             greatest = 9999
             groupby = 3
             zeroisknown = false
+            isadditive = true
         case .alpha:
             baserange = setbaserange(2, 10)
             greatest = 9999
             groupby = 3
             zeroisknown = false
+            isadditive = true
         case .hanzi:
             baserange = setbaserange(2, 10)
             //  correspondingScript = .zh
@@ -235,6 +240,7 @@ public struct Numeration{
             greatest = 399999
             groupby = 6
             zeroisknown = false
+            isadditive = true
         case .shadok:
             baserange = setbaserange(2, 4)
             zeroisknown = false

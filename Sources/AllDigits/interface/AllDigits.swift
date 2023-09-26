@@ -46,15 +46,19 @@ public struct Pad: View {
     var configshow: Digiconfig
     var numeration : Numeration
     var linear = false
+    var additif = false
     var width : CGFloat = 600
     var height : CGFloat = 400
     
     public init(_ confshow:Digiconfig, _ conftouch:Digiconfig,
                 _ scalar : Chiffres,
                 _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false,
-                    _ w : CGFloat = 1200,_ h : CGFloat = 800) {
+                _ w : CGFloat = 1200,_ h : CGFloat = 800,
+                _ additif:Bool = false )
+    {
         self.numeration = numeration
         self.linear = linear
+        self.additif = additif
         configtouch = conftouch
         configshow = confshow
         width = w
@@ -76,16 +80,23 @@ public struct Pad: View {
                     units:Mesopotamie.units(numeration.numicode),
                     chiffres:$chiffres)
             } else {
-                Unipad(
-                    width:width,
-                    height: linear ? configtouch.haut : height*0.8,
-                    config:configtouch,
-                    linear:linear,
-                    touches:numeration.symbols(0),
-                    nbtouches:numeration.base,
-                    graphism:numeration.graphism,
-                    zeroisknown:numeration.zeroisknown,
-                    chiffres: $chiffres)
+                HStack {
+                    if additif {
+                        Button("pass") {
+                            chiffres.add(0)
+                        }
+                    }
+                    Unipad(
+                        width:width,
+                        height: linear ? configtouch.haut : height*0.8,
+                        config:configtouch,
+                        linear:linear,
+                        touches:numeration.symbols(chiffres.values.count - 1),
+                        nbtouches:numeration.base,
+                        graphism:numeration.graphism,
+                        zeroisknown:numeration.zeroisknown,
+                        chiffres: $chiffres)
+                }
             }
         }
     }
