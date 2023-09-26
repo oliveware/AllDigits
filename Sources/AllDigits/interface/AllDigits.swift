@@ -29,7 +29,7 @@ public struct Enchiffres: View {
                     )
                 } else {
                     Chiffreunicode(
-                        symbol:numeration.chiffre(chiffres.count, power, chiffres[power]),
+                        symbol:numeration.chiffre(chiffres.count - 1 , power, chiffres[power]),
                         config: config
                     )
                 }
