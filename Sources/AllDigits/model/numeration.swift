@@ -158,6 +158,7 @@ public struct Numeration {
        // classifiers = Classifierset(numic)
         setnativebase()
         powermax = 17
+        graphism = nil
         zeroisknown = true
         isadditive = false
         switch numic {
