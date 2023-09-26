@@ -180,6 +180,7 @@ public struct Numeration {
             groupby = 3
         case .bibi:
             baserange = setbaserange(2, 16)
+            graphism = .bibi
             //  correspondingScript = .bibi
         case .brahmi:
             baserange = setbaserange(2, 10)
@@ -215,6 +216,7 @@ public struct Numeration {
             groupby = 4
         case .maya:
             baserange = setbaserange(2, 20)
+            graphism = .maya
         case .roman:
             baserange = setbaserange(2, 10)
             powermax = 4
@@ -228,6 +230,7 @@ public struct Numeration {
             baserange = setbaserange(2, 5)
         case .yiking:
             baserange = setbaserange(2, 64)
+            graphism = .yiking
         default:
             baserange = setbaserange(2, 10)
         }
