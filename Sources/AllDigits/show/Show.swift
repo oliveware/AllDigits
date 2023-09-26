@@ -58,6 +58,7 @@ public struct Show: View {
                 {
                     Image(systemName: clavieradditif ? "square" : "square.and.line.vertical.and.square" )
                 }.fond(w: cote, h: cote)
+                .disabled(!scalar.empty)
             }
         }
     }
@@ -65,7 +66,9 @@ public struct Show: View {
     public var body: some View {
         HStack(spacing:50) {
             parambar
+            Spacer()
             Pad(configshow, configtouch, scalar, numeration, linear, clavieradditif, width, height)
+            Spacer()
         }
     }
 }

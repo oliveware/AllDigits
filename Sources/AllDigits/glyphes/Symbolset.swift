@@ -240,8 +240,8 @@ struct Grec {
     static let aristerikerea = "\u{0375}"
     
     static func alphachiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-        let prefix = power == maxpower && maxpower > 2 ? aristerikerea : ""
-        let suffix = power == 0 ? kerea : ""
+        let prefix = power == 0 ? aristerikerea : ""
+        let suffix = power == maxpower && maxpower > 2 ? kerea : ""
         return prefix + alphabeticlavier(maxpower - power)[index] + suffix
     }
     
