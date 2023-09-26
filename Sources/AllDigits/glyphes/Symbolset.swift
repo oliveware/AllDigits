@@ -245,11 +245,11 @@ struct Grec {
     // glyphes des centaines
     static let hekto = ["","\u{03C1}","\u{03C2}","\u{03C3}","\u{03C4}","\u{03C5}","\u{03C6}","\u{03C7}","\u{03C8}","\u{03E1}"]
     // glyphes des milliers
-    static let kilo = ["","\u{0375}\u{03B1}","\u{0375}\u{03B2}","\u{0375}\u{03B3}","\u{0375}\u{03B4}","\u{0375}\u{03B5}","\u{0375}\u{03DB}","\u{0375}\u{03B6}","\u{0375}\u{03B7}","\u{0375}\u{03B8}"]
+    static let kilo = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DB}","\u{03B6}","\u{03B7}","\u{03B8}"]
     // glyphes des myriades
-    static let myriad = [""]
+    static let myriad = deka
     // glyphes des dizaines de myriades
-    static let dekamyr = [""]
+    static let dekamyr = hekto
 }
 
 //=============================

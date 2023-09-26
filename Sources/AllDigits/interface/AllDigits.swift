@@ -90,7 +90,7 @@ public struct Pad: View {
                         height: linear ? configtouch.haut : height*0.8,
                         config:configtouch,
                         linear:linear,
-                        touches:numeration.symbols(chiffres.values.count - 1),
+                        touches:numeration.symbols(additif ? chiffres.values.count : 0),
                         nbtouches:numeration.base,
                         graphism:numeration.graphism,
                         zeroisknown:numeration.zeroisknown,
