@@ -53,12 +53,11 @@ public struct Pad: View {
     public init(_ confshow:Digiconfig, _ conftouch:Digiconfig,
                 _ scalar : Chiffres,
                 _ numeration: Numeration = Numeration(.global, 10), _ linear:Bool = false,
-                _ w : CGFloat = 1200,_ h : CGFloat = 800,
-                _ additif:Bool = false )
+                _ w : CGFloat = 1200,_ h : CGFloat = 800)
     {
         self.numeration = numeration
         self.linear = linear
-        self.additif = additif
+        additif = numeration.isadditive
         configtouch = conftouch
         configshow = confshow
         width = w
