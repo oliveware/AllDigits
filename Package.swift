@@ -22,7 +22,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "AllDigits",
-            dependencies: ["Hexaglyphes","Digiconf"]),
+            dependencies: ["Hexaglyphes","Digiconf"],
+            resources: [
+                .process("resources")]
+        ),
+        
         .testTarget(
             name: "AllDigitsTests",
             dependencies: ["AllDigits"]),

@@ -28,11 +28,11 @@ struct Touche: View {
             Chiffregraphic(
                 index: index,
                 graphism:graphism!,
-                config: config.size(width,height)
+                config: config.size(width*0.7,height*0.7)
             )
             } else {
                 Chiffreunicode(symbol:clavier[index],
-                    config: config.scale(0.7 * scale)
+                    config: config.scale(0.8 * scale)
                 )
             }
         }
