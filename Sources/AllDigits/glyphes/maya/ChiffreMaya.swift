@@ -45,7 +45,7 @@ struct ChiffreMaya: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(config.lun)
-                .frame(width: config.large*5, height: config.haut*2, alignment: .bottom)
+                .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
                 .padding(config.large/3)
                 .background(config.fond)
         } else {
@@ -54,7 +54,7 @@ struct ChiffreMaya: View {
                           size: config.large, color:config.lun)
                 BarStack(nb: (index - index % 5) / 5,
                          size: config.large, color: config.lun)
-            }.frame(width: config.large*6, height: config.haut*3, alignment: .bottom)
+            }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
                 .padding(config.large/3)
                 .background(config.fond)
         }
