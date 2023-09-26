@@ -49,7 +49,7 @@ public struct Numeration {
     var isadditive = false
     
     func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-        if power < powermax && index < base {
+        if power <= powermax && index < base {
             switch numicode {
             case .hanzi:
                 return Chinois.hanzi(maxpower, power, index)
