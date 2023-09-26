@@ -10,16 +10,28 @@ import SwiftUI
 
 public var multibasemax = 72
 
-public struct Numeration{
+public struct Numeration {
 
     // var classifiers = Classifierset() // caractères unicode des classifieurs
     public var numicode = Numicode.global
+    
+    public func isnot(_ numer:Numeration) -> Bool {
+        return numicode != numer.numicode || base != numer.base
+    }
+    
     public var base = 10
     public var nativebase = 10
     public var baserange : ClosedRange<Int> = 2...10
 
-    // le plus grand nombre qui bloque la saisie (vaut 0 lorsqu'il n'y pas de limite)
-    public var greatest = 99999
+    // le plus grand nombre défini par la plus grande puissance décimale
+    public var powermax = 17
+    /*public func sature(_ value:Int)->Bool {
+        if greatest == 0 {
+            return false
+        } else {
+            return value >= greatest - 10
+        }
+    }*/
     
     // écriture correspondant au numicode
     // bro ne correspond à une aucun numicode
@@ -35,21 +47,6 @@ public struct Numeration{
     
     var zeroisknown = true
     var isadditive = false
-    
-    public var powermax: Int {
-        switch numicode {
-        case .aegypt:
-            return Hieroglyph.claviers.count
-        case.attic:
-            return Grec.acroclaviers.count
-        case .alpha:
-            return Grec.alphaclaviers.count
-        case .roman:
-            return Romain.claviers.count
-        default:
-            return 10       // à raffiner
-        }
-    }
     
     func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
         if power < powermax && index < base {
@@ -133,27 +130,6 @@ public struct Numeration{
         }
     }
     
-    /*var iscunei: Bool {
-        let cuneidigits: [Numicode] = [.cuneiash, .cuneidish, .cuneigesh, .geshu, .sumer]
-        return cuneidigits.contains(numicode)
-    }
-    var iscuneiten: Bool {
-        return numicode == .geshu || numicode == .sumer
-    }*/
-   
-    
-    public func isnot(_ numer:Numeration) -> Bool {
-        return numicode != numer.numicode || base != numer.base
-    }
-    
-    public func sature(_ value:Int)->Bool {
-        if greatest == 0 {
-            return false
-        } else {
-            return value >= greatest - 10
-        }
-    }
-    
     // groupement des chiffres
     public var groupby = 3
     
@@ -181,6 +157,7 @@ public struct Numeration{
         numicode = numic
        // classifiers = Classifierset(numic)
         setnativebase()
+        powermax = 17
         zeroisknown = true
         isadditive = false
         switch numic {
@@ -190,7 +167,7 @@ public struct Numeration{
             baserange = setbaserange(2, 36)
         case .aegypt:
             baserange = setbaserange(10, 10)
-            greatest = 999999
+            powermax = 5
             groupby = 6
             zeroisknown = false
             isadditive = true
@@ -212,13 +189,13 @@ public struct Numeration{
             groupby = 4
         case .attic:
             baserange = setbaserange(2, 10)
-            greatest = 9999
+            powermax = 5
             groupby = 3
             zeroisknown = false
             isadditive = true
         case .alpha:
             baserange = setbaserange(2, 10)
-            greatest = 9999
+            powermax = 5
             groupby = 3
             zeroisknown = false
             isadditive = true
@@ -226,24 +203,21 @@ public struct Numeration{
             baserange = setbaserange(2, 10)
             //  correspondingScript = .zh
             groupby = 4
-            greatest = 999999999999999999
             // glyphes[0] et glyphes[1] servent à Digigroup
         case .kanji:
             baserange = setbaserange(2, 10)
             // ecritures = [.japa, .kanji, .japr]
             groupby = 4
-            greatest = 999999999999999999
             //  correspondingScript = .japa
         case .kor:
             baserange = setbaserange(2, 10)
             // correspondingScript = .kor
             groupby = 4
-            greatest = 999999999999999999
         case .maya:
             baserange = setbaserange(2, 20)
         case .roman:
             baserange = setbaserange(2, 10)
-            greatest = 399999
+            powermax = 4
             groupby = 6
             zeroisknown = false
             isadditive = true

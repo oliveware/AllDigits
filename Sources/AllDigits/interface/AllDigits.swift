@@ -98,7 +98,7 @@ public struct Pad: View {
                         chiffres: $chiffres)
                 }
             }
-        }
+        }.disabled(numeration.powermax == chiffres.values.count - 1)
     }
 }
 
