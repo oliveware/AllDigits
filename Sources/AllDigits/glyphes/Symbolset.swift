@@ -128,7 +128,7 @@ struct Chinois {
         if index == 0 {
             return ""
         } else {
-            let classifier = classifier(maxpower - 1 - power, hanzi_10, hanzi_wan)
+            let classifier = classifier(maxpower - power, hanzi_10, hanzi_wan)
             return hanziset[index] + classifier
         }
     }
@@ -136,7 +136,7 @@ struct Chinois {
         if index == 0 {
             return ""
         } else {
-            let classifier = classifier(maxpower - 1 - power, kanji_10, kanji_man)
+            let classifier = classifier(maxpower - power, kanji_10, kanji_man)
             return kanjiset[index] + classifier
         }
     }
@@ -144,7 +144,7 @@ struct Chinois {
         if index == 0 {
             return ""
         } else {
-            let classifier = classifier(maxpower - 1 - power, hangeul_10, hangeul_man)
+            let classifier = classifier(maxpower - power, hangeul_10, hangeul_man)
             return hangeulset[index] + classifier
         }
     }

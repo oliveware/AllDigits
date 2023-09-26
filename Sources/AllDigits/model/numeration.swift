@@ -143,11 +143,13 @@ public struct Numeration {
         case .bali, .hanzi, .kanji:
             return 0.8
         case .shadok, .shadok5:
-            return 0.6
+            return 0.5
         case .roman, .alpha, .attic,  .aegypt:
             return 0.4
         case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
             return 0.5
+        case .maya:
+            return 0.7
         default:
             return 1
         }
