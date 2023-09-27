@@ -66,6 +66,7 @@ public struct Pad: View {
         configshow = confshow
         width = w
         height = h
+        // *** initialisation d'un binding ***
         self._chiffres = scalar
     }
     

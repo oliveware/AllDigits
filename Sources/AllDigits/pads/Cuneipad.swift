@@ -52,11 +52,13 @@ struct Cuneipad: View {
                 Unipad(width:width*0.4, height: height,
                        config: config,
                        touches:tens,
+                       cuneiten:true,
                        chiffres: $compose)
 
                 Unipad(width:width*0.6, height: height,
                        config:config,
                        touches:units,
+                       cuneiunit:true,
                        chiffres: $compose)
             }
         }.padding(5)
