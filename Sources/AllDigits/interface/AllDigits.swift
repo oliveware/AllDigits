@@ -6,11 +6,11 @@ import Digiconf
 // nombre écrit avec les chiffres de la numération
 public struct Enchiffres: View {
     var numeration : Numeration
-    var chiffres: [Int] = []
+    var chiffres: Chiffres
     var config: Digiconfig
     var graphic = false
     
-    public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10),_ chiffres:[Int]) {
+    public init(_ conf:Digiconfig, _ numeration: Numeration = Numeration(.global, 10),_ chiffres:Chiffres) {
         self.numeration = numeration
         graphic = numeration.graphism != nil
         self.chiffres = chiffres
@@ -18,30 +18,33 @@ public struct Enchiffres: View {
     }
     
     public var body: some View {
-        HStack {
-            ForEach(0..<chiffres.count, id:\.self) {
-                power in
-                if graphic {
-                    Chiffregraphic(
-                        index:chiffres[power],
-                        graphism:numeration.graphism!,
-                        config: config
-                    )
-                } else {
-                    Chiffreunicode(
-                        symbol:numeration.chiffre(chiffres.count - 1 , power, chiffres[power]),
-                        config: config
-                    )
+        VStack (alignment:.trailing) {
+            HStack {
+                ForEach(0..<chiffres.values.count, id:\.self) {
+                    power in
+                    if graphic {
+                        Chiffregraphic(
+                            index:chiffres.values[power],
+                            graphism:numeration.graphism!,
+                            config: config
+                        )
+                    } else {
+                        Chiffreunicode(
+                            symbol:numeration.chiffre(chiffres.values.count - 1 , power, chiffres.values[power]),
+                            config: config
+                        )
+                    }
                 }
-            }
-        }.frame(height: config.haut)
+            }.frame(height: config.haut)
+            Text("\(chiffres.global10)")
+        }
     }
 }
 
 // nota: la présentation en boules est fournie par Abacus
     
 public struct Pad: View {
-    @State var chiffres = Chiffres()
+    @Binding var chiffres : Chiffres
     var configtouch: Digiconfig
     var configshow: Digiconfig
     var numeration : Numeration
@@ -51,8 +54,8 @@ public struct Pad: View {
     var height : CGFloat = 400
     
     public init(_ confshow:Digiconfig, _ conftouch:Digiconfig,
-                _ scalar : Chiffres,
-                _ numeration: Numeration = Numeration(.global, 10), 
+                _ scalar : Binding<Chiffres>,
+                _ numeration: Numeration = Numeration(.global, 10),
                 _ linear:Bool = false, _ additif : Bool = false,
                 _ w : CGFloat = 1200,_ h : CGFloat = 800)
     {
@@ -63,12 +66,12 @@ public struct Pad: View {
         configshow = confshow
         width = w
         height = h
-        chiffres = scalar
+        self._chiffres = scalar
     }
     
     public var body: some View {
         VStack {
-            Enchiffres( configshow, numeration, chiffres.values )
+            Enchiffres( configshow, numeration, chiffres )
             Spacer()
             if Mesopotamie.cuneicodes.contains(numeration.numicode) {
                 Cuneipad(

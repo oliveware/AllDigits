@@ -9,6 +9,7 @@ import SwiftUI
 import Hexaglyphes
 import Digiconf
 
+
 extension Image {
     init(resource name: String, ofType type: String) {
         #if canImport(UIKit)
@@ -47,7 +48,7 @@ struct ChiffreMaya: View {
                 .foregroundColor(config.lun)
                 .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
                 .padding(config.large/3)
-                .background(config.fond)
+                .background(config.nul)
         } else {
             VStack(alignment:.center, spacing:config.haut*0.7){
                 CircleRow(nc: index % 5,
@@ -56,7 +57,7 @@ struct ChiffreMaya: View {
                          size: config.large, color: config.lun)
             }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
                 .padding(config.large/3)
-                .background(config.fond)
+                .background(config.nul)
         }
     }
 }

@@ -11,6 +11,8 @@ struct NumerationChoice: View {
     
     @Binding var isPresented : Bool
     @Binding var numeration: Numeration
+    @Binding var scalar: Chiffres
+    
     @State var changebase = true
 
     var width: CGFloat = 420
@@ -63,8 +65,8 @@ struct NumerationChoice: View {
 struct NumerationChoice_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NumerationChoice(isPresented: .constant(true),  numeration:.constant(Numeration(.global, 10)), changebase:false)
-            NumerationChoice(isPresented: .constant(true),  numeration:.constant(Numeration(.global, 10)))
+            NumerationChoice(isPresented: .constant(true),  numeration:.constant(Numeration(.global, 10)), scalar:.constant(Chiffres(12)), changebase:false)
+            NumerationChoice(isPresented: .constant(true),  numeration:.constant(Numeration(.global, 10)), scalar:.constant(Chiffres(12)))
         }
     }
 }

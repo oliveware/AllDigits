@@ -22,7 +22,7 @@ public struct Show: View {
     var cote:CGFloat = 50
     
     public init(_ show: Digiconfig, _ touch:Digiconfig,
-                _ decimal:[Int] = [1,3],
+                _ decimal:Int,
                 _ numic:Numicode, _ b:Int = 10, _ l:Bool = false,
                 _ w: CGFloat = 600, _ h: CGFloat = 400) {
         numeration = Numeration(numic, b)
@@ -31,7 +31,7 @@ public struct Show: View {
         height = h
         configshow = show
         configtouch = touch
-        scalar = Chiffres(values:decimal)
+        scalar = Chiffres(decimal)
     }
     
     var parambar: some View {
@@ -46,7 +46,7 @@ public struct Show: View {
                 Image(systemName: "123.rectangle" )
             }.fond(w: cote, h: cote)
                 .sheet(isPresented:$numerationsetting) {
-                    NumerationChoice(isPresented: $numerationsetting, numeration: $numeration)
+                    NumerationChoice(isPresented: $numerationsetting, numeration: $numeration, scalar: $scalar)
                 }
             Spacer()
             Button(action: {  linear.toggle() } )
@@ -67,7 +67,7 @@ public struct Show: View {
         HStack(spacing:50) {
             parambar
             Spacer()
-            Pad(configshow, configtouch, scalar, numeration, linear, clavieradditif, width, height)
+            Pad(configshow, configtouch, $scalar, numeration, linear, clavieradditif, width, height)
             Spacer()
         }
     }
@@ -75,6 +75,6 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(30, 50), Digiconfig(10,20),[5,9], .global,10)
+        Show(Digiconfig(30, 50), Digiconfig(10,20),59, .global,10)
     }
 }
