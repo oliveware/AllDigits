@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Digiconf
 
 struct TouchStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
@@ -17,19 +18,26 @@ struct TouchStyle: ButtonStyle {
     var fonte: Font
     var padding = 7.0
     
-      func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(width: width, height: height)
-            .font(fonte)
-            .padding(padding)
-            .foregroundColor(configuration.isPressed ? press : fore)
-            .background(isEnabled ? back : Color("disabled"))
-            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-            .cornerRadius(8)
-      }
+    func makeBody(configuration: Self.Configuration) -> some View {
+    configuration.label
+        .frame(width: width, height: height)
+        .font(fonte)
+        .padding(padding)
+        .foregroundColor(configuration.isPressed ? press : fore)
+        .background(isEnabled ? back : Color("disabled"))
+        .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+        .cornerRadius(8)
+    }
 }
 
 extension View {
+    func configTouch(_ config:Digiconfig ) -> some View {
+        self.buttonStyle(TouchStyle(
+            fore: config.fore, back: config.back, press: config.press,
+            width: config.large, height: config.haut,
+            fonte: config.font, padding: 7))
+    }
+    
       func styleTouch(
         fore: Color = .white,
         back: Color = .gray,

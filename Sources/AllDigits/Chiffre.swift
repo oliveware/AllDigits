@@ -20,11 +20,11 @@ public struct Chiffregraphic: View {
            switch graphism {
                // case aztek
            case .bibi:
-               Glyshape(index: index, color:config.lun,
+               Glyshape(index: index, color:config.fore,
                         weight:5,
                         set:bibibinaire)
                .frame(width: config.large, height: config.haut)
-               .background(config.nul)
+               .background(config.back)
            case .maya:
                ChiffreMaya(index: index, config: config.scale(0.15))
            case .yiking:
@@ -42,10 +42,10 @@ struct Chiffreunicode: View {
     var body : some View {
         Text(symbol)
             .font(config.font)
-            .fontWeight(config.weight)
+            .fontWeight(.bold)
             .frame(height:config.haut)
-            .foregroundColor(config.lun)
-            .background(config.nul)
+            .foregroundColor(config.fore)
+            .background(config.back)
     }
 }
 
@@ -54,7 +54,7 @@ struct Chiffre_Previews: PreviewProvider {
         VStack {
             Chiffreunicode(symbol:Decimal.farsi[5], config: Digiconfig())
             Chiffreunicode(symbol:Chinois.hanziset[5], config: Digiconfig())
-            Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig().scale(1.1))
+            Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig().scale(1.5))
             Chiffreunicode(symbol:Chinois.kanji(5,4,5), config: Digiconfig())
             Chiffreunicode(symbol:Chinois.hangeul(5,4,5), config: Digiconfig())
             Chiffreunicode(symbol:Decimal.telugu[5], config: Digiconfig())
