@@ -28,7 +28,7 @@ public struct Chiffres {
     func conv10() -> Int {
         var conval = 0
         var power = 1
-        for value in values {
+        for value in values.reversed() {
             conval += value * power
             power *= base
         }
@@ -56,6 +56,7 @@ public struct Chiffres {
     
     mutating func clear() {
         values = []
+        global10 = 0
     }
     
     mutating func compose60(_ value:Int) {
