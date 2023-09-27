@@ -19,8 +19,6 @@ struct Unipad: View {
     
     // touches du clavier
     var touches: [String]
-    var cuneiten = false
-    var cuneiunit = false
     var nbtouches: Int = 10
     var graphism : Graphism?
     var zeroisknown = false
@@ -43,10 +41,7 @@ struct Unipad: View {
                                        graphism:graphism,
                                        width:wt, height:ht,
                                        config:config,
-                                       chiffres:$chiffres,
-                                       cuneiten:cuneiten,
-                                       cuneiunit:cuneiunit
-                                )
+                                       chiffres:$chiffres)
                             }
                         }
                     }.padding(0)

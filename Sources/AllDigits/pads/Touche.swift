@@ -19,8 +19,6 @@ struct Touche: View {
     var scale: CGFloat = 1
     
     @Binding var chiffres: Chiffres
-    var cuneiten = false
-    var cuneiunit = false
     
     var body: some View {
         Button( action: {input(index)} )
@@ -41,15 +39,8 @@ struct Touche: View {
         .disabled(index==0 && chiffres.empty)
     }
     
-
-    
     func input (_ value:Int) {
-
-        if cuneiten || cuneiunit {
-            chiffres.compose60( cuneiten ? value * 10 : value)
-        } else {
-            chiffres.add(value)
-        }
+        chiffres.add(value)
     }
 }
 

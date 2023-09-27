@@ -34,39 +34,76 @@ struct Cuneipad: View {
     var units : [String] = Mesopotamie.ash
     
     @Binding var chiffres : Chiffres
-    @State var compose = Chiffres()
+    @State var compose = 0
     
     var body: some View {
         VStack {
             HStack(alignment:.top) {
                 Button(action: add) {
-                    Text( compose.empty ? "" : doubles[compose.values[0]])
+                    Text( compose == 0 ? "" : doubles[compose])
                 }
                 .buttonStyle(Digit60())
-                .disabled(compose.empty)
+                .disabled(compose == 0)
             }.frame(width:width)
                 .padding(.top, 5)
                 .padding(.bottom,20)
-            
-            HStack(spacing:15) {
-                Unipad(width:width*0.4, height: height,
-                       config: config,
-                       touches:tens,
-                       cuneiten:true,
-                       chiffres: $compose)
-
-                Unipad(width:width*0.6, height: height,
-                       config:config,
-                       touches:units,
-                       cuneiunit:true,
-                       chiffres: $compose)
-            }
+            HStack(alignment: .top) {
+                VStack(spacing:2) {
+                    ForEach(0...2, id: \.self) {
+                        line in
+                        HStack(spacing:2) {
+                            ForEach(1...2, id: \.self) {
+                                col in
+                                if line*2+col < 6 {
+                                    Button( action: { seten(line*2+col) } )
+                                    {  Chiffreunicode(symbol:tens[line*2+col],
+                                                config: config.scale(0.7)
+                                            )
+                                    }
+                                    .modern(w: width/6, h:height/5)
+                                    .disabled(compose > 9)
+                                }
+                                }
+                        }.padding(0)
+                    }
+                }
+                .padding(5)
+                VStack(spacing:2) {
+                    ForEach(0...2, id: \.self) {
+                        line in
+                        HStack(spacing:2) {
+                            ForEach(1...3, id: \.self) {
+                                col in
+                                    Button( action: { setunit(line*3+col) } )
+                                    {  Chiffreunicode(symbol:units[line*3+col],
+                                                config: config.scale(0.5)
+                                            )
+                                    }
+                                    .modern(w: width/6, h:height/5)
+                                    .disabled(compose % 10 > 0)
+                                
+                                }
+                        }.padding(0)
+                    }
+                }
+                .padding(5)
+            }.frame(width: width, height: height, alignment: .center)
+            .padding(0)
+           
         }.padding(5)
     }
     
+    func seten(_ input:Int) {
+        if compose < 10 { compose += input * 10 }
+    }
+    
+    func setunit(_ input:Int){
+        if compose % 10 == 0 { compose += input }
+    }
+    
     func add() {
-        chiffres.add(compose.values[0])
-        compose.clear()
+        chiffres.add(compose)
+        compose = 0
     }
 
 }
