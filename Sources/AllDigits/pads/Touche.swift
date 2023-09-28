@@ -26,7 +26,7 @@ struct Touche: View {
             Chiffregraphic(
                 index: index,
                 graphism:graphism!,
-                config: config.size(width*0.7,height*0.7)
+                config: config.size(width*0.7,height*0.5)
             )
             } else {
                 Chiffreunicode(symbol:clavier[index],
@@ -34,7 +34,8 @@ struct Touche: View {
                 )
             }
         }
-        .modern(w: width, h:height)
+        .configTouch(config)
+        //.modern(w: width, h:height)
          //   .keyboardShortcut(key)
         .disabled(index==0 && chiffres.empty)
     }
@@ -46,6 +47,11 @@ struct Touche: View {
 
 struct Touche_Previews: PreviewProvider {
     static var previews: some View {
-        Touche(chiffres:.constant(Chiffres()))
+        VStack {
+            Touche(chiffres:.constant(Chiffres()))
+            Touche(index:12,graphism:.bibi, chiffres:.constant(Chiffres()))
+            Touche(index:17,graphism:.maya, chiffres:.constant(Chiffres()))
+            Touche(index:17,graphism:.yiking, chiffres:.constant(Chiffres()))
+        }
     }
 }

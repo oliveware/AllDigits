@@ -6,7 +6,7 @@
       "location" : "http://github.com/oliveware/Digiconf",
       "state" : {
         "branch" : "main",
-        "revision" : "75d72097a109667f0e2d2cbd8eb2cf49c0b97329"
+        "revision" : "2397829fd27c6177079d15b001fd1399d25babf3"
       }
     },
     {
@@ -15,7 +15,7 @@
       "location" : "http://github.com/oliveware/Hexaglyphes",
       "state" : {
         "branch" : "main",
-        "revision" : "389e2ce70b7d17a3b7766f7dbe8e1ddc6ff974d4"
+        "revision" : "498da5ddb877be4b9bec7ef74a8ec083a2ed5da9"
       }
     }
   ],

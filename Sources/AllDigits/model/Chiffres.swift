@@ -16,23 +16,25 @@ public struct Chiffres {
     // valeur du nombre en base 10
     var global10: Int = 0
     
-    public init(_ val:Int = 0, _ b:Int = 10) {
-        if b == 10 {
-            global10 = val
-            conval(10)
-        } else {
-            
-        }
+    public init(_ decival:Int = 0, _ b:Int = 10) {
+        base = b
+        global10 = decival
+        conval(b)
+    }
+    
+    mutating func change(_ b:Int) {
+        base = b
+        conval(b)
     }
     
     func conv10() -> Int {
-        var conval = 0
+        var decival = 0
         var power = 1
         for value in values.reversed() {
-            conval += value * power
+            decival += value * power
             power *= base
         }
-       return conval
+       return decival
     }
     
     mutating func conval(_ newbase:Int) {
@@ -58,21 +60,5 @@ public struct Chiffres {
         values = []
         global10 = 0
     }
-    
-    mutating func compose60(_ value:Int) {
-        if values.count == 0 {
-            values = [value]
-        } else {
-            let deja = values[0]
-            if deja < 10 {
-                if value > 9 {
-                    values[0] += value
-                }
-            } else {
-                if value < 10 && deja % 10 == 0 {
-                    values[0] += value
-                }
-            }
-        }
-    }
+
 }

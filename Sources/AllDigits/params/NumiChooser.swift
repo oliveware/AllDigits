@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NumiChooser: View {
     @Binding var numeration:Numeration
+    @Binding var nombre:Chiffres
     
     var height:CGFloat = 300
     var w:CGFloat = 300
@@ -51,13 +52,16 @@ struct NumiChooser: View {
         
     func choose(_ set:Int,_ choix:Int){
         numeration.change( choice[set].set[choix], numeration.base)
+        nombre.change(numeration.base)
     }
 }
 
 struct NumiChooser_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NumiChooser(numeration:.constant(Numeration(.global, 10)))
+            NumiChooser(
+                numeration:.constant(Numeration(.global, 10)),
+                nombre:.constant(Chiffres(125)))
         }
         
 

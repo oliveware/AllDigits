@@ -10,6 +10,7 @@ import SwiftUI
 struct BasEditor: View {
     
     @Binding var numeration:Numeration
+    @Binding var nombre:Chiffres
     
     var w:CGFloat = 90
     var h:CGFloat = 25
@@ -48,35 +49,17 @@ struct BasEditor: View {
                 
             }.frame(width: w+30, alignment: .top)
         }
-       /* VStack {
-            HStack(spacing: 2) {
-                
-                if change {
-                    Button(action: inc){
-                        Image(systemName: "chevron.up")
-                    }.param(w: h, h: h)
-                }
-                
-                Button("base " + String(face.base))
-                {change.toggle()}
-                    .param(w: w * 0.4, h: h)
-            
-                if change {
-                    Button(action: dec){
-                        Image(systemName: "chevron.down")
-                    }.param(w: h, h: h)
-                }
-            }.frame(width: w, height: h, alignment: .center)
-        }.frame(width: w, alignment: .center)*/
             
     }
     
     func inc() {
         numeration.change(true)
+        nombre.change(numeration.base)
     }
     
     func dec() {
         numeration.change(false)
+        nombre.change(numeration.base)
     }
 
     
@@ -84,6 +67,9 @@ struct BasEditor: View {
 
 struct BasEditor_Previews: PreviewProvider {
     static var previews: some View {
-        BasEditor(numeration:.constant(Numeration(.global,10)))
+        BasEditor(
+            numeration:.constant(Numeration(.global,10)),
+            nombre:.constant(Chiffres(125))
+        )
     }
 }
