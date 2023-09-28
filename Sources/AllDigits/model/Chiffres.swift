@@ -9,7 +9,7 @@ import Foundation
 
 public struct Chiffres {
 
-    // valeurs des chiffres dans la base courante, dans l'ordre inverse des chiffres
+    // valeurs des chiffres dans la base courante, dans l'ordre décroissant des puissances
     public var values : [Int] = []
     // base courante
     private var base: Int = 10
@@ -32,7 +32,7 @@ public struct Chiffres {
     func conv10() -> Int {
         var decival = 0
         var power = 1
-        for value in values {
+        for value in values.reversed() {
             decival += value * power
             power *= base
         }
