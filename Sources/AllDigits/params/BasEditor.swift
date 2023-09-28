@@ -27,7 +27,10 @@ struct BasEditor: View {
                 }.fond(w: w, h: h)
                 
                 if !numeration.baseisnative {
-                    Button(action:{numeration.setbasetonative()})
+                    Button(action:{
+                        numeration.setbasetonative()
+                        nombre.change(numeration.base)
+                    })
                     {
                         Text("native")
                     }.fond(w: w, h: h)
