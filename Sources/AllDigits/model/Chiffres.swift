@@ -46,7 +46,7 @@ public struct Chiffres {
             newvalues.append( chiffre)
             decival = (decival - chiffre) / newbase
         }
-        values = newvalues
+        values = newvalues.reversed()
     }
     
     var empty:Bool {values.count == 0}
