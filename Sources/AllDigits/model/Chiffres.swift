@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Integer {
+public struct Valuebase {
     public let g10:Int
     public let base:Int
 }
@@ -21,8 +21,8 @@ public struct Chiffres {
     // valeur du nombre en base 10
     internal var global10: Int = 0
     
-    public var value: Integer {
-        Integer(g10: global10, base: base)
+    public var value: Valuebase {
+        Valuebase(g10: global10, base: base)
     }
     
     public init(_ decival:Int = 0, _ b:Int = 10) {
