@@ -7,14 +7,23 @@
 
 import Foundation
 
+public struct Integer {
+    public let g10:Int
+    public let base:Int
+}
+
 public struct Chiffres {
 
     // valeurs des chiffres dans la base courante, dans l'ordre décroissant des puissances
-    public var values : [Int] = []
+    internal var values : [Int] = []
     // base courante
     private var base: Int = 10
     // valeur du nombre en base 10
-    var global10: Int = 0
+    internal var global10: Int = 0
+    
+    public var value: Integer {
+        Integer(g10: global10, base: base)
+    }
     
     public init(_ decival:Int = 0, _ b:Int = 10) {
         base = b
