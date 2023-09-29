@@ -10,6 +10,12 @@ import Foundation
 public struct Valuebase {
     public let g10:Int
     public let base:Int
+    
+    public init(_ value:Int, _ b:Int)
+    {
+        g10 = value
+        base = b
+    }
 }
 
 public struct Chiffres {
@@ -22,7 +28,7 @@ public struct Chiffres {
     internal var global10: Int = 0
     
     public var value: Valuebase {
-        Valuebase(g10: global10, base: base)
+        Valuebase(global10, base)
     }
     
     public init(_ decival:Int = 0, _ b:Int = 10) {
