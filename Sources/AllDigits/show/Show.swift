@@ -9,7 +9,7 @@ import SwiftUI
 import Digiconf
 
 public struct Show: View {
-    @State var numerationsetting = false
+    
     @State var numeration = Numeration(.global,10)
     @State var scalar : Chiffres
     @State var linear = false
@@ -41,13 +41,7 @@ public struct Show: View {
                 Image(systemName: "trash" )
             }.fond(w: cote, h: cote)
             Spacer()
-            Button(action: {  numerationsetting = true } )
-            {
-                Image(systemName: "123.rectangle" )
-            }.fond(w: cote, h: cote)
-                .sheet(isPresented:$numerationsetting) {
-                    NumerationChoice(isPresented: $numerationsetting, numeration: $numeration, scalar: $scalar)
-                }
+           NumerationSetting(numeration: $numeration, chiffres: $scalar)
             Spacer()
             Button(action: {  linear.toggle() } )
             {
@@ -75,6 +69,6 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(30, 50), Digiconfig(10,20),59, .global,10)
+        Show(Digiconfig(30, 50), Digiconfig(10,20), 579, .global,10)
     }
 }
