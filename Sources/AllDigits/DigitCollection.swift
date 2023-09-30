@@ -51,36 +51,14 @@ public struct DigitCollection: View {
                     .foregroundColor(Color.green)
                 ForEach (crown([190], antik.count), id: \.self) { point in
                     VStack {
-                        if antik[point.i].isgraphic {
-                            Chiffregraphic(
-                                index:value,
-                                graphism:antik[point.i].graphism!,
-                                config: config
-                            )
-                        } else {
-                            Chiffreunicode(
-                                symbol:antik[point.i].chiffre(0 , 0, value),
-                                config: config
-                            )
-                        }
+                        Enchiffres(config, Chiffres(value, antik[point.i].base), antik[point.i], false)
                         Text(antik[point.i].numicode.rawValue).font(.caption)
                     }
                     .offset(x: point.x, y: point.y)
                 }
                 ForEach (crown([300], live.count), id: \.self) { point in
                     VStack {
-                        if live[point.i].isgraphic {
-                            Chiffregraphic(
-                                index:value,
-                                graphism:live[point.i].graphism!,
-                                config: config
-                            )
-                        } else {
-                            Chiffreunicode(
-                                symbol:live[point.i].chiffre(0 , 0, value),
-                                config: config
-                            )
-                        }
+                        Enchiffres(config, Chiffres(value, live[point.i].base), live[point.i], false)
                         Text(live[point.i].numicode.rawValue).font(.caption)
                     }
                     .offset(x: point.x, y: point.y)
@@ -94,10 +72,12 @@ public struct DigitCollection: View {
                             .fond(w: cote, h: cote)
                     }
                     Spacer()
-                    Button(action: inc)
-                    { Image(systemName: "chevron.right").scaledToFill() }
-                        .padding(.trailing, 15)
-                        .fond(w: cote, h: cote)
+                    if value < 99 {
+                        Button(action: inc)
+                        { Image(systemName: "chevron.right").scaledToFill() }
+                            .padding(.trailing, 15)
+                            .fond(w: cote, h: cote)
+                    }
                 }
                 .padding(10)
             }
@@ -113,14 +93,14 @@ public struct DigitCollection: View {
     
     func dec() {
         if value == 0 {
-            value = 9
+            value = 99
         } else {
             value -= 1
         }
     }
     
     func inc() {
-        if value == 9 {
+        if value == 99 {
             value = 0
         } else {
             value += 1

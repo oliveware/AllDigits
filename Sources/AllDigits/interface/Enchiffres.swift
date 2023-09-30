@@ -16,12 +16,14 @@ public struct Enchiffres: View {
     var chiffres: Chiffres
     var config: Digiconfig
     var graphic = false
+    var dekavalcaption = true
     
-    public init(_ conf:Digiconfig,_ chiffres:Chiffres, _ numeration: Numeration = Numeration(.global, 10)) {
+    public init(_ conf:Digiconfig,_ chiffres:Chiffres, _ numeration: Numeration = Numeration(.global, 10), _ dekaption: Bool = true) {
         self.numeration = numeration
         graphic = numeration.graphism != nil
         self.chiffres = chiffres
         config = conf
+        dekavalcaption = dekaption
     }
     
     public var body: some View {
@@ -43,7 +45,7 @@ public struct Enchiffres: View {
                     }
                 }
             }.frame(height: config.haut)
-            Text("\(chiffres.global10)")
+            if dekavalcaption { Text("\(chiffres.global10)") }
         }
     }
 }
