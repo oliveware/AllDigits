@@ -10,7 +10,7 @@ import AVFoundation
 import Digiconf
 
 
-struct DigitCollection: View {
+public struct DigitCollection: View {
     //var mesure = Mesure()
     var width:CGFloat = 1200
     var height:CGFloat = 800
@@ -18,13 +18,17 @@ struct DigitCollection: View {
     var config = Digiconfig(50,50,0,.brown,.clear)
     
     @State var value = 7
-    @State var start = true
+    @State var start = false
     
     var antik: [Numeration] { Numeration.set(.antik, [.global]) }
     var live: [Numeration] { Numeration.set(.live, [.global]) }
 
-    
-    var body: some View {
+    public init(w:CGFloat = 1200, h:CGFloat = 800) {
+        width = w
+        height = h
+        start = true
+    }
+    public var body: some View {
 
         ZStack(alignment: .top) {
             if start {
@@ -151,6 +155,4 @@ struct DigitCollection: View {
 #Preview {
     DigitCollection()
 }
-#Preview {
-    DigitCollection(start:false)
-}
+
