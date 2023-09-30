@@ -229,7 +229,7 @@ struct Grec {
     
     static func acrophoniclavier(_ power:Int) -> [String] {
         let max = acroclaviers.count
-        return acroclaviers[max - power % max]
+        return acroclaviers[max - 1 - power % max]
     }
     static func acrochiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
         return acrophoniclavier(maxpower - power)[index]
@@ -247,7 +247,7 @@ struct Grec {
     
     static func alphabeticlavier(_ power:Int) -> [String] {
         let max = alphaclaviers.count
-       return alphaclaviers[max - power % max]
+       return alphaclaviers[max - 1 - power % max]
     }
     static let alphaclaviers = [alpha, deka, hekto, kilo, myriad, dekamyr]
     
