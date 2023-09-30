@@ -232,7 +232,7 @@ struct Grec {
         return acroclaviers[max - 1 - power % max]
     }
     static func acrochiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-        return acrophoniclavier(maxpower - power)[index]
+        return acroclaviers[(maxpower - power) % acroclaviers.count][index]
     }
 
 // lettres-chiffres de la numération alphabétique
@@ -242,7 +242,7 @@ struct Grec {
     static func alphachiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
         let prefix = power == 0  && maxpower > 2 ? aristerikerea : ""
         let suffix = power == maxpower ? kerea : ""
-        return prefix + alphabeticlavier(maxpower - power)[index] + suffix
+        return prefix + alphaclaviers[(maxpower - power) % alphaclaviers.count][index] + suffix
     }
     
     static func alphabeticlavier(_ power:Int) -> [String] {
