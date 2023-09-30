@@ -18,11 +18,12 @@ public struct DigitCollection: View {
     var config = Digiconfig(50,50,0,.brown,.clear)
     var greatest: Int = 59
     
-    @State var value = 59
+    @State var value = 0
     @State var start = false
     
     var antik: [Numeration] { Numeration.set(.antik, [.global]) }
     var live: [Numeration] { Numeration.set(.live, [.global]) }
+    var zero: [Numeration] { Numeration.set(.zero, [.global]) }
 
     public init(w:CGFloat = 1200, h:CGFloat = 800, maxi:Int = 59) {
         width = w
@@ -51,19 +52,34 @@ public struct DigitCollection: View {
                     
                 }.frame(width:width, height:height, alignment: .center)
                     .foregroundColor(Color.green)
-                ForEach (crown([210], antik.count), id: \.self) { point in
-                    VStack {
-                        Enchiffres(config, Chiffres(value, antik[point.i].base), antik[point.i], false)
-                        Text(antik[point.i].numicode.rawValue).font(.caption)
+                if value == 0 {
+                    ForEach (crown([300], zero.count), id: \.self) { point in
+                        VStack {
+                            if zero[point.i].isgraphic {
+                                Chiffregraphic(index: 0, graphism: zero[point.i].graphism!, config: config)
+                            } else {
+                                Text(zero[point.i].clavier(0)[0]).font(config.font)
+                                    .foregroundColor(config.fore)
+                            }
+                            Text(zero[point.i].numicode.rawValue).font(.caption)
+                        }
+                        .offset(x: point.x, y: point.y)
                     }
-                    .offset(x: point.x, y: point.y)
-                }
-                ForEach (crown([340], live.count), id: \.self) { point in
-                    VStack {
-                        Enchiffres(config, Chiffres(value, live[point.i].base), live[point.i], false)
-                        Text(live[point.i].numicode.rawValue).font(.caption)
+                } else {
+                    ForEach (crown([210], antik.count), id: \.self) { point in
+                        VStack {
+                            Enchiffres(config, Chiffres(value, antik[point.i].base), antik[point.i], false)
+                            Text(antik[point.i].numicode.rawValue).font(.caption)
+                        }
+                        .offset(x: point.x, y: point.y)
                     }
-                    .offset(x: point.x, y: point.y)
+                    ForEach (crown([340], live.count), id: \.self) { point in
+                        VStack {
+                            Enchiffres(config, Chiffres(value, live[point.i].base), live[point.i], false)
+                            Text(live[point.i].numicode.rawValue).font(.caption)
+                        }
+                        .offset(x: point.x, y: point.y)
+                    }
                 }
                 
                 HStack {

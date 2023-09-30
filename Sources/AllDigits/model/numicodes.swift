@@ -13,6 +13,7 @@ public enum Numictype: String {
     case antik = "antik numic"
     case artificial = "artificial numic"
     case live = "live numic"
+    case zero = "avec zéro"
 }
 
 // Jeux de chiffres
@@ -31,6 +32,8 @@ public struct Numicodeset {
             set = [ .shadok, .shadok5, .alphabet, .base72]
         case .live:
             set = [.global, .arab, .bibi, .bali, .brahmi, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .telugu, .thai]
+        case .zero:
+            set = [.global, .arab, .babygesh, .bibi, .bali, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .telugu, .thai, .yiking]
         }
     }
     
