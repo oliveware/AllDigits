@@ -22,7 +22,7 @@ public struct Show: View {
     var cote:CGFloat = 50
     
     public init(_ show: Digiconfig, _ touch:Digiconfig,
-                _ decimal:Int,
+                _ decival:Int,
                 _ numic:Numicode, _ b:Int = 10, _ l:Bool = false,
                 _ w: CGFloat = 600, _ h: CGFloat = 400) {
         numeration = Numeration(numic, b)
@@ -31,7 +31,7 @@ public struct Show: View {
         height = h
         configshow = show
         configtouch = touch
-        scalar = Chiffres(decimal)
+        scalar = Chiffres(decival,b)
     }
     
     var parambar: some View {
@@ -62,7 +62,7 @@ public struct Show: View {
             parambar
             Spacer()
             VStack {
-                Enchiffres(configshow, scalar)
+                Enchiffres(configshow, scalar, numeration)
                 Pad(configtouch, $scalar, numeration, linear, clavieradditif, width, height)
             }
             Spacer()
@@ -72,6 +72,6 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(30, 50), Digiconfig(10,20), 579, .global,10)
+        Show(Digiconfig(30,30,10, .purple, .clear), Digiconfig(25,25), 51279, .global,10)
     }
 }
