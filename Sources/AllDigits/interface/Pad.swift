@@ -1,21 +1,20 @@
 import SwiftUI
 import Digiconf
 
-
+// Interface du package
 
 // nota: la présentation en boules est fournie par Abacus
     
 public struct Pad: View {
     @Binding var chiffres : Chiffres
-    var configtouch: Digiconfig
-    var configshow: Digiconfig
+    var config: Digiconfig
     var numeration : Numeration
     var linear = false
     var additif = false
     var width : CGFloat = 600
     var height : CGFloat = 400
     
-    public init(_ confshow:Digiconfig, _ conftouch:Digiconfig,
+    public init(_ conf:Digiconfig,
                 _ scalar : Binding<Chiffres>,
                 _ numeration: Numeration = Numeration(.global, 10),
                 _ linear:Bool = false, _ additif : Bool = false,
@@ -24,8 +23,7 @@ public struct Pad: View {
         self.numeration = numeration
         self.linear = linear
         self.additif = additif
-        configtouch = conftouch
-        configshow = confshow
+        config = conf
         width = w
         height = h
         // *** initialisation d'un binding ***
@@ -34,13 +32,11 @@ public struct Pad: View {
     
     public var body: some View {
         VStack {
-            Enchiffres( configshow, numeration, chiffres )
-            Spacer()
             if Mesopotamie.cuneicodes.contains(numeration.numicode) {
                 Cuneipad(
                     width:width,
                     height:height * 0.8,
-                    config:configtouch,
+                    config:config,
                     doubles:Mesopotamie.symbols(numeration.numicode),
                     tens:Mesopotamie.tens(numeration.numicode),
                     units:Mesopotamie.units(numeration.numicode),
@@ -54,8 +50,8 @@ public struct Pad: View {
                     }
                     Unipad(
                         width:width,
-                        height: linear ? configtouch.haut : height*0.8,
-                        config:configtouch,
+                        height: linear ? config.haut : height*0.8,
+                        config:config,
                         linear:linear,
                         touches:numeration.clavier(additif ? chiffres.values.count : 0),
                         nbtouches:numeration.base,
@@ -68,12 +64,8 @@ public struct Pad: View {
     }
 }
 
-/*struct Conf {
-    static let width : CGFloat = 1200
-    static let height : CGFloat = 800
-    
-    static var show = Digiconfig()
-    static var touch = Digiconfig()
-}*/
+#Preview {
+    Pad(Digiconfig(30, 50), .constant(Chiffres(579, 10)))
+}
 
 

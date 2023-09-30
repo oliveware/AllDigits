@@ -61,7 +61,10 @@ public struct Show: View {
         HStack(spacing:50) {
             parambar
             Spacer()
-            Pad(configshow, configtouch, $scalar, numeration, linear, clavieradditif, width, height)
+            VStack {
+                Enchiffres(configshow, scalar)
+                Pad(configtouch, $scalar, numeration, linear, clavieradditif, width, height)
+            }
             Spacer()
         }
     }
