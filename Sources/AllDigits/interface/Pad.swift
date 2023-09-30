@@ -43,7 +43,7 @@ public struct Pad: View {
                     chiffres:$chiffres)
             } else {
                 HStack {
-                    if additif {
+                    if additif && numeration.isadditive {
                         Button("pass") {
                             chiffres.add(0, additif)
                         }
