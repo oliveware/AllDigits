@@ -45,12 +45,12 @@ public struct DigitCollection: View {
                     Text("\(value)")
                         .font(config.scale(3).font)
                         .fontWeight(Font.Weight.bold)
-                        .offset(x:-10, y:-30)
+                        .offset(x:-10, y:10)
                     
                 }.frame(width:width, height:height, alignment: .center)
                     .foregroundColor(Color.green)
                 ForEach (crown([190], antik.count), id: \.self) { point in
-                    HStack {
+                    VStack {
                         if antik[point.i].isgraphic {
                             Chiffregraphic(
                                 index:value,
@@ -63,11 +63,12 @@ public struct DigitCollection: View {
                                 config: config
                             )
                         }
+                        Text(antik[point.i].numicode.rawValue).font(.caption)
                     }
                     .offset(x: point.x, y: point.y)
                 }
-                ForEach (crown([280], live.count), id: \.self) { point in
-                    HStack {
+                ForEach (crown([300], live.count), id: \.self) { point in
+                    VStack {
                         if live[point.i].isgraphic {
                             Chiffregraphic(
                                 index:value,
@@ -80,6 +81,7 @@ public struct DigitCollection: View {
                                 config: config
                             )
                         }
+                        Text(live[point.i].numicode.rawValue).font(.caption)
                     }
                     .offset(x: point.x, y: point.y)
                 }
@@ -134,7 +136,7 @@ public struct DigitCollection: View {
     func crown(_ rayons:[Int], _ nbp:Int)-> [Point] {
         let pointsparcercle = Int(Double(nbp) / Double(rayons.count))
         let arc = 2 * 3.14 / Double(pointsparcercle)
-        let origin = Point (x:-10, y: height/2-30, i:0)
+        let origin = Point (x:-10, y: height/2, i:0)
         var result : [Point] = []
         var cercle = 0
         for rayon in rayons {
