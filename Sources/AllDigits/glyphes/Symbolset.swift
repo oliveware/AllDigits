@@ -312,7 +312,7 @@ struct Shadok {
     }
 }
     
-struct Decimal {
+struct Dekaval {
 
     static let arab = ["\u{660}", "\u{661}", "\u{662}", "\u{663}", "\u{664}", "\u{665}", "\u{666}", "\u{667}", "\u{668}", "\u{669}"]
     static let balinese = ["᭐","᭑", "᭒", "᭓", "᭔", "᭕", "᭖", "᭗", "᭘", "᭙"]

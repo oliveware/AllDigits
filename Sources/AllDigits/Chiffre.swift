@@ -52,12 +52,12 @@ struct Chiffreunicode: View {
 struct Chiffre_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Chiffreunicode(symbol:Decimal.farsi[5], config: Digiconfig())
+            Chiffreunicode(symbol:Dekaval.farsi[5], config: Digiconfig())
             Chiffreunicode(symbol:Chinois.hanziset[5], config: Digiconfig())
             Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig().scale(1.5))
             Chiffreunicode(symbol:Chinois.kanji(5,4,5), config: Digiconfig())
             Chiffreunicode(symbol:Chinois.hangeul(5,4,5), config: Digiconfig())
-            Chiffreunicode(symbol:Decimal.telugu[5], config: Digiconfig())
+            Chiffreunicode(symbol:Dekaval.telugu[5], config: Digiconfig())
             Chiffregraphic(graphism:.bibi, config: Digiconfig())
             Chiffregraphic(graphism:.maya, config: Digiconfig())
             Chiffregraphic(graphism:.yiking, config: Digiconfig())

@@ -128,8 +128,14 @@ public struct Chiffres {
     
     var empty:Bool {values.count == 0}
     
-    mutating func add(_ value:Int) {
-        values.append(value)
+    mutating func add(_ value:Int, _ additif:Bool = false) {
+        if additif {
+            var newval : [Int] = [value]
+            for value in values { newval.append(value) }
+            values = newval
+        } else {
+            values.append(value)
+        }
         global10 = conv10()
     }
     

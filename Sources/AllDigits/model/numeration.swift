@@ -85,19 +85,19 @@ public struct Numeration {
         case .alphabet:
             return Extended.alphabet
         case .arab:
-            return Decimal.arab
+            return Dekaval.arab
         case .bali:
-            return Decimal.balinese
+            return Dekaval.balinese
         case .bengali:
-            return  Decimal.bengali
+            return  Dekaval.bengali
         case .birman:
-            return  Decimal.birman
+            return  Dekaval.birman
         case .brahmi:
-            return  Decimal.brahmi
+            return  Dekaval.brahmi
         case .devanagari:
-            return  Decimal.devanagari
+            return  Dekaval.devanagari
         case .farsi:
-            return  Decimal.farsi
+            return  Dekaval.farsi
         case .attic:
             return Grec.acrophoniclavier(power)
         case .alpha:
@@ -107,11 +107,11 @@ public struct Numeration {
         case .kanji:
             return Chinois.kanjiset
         case .khmer:
-            return Decimal.khmer
+            return Dekaval.khmer
         case .kor:
             return Chinois.hangeulset
         case .lao:
-            return Decimal.lao
+            return Dekaval.lao
         case .roman:
             return Romain.clavier(power)
         case .shadok:
@@ -119,9 +119,9 @@ public struct Numeration {
         case .shadok5:
             return Shadok.symbols(5)
         case .telugu:
-            return Decimal.telugu
+            return Dekaval.telugu
         case .thai:
-            return Decimal.thai
+            return Dekaval.thai
             
         case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
             return Mesopotamie.symbols(numicode)

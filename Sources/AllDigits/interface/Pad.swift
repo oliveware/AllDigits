@@ -45,7 +45,7 @@ public struct Pad: View {
                 HStack {
                     if additif {
                         Button("pass") {
-                            chiffres.add(0)
+                            chiffres.add(0, additif)
                         }
                     }
                     Unipad(
@@ -53,6 +53,7 @@ public struct Pad: View {
                         height: linear ? config.haut : height*0.8,
                         config:config,
                         linear:linear,
+                        additif:additif,
                         touches:numeration.clavier(additif ? chiffres.values.count : 0),
                         nbtouches:numeration.base,
                         graphism:numeration.graphism,

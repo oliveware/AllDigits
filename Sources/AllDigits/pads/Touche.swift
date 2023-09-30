@@ -10,7 +10,7 @@ import Digiconf
 
 struct Touche: View {
     var index:Int = 3
-    var clavier:[String] = Decimal.arab
+    var clavier:[String] = Dekaval.arab
     var graphism:Graphism?
     
     var width: CGFloat = 70
@@ -19,6 +19,7 @@ struct Touche: View {
     var scale: CGFloat = 1
     
     @Binding var chiffres: Chiffres
+    var additif = false
     
     var body: some View {
         Button( action: {input(index)} )
@@ -41,7 +42,7 @@ struct Touche: View {
     }
     
     func input (_ value:Int) {
-        chiffres.add(value)
+        chiffres.add(value, additif)
     }
 }
 
