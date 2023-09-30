@@ -19,9 +19,9 @@ struct NumiChooser: View {
     
     var choice : [Numicodeset] {
        return [
-        Numicodeset(.live).othercodes(numeration.numicode),
-        Numicodeset(.artificial).othercodes(numeration.numicode),
-        Numicodeset(.antik).othercodes(numeration.numicode),
+        Numicodeset(.live).othercodes([numeration.numicode]),
+        Numicodeset(.artificial).othercodes([numeration.numicode]),
+        Numicodeset(.antik).othercodes([numeration.numicode]),
         ]
     }
     

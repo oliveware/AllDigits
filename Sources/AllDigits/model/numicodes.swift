@@ -24,13 +24,13 @@ public struct Numicodeset {
         name = LocalizedStringKey(type.rawValue)
         switch type {
         case .all:
-            set = [.global, .aegypt, .arab, .babyash, .babygesh, .bali, .bibi, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .roman, .shadok,.shadok5, .sumerash, .sumergesh, .telugu, .thai, .yiking, .alphabet,.base72 ]
+            set = [.global, .aegypt, .arab, .babyash, .babygesh, .bali, .bibi, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .roman, .shadok,.shadok5, .sumerash, .sumergesh, .telugu, .thai, .yiking, .alphabet, .base72 ]
         case .antik:
-            set = [.sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister]
+            set = [.sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister, .yiking]
         case .artificial:
-            set = [.bibi, .shadok, .shadok5, .yiking, .alphabet, .base72 ]
+            set = [ .shadok, .shadok5, .alphabet, .base72]
         case .live:
-            set = [.global, .arab, .bali, .brahmi, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .telugu, .thai]
+            set = [.global, .arab, .bibi, .bali, .brahmi, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .telugu, .thai]
         }
     }
     
@@ -39,11 +39,11 @@ public struct Numicodeset {
         set = s
     }
         
-    public func othercodes(_ exclude:Numicode) -> Numicodeset{
+    public func othercodes(_ exclude:[Numicode]) -> Numicodeset{
         var others :[Numicode] = []
         for i in 0..<set.count {
             let item = set[i]
-            if exclude != item {
+            if !exclude.contains(item) {
                 others.append(item)
             }
         }

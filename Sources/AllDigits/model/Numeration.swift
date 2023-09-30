@@ -11,6 +11,19 @@ import SwiftUI
 public var multibasemax = 72
 
 public struct Numeration {
+    
+    static func set(_ type:Numictype, _ exclude:[Numicode] = []) -> [Numeration] {
+        var numerations :[Numeration] = []
+        let numicodes = Numicodeset(type).set
+            for c in 0..<numicodes.count {
+                let numicode = numicodes[c]
+                if !exclude.contains(numicode) {
+                    let base = Numeration(numicode).nativebase
+                    numerations.append( Numeration(numicode, base))
+                }
+            }
+            return numerations
+    }
 
     // var classifiers = Classifierset() // caractères unicode des classifieurs
     public var numicode = Numicode.global
