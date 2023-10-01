@@ -16,7 +16,7 @@ struct NumerationChoice: View {
     @State var changebase = true
 
     var width: CGFloat = 420
-    var height: CGFloat = 400
+    var height: CGFloat = 600
     
     let bs : CGFloat = 35
     
@@ -41,15 +41,7 @@ struct NumerationChoice: View {
                     
                     if changebase {
                         VStack(alignment:.center) {
-
                             BasEditor(numeration:$numeration,nombre:$scalar, h:bs).padding(6)
-                            
-                         /*   if face.chooseclavier {
-                                Button(action:face.setclavier){
-                                    Image(systemName: "ant")
-                                }.fond(w: bs, h: bs)
-                            }*/
-                            
                         }
                     }
                 }.padding(10)

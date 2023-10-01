@@ -12,7 +12,7 @@ struct NumiChooser: View {
     @Binding var nombre:Chiffres
     
     var height:CGFloat = 300
-    var w:CGFloat = 90
+    var w:CGFloat = 100
     var h:CGFloat = 25
     
     var closable = true
@@ -43,7 +43,7 @@ struct NumiChooser: View {
                                 }
                             }.frame(alignment: .center)
                         }
-                    }.frame(width: w*1.1)
+                    }.frame(width: w*1.25)
                 }
         }.frame(alignment: .center)
         .padding(10)

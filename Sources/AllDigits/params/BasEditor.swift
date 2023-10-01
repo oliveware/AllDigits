@@ -12,8 +12,8 @@ struct BasEditor: View {
     @Binding var numeration:Numeration
     @Binding var nombre:Chiffres
     
-    var w:CGFloat = 90
-    var h:CGFloat = 25
+    var w:CGFloat = 60
+    var h:CGFloat = 35
     
     
     var body: some View {
