@@ -11,8 +11,8 @@ struct Cistdiz: View {
     var value = 2
     
     var size: CGFloat = 50
-    var color = Color("glyph")
-    var finesse: CGFloat {size/10}
+    var color = Color.brown
+    var finesse: CGFloat = 10
     
     var body: some View {
         ZStack {

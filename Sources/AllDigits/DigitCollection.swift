@@ -55,15 +55,18 @@ public struct DigitCollection: View {
                 if value == 0 {
                     ForEach (crown([300], zero.count), id: \.self) { point in
                         VStack {
-                            if zero[point.i].isgraphic {
-                                Chiffregraphic(index: 0, graphism: zero[point.i].graphism!, config: config)
+                            if zero[point.i].numicode == .cister {
+                                Cistercien([0,0,0,0], config)
                             } else {
-                                Text(zero[point.i].clavier(0)[0]).font(config.font)
-                                    .foregroundColor(config.fore)
+                                if zero[point.i].isgraphic {
+                                    Chiffregraphic(index: 0, graphism: zero[point.i].graphism!, config: config)
+                                } else {
+                                    Text(zero[point.i].clavier(0)[0]).font(config.font)
+                                        .foregroundColor(config.fore)
+                                }
                             }
                             Text(zero[point.i].numicode.rawValue).font(.caption)
-                        }
-                        .offset(x: point.x, y: point.y)
+                        }.offset(x: point.x, y: point.y)
                     }
                 } else {
                     ForEach (crown([210], antik.count), id: \.self) { point in

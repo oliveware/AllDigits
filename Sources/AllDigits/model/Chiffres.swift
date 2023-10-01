@@ -18,7 +18,7 @@ public struct Valuebase {
     }
 }
 
-public struct Groupe {
+public struct Groupe : Hashable {
     // valeurs des chiffres dans la base courante, dans l'ordre décroissant des puissances
     var values : [Int] = []
     // nombre max de chiffres du groupe

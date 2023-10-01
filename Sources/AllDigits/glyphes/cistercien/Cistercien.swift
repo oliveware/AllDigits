@@ -6,52 +6,54 @@
 //
 
 import SwiftUI
+import Digiconf
 
 struct Cistercien: View {
     var value: [Int] = [0,0,0,0]
     var size: CGFloat = 50
-    var color = Color("glyph")
+    var color = Color.brown
+    var finesse: CGFloat = 3
     
-   /* var group:[Int] {
-        
-        var val = [0,0,0,0]
-        if value == val {
-            return val
-        } else {
-            let group = suite[groupindex]
-            switch group.count {
-            case 0:
-                break
-            case 1:
-                val[3] = group[0]
-            case 2:
-                val[2] = group[0]
-                val[3] = group[1]
-            case 3:
-                val[1] = group[0]
-                val[2] = group[1]
-                val[3] = group[2]
-            default:
-                val = group
+    init(_ v:[Int], _ config:Digiconfig) {
+        switch v.count {
+        case 4:
+            value = v
+        case 3:
+            value[1] = v[0]
+            value[2] = v[1]
+            value[3] = v[2]
+        case 2:
+            value[2] = v[0]
+            value[3] = v[1]
+        case 1:
+            value[3] = v[0]
+        case 0:
+            break
+        default:
+            let vc = v.count - 4
+            for i in 0...3 {
+                value[i] = v[vc+i]
             }
-            return val
         }
-    }*/
+        size = (config.large + config.haut) / 8
+        finesse = size/7
+        color = config.fore
+    }
     
     var body: some View {
 
         Group{
             HStack(spacing:0) {
                 VStack(spacing:size) {
-                    Cistdiz(value:value[2], size:size)
-                    Cistmil(value:value[0], size:size)
+                    Cistdiz(value:value[2], size:size, color:color, finesse:finesse)
+                    Cistmil(value:value[0], size:size, color:color, finesse:finesse)
                 }.frame(alignment:.trailing)
                 Rectangle().fill(color)
-                    .frame(width:size/10, height: size*3)
+                    .frame(width:finesse, height: size*3)
                     .padding(0)
                 VStack(spacing:size) {
-                    Cistunit(value:value[3], size:size)
-                    Cistcent(value:value[1], size:size)
+                    Cistunit(value:value[3], size:size, color:color, finesse:finesse)
+                    Cistcent(value:value[1], size:size, color:color, finesse:finesse)
                 }.frame(alignment:.leading)
             }
         }.padding(0)
@@ -59,3 +61,6 @@ struct Cistercien: View {
     }
 }
 
+#Preview {
+    Cistercien([5,7,4,2], Digiconfig())
+}
