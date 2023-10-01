@@ -17,12 +17,12 @@ extension View {
     }
     
     public func modern(w:CGFloat, h:CGFloat) -> some View {
-        let config = Digiconfig(w,h,0,.black,.clear,.gray )
+        let config = Digiconfig(w,h,0,.white,.clear,.gray )
         return configTouch(config)
     }
     
     public func param(w:CGFloat, h:CGFloat) -> some View {
-        let config = Digiconfig(w,h,0,.white,.clear,.gray )
+        let config = Digiconfig(w,h,0,.white,.clear,.gray ).scalefont(0.2)
         return configTouch(config)
     }
 }

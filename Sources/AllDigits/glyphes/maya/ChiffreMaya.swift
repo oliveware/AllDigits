@@ -66,7 +66,7 @@ struct ChiffreMaya_Previews: PreviewProvider {
     static var previews: some View {
         HStack{
             ChiffreMaya(index:0, config:Digiconfig())
-            ChiffreMaya(index:8, config:Digiconfig())
+            ChiffreMaya(index:16, config:Digiconfig())
         }
     }
 }

@@ -60,7 +60,8 @@ struct Cuneipad: View {
                                                 config: config.scale(0.7)
                                             )
                                     }
-                                    .modern(w: width/6, h:height/5)
+                                    .configTouch(config)
+                                    //.modern(w: width/6, h:height/5)
                                     .disabled(compose > 9)
                                 }
                                 }
@@ -79,14 +80,14 @@ struct Cuneipad: View {
                                                 config: config.scale(0.5)
                                             )
                                     }
-                                    .modern(w: width/6, h:height/5)
+                                    .configTouch(config)
+                                    //.modern(w: width/6, h:height/5)
                                     .disabled(compose % 10 > 0)
                                 
                                 }
                         }.padding(0)
                     }
-                }
-                .padding(5)
+                } .padding(5)
             }.frame(width: width, height: height, alignment: .center)
             .padding(0)
            

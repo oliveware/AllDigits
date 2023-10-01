@@ -12,8 +12,8 @@ struct NumiChooser: View {
     @Binding var nombre:Chiffres
     
     var height:CGFloat = 300
-    var w:CGFloat = 110
-    var h:CGFloat = 30
+    var w:CGFloat = 90
+    var h:CGFloat = 25
     
     var closable = true
     

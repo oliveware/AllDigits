@@ -15,7 +15,7 @@ public struct DigitCollection: View {
     var width:CGFloat = 1200
     var height:CGFloat = 800
     var cote:CGFloat = 40
-    var config = Digiconfig(50,50,0,.brown,.clear)
+    var config = Digiconfig(70,50,0,.brown,.clear)
     var greatest: Int = 59
     
     @State var value = 0
