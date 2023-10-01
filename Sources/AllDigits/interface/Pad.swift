@@ -53,7 +53,7 @@ public struct Pad: View {
                         height: linear ? config.haut : height*0.8,
                         config:config,
                         linear:linear,
-                        additif:additif,
+                        additif:additif && numeration.isadditive,
                         touches:numeration.clavier(additif ? chiffres.values.count : 0),
                         nbtouches:numeration.base,
                         graphism:numeration.graphism,

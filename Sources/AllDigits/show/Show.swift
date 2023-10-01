@@ -62,7 +62,7 @@ public struct Show: View {
             parambar
             Spacer()
             VStack {
-                Enchiffres(configshow, scalar, numeration)
+                Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
                 Pad(configtouch, $scalar, numeration, linear, clavieradditif, width, height)
             }
             Spacer()
@@ -72,6 +72,6 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(30,30,10, .purple, .clear), Digiconfig(25,25), 51279, .global,10)
+        Show(Digiconfig(120,40,10, .purple, .clear), Digiconfig(80,40), 51279, .global,10)
     }
 }

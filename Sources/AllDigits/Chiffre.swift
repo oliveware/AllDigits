@@ -21,10 +21,10 @@ public struct Chiffregraphic: View {
                // case aztek
            case .bibi:
                Glyshape(index: index, color:config.fore,
-                        weight:5,
+                        weight:2,
                         set:bibibinaire)
                .frame(width: config.large, height: config.haut)
-               .background(config.back)
+               .background(config.mid)
            case .maya:
                ChiffreMaya(index: index, config: config.scale(0.15))
            case .yiking:
@@ -45,7 +45,7 @@ struct Chiffreunicode: View {
             .fontWeight(.bold)
             .frame(height:config.haut)
             .foregroundColor(config.fore)
-            .background(config.back)
+            .background(config.mid)
     }
 }
 

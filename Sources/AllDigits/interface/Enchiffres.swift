@@ -52,21 +52,21 @@ public struct Enchiffres: View {
                     }
                 }
             }.frame(height: config.haut)
-            if dekavalcaption && !chiffres.empty { Text("\(chiffres.global10)") }
+            if dekavalcaption && !chiffres.empty { Text("\(chiffres.global10)").font(.caption) }
         }
     }
 }
 
 #Preview {
     VStack {
-        Enchiffres(Digiconfig(20, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.hanzi,10))
-        Enchiffres(Digiconfig(30, 50, 10, .blue, .clear), Chiffres(578979, 10), Numeration(.brahmi,10))
+        Enchiffres(Digiconfig(80, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.hanzi,10))
+        Enchiffres(Digiconfig(80, 30, 10, .blue, .clear), Chiffres(578979, 10), Numeration(.brahmi,10))
     //    Enchiffres(Digiconfig(10, 20, 10, .cyan, .clear), Chiffres(8979, 5), Numeration(.shadok5,5))
         
-        Enchiffres(Digiconfig(20, 20, 10, .pink, .clear), Chiffres(578979, 20), Numeration(.maya,20))
-        Enchiffres(Digiconfig(30, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
+        Enchiffres(Digiconfig(30, 30, 10, .pink, .clear), Chiffres(578979, 20), Numeration(.maya,20))
+        Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
         Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(578979, 16), Numeration(.bibi,16))
-        Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(8979, 10), Numeration(.cister,10))
+        Enchiffres(Digiconfig(60, 25, 10, .brown, .clear), Chiffres(8972, 10), Numeration(.cister,10))
     }.padding()
     
 }

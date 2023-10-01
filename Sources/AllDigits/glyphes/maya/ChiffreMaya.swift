@@ -48,7 +48,7 @@ struct ChiffreMaya: View {
                 .foregroundColor(config.fore)
                 .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
                 .padding(config.large/3)
-                .background(config.back)
+                .background(config.mid)
         } else {
             VStack(alignment:.center, spacing:config.haut*0.7){
                 CircleRow(nc: index % 5,
@@ -57,7 +57,7 @@ struct ChiffreMaya: View {
                          size: config.large, color: config.fore)
             }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
                 .padding(config.large/3)
-                .background(config.back)
+                .background(config.mid)
         }
     }
 }
