@@ -11,7 +11,7 @@ import Digiconf
 extension View {
    // public func configTouch(_ config:Digiconfig )
     
-    public func fond(w:CGFloat, h:CGFloat) -> some View {
+    public func play(w:CGFloat, h:CGFloat) -> some View {
         let config = Digiconfig(w,h,10,.white,.clear,.gray )
         return configTouch(config)
     }

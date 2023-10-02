@@ -14,7 +14,7 @@ public struct DigitCollection: View {
     //var mesure = Mesure()
     var width:CGFloat = 1200
     var height:CGFloat = 800
-    var cote:CGFloat = 40
+    var cote:CGFloat = 30
     var config = Digiconfig(70,50,0,.brown,.clear)
     var greatest: Int = 59
     
@@ -41,7 +41,7 @@ public struct DigitCollection: View {
                     .font(.title).padding(20)
                     
                     Button(action:reset) { Image(systemName: "play") }
-                        .fond(w: 100, h: cote)
+                        .play(w: 100, h: 40)
                 }
             } else {
                 VStack(alignment: .center,spacing:25) {
@@ -90,14 +90,14 @@ public struct DigitCollection: View {
                     Button(action: dec)
                     {Image(systemName: "chevron.left").scaledToFill()}
                         .padding(.leading, 15)
-                        .fond(w: cote, h: cote)
+                        .play(w: cote, h: cote)
                    
                     Spacer()
                     
                     Button(action: inc)
                     { Image(systemName: "chevron.right").scaledToFill() }
                         .padding(.trailing, 15)
-                        .fond(w: cote, h: cote)
+                        .play(w: cote, h: cote)
                     
                 }
                 .padding(10)

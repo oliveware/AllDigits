@@ -24,7 +24,7 @@ struct BasEditor: View {
                 Button(action:{numeration.baselock()}){
                     Image(systemName:
                             numeration.baselocked ? "lock.fill"  : "lock.open")
-                }.fond(w: w, h: h)
+                }.modern(w: w, h: h)
                 
                 if !numeration.baseisnative {
                     Button(action:{
@@ -33,12 +33,12 @@ struct BasEditor: View {
                     })
                     {
                         Text("native")
-                    }.fond(w: w, h: h)
+                    }.modern(w: w, h: h)
                 }
                 
                 Button(action: inc){
                     Image(systemName: "chevron.up")
-                }.fond(w: w, h: h)
+                }.modern(w: w, h: h)
                 .disabled(numeration.baselocked)
                 
                 Text("base \(numeration.base)")
@@ -47,7 +47,7 @@ struct BasEditor: View {
                 
                 Button(action: dec){
                     Image(systemName: "chevron.down")
-                }.fond(w: w, h: h)
+                }.modern(w: w, h: h)
                 .disabled(numeration.baselocked)
                 
             }.frame(width: w+30, alignment: .top)

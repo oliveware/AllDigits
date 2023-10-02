@@ -10,8 +10,9 @@ import SwiftUI
 @available(macOS 10.15, *)
 struct BarStack: View {
     var nb = 3
+    var spacing: CGFloat = 5
     var size :CGFloat = 10
-    var color = Color("glyph")
+    var color = Color.brown
     
     var bar: some View {
         Rectangle().fill(color)
@@ -21,7 +22,7 @@ struct BarStack: View {
     var body: some View {
         if nb > 0 {
             let rg = 0..<nb
-            VStack(spacing:size*0.6) {
+            VStack(spacing:spacing) {
                 ForEach(rg, id: \.self) {
                     index in
                     bar

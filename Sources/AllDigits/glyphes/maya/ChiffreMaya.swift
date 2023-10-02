@@ -37,28 +37,30 @@ struct ChiffreMaya: View {
     
     var index = 15
     var config: Digiconfig
-    let zeromaya = Bundle.module.path(forResource: "zeromaya", ofType: "png")
+  //  let zeromaya = Bundle.module.path(forResource: "zeromaya", ofType: "png")
     
     var body: some View {
-        if index == 0 {
-            Image(resource:"zeromaya", ofType:"png")
-                .renderingMode(.template)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(config.fore)
-                .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
-                .padding(config.large/3)
-                .background(config.mid)
-        } else {
-            VStack(alignment:.center, spacing:config.haut*0.7){
+        VStack(alignment:.center, spacing:config.haut*0.5){
+            if index == 0 {
+                Image(resource:"zeromaya", ofType:"png")
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(config.fore)
+                    .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
+                    .padding(config.large/3)
+                    .background(config.mid)
+                    .offset(x:10,y:-50)
+            } else {
                 CircleRow(nc: index % 5,
                           size: config.large, color:config.fore)
-                BarStack(nb: (index - index % 5) / 5,
+                BarStack(nb: (index - index % 5) / 5, spacing:config.haut*0.5,
                          size: config.large, color: config.fore)
-            }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
+            }
+        }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
                 .padding(config.large/3)
                 .background(config.mid)
-        }
+        
     }
 }
 
