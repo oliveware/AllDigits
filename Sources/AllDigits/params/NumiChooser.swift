@@ -13,7 +13,7 @@ struct NumiChooser: View {
     
     var height:CGFloat = 300
     var w:CGFloat = 100
-    var h:CGFloat = 25
+    var h:CGFloat = 20
     
     var closable = true
     

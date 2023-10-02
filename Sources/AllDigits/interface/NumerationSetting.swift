@@ -24,8 +24,8 @@ public struct NumerationSetting: View {
     public var body: some View {
         Button(action: {  numerationsetting = true } )
         {
-            Image(systemName: "123.rectangle" ).scaledToFill()
-        }.fond(w: cote, h: cote)
+            Image(systemName: "123.rectangle" )
+        }.parambar(cote)
             .sheet(isPresented:$numerationsetting) {
                 NumerationChoice(isPresented: $numerationsetting, numeration: $numeration, scalar: $chiffres)
             }

@@ -16,7 +16,7 @@ struct NumerationChoice: View {
     @State var changebase = true
 
     var width: CGFloat = 420
-    var height: CGFloat = 600
+    var height: CGFloat = 400
     
     let bs : CGFloat = 35
     

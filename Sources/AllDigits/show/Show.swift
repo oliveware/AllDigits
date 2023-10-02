@@ -19,7 +19,7 @@ public struct Show: View {
     var configtouch: Digiconfig
     var configshow: Digiconfig
     
-    var cote:CGFloat = 50
+    var cote:CGFloat = 30
     
     public init(_ show: Digiconfig, _ touch:Digiconfig,
                 _ decival:Int,
@@ -39,19 +39,19 @@ public struct Show: View {
             Button(action: {  scalar.clear() } )
             {
                 Image(systemName: "trash" )
-            }.fond(w: cote, h: cote)
+            }.parambar(cote)
             Spacer()
-           NumerationSetting(numeration: $numeration, chiffres: $scalar)
+            NumerationSetting(numeration: $numeration, chiffres: $scalar, cote:cote)
             Spacer()
             Button(action: {  linear.toggle() } )
             {
                 Image(systemName: linear ? "square.split.2x2" : "rectangle.split.2x1" )
-            }.fond(w: cote, h: cote)
+            }.parambar(cote)
             if numeration.isadditive {
                 Button(action: {  clavieradditif.toggle() } )
                 {
                     Image(systemName: clavieradditif ? "square" : "square.and.line.vertical.and.square" )
-                }.fond(w: cote, h: cote)
+                }.parambar(cote)
                 .disabled(!scalar.empty)
             }
         }
@@ -72,6 +72,8 @@ public struct Show: View {
 
 struct Show_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(120,40,10, .purple, .clear), Digiconfig(80,40), 51279, .global,10)
+        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .global,10)
+        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .babyash,60)
+        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(60,60,10), 51279, .maya,20)
     }
 }

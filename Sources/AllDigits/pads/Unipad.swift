@@ -60,29 +60,37 @@ struct Unipad: View {
         
         if linear {
             switch nbtouches {
-            case 20,30,40:
+            case 10,20,30,40:
                 return lines(10)
-            case 24,36,48:
+            case 12,24,36,48:
                 return lines(12)
             default:
                 return lines(16)
             }
         } else {
             switch nbtouches {
+            case 10,15,20:
+                return lines(5)
             case 2,3:
                 return[0...nbtouches-1]
             case 4:
                 return lines(2)
             case 5:
                 return[0...0, 1...2, 3...4]
-            case 6,9,12,15:
+            case 6,9:
                 return lines(3)
-            case 7...28:
+            case 8,12,16:
                 return lines(4)
-            case 40...59:
+            case 24...36:
                 return lines(6)
-            case 60...72:
+            case 37...42:
+                return lines(7)
+            case 43...48:
                 return lines(8)
+            case 49...63:
+                return lines(9)
+            case 64...72:
+                return lines(10)
             default:
                 return lines(Int(sqrt(Double(nbtouches-1))) + 1)
             }
