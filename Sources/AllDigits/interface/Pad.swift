@@ -36,7 +36,7 @@ public struct Pad: View {
                 Cuneipad(
                     width:width,
                     height:height * 0.8,
-                    config:config.scale(1.2),
+                    config:config.size(width/6,height/5),
                     doubles:Mesopotamie.symbols(numeration.numicode),
                     tens:Mesopotamie.tens(numeration.numicode),
                     units:Mesopotamie.units(numeration.numicode),
@@ -69,7 +69,13 @@ public struct Pad: View {
     Pad(Digiconfig(60, 60), .constant(Chiffres(579, 10)))
 }
 #Preview {
+    Pad(Digiconfig(80, 80), .constant(Chiffres(579, 60)), Numeration(.arab,10), true)
+}
+#Preview {
     Pad(Digiconfig(60, 60), .constant(Chiffres(579, 60)), Numeration(.babyash,60))
+}
+#Preview {
+    Pad(Digiconfig(80, 80), .constant(Chiffres(579, 60)), Numeration(.maya,20))
 }
 
 

@@ -40,7 +40,7 @@ struct Unipad: View {
                                        clavier:touches,
                                        graphism:graphism,
                                        width:wt, height:ht,
-                                       config:config,
+                                       config:config.size(wt, ht),
                                        chiffres:$chiffres,
                                        additif:additif
                                 )

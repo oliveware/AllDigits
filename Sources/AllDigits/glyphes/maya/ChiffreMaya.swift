@@ -50,7 +50,7 @@ struct ChiffreMaya: View {
                     .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
                     .padding(config.large/3)
                     .background(config.mid)
-                    .offset(x:10,y:-50)
+                    .offset(x:config.large/5,y:-config.haut)
             } else {
                 CircleRow(nc: index % 5,
                           size: config.large, color:config.fore)
@@ -58,8 +58,8 @@ struct ChiffreMaya: View {
                          size: config.large, color: config.fore)
             }
         }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
-                .padding(config.large/3)
-                .background(config.mid)
+        .padding(config.large/3)
+        .background(config.mid)
         
     }
 }
