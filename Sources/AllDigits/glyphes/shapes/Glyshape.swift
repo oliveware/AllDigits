@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(macOS 10.15.0, *)
 struct Glyshape: View {
     var index = 1
     var color = Color.yellow

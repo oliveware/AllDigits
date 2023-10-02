@@ -10,7 +10,7 @@ import SwiftUI
 struct Unarblock: View {
     var value = 3
     var size :CGFloat = 10
-    var color = Color("glyph")
+    var color = Color.brown
     var style = Numicode.unarbat
     
     var body: some View {
@@ -70,3 +70,20 @@ struct Unarblock: View {
     }
 }
 
+#Preview {
+    VStack{
+        ForEach (0..<2, id:\.self) {
+            line in
+            HStack(spacing:40) {
+                ForEach (1..<6, id:\.self)  {
+                    i in
+                    if  i + line*5 < 10 {
+                        Unarblock(value: i + 5*line)
+                        .frame(width: 50, height: 50)
+                        .background(.clear)
+                    }
+                }
+            }
+        }
+    }
+}

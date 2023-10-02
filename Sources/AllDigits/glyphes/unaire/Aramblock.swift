@@ -17,7 +17,7 @@ enum Aramstyle {
 struct Aramblock: View {
     var index = 3
     var size :CGFloat = 3
-    var color = Color("glyph")
+    var color = Color.brown
     var style = Aramstyle.egypt
     
     var set: [[Glypath]] {

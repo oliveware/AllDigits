@@ -10,7 +10,7 @@ import SwiftUI
 @available(macOS 10.15, *)
 struct Vbar: View {
     var size :CGFloat = 10
-    var color = Color("glyph")
+    var color = Color.brown
     
     var body: some View {
         Rectangle().fill(color)

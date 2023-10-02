@@ -12,7 +12,7 @@ var unarstyles:[Numicode] = [.unarbat, .unargat, .unarbar, .unardiag, .unarame, 
 struct UnaryDigit: View {
     var value = 3
     var size :CGFloat = 10
-    var color = Color("glyph")
+    var color = Color.brown
     var style = Numicode.unarbat
 
     var unit: some View {
