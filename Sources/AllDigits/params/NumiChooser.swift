@@ -32,7 +32,7 @@ struct NumiChooser: View {
                     s in
                     VStack {
                         Text(choice[s].name)
-                        if numeration.numicode == .global && s == 0 {
+                        if numeration.numicode != .global && s == 0 {
                             Button("global") {
                                 choose(.global)
                             }.param(w: width/3, h: h)
