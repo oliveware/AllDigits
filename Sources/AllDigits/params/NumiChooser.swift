@@ -11,8 +11,8 @@ struct NumiChooser: View {
     @Binding var numeration:Numeration
     @Binding var nombre:Chiffres
     
+    var width :CGFloat = 300
     var height:CGFloat = 300
-    var w:CGFloat = 100
     var h:CGFloat = 20
     
     var closable = true
@@ -39,11 +39,11 @@ struct NumiChooser: View {
                                     index in
                                     Button(choice[s].set[index].rawValue) {
                                         choose(s, index)
-                                    }.param(w: w, h: h)
+                                    }.param(w: width/3, h: h)
                                 }
                             }.frame(alignment: .center)
-                        }.frame(height:height*0.8)
-                    }.frame(width: w*1.25)
+                        }.frame(height:height)
+                    }
                 }
         }.frame(alignment: .center)
         .padding(10)

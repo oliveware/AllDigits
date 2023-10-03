@@ -35,8 +35,8 @@ struct NumerationChoice: View {
             GroupBox(label:label){
                 HStack(alignment: .top, spacing: 2) {
                     NumiChooser(numeration:$numeration, nombre:$scalar,
-                        height:height*0.75, 
-                                w:width/4, h:bs,
+                        width:width-120, height:height*0.75,
+                                 h:bs,
                         closable:!changebase)
                             .padding(.trailing, 7)
                     .frame(alignment: .top)
