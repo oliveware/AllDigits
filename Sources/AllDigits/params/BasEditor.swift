@@ -33,7 +33,7 @@ struct BasEditor: View {
                         nombre.change(numeration.base)
                     })
                     {
-                        Text("native")
+                        Text("native").font(.headline)
                     }.modern(w: width, h: h)
                 }
                 

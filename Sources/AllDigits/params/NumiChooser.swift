@@ -42,7 +42,7 @@ struct NumiChooser: View {
                                     }.param(w: w, h: h)
                                 }
                             }.frame(alignment: .center)
-                        }
+                        }.frame(height:height*0.8)
                     }.frame(width: w*1.25)
                 }
         }.frame(alignment: .center)

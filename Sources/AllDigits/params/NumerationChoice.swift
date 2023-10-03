@@ -18,7 +18,7 @@ struct NumerationChoice: View {
     var width: CGFloat = 420
     var height: CGFloat = 200
     
-    let bs : CGFloat = 12
+    let bs : CGFloat = 20
     
     var label: some View {
         HStack{
