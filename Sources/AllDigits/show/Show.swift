@@ -14,8 +14,8 @@ public struct Show: View {
     @State var scalar : Chiffres
     @State var linear = false
     @State var clavieradditif = false
-    var width : CGFloat = 600
-    var height : CGFloat = 400
+    var width : CGFloat = 800
+    var height : CGFloat = 600
     var configtouch: Digiconfig
     var configshow: Digiconfig
     
@@ -63,10 +63,12 @@ public struct Show: View {
             Spacer()
             VStack {
                 Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
-                Pad(configtouch, $scalar, numeration, linear, clavieradditif, width, height)
+                Spacer()
+                Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.8, height*0.6)
+                    //.frame(height:height*0.6)
             }
             Spacer()
-        }
+        }.padding(10)
     }
 }
 

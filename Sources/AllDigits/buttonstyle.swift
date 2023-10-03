@@ -22,7 +22,7 @@ extension View {
     }
     
     public func param(w:CGFloat, h:CGFloat) -> some View {
-        let config = Digiconfig(w,h,10,.white,.clear,.gray ).scalefont(0.3)
+        let config = Digiconfig(w,h,2,.white,.clear,.gray ).scalefont(0.3)
         return configTouch(config)
     }
 }
