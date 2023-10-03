@@ -15,8 +15,7 @@ public struct Numeration {
     static func set(_ type:Numictype, _ exclude:[Numicode] = []) -> [Numeration] {
         var numerations :[Numeration] = []
         let numicodes = Numicodeset(type).set
-            for c in 0..<numicodes.count {
-                let numicode = numicodes[c]
+        for numicode in numicodes {
                 if !exclude.contains(numicode) {
                     let base = Numeration(numicode).nativebase
                     numerations.append( Numeration(numicode, base))

@@ -9,6 +9,8 @@ import Foundation
 
 // chiffres des numérations décimales
 struct Dekaval {
+    
+static let codes : [Numicode] = [.arab, .bali, .bengali, .birman, .burmese,.devanagari,.farsi,.gujarati,.gurmukhi,.javanese,.kannada,.khmer,.lao,.maithili,.malayalam,.meitei,.modi,.mongolian,.nagari,.odia,.santali,.sharada,.tamil,.telugu,.thai,.tibetan,.urdu]
 
  static let arab = ["\u{660}", "\u{661}", "\u{662}", "\u{663}", "\u{664}", "\u{665}", "\u{666}", "\u{667}", "\u{668}", "\u{669}"]
  static let balinese = ["᭐","᭑", "᭒", "᭓", "᭔", "᭕", "᭖", "᭗", "᭘", "᭙"]
@@ -42,7 +44,7 @@ struct Dekaval {
 
 struct Mesopotamie {
  
- static let cuneicodes : [Numicode] = [.babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
+ static let codes : [Numicode] = [.babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
  
  //glyphes unités
  static let gesh2 = ["", "\u{12415}", "\u{12416}", "\u{12417}", "\u{12418}", "\u{12419}", "\u{1241A}", "\u{1241B}", "\u{1241C}", "\u{1241D}"]// GESH2
@@ -125,6 +127,8 @@ struct Mesopotamie {
 //====================
 struct Chinois {
  
+    static let codes : [Numicode] = [.hanzi,.kanji,.kor]
+    
 // clavier
  // l'index est la valeur du chiffre
  static let kanjiset = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
@@ -223,8 +227,10 @@ struct Hieroglyph {
 //=============================
 
 struct Grec {
+    
+    static let codes : [Numicode] = [.alpha,.attic]
+    
 // numération acrophonique ou attique
-
  static let penta = ["\u{10143}","\u{10144}","\u{10145}","\u{10146}","\u{10147}"]
  static let una = ["Ι","Δ","Η","Χ","M"]
  
@@ -323,6 +329,8 @@ struct Shadok {
 
 // chiffres décimaux étendus de la numération moderne multibase
 struct Extended {
+    
+    static let codes : [Numicode] = [.global,.alphabet,.base72]
 
  static let global = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
    

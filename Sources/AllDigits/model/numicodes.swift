@@ -11,6 +11,7 @@ import SwiftUI
 public enum Numictype: String {
     case all = "all numic"
     case antik = "antik numic"
+    case ancient = "ancient numic"
     case artificial = "artificial numic"
     case live = "live numic"
     case zero = "avec zéro"
@@ -25,15 +26,17 @@ public struct Numicodeset {
         name = LocalizedStringKey(type.rawValue)
         switch type {
         case .all:
-            set = [.global, .aegypt, .arab, .babyash, .babygesh, .bali, .bibi, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .roman, .shadok,.shadok5, .sumerash, .sumergesh, .telugu, .thai, .yiking, .alphabet, .base72 ]
+            set = Extended.codes + Dekaval.codes + Chinois.codes + Grec.codes + Mesopotamie.codes + [.global, .cister, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
         case .antik:
-            set = [.sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh, .aegypt, .attic, .alpha, .roman, .maya, .cister, .yiking]
+            set = Mesopotamie.codes + Grec.codes + [.aegypt, .roman, .maya]
+        case .ancient:
+            set = [.cister, .yiking] + Numicodeset(.antik).set
         case .artificial:
-            set = [ .shadok, .shadok5, .alphabet, .base72]
+            set = [.shadok, .shadok5, .alphabet, .base72]
         case .live:
-            set = [.global, .arab, .bibi, .bali, .brahmi, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .telugu, .thai]
+            set = Dekaval.codes + Chinois.codes + [.global, .bibi]
         case .zero:
-            set = [.global, .arab, .babygesh, .bibi, .bali, .brahmi, .cister, .devanagari, .farsi, .hanzi, .kanji, .khmer, .kor, .lao, .maya, .telugu, .thai, .yiking]
+            set = Numicodeset(.live).set + [.yiking]
         }
     }
     
@@ -44,8 +47,8 @@ public struct Numicodeset {
         
     public func othercodes(_ exclude:[Numicode]) -> Numicodeset{
         var others :[Numicode] = []
-        for i in 0..<set.count {
-            let item = set[i]
+        for item in set {
+            //let item = set[i]
             if !exclude.contains(item) {
                 others.append(item)
             }

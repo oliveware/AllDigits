@@ -32,7 +32,7 @@ public struct Pad: View {
     
     public var body: some View {
         VStack {
-            if Mesopotamie.cuneicodes.contains(numeration.numicode) {
+            if Mesopotamie.codes.contains(numeration.numicode) {
                 Cuneipad(
                     width:width,
                     height:height * 0.8,
