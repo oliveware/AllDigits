@@ -12,7 +12,8 @@ struct BasEditor: View {
     @Binding var numeration:Numeration
     @Binding var nombre:Chiffres
     
-    var w:CGFloat = 60
+    var width:CGFloat = 100
+    var height: CGFloat = 300
     var h:CGFloat = 35
     
     
@@ -24,7 +25,7 @@ struct BasEditor: View {
                 Button(action:{numeration.baselock()}){
                     Image(systemName:
                             numeration.baselocked ? "lock.fill"  : "lock.open")
-                }.modern(w: w, h: h)
+                }.modern(w: h, h: h)
                 
                 if !numeration.baseisnative {
                     Button(action:{
@@ -33,25 +34,26 @@ struct BasEditor: View {
                     })
                     {
                         Text("native")
-                    }.modern(w: w, h: h)
+                    }.modern(w: width, h: h)
                 }
                 
                 Button(action: inc){
                     Image(systemName: "chevron.up")
-                }.modern(w: w, h: h)
+                }.modern(w: h, h: h)
                 .disabled(numeration.baselocked)
                 
                 Text("base \(numeration.base)")
                     .font(.title2)
-                    .frame(width: w)
+                    .frame(width: width)
                 
                 Button(action: dec){
                     Image(systemName: "chevron.down")
-                }.modern(w: w, h: h)
+                }.modern(w: h, h: h)
                 .disabled(numeration.baselocked)
                 
-            }.frame(width: w+30, alignment: .top)
-        }
+            }.frame(alignment: .center)
+        }.frame(width: width, height:height, alignment: .top)
+            .padding(20)
             
     }
     

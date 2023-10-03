@@ -10,16 +10,16 @@ import Foundation
 // chiffres des numérations décimales
 struct Dekaval {
     
-static let codes : [Numicode] = [.arab, .bali, .bengali, .birman, .burmese,.devanagari,.farsi,.gujarati,.gurmukhi,.javanese,.kannada,.khmer,.lao,.maithili,.malayalam,.meitei,.modi,.mongolian,.nagari,.odia,.santali,.sharada,.tamil,.telugu,.thai,.tibetan,.urdu]
+static let codes : [Numicode] = [.arab, .bali, .bengali, .burmese, .devanagari, .farsi, .gujarati, .gurmukhi, .javanese, .kannada, .khmer, .lao, .maithili, .malayalam, .meitei, .modi, .mongolian, .nagari, .odia, .santali, .sharada, .tamil, .telugu, .thai, .tibetan]
 
  static let arab = ["\u{660}", "\u{661}", "\u{662}", "\u{663}", "\u{664}", "\u{665}", "\u{666}", "\u{667}", "\u{668}", "\u{669}"]
  static let balinese = ["᭐","᭑", "᭒", "᭓", "᭔", "᭕", "᭖", "᭗", "᭘", "᭙"]
  static let bengali = ["০","১","২","৩","৪","৫","৬","৭","৮","৯"]
- static let birman = ["၀","၁","၂","၃","၄","၅","၆","၇","၈","၉"]
+ // static let birman = ["၀","၁","၂","၃","၄","၅","၆","၇","၈","၉"]
  static let brahmi = ["\u{11066}", "\u{11067}", "\u{11068}", "\u{11069}", "\u{1106A}", "\u{1106B}", "\u{1106C}", "\u{1106D}", "\u{1106E}", "\u{1106F}"]
- static let burmese = ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"]
+ static let burmese = ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"]    // birman
  static let devanagari = ["\u{0966}", "\u{0967}", "\u{0968}", "\u{0969}","\u{096A}", "\u{096B}", "\u{096C}", "\u{096D}", "\u{096E}", "\u{096F}"]
- static let farsi = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
+ static let farsi = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]      // idem urdu
  static let gujarati = ["૦", "૧", "૨", "૩", "૪", "૫", "૬", "૭", "૮", "૯"]
  static let gurmukhi = ["੦", "੧", "੨", "੩", "੪", "੫", "੬", "੭", "੮", "੯"]
  static let javanese = ["꧐", "꧑", "꧒", "꧓", "꧔", "꧕", "꧖", "꧗", "꧘", "꧙"]
@@ -39,7 +39,7 @@ static let codes : [Numicode] = [.arab, .bali, .bengali, .birman, .burmese,.deva
  static let telugu = ["౦","౧","౨","౩","౪","౫","౬","౭","౮","౯"]
  static let thai = ["๐","๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"]
  static let tibetan = ["༠", "༡", "༢", "༣", "༤", "༥", "༦", "༧", "༨", "༩"]
- static let urdu = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
+ // static let urdu = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
 }
 
 struct Mesopotamie {

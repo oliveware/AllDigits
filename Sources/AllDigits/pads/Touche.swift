@@ -10,7 +10,7 @@ import Digiconf
 
 struct Touche: View {
     var index:Int = 3
-    var clavier:[String] = Dekaval.arab
+    var clavier:[String] = Dekaval.kannada
     var graphism:Graphism?
     
     var width: CGFloat = 70
@@ -27,11 +27,11 @@ struct Touche: View {
             Chiffregraphic(
                 index: index,
                 graphism:graphism!,
-                config: config.size(width*0.7,height*0.5)
+                config: config.size(width*0.5,height*0.5)
             )
             } else {
                 Chiffreunicode(symbol:clavier[index],
-                    config: config.scale(0.8 * scale)
+                    config: config.scale(0.6 * scale)
                 )
             }
         }

@@ -21,7 +21,7 @@ struct ChiffreMaya: View {
         VStack(alignment:.center, spacing:config.haut*0.5){
             if index == 0 {
                 ChiffreImage(name:"zeromaya",
-                             config:config, offset:(config.large/5,-config.haut))
+                             config:config, offset:(config.large/5,-config.haut/3))
             } else {
                 CircleRow(nc: index % 5,
                           size: config.large, color:config.fore)

@@ -101,8 +101,6 @@ public struct Numeration {
             return Dekaval.balinese
         case .bengali:
             return  Dekaval.bengali
-        case .birman:
-            return  Dekaval.birman
         case .brahmi:
             return  Dekaval.brahmi
         case .burmese:
@@ -149,8 +147,6 @@ public struct Numeration {
             return Dekaval.thai
         case .tibetan:
             return Dekaval.tibetan
-        case .urdu:
-            return Dekaval.urdu
             
         case .hanzi:
             return Chinois.hanziset

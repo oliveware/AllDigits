@@ -21,7 +21,7 @@ public struct Chiffregraphic: View {
                // case aztek
            case .bibi:
                Glyshape(index: index, color:config.fore,
-                        weight:2,
+                        weight:3,
                         set:bibibinaire)
                .frame(width: config.large, height: config.haut)
                .background(config.mid)

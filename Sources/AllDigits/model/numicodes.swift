@@ -66,9 +66,8 @@ public enum Numicode: LocalizedStringKey {
     case bibi       = "bibi-binary"
     case bali       = "bali"
     case bengali    = "bengali"
-    case birman     = "birman"
     case brahmi     = "brahmi"
-    case burmese    = "burmese"
+    case burmese    = "burmese"     // birman
     case cister     = "cistercian"
     case devanagari = "devanagarî"
     case farsi      = "farsi"
@@ -98,7 +97,7 @@ public enum Numicode: LocalizedStringKey {
     case telugu     = "telugu"
     case thai       = "thai"
     case tibetan    = "tibetan"
-    case urdu       = "urdu"
+    // case urdu    = "urdu"        idem farsi
     case yiking     = "yiking"
     
     // additif

@@ -42,24 +42,19 @@ public struct Pad: View {
                     units:Mesopotamie.units(numeration.numicode),
                     chiffres:$chiffres)
             } else {
-                HStack {
-                    if additif && numeration.isadditive {
-                        Button("pass") {
-                            chiffres.add(0, additif)
-                        }
-                    }
-                    Unipad(
-                        width:width,
-                        height: linear ? config.haut : height*0.8,
-                        config:config,
-                        linear:linear,
-                        additif:additif && numeration.isadditive,
-                        touches:numeration.clavier(additif ? chiffres.values.count : 0),
-                        nbtouches:numeration.base,
-                        graphism:numeration.graphism,
-                        zeroisknown:numeration.zeroisknown,
-                        chiffres: $chiffres)
-                }
+
+                Unipad(
+                    width:width,
+                    height: linear ? config.haut : height*0.8,
+                    config:config,
+                    linear:linear,
+                    additif:additif && numeration.isadditive,
+                    touches:numeration.clavier(additif ? chiffres.values.count : 0),
+                    nbtouches:numeration.base,
+                    graphism:numeration.graphism,
+                    zeroisknown:numeration.zeroisknown,
+                    chiffres: $chiffres)
+                
             }
         }.disabled(numeration.powermax == chiffres.values.count - 1)
     }
