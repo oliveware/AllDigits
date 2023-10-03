@@ -21,7 +21,7 @@ struct NumiChooser: View {
        return [
         Numicodeset(.live).othercodes([numeration.numicode]),
         Numicodeset(.artificial).othercodes([numeration.numicode]),
-        Numicodeset(.antik).othercodes([numeration.numicode]),
+        Numicodeset(.ancient).othercodes([numeration.numicode]),
         ]
     }
     
@@ -32,13 +32,17 @@ struct NumiChooser: View {
                     s in
                     VStack {
                         Text(choice[s].name)
-                        
+                        if numeration.numicode == .global && s == 0 {
+                            Button("global") {
+                                choose(.global)
+                            }.param(w: width/3, h: h)
+                        }
                         ScrollView {
                             VStack(spacing:2){
                                 ForEach(0..<choice[s].set.count, id: \.self) {
                                     index in
                                     Button(choice[s].set[index].rawValue) {
-                                        choose(s, index)
+                                        choose(choice[s].set[index])
                                     }.param(w: width/3, h: h)
                                 }
                             }.frame(alignment: .center)
@@ -50,8 +54,8 @@ struct NumiChooser: View {
         }.padding(20)
     }
         
-    func choose(_ set:Int,_ choix:Int){
-        numeration.change( choice[set].set[choix], numeration.base)
+    func choose(_ numic:Numicode){
+        numeration.change(numic , numeration.base)
         nombre.change(numeration.base)
     }
 }

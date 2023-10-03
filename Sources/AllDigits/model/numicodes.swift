@@ -28,13 +28,13 @@ public struct Numicodeset {
         case .all:
             set = Extended.codes + Dekaval.codes + Chinois.codes + Grec.codes + Mesopotamie.codes + [.global, .cister, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
         case .antik:
-            set = Mesopotamie.codes + Grec.codes + [.aegypt, .roman, .maya]
+            set = [.roman] + Grec.codes + [.aegypt] + Mesopotamie.codes
         case .ancient:
-            set = [.cister, .yiking] + Numicodeset(.antik).set
+            set = [.maya, .cister, .yiking] + Numicodeset(.antik).set
         case .artificial:
             set = [.shadok, .shadok5, .alphabet, .base72]
         case .live:
-            set = Dekaval.codes + Chinois.codes + [.global, .bibi]
+            set = Dekaval.codes + Chinois.codes + [.bibi]
         case .zero:
             set = Numicodeset(.live).set + [.yiking]
         }
