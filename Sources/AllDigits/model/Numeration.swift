@@ -163,7 +163,9 @@ public struct Numeration {
             return Grec.acrophoniclavier(power)
         
         case .roman:
-            return Romain.clavier(power)
+            var clavier = Romain.clavier(power)
+            clavier.remove(at: 0)
+            return clavier
         case .shadok:
             return Shadok.symbols(4)
         case .shadok5:
