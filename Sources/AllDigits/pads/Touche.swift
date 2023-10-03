@@ -38,7 +38,7 @@ struct Touche: View {
         .configTouch(config)
         //.modern(w: width, h:height)
          //   .keyboardShortcut(key)
-        .disabled(index==0 && chiffres.empty)
+        .disabled(index==0 && chiffres.empty && !additif)
     }
     
     func input (_ value:Int) {
