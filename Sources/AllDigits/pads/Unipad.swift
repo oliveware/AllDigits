@@ -32,9 +32,7 @@ struct Unipad: View {
             if additif {
                 Spacer()
                 if additif {
-                    Button("pass") {
-                        chiffres.add(0, additif)
-                    }
+                    Text("additif").font(.title2)
                 }
                 Spacer()
             }
@@ -44,7 +42,6 @@ struct Unipad: View {
                     HStack(spacing:2) {
                         ForEach(range, id: \.self) {
                             index in
-                            if !(index == 0 && additif) {
                                 Touche(index:index,
                                        clavier:touches,
                                        graphism:graphism,
@@ -53,7 +50,6 @@ struct Unipad: View {
                                        chiffres:$chiffres,
                                        additif:additif
                                 )
-                            }
                         }
                     }.padding(0)
                 }
@@ -79,7 +75,7 @@ struct Unipad: View {
         } else {
             switch nbtouches {
             case 10:
-                return lines(additif ? 3 : 5)
+                return lines(5)
             case 15,20:
                 return lines(5)
             case 2,3:
