@@ -66,6 +66,8 @@ public struct Chiffres {
     
     // valeur du nombre en base 10
     internal var global10: Int = 0
+    // puissance du chiffre le plus puissant
+    public var power:Int { values.count - 1 }
     
     public var value: Valuebase {
         Valuebase(global10, base)

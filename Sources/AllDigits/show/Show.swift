@@ -14,7 +14,7 @@ public struct Show: View {
     @State var scalar : Chiffres
     @State var linear = false
     @State var clavieradditif = false
-    var width : CGFloat = 800
+    var width : CGFloat = 900
     var height : CGFloat = 600
     var configtouch: Digiconfig
     var configshow: Digiconfig
@@ -61,11 +61,20 @@ public struct Show: View {
         HStack(spacing:50) {
             parambar
             Spacer()
-            VStack {
-                Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
-                Spacer()
-                Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.8, height*0.6)
-                    //.frame(height:height*0.6)
+            if numeration.numicode == .maya {
+                HStack {
+                    
+                    Enchiffres(configshow, scalar, numeration).frame(width: configshow.large*1.5).padding(20)
+                    
+                    Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.5, height*0.7)
+                }
+            } else {
+                VStack {
+                    Spacer()
+                    Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
+                    Spacer()
+                    Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.8, height*0.6)
+                }
             }
             Spacer()
         }.padding(10)

@@ -15,12 +15,10 @@ public struct Enchiffres: View {
     var numeration : Numeration
     var chiffres: Chiffres
     var config: Digiconfig
-    var graphic = false
     var dekavalcaption = true
     
     public init(_ conf:Digiconfig,_ chiffres:Chiffres, _ numeration: Numeration = Numeration(.global, 10), _ dekaption: Bool = true) {
         self.numeration = numeration
-        graphic = numeration.graphism != nil
         self.chiffres = chiffres
         config = conf
         dekavalcaption = dekaption
@@ -28,45 +26,58 @@ public struct Enchiffres: View {
     
     public var body: some View {
         VStack (alignment:.trailing) {
-            HStack(spacing:0) {
-                if numeration.numicode == .cister {
-                    ForEach(chiffres.engroupes(4,10000), id:\.self) {
-                        groupe in
-                        Cistercien(groupe.values, config)
-                    }
-                } else {
+            if numeration.numicode == .maya {
+                VStack {
                     ForEach(0..<chiffres.values.count, id:\.self) {
                         power in
-                        if graphic {
-                            Chiffregraphic(
-                                index:chiffres.values[power],
-                                graphism:numeration.graphism!,
-                                config: config
-                            )
-                        } else {
-                            Chiffreunicode(
-                                symbol:numeration.chiffre(chiffres.values.count - 1 , power, chiffres.values[power]),
+                        Chiffre(
+                            powermax: chiffres.values.count - 1,
+                            power: power,
+                            index: chiffres.values[power],
+                            numeration: numeration,
+                            config: config
+                        )
+                    }
+                }
+            } else {
+                HStack(spacing:0) {
+                    if numeration.numicode == .cister {
+                        ForEach(chiffres.engroupes(4,10000), id:\.self) {
+                            groupe in
+                            Cistercien(groupe.values, config)
+                        }
+                    } else {
+                        ForEach(0..<chiffres.values.count, id:\.self) {
+                            power in
+                            Chiffre(
+                                powermax: chiffres.values.count - 1,
+                                power: power,
+                                index: chiffres.values[power],
+                                numeration: numeration,
                                 config: config
                             )
                         }
                     }
-                }
-            }.frame(height: config.haut)
+                }.frame(height: config.haut)
+            }
             if dekavalcaption && !chiffres.empty { Text("\(chiffres.global10)").font(.caption) }
         }
     }
 }
 
 #Preview {
-    VStack {
-        Enchiffres(Digiconfig(80, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.hanzi,10))
-        Enchiffres(Digiconfig(80, 30, 10, .blue, .clear), Chiffres(578979, 10), Numeration(.brahmi,10))
-    //    Enchiffres(Digiconfig(10, 20, 10, .cyan, .clear), Chiffres(8979, 5), Numeration(.shadok5,5))
-        
+    HStack {
         Enchiffres(Digiconfig(30, 30, 10, .pink, .clear), Chiffres(578979, 20), Numeration(.maya,20))
-        Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
-        Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(578979, 16), Numeration(.bibi,16))
-        Enchiffres(Digiconfig(60, 25, 10, .brown, .clear), Chiffres(8972, 10), Numeration(.cister,10))
-    }.padding()
+        VStack {
+            Enchiffres(Digiconfig(80, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.hanzi,10))
+            Enchiffres(Digiconfig(80, 30, 10, .blue, .clear), Chiffres(578979, 10), Numeration(.brahmi,10))
+        //    Enchiffres(Digiconfig(10, 20, 10, .cyan, .clear), Chiffres(8979, 5), Numeration(.shadok5,5))
+            
+            
+            Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
+            Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(578979, 16), Numeration(.bibi,16))
+            Enchiffres(Digiconfig(60, 25, 10, .brown, .clear), Chiffres(8972, 10), Numeration(.cister,10))
+        }.padding()
+    }
     
 }

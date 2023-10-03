@@ -9,6 +9,42 @@ import SwiftUI
 import Hexaglyphes
 import Digiconf
 
+public struct Chiffre: View {
+    // puissance du chiffre le plus puissant dans le nombre
+    var powermax:Int
+    // puissance du chiffre
+    var power:Int
+    // valeur du chiffre dans la base et rang dans les touches
+    var index = 7
+    var numeration:Numeration
+    var config: Digiconfig
+    
+    public init(powermax: Int, power: Int, index: Int = 7, numeration: Numeration, config: Digiconfig) {
+        self.powermax = powermax
+        self.power = power
+        self.index = index
+        self.numeration = numeration
+        self.config = config
+    }
+    
+    public var body: some View {
+        Group {
+            if numeration.isgraphic {
+                Chiffregraphic(
+                    index:index,
+                    graphism:numeration.graphism!,
+                    config: config
+                )
+            } else {
+                Chiffreunicode(
+                    symbol:numeration.chiffre(powermax, power, index),
+                    config: config
+                )
+            }
+        }
+    }
+}
+
 public struct Chiffregraphic: View {
     // valeur du chiffre dans la base et rang dans touches
     var index = 7
