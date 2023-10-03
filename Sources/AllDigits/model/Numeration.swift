@@ -89,14 +89,13 @@ public struct Numeration {
     
     public func clavier(_ power:Int = 0) -> [String] {
         switch numicode {
-        case .base72:  // multibase
-            return Extended.base72
         case .global:
             return Extended.global
-        case .aegypt:
-            return Hieroglyph.clavier(power)
+        case .base72:  // multibase
+            return Extended.base72
         case .alphabet:
             return Extended.alphabet
+            
         case .arab:
             return Dekaval.arab
         case .bali:
@@ -107,37 +106,77 @@ public struct Numeration {
             return  Dekaval.birman
         case .brahmi:
             return  Dekaval.brahmi
+        case .burmese:
+            return  Dekaval.burmese
         case .devanagari:
             return  Dekaval.devanagari
         case .farsi:
             return  Dekaval.farsi
-        case .attic:
-            return Grec.acrophoniclavier(power)
-        case .alpha:
-            return Grec.alphabeticlavier(power)
+        case .gujarati:
+            return  Dekaval.gujarati
+        case .gurmukhi:
+            return  Dekaval.gurmukhi
+        case .javanese:
+            return  Dekaval.javanese
+        case .kannada:
+            return  Dekaval.kannada
+        case .khmer:
+            return Dekaval.khmer
+        case .lao:
+            return Dekaval.lao
+        case .maithili:
+            return Dekaval.maithili
+        case .malayalam:
+            return Dekaval.malayalam
+        case .meitei:
+            return Dekaval.meitei
+        case .modi:
+            return Dekaval.modi
+        case .mongolian:
+            return Dekaval.mongolian
+        case .nagari:
+            return Dekaval.nagari
+        case .odia:
+            return Dekaval.odia
+        case .santali:
+            return Dekaval.santali
+        case .sharada:
+            return Dekaval.sharada
+        case .tamil:
+            return Dekaval.tamil
+        case .telugu:
+            return Dekaval.telugu
+        case .thai:
+            return Dekaval.thai
+        case .tibetan:
+            return Dekaval.tibetan
+        case .urdu:
+            return Dekaval.urdu
+            
         case .hanzi:
             return Chinois.hanziset
         case .kanji:
             return Chinois.kanjiset
-        case .khmer:
-            return Dekaval.khmer
         case .kor:
             return Chinois.hangeulset
-        case .lao:
-            return Dekaval.lao
+        
+        case .aegypt:
+            return Hieroglyph.clavier(power)
+        case .alpha:
+            return Grec.alphabeticlavier(power)
+        case .attic:
+            return Grec.acrophoniclavier(power)
+        
         case .roman:
             return Romain.clavier(power)
         case .shadok:
             return Shadok.symbols(4)
         case .shadok5:
             return Shadok.symbols(5)
-        case .telugu:
-            return Dekaval.telugu
-        case .thai:
-            return Dekaval.thai
             
-        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
+        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
             return Mesopotamie.symbols(numicode)
+            
         default:
             return Generic.symbols(.digits, 72)
         }
@@ -157,9 +196,9 @@ public struct Numeration {
             return 0.8
         case .shadok, .shadok5:
             return 0.5
-        case .roman, .alpha, .attic,  .aegypt:
+        case .roman, .alpha, .attic:
             return 0.4
-        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .cuneigesh, .cuneidish, .cuneiash:
+        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
             return 0.5
         case .maya:
             return 0.7
@@ -170,12 +209,12 @@ public struct Numeration {
 
     private mutating func set(_ numic:Numicode) {
         numicode = numic
-       // classifiers = Classifierset(numic)
         setnativebase()
         powermax = 17
         graphism = nil
         zeroisknown = true
         isadditive = false
+        
         switch numic {
         case .base72:  // multibase
             baserange = setbaserange(2, 72)

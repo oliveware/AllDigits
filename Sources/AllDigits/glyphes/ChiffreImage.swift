@@ -59,5 +59,8 @@ struct ChiffreImage: View {
     ChiffreImage()
 }
 #Preview {
-    ChiffreImage(name:"Babylonian_20.svg", config:Digiconfig().colore([.blue]))
+    ChiffreImage(name:"ata")
+}
+#Preview {
+    ChiffreImage(name:"Babylon_20", config:Digiconfig().colore([.blue]))
 }
