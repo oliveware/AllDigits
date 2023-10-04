@@ -236,7 +236,7 @@ struct Grec {
      static let penta = ["\u{10143}","\u{10144}","\u{10145}","\u{10146}","\u{10147}"]
      static let una = ["Ι","Δ","Η","Χ","M"]
  
- static let units = ["","I","II","III","IIII","@1}","@1}I","@1}II","@1}III","@1}IIII"]
+    static let units = ["","I","II","III","IIII","\u{10143}","\u{10143}I","\u{10143}II","\u{10143}III","\u{10143}IIII"]
  static let tens = ["","Δ","ΔΔ","ΔΔΔ","ΔΔΔΔ","\u{10144}","\u{10144}Δ","\u{10144}ΔΔ","\u{10144}ΔΔΔ","\u{10144}ΔΔΔΔ"]
  static let cents = ["","H","HH","HHH","HHHH","\u{10145}","\u{10145}H","\u{10145}HH","\u{10145}HHH","\u{10145}HHHH"]
  static let mil = ["","X","XX","XXX","XXXX","\u{10146}","\u{10146}X","\u{10146}XX","\u{10146}XXX","\u{10146}XXXX"]
