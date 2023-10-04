@@ -76,12 +76,16 @@ struct Chiffreunicode: View {
     var config: Digiconfig
     
     var body : some View {
-        Text(symbol)
-            .font(config.font)
-            .fontWeight(.bold)
-            .frame(height:config.haut)
-            .foregroundColor(config.fore)
-            .background(config.mid)
+        if symbol == "𐅄" {
+            ChiffreImage(name:"penta",config:config)
+        } else {
+            Text(symbol)
+                .font(config.font)
+                .fontWeight(.bold)
+                .frame(height:config.haut)
+                .foregroundColor(config.fore)
+                .background(config.mid)
+        }
     }
 }
 
