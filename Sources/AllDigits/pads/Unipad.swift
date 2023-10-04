@@ -29,6 +29,7 @@ struct Unipad: View {
     
     var body: some View {
         HStack(alignment: .top) {
+            // lorsque le clavier est additif, la touche zéro change le clavier
             if additif {
                 Spacer()
                 if additif {

@@ -72,7 +72,9 @@ public struct Numeration {
             case .aegypt:
                 return Hieroglyph.chiffre(maxpower, power, index)
             case .attic:
-                return Grec.acrochiffre(maxpower, power, index)
+                let chiffre = Grec.acrochiffre(maxpower, power, index)
+                print(chiffre, chiffre.unicodeScalars)
+                return chiffre
             case .alpha:
                 return Grec.alphachiffre(maxpower, power, index)
             case .roman:

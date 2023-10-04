@@ -38,6 +38,7 @@ struct Touche: View {
         .configTouch(config)
         //.modern(w: width, h:height)
          //   .keyboardShortcut(key)
+        // lorsque le clavier est additif la touche zéro est toujours active
         .disabled(index==0 && chiffres.empty && !additif)
     }
     
