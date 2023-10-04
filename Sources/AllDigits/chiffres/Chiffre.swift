@@ -137,7 +137,7 @@ struct Chiffre_Previews: PreviewProvider {
                 Chiffregraphic(graphism:.bibi, config: Digiconfig())
                 Chiffregraphic(graphism:.maya, config: Digiconfig())
                 Chiffregraphic(graphism:.yiking, config: Digiconfig())
-                Chiffreunicode(symbol:Grec.acrochiffre(5,4,9), config: Digiconfig())
+                Chiffreunicode(symbol:Grec.acrochiffre(5,4,7), config: Digiconfig(50,50))
             }.frame(width: 200)
         }
     }

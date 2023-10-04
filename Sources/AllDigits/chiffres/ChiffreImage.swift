@@ -57,7 +57,7 @@ struct ChiffreImage: View {
     
     HStack(spacing:0) {
         ChiffreImage()
-        ChiffreImage(name:"dekapenta", config:Digiconfig().colore([.red]))
+        ChiffreImage(name:"hectopenta", config:Digiconfig().colore([.red]))
         ChiffreImage(name:"ata")
         ChiffreImage(name:"Babylon_20", config:Digiconfig().colore([.blue]))
     }
