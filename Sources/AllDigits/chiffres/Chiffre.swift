@@ -76,31 +76,69 @@ struct Chiffreunicode: View {
     var config: Digiconfig
     
     var body : some View {
-        if symbol == "𐅄" {
-            ChiffreImage(name:"penta",config:config)
+        
+        if symbol.contains("𐅄") {
+            if symbol.count == 1 {
+                let substitut = Substitut.find(symbol)
+                if substitut.kind == .image {
+                    ChiffreImage(name:substitut.name, config:config.scale(substitut.scale))
+                }
+            } else {
+                Chiffrehybride(symbols:split, config:config)
+            }
         } else {
             Text(symbol)
                 .font(config.font)
-                .fontWeight(.bold)
                 .frame(height:config.haut)
                 .foregroundColor(config.fore)
                 .background(config.mid)
+        }
+    }
+    
+    var split: [Character] {
+        var symb = symbol
+        var cars : [Character] = []
+        while symb.count > 0 {
+            cars.append(symb[symb.startIndex])
+            symb.remove(at: symb.startIndex)
+        }
+        return cars
+    }
+    
+
+}
+
+struct Chiffrehybride: View {
+    var symbols: [Character]
+    var config:Digiconfig
+    var body:some View {
+        HStack(spacing:0) {
+            ForEach (0..<symbols.count, id:\.self) {
+                car in
+                Chiffreunicode(symbol:String(symbols[car]), config:config)
+            }
+            
         }
     }
 }
 
 struct Chiffre_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            Chiffreunicode(symbol:Dekaval.farsi[5], config: Digiconfig())
-            Chiffreunicode(symbol:Chinois.hanziset[5], config: Digiconfig())
-            Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig().scale(1.5))
-            Chiffreunicode(symbol:Chinois.kanji(5,4,5), config: Digiconfig())
-            Chiffreunicode(symbol:Chinois.hangeul(5,4,5), config: Digiconfig())
-            Chiffreunicode(symbol:Dekaval.telugu[5], config: Digiconfig())
-            Chiffregraphic(graphism:.bibi, config: Digiconfig())
-            Chiffregraphic(graphism:.maya, config: Digiconfig())
-            Chiffregraphic(graphism:.yiking, config: Digiconfig())
+        HStack {
+            VStack {
+                Chiffreunicode(symbol:Dekaval.farsi[5], config: Digiconfig())
+                Chiffreunicode(symbol:Chinois.hanziset[5], config: Digiconfig())
+                Chiffreunicode(symbol:Hieroglyph.baton[5], config: Digiconfig().scale(1.5))
+                Chiffreunicode(symbol:Chinois.kanji(5,4,5), config: Digiconfig())
+                Chiffreunicode(symbol:Chinois.hangeul(5,4,5), config: Digiconfig())
+            }
+            VStack {
+                Chiffreunicode(symbol:Dekaval.telugu[5], config: Digiconfig())
+                Chiffregraphic(graphism:.bibi, config: Digiconfig())
+                Chiffregraphic(graphism:.maya, config: Digiconfig())
+                Chiffregraphic(graphism:.yiking, config: Digiconfig())
+                Chiffreunicode(symbol:Grec.acrochiffre(5,4,9), config: Digiconfig())
+            }.frame(width: 200)
         }
     }
 }

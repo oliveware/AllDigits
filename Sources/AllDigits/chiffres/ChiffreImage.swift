@@ -37,30 +37,29 @@ struct ChiffreImage: View {
     var offset : (x:CGFloat,y:CGFloat) = (0,0)
 
     var body: some View {
-        VStack(alignment:.center, spacing:config.haut*0.5){
-           
+        VStack(alignment:.center){
             Image(resource:name, ofType:"png")
                 .renderingMode(.template)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(config.fore)
-                .frame(width: config.large*5, height: config.haut*5, alignment: .bottom)
-                .padding(config.large/3)
+               .frame(width: config.large*3, height: config.haut*5, alignment: .center)
+               .padding(0)
                 .background(config.mid)
                 .offset(x:offset.x, y:offset.y)
-
-        }.frame(width: config.large*6, height: config.haut*6, alignment: .bottom)
-            .padding(config.large/3)
-            .background(config.mid)
+        }.frame( alignment: .center)
+        .padding(0)
+        .background(config.mid)
     }
 }
 
 #Preview {
-    ChiffreImage()
+    
+    HStack(spacing:0) {
+        ChiffreImage()
+        ChiffreImage(name:"dekapenta", config:Digiconfig().colore([.red]))
+        ChiffreImage(name:"ata")
+        ChiffreImage(name:"Babylon_20", config:Digiconfig().colore([.blue]))
+    }
 }
-#Preview {
-    ChiffreImage(name:"ata")
-}
-#Preview {
-    ChiffreImage(name:"Babylon_20", config:Digiconfig().colore([.blue]))
-}
+
