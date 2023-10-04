@@ -73,7 +73,11 @@ public struct Numeration {
                 return Hieroglyph.chiffre(maxpower, power, index)
             case .attic:
                 let chiffre = Grec.acrochiffre(maxpower, power, index)
-                print(chiffre, "\(chiffre.unicodeScalars)")
+                print(chiffre)
+                for scalar in chiffre.unicodeScalars {
+                    print("\(scalar.value) ", terminator: "")
+                }
+                
                 return chiffre
             case .alpha:
                 return Grec.alphachiffre(maxpower, power, index)
