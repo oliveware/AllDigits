@@ -50,7 +50,7 @@ struct Cuneipad: View {
                         Text( compose == 0 ? "" : doubles[compose])
                     }
                 }
-                .configTouch(config.size(80,50).colore([.blue,.clear,.yellow]))
+                .configTouch(config.size(80,50).colore([.blue,.clear,.purple]))
                 .disabled(compose == 0 && graphism == nil)
             }.frame(width:width)
                 .padding(.top, 5)
