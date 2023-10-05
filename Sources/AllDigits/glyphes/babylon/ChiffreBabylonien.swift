@@ -13,7 +13,7 @@ struct ChiffreBabylonien: View {
     var config = Digiconfig().size(60,60)
     
     var body: some View {
-        HStack(alignment:.center){
+        HStack(spacing:0){
             if index == 0 {
                 ChiffreImage(name:"Babylon_0",
                              config:config.scale(0.2))
@@ -29,7 +29,7 @@ struct ChiffreBabylonien: View {
                                  config:config.scale(0.2))
                 }
             }
-        }
+        }.padding(0)
     }
 }
 

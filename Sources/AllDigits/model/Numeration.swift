@@ -239,6 +239,7 @@ public struct Numeration {
             baserange = setbaserange(2, 6)
         case .far10old:
             baserange = setbaserange(2, 10)
+            powermax = 3
         case .sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh:
             baserange = setbaserange(2, 60)
             groupby = 3

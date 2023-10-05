@@ -237,7 +237,7 @@ struct OldPersian {
         if base == 6 {
             return base6
         } else {
-            return base10[power]
+            return base10[power % 3]
 
         }
     }

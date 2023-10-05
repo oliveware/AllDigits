@@ -50,7 +50,7 @@ struct Cuneipad: View {
                         Text( compose == 0 ? "" : doubles[compose])
                     }
                 }
-                .configTouch(config.size(80,50).colore([.blue,.clear,.purple]))
+                .configTouch(config.size(100,60).colore([.blue,.clear,.purple]))
                 .disabled(compose == 0 && graphism == nil)
             }.frame(width:width)
                 .padding(.top, 5)
@@ -64,16 +64,16 @@ struct Cuneipad: View {
                                 col in
                                 if line*2+col < 6 {
                                     Button( action: { seten(line*2+col) } )
-                                    { if graphism != nil {
+                                    {  if graphism != nil {
                                         ChiffreBabylonien(
                                             index:10*(line*2+col),
                                             config:config)
-                                    } else {
-                                        Chiffreunicode(
-                                            symbol:tens[line*2+col],
-                                            config: config.scale(0.7)
-                                        )
-                                    }
+                                        } else {
+                                            Chiffreunicode(
+                                                symbol:tens[line*2+col],
+                                                config: config.scale(0.7)
+                                            )
+                                        }
                                     }
                                     .configTouch(config)
                                     .disabled(compose > 9)

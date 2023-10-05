@@ -77,7 +77,7 @@ public struct Enchiffres: View {
             Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
             Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(578979, 16), Numeration(.bibi,16))
             Enchiffres(Digiconfig(60, 25, 10, .brown, .clear), Chiffres(8972, 10), Numeration(.cister,10))
-            Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.babylon,60))
+            Enchiffres(Digiconfig(50, 30, 10, .green, .clear), Chiffres(578979, 60), Numeration(.babylon,60))
         }.padding()
     }
     
