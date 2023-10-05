@@ -241,6 +241,9 @@ struct OldPersian {
 
         }
     }
+    static func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+     return clavier(10, maxpower - power)[index]
+    }
 }
 
 //=============================

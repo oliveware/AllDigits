@@ -81,6 +81,8 @@ public struct Numeration {
                 return chiffre
             case .alpha:
                 return Grec.alphachiffre(maxpower, power, index)
+            case .far10old:
+                return OldPersian.chiffre(maxpower, power, index)
             case .roman:
                 return Romain.chiffre(maxpower, power, index)
             default:
