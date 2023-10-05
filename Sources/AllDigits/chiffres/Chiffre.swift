@@ -141,6 +141,7 @@ struct Chiffre_Previews: PreviewProvider {
                 Chiffregraphic(graphism:.yiking, config: Digiconfig())
                 Chiffreunicode(symbol:Grec.acrochiffre(5,4,7), config: Digiconfig(50,50))
             }.frame(width: 200)
+            ChiffreImage(name:"mayafacial0",config: Digiconfig(50,50),original:true)
         }
     }
 }

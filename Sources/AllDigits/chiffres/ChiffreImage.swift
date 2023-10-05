@@ -35,19 +35,20 @@ struct ChiffreImage: View {
     var name:String = "zeromaya"
     var config = Digiconfig()
     var offset : (x:CGFloat,y:CGFloat) = (0,0)
+    var original = false
 
     var body: some View {
         VStack(alignment:.center){
             Image(resource:name, ofType:"png")
-                .renderingMode(.template)
+                .renderingMode(original ?.original : .template)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .foregroundColor(config.fore)
-               .frame(width: config.large*3, height: config.haut*5, alignment: .center)
+               .foregroundColor(config.fore)
+               .frame(width: config.large, height: config.haut, alignment: .center)
                .padding(0)
                 .background(config.mid)
                 .offset(x:offset.x, y:offset.y)
-        }.frame( alignment: .center)
+        }.frame(width:config.large,height:config.haut, alignment: .center)
         .padding(0)
         .background(config.mid)
     }
@@ -60,6 +61,7 @@ struct ChiffreImage: View {
         ChiffreImage(name:"hectopenta", config:Digiconfig().colore([.red]))
         ChiffreImage(name:"ata")
         ChiffreImage(name:"Babylon_20", config:Digiconfig().colore([.blue]))
+        ChiffreImage(name:"mayafacial0",config: Digiconfig(50,50),original:true)
     }
 }
 

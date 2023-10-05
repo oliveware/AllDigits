@@ -142,7 +142,7 @@ struct Chinois {
    return ""
   } else {
    let classifier = classifier(maxpower - power, hanzi_10, hanzi_wan)
-   return hanziset[index] + classifier
+   return index == 1 && power == maxpower ?  classifier : hanziset[index] + classifier
   }
  }
  static func kanji(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
@@ -150,7 +150,7 @@ struct Chinois {
    return ""
   } else {
    let classifier = classifier(maxpower - power, kanji_10, kanji_man)
-   return kanjiset[index] + classifier
+      return index == 1 && power == maxpower ?  classifier : kanjiset[index] + classifier
   }
  }
  static func hangeul(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
@@ -158,7 +158,7 @@ struct Chinois {
    return ""
   } else {
    let classifier = classifier(maxpower - power, hangeul_10, hangeul_man)
-   return hangeulset[index] + classifier
+   return index == 1 && power == maxpower ?  classifier : hangeulset[index] + classifier
   }
  }
  

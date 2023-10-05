@@ -40,7 +40,7 @@ public struct Enchiffres: View {
                     }
                 }
             } else {
-                HStack(spacing:0) {
+                HStack(spacing:2) {
                     if numeration.numicode == .cister {
                         ForEach(chiffres.engroupes(4,10000), id:\.self) {
                             groupe in

@@ -36,9 +36,9 @@ struct Substitut {
 }
 
 let substituts : [Int:Substitut] = [
-    65869 : Substitut("penta", .image, 0.27),
-    65860 : Substitut("dekapenta", .image, 0.28),
-    65861 : Substitut("hectopenta", .image, 0.27),
-    65862 : Substitut("kilopenta", .image, 0.27),
-    65863 : Substitut("myriapenta", .image, 0.27),
+    65869 : Substitut("penta"),
+    65860 : Substitut("dekapenta"),
+    65861 : Substitut("hectopenta"),
+    65862 : Substitut("kilopenta"),
+    65863 : Substitut("myriapenta")
 ]

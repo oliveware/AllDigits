@@ -29,7 +29,8 @@ struct ChiffreBabylonien: View {
                                  config:config.scale(0.2))
                 }
             }
-        }.padding(0)
+        }.frame(width:config.large*1.3)
+        .padding(0)
     }
 }
 
@@ -61,6 +62,4 @@ struct ChiffreBabylonien: View {
     }
 }
 
-#Preview {
-    ChiffreBabylonien(index:45)
-}
+
