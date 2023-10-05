@@ -138,28 +138,49 @@ struct Chinois {
 // chiffres
  // dizaines, centaines et milliers sont composés de deux glyphes
  static func hanzi(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  if index == 0 {
-   return ""
-  } else {
-   let classifier = classifier(maxpower - power, hanzi_10, hanzi_wan)
-   return index == 1 && power == maxpower ?  classifier : hanziset[index] + classifier
-  }
+     let classifier = classifier(maxpower - power, hanzi_10, hanzi_wan)
+     switch index {
+     case 0:
+         return ""
+     case 1:
+         if power == 0 {
+             return hanziset[1]
+         } else {
+             return power == maxpower ?  classifier : hanziset[1] + classifier
+         }
+    default:
+         return hanziset[index] + classifier
+     }
  }
  static func kanji(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  if index == 0 {
-   return ""
-  } else {
-   let classifier = classifier(maxpower - power, kanji_10, kanji_man)
-      return index == 1 && power == maxpower ?  classifier : kanjiset[index] + classifier
-  }
+     let classifier = classifier(maxpower - power, kanji_10, kanji_man)
+     switch index {
+     case 0:
+         return ""
+     case 1:
+         if power == 0 {
+             return kanjiset[1]
+         } else {
+             return power == maxpower ?  classifier : kanjiset[1] + classifier
+         }
+    default:
+         return kanjiset[index] + classifier
+     }
  }
  static func hangeul(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  if index == 0 {
-   return ""
-  } else {
-   let classifier = classifier(maxpower - power, hangeul_10, hangeul_man)
-   return index == 1 && power == maxpower ?  classifier : hangeulset[index] + classifier
-  }
+     let classifier = classifier(maxpower - power, hangeul_10, hangeul_man)
+     switch index {
+     case 0:
+         return ""
+     case 1:
+         if power == 0 {
+             return hangeulset[1]
+         } else {
+             return power == maxpower ?  classifier : hangeulset[1] + classifier
+         }
+    default:
+         return hangeulset[index] + classifier
+     }
  }
  
  static func classifier(_ power: Int,_ bas:[String],_ myr:[String]) -> String {
