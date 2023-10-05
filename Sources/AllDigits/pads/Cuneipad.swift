@@ -50,7 +50,7 @@ struct Cuneipad: View {
                         Text( compose == 0 ? "" : doubles[compose])
                     }
                 }
-                .buttonStyle(Digit60())
+                .configTouch(config.size(80,50).colore([.blue,.clear,.yellow]))
                 .disabled(compose == 0 && graphism == nil)
             }.frame(width:width)
                 .padding(.top, 5)
@@ -76,7 +76,6 @@ struct Cuneipad: View {
                                     }
                                     }
                                     .configTouch(config)
-                                    //.modern(w: width/6, h:height/5)
                                     .disabled(compose > 9)
                                 }
                             }
@@ -101,7 +100,6 @@ struct Cuneipad: View {
                                         }
                                     }
                                     .configTouch(config)
-                                    //.modern(w: width/6, h:height/5)
                                     .disabled(compose % 10 > 0)
                                 }
                             }.padding(0)
