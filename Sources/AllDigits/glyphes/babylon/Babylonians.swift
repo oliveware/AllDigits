@@ -45,7 +45,7 @@ struct Babylonians: View {
                     HStack {
                         ForEach(0..<10) {
                             unit in
-                            ChiffreBabylonien(index:10*ten+unit, config:config.scale(0.6))
+                            ChiffreBabylonien(10*ten+unit, config.scale(0.6))
                                 .frame(width:config.large * 1.3)
                         }
                     }

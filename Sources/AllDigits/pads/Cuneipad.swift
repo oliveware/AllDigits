@@ -44,8 +44,7 @@ struct Cuneipad: View {
                 Button(action: add) {
                     if graphism != nil {
                         ChiffreBabylonien(
-                            index:compose,
-                            config:config)
+                            compose, config)
                     } else {
                         Text( compose == 0 ? "" : doubles[compose])
                     }
@@ -66,8 +65,8 @@ struct Cuneipad: View {
                                     Button( action: { seten(line*2+col) } )
                                     {  if graphism != nil {
                                         ChiffreBabylonien(
-                                            index:10*(line*2+col),
-                                            config:config)
+                                            10*(line*2+col),
+                                            config)
                                         } else {
                                             Chiffreunicode(
                                                 symbol:tens[line*2+col],
@@ -93,7 +92,7 @@ struct Cuneipad: View {
                                     setunit(line*3+col) } )
                                     {
                                         if graphism != nil {
-                                            ChiffreBabylonien( index:line*3+col, config:config)
+                                            ChiffreBabylonien( line*3+col, config)
                                         } else {
                                             Chiffreunicode( symbol:units[line*3+col],
                                                             config: config.scale(0.5))

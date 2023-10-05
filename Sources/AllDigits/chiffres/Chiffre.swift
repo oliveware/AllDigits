@@ -56,7 +56,8 @@ public struct Chiffregraphic: View {
            switch graphism {
                // case aztek
            case .babylon:
-               ChiffreBabylonien(index:index,config: config)
+               ChiffreBabylonien(index, config)
+                   .frame(width: config.large*1.7)
            case .bibi:
                Glyshape(index: index, color:config.fore,
                         weight:3,
@@ -140,8 +141,12 @@ struct Chiffre_Previews: PreviewProvider {
                 Chiffregraphic(graphism:.maya, config: Digiconfig())
                 Chiffregraphic(graphism:.yiking, config: Digiconfig())
                 Chiffreunicode(symbol:Grec.acrochiffre(5,4,7), config: Digiconfig(50,50))
-            }.frame(width: 200)
-            ChiffreImage(name:"mayafacial0",config: Digiconfig(50,50),original:true)
+            }.frame(width: 150)
+            VStack {
+                ChiffreImage(name:"mayafacial0",config: Digiconfig(50,50),original:true)
+                
+                ChiffreBabylonien(47, Digiconfig())
+            }
         }
     }
 }

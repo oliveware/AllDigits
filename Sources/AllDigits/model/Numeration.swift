@@ -200,15 +200,17 @@ public struct Numeration {
     public var scale:CGFloat {
         switch numicode {
         case .bali, .hanzi, .kanji:
-            return 0.8
+            return 0.7
         case .shadok, .shadok5:
             return 0.5
         case .roman, .alpha, .attic:
             return 0.4
         case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
-            return 0.5
-        case .maya:
             return 0.7
+        case .maya:
+            return 0.9
+        case .aegypt:
+            return 1.3
         default:
             return 1
         }

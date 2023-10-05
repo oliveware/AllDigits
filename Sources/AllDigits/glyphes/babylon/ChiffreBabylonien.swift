@@ -10,7 +10,12 @@ import Digiconf
 
 struct ChiffreBabylonien: View {
     var index = 20
-    var config = Digiconfig().size(60,60)
+    var config = Digiconfig().size(30,30)
+    
+    init(_ index: Int , _ config: Digiconfig) {
+        self.index = index
+        self.config = config
+    }
     
     var body: some View {
         HStack(spacing:0){
@@ -42,7 +47,7 @@ struct ChiffreBabylonien: View {
                 HStack {
                     ForEach (1...2, id:\.self)  {
                         i in
-                        if 10*(i + 2*l) < 60 { ChiffreBabylonien(index:10*(i + 2*l)) }
+                        if 10*(i + 2*l) < 60 { ChiffreBabylonien(10*(i + 2*l), Digiconfig()) }
                     }
                 }
             }
@@ -54,7 +59,7 @@ struct ChiffreBabylonien: View {
                 
                     ForEach (1...3, id:\.self)  {
                         i in
-                        ChiffreBabylonien(index:i + 2*l)
+                        ChiffreBabylonien(i + 2*l, Digiconfig())
                     }
                 }
             }

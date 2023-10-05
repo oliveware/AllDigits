@@ -22,6 +22,7 @@ struct Substitut {
     enum Kind {
         case image
         case shape
+        case graphic
     }
     
     var name: String

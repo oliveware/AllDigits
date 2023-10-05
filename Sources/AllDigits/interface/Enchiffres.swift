@@ -35,18 +35,20 @@ public struct Enchiffres: View {
                             power: power,
                             index: chiffres.values[power],
                             numeration: numeration,
-                            config: config
+                            config: config.scale(numeration.scale)
                         )
                     }
                 }
             } else {
                 HStack(spacing:2) {
-                    if numeration.numicode == .cister {
+                    switch numeration.numicode {
+                    case .cister :
                         ForEach(chiffres.engroupes(4,10000), id:\.self) {
                             groupe in
                             Cistercien(groupe.values, config)
                         }
-                    } else {
+
+                    default:
                         ForEach(0..<chiffres.values.count, id:\.self) {
                             power in
                             Chiffre(
@@ -76,8 +78,8 @@ public struct Enchiffres: View {
             
             Enchiffres(Digiconfig(50, 30, 10, .purple, .clear), Chiffres(578979, 10), Numeration(.alpha,10))
             Enchiffres(Digiconfig(20, 25, 10, .brown, .clear), Chiffres(578979, 16), Numeration(.bibi,16))
-            Enchiffres(Digiconfig(60, 25, 10, .brown, .clear), Chiffres(8972, 10), Numeration(.cister,10))
-            Enchiffres(Digiconfig(50, 30, 10, .green, .clear), Chiffres(578979, 60), Numeration(.babylon,60))
+            Enchiffres(Digiconfig(60, 25, 10, .yellow, .clear), Chiffres(8972, 10), Numeration(.cister,10))
+            Enchiffres(Digiconfig(30, 30, 10, .green, .clear), Chiffres(578979, 60), Numeration(.babylon,60))
         }.padding()
     }
     

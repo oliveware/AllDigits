@@ -21,7 +21,7 @@ struct ChiffreMaya: View {
         VStack(spacing:config.haut*0.05){
             if index == 0 {
                 ChiffreImage(name:"zeromaya",
-                             config:config) //offset:(config.large/5,-config.haut/5))
+                             config:config)
             } else {
                 CircleRow(nc: index % 5,
                           size: config.large*0.15, color:config.fore)
@@ -43,7 +43,7 @@ struct ChiffreMaya_Previews: PreviewProvider {
             Chiffreunicode(symbol:Dekaval.telugu[5], config: Digiconfig())
             Chiffregraphic(graphism:.bibi, config: Digiconfig())
             Chiffregraphic(graphism:.yiking, config: Digiconfig())
-            ChiffreBabylonien()
+            ChiffreBabylonien(28, Digiconfig())
         }
     }
 }

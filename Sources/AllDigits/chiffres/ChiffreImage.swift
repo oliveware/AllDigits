@@ -44,7 +44,7 @@ struct ChiffreImage: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                .foregroundColor(config.fore)
-               .frame(width: config.large, height: config.haut, alignment: .center)
+              // .frame(width: config.large, height: config.haut, alignment: .center)
                .padding(0)
                 .background(config.mid)
                 .offset(x:offset.x, y:offset.y)
