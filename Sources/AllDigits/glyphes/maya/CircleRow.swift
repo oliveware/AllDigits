@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(macOS 10.15, *)
 struct CircleRow: View {
     var nc = 3
     var size : CGFloat = 12
@@ -21,7 +20,7 @@ struct CircleRow: View {
     var body: some View {
         if nc > 0 {
             let rg = 0..<nc
-            HStack(spacing:size*0.5) {
+            HStack(spacing:size*0.3) {
                 ForEach(rg, id: \.self) {
                     index in
                     circle

@@ -16,20 +16,20 @@ struct ChiffreBabylonien: View {
         HStack(spacing:0){
             if index == 0 {
                 ChiffreImage(name:"Babylon_0",
-                             config:config.scale(0.2))
+                             config:config.scale(0.9))
             } else {
             let unit = index % 10
             let ten = (index - unit )
             if ten > 0 {
                 ChiffreImage(name:"Babylon_\(ten)",
-                             config:config.scale(0.2))
+                             config:config.scale(0.9))
             }
             if unit > 0 {
                 ChiffreImage(name:"Babylon_\(unit)",
-                                 config:config.scale(0.2))
+                                 config:config.scale(0.9))
                 }
             }
-        }.frame(width:config.large*1.3)
+        }.frame(width:config.large)
         .padding(0)
     }
 }
