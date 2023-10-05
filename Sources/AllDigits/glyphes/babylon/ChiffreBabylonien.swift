@@ -10,12 +10,12 @@ import Digiconf
 
 struct ChiffreBabylonien: View {
     var index = 20
-    var config = Digiconfig().size(15,15)
+    var config = Digiconfig().size(60,60)
     
     var body: some View {
         VStack(alignment:.center){
             ChiffreImage(name:"Babylon_\(index)",
-                         config:config)
+                         config:config.scale(0.2))
         }
     }
 }

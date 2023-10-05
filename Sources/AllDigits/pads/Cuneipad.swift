@@ -42,10 +42,16 @@ struct Cuneipad: View {
         VStack {
             HStack(alignment:.top) {
                 Button(action: add) {
-                    Text( compose == 0 ? "" : doubles[compose])
+                    if graphism != nil {
+                        ChiffreBabylonien(
+                            index:compose,
+                            config:config)
+                    } else {
+                        Text( compose == 0 ? "" : doubles[compose])
+                    }
                 }
                 .buttonStyle(Digit60())
-                .disabled(compose == 0)
+                .disabled(compose == 0 && graphism != nil)
             }.frame(width:width)
                 .padding(.top, 5)
                 .padding(.bottom,20)
@@ -86,19 +92,18 @@ struct Cuneipad: View {
                                 col in
                                 Button( action: {
                                     setunit(line*3+col) } )
-                                {
-                                    if graphism != nil {
-                                        ChiffreBabylonien( index:line*3+col, config:config)
-                                    } else {
-                                        Chiffreunicode( symbol:units[line*3+col],
-                                                        config: config.scale(0.5)
-                                        )
+                                    {
+                                        if graphism != nil {
+                                            ChiffreBabylonien( index:line*3+col, config:config)
+                                        } else {
+                                            Chiffreunicode( symbol:units[line*3+col],
+                                                            config: config.scale(0.5))
+                                        }
                                     }
+                                    .configTouch(config)
+                                    //.modern(w: width/6, h:height/5)
+                                    .disabled(compose % 10 > 0)
                                 }
-                                .configTouch(config)
-                                //.modern(w: width/6, h:height/5)
-                                .disabled(compose % 10 > 0)
-                                
                             }.padding(0)
                         }
                     } .padding(5)
@@ -106,7 +111,7 @@ struct Cuneipad: View {
                     .padding(0)
                 
             }.padding(5)
-        }
+        
     }
     
     func seten(_ input:Int) {
@@ -127,6 +132,6 @@ struct Cuneipad: View {
 struct Cuneipad_Previews: PreviewProvider {
     static var previews: some View {
         Cuneipad(chiffres:.constant( Chiffres()))
-            
+        Cuneipad(graphism:.babylon, chiffres:.constant( Chiffres()))
     }
 }
