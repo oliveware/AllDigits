@@ -143,10 +143,10 @@ struct Chinois {
      case 0:
          return ""
      case 1:
-         if power == 0 {
+         if power == maxpower {
              return hanziset[1]
          } else {
-             return power == maxpower ?  classifier : hanziset[1] + classifier
+             return power == 0 ?  classifier : hanziset[1] + classifier
          }
     default:
          return hanziset[index] + classifier
@@ -158,10 +158,10 @@ struct Chinois {
      case 0:
          return ""
      case 1:
-         if power == 0 {
+         if power == maxpower {
              return kanjiset[1]
          } else {
-             return power == maxpower ?  classifier : kanjiset[1] + classifier
+             return power == 0 ?  classifier : kanjiset[1] + classifier
          }
     default:
          return kanjiset[index] + classifier
@@ -173,10 +173,10 @@ struct Chinois {
      case 0:
          return ""
      case 1:
-         if power == 0 {
+         if power == maxpower {
              return hangeulset[1]
          } else {
-             return power == maxpower ?  classifier : hangeulset[1] + classifier
+             return power == 0 ?  classifier : hangeulset[1] + classifier
          }
     default:
          return hangeulset[index] + classifier
