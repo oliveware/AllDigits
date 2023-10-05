@@ -40,6 +40,7 @@ public struct Pad: View {
                     doubles:Mesopotamie.symbols(numeration.numicode),
                     tens:Mesopotamie.tens(numeration.numicode),
                     units:Mesopotamie.units(numeration.numicode),
+                    graphism:numeration.graphism,
                     chiffres:$chiffres)
             } else {
 
