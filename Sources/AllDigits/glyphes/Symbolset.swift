@@ -44,7 +44,7 @@ static let codes : [Numicode] = [.arab, .bali, .bengali, .burmese, .devanagari, 
 
 struct Mesopotamie {
  
- static let codes : [Numicode] = [.babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
+    static let codes : [Numicode] = [.babylon, .babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
  
  //glyphes unités
  static let gesh2 = ["", "\u{12415}", "\u{12416}", "\u{12417}", "\u{12418}", "\u{12419}", "\u{1241A}", "\u{1241B}", "\u{1241C}", "\u{1241D}"]// GESH2
@@ -229,6 +229,18 @@ struct OldPersian {
     static let units = ["","𐏑","𐏒","𐏒𐏑","𐏒𐏒","𐏒𐏒𐏑","𐏒𐏒𐏒","𐏒𐏒𐏒𐏑","𐏒𐏒𐏒𐏒","𐏒𐏒𐏒𐏒𐏑"]
     static let tens = ["","𐏓","𐏔","𐏔𐏓","𐏔𐏔","𐏔𐏔𐏓","𐏔𐏔𐏔","𐏔𐏔𐏔𐏓","𐏔𐏔𐏔𐏔","𐏔𐏔𐏔𐏔𐏓"]
     static let cents = ["","𐏕","𐏕𐏕","𐏕𐏕𐏕","𐏕𐏕𐏕𐏕","𐏕𐏕𐏕𐏕𐏕","𐏕𐏕𐏕𐏕𐏕𐏕","𐏕𐏕𐏕𐏕𐏕𐏕𐏕","𐏕𐏕𐏕𐏕𐏕𐏕𐏕𐏕","𐏕𐏕𐏕𐏕𐏕𐏕𐏕𐏕𐏕"]
+    static let base10 = [units, tens, cents]
+    
+    static let base6 = ["","𐏑","𐏒","𐏓","𐏔","𐏕"]
+    
+    static func clavier(_ base:Int, _ power:Int = 0) -> [String] {
+        if base == 6 {
+            return base6
+        } else {
+            return base10[power]
+
+        }
+    }
 }
 
 //=============================
@@ -245,50 +257,50 @@ struct Grec {
      static let una = ["Ι","Δ","Η","Χ","M"]
  
     static let units = ["","I","II","III","IIII","\u{10143}","\u{10143}I","\u{10143}II","\u{10143}III","\u{10143}IIII"]
- static let tens = ["","Δ","ΔΔ","ΔΔΔ","ΔΔΔΔ","\u{10144}","\u{10144}Δ","\u{10144}ΔΔ","\u{10144}ΔΔΔ","\u{10144}ΔΔΔΔ"]
- static let cents = ["","H","HH","HHH","HHHH","\u{10145}","\u{10145}H","\u{10145}HH","\u{10145}HHH","\u{10145}HHHH"]
- static let mil = ["","X","XX","XXX","XXXX","\u{10146}","\u{10146}X","\u{10146}XX","\u{10146}XXX","\u{10146}XXXX"]
- static let myr = ["","M","MM","MMM","MMMM","\u{10147}","\u{10147}M","\u{10147}MM","\u{10147}MMM","\u{10147}MMMM"]
- 
- static let acroclaviers = [units, tens, cents, mil, myr]
- 
- static func acrophoniclavier(_ power:Int) -> [String] {
-  let max = acroclaviers.count
-  return acroclaviers[power % max]
- }
- static func acrochiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  return acrophoniclavier(maxpower - power)[index]
- }
+     static let tens = ["","Δ","ΔΔ","ΔΔΔ","ΔΔΔΔ","\u{10144}","\u{10144}Δ","\u{10144}ΔΔ","\u{10144}ΔΔΔ","\u{10144}ΔΔΔΔ"]
+     static let cents = ["","H","HH","HHH","HHHH","\u{10145}","\u{10145}H","\u{10145}HH","\u{10145}HHH","\u{10145}HHHH"]
+     static let mil = ["","X","XX","XXX","XXXX","\u{10146}","\u{10146}X","\u{10146}XX","\u{10146}XXX","\u{10146}XXXX"]
+     static let myr = ["","M","MM","MMM","MMMM","\u{10147}","\u{10147}M","\u{10147}MM","\u{10147}MMM","\u{10147}MMMM"]
+     
+     static let acroclaviers = [units, tens, cents, mil, myr]
+     
+     static func acrophoniclavier(_ power:Int) -> [String] {
+      let max = acroclaviers.count
+      return acroclaviers[power % max]
+     }
+     static func acrochiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+      return acrophoniclavier(maxpower - power)[index]
+     }
 
 // lettres-chiffres de la numération alphabétique
- static let kerea = "\u{0374}"
- static let aristerikerea = "\u{0375}"
- 
- static func alphachiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  let prefix = power == 0  && maxpower > 2 ? aristerikerea : ""
-  let suffix = power == maxpower ? kerea : ""
-  return prefix + alphabeticlavier(maxpower - power)[index] + suffix
- }
- 
- static func alphabeticlavier(_ power:Int) -> [String] {
-  let max = alphaclaviers.count
-    return alphaclaviers[power % max]
- }
- static let alphaclaviers = [alpha, deka, hekto, kilo, myriad, dekamyr]
- 
-   
- // glyphes des unités
- static let alpha = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DD}","\u{03B6}","\u{03B7}","\u{03B8}"]
- // glyphes des dizaines
- static let deka = ["","\u{03B9}","\u{03BA}","\u{03BB}","\u{03BC}","\u{03BD}","\u{03BE}","\u{03BF}","\u{03C0}","\u{03DF}"]
- // glyphes des centaines
- static let hekto = ["","\u{03C1}","\u{03C2}","\u{03C3}","\u{03C4}","\u{03C5}","\u{03C6}","\u{03C7}","\u{03C8}","\u{03E1}"]
- // glyphes des milliers
- static let kilo = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DB}","\u{03B6}","\u{03B7}","\u{03B8}"]
- // glyphes des myriades
- static let myriad = deka
- // glyphes des dizaines de myriades
- static let dekamyr = hekto
+     static let kerea = "\u{0374}"
+     static let aristerikerea = "\u{0375}"
+     
+     static func alphachiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+      let prefix = power == 0  && maxpower > 2 ? aristerikerea : ""
+      let suffix = power == maxpower ? kerea : ""
+      return prefix + alphabeticlavier(maxpower - power)[index] + suffix
+     }
+     
+     static func alphabeticlavier(_ power:Int) -> [String] {
+      let max = alphaclaviers.count
+        return alphaclaviers[power % max]
+     }
+     static let alphaclaviers = [alpha, deka, hekto, kilo, myriad, dekamyr]
+     
+       
+     // glyphes des unités
+     static let alpha = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DD}","\u{03B6}","\u{03B7}","\u{03B8}"]
+     // glyphes des dizaines
+     static let deka = ["","\u{03B9}","\u{03BA}","\u{03BB}","\u{03BC}","\u{03BD}","\u{03BE}","\u{03BF}","\u{03C0}","\u{03DF}"]
+     // glyphes des centaines
+     static let hekto = ["","\u{03C1}","\u{03C2}","\u{03C3}","\u{03C4}","\u{03C5}","\u{03C6}","\u{03C7}","\u{03C8}","\u{03E1}"]
+     // glyphes des milliers
+     static let kilo = ["","\u{03B1}","\u{03B2}","\u{03B3}","\u{03B4}","\u{03B5}","\u{03DB}","\u{03B6}","\u{03B7}","\u{03B8}"]
+     // glyphes des myriades
+     static let myriad = deka
+     // glyphes des dizaines de myriades
+     static let dekamyr = hekto
 }
 
 //=============================
@@ -296,30 +308,30 @@ struct Grec {
 //=============================
 struct Romain {
  
- static let claviers = [unit, diz, cent, mil, myr, dizmyr]
- 
- static func clavier(_ power:Int) -> [String] {
-  let max = claviers.count
-  return claviers[power % max]
- }
- 
- // glyphes des unités
- static let unit = ["","I","II","III","IV","V","VI","VII","VIII","IX"]
- static let diz = ["","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
- static let cent = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]
- static let mil = ["","M","MM","MMM","M\u{2181}","\u{2181}","\u{2181}M","\u{2181}MM","\u{2181}MMM","M\u{2182}"]
- static let myr =
-   // u{2187}, le glyphe unicode pour 50 000 est inopérant. Il est remplacé ici par le D encadré 1F133
-   // u{2188}, le glyphe unicode pour 100 000 est inopérant. Il est remplacé ici par le M encadré 1F13C
-["","\u{2182}","\u{2182}\u{2182}","\u{2182}\u{2182}\u{2182}","\u{2182}\u{1F133}","\u{1F133}","\u{1F133}\u{2182}","\u{1F133}\u{2182}\u{2182}","\u{1F133}\u{2182}\u{2182}\u{2182}","\u{2182}\u{1F13C}"]
- static let dizmyr =
-   // unique chiffre romain 100000
-   // u{2188}, le glyphe unicode pour 100 000 est inopérant. Il est remplacé ici par le M encadré 1F13C
-  ["","\u{1F13C}","\u{1F13C}\u{1F13C}","\u{1F13C}\u{1F13C}\u{1F13C}","","","","","",""]
- 
- static func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
-  return clavier(maxpower - power)[index]
- }
+     static let claviers = [unit, diz, cent, mil, myr, dizmyr]
+     
+     static func clavier(_ power:Int) -> [String] {
+      let max = claviers.count
+      return claviers[power % max]
+     }
+     
+     // glyphes des unités
+     static let unit = ["","I","II","III","IV","V","VI","VII","VIII","IX"]
+     static let diz = ["","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
+     static let cent = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]
+     static let mil = ["","M","MM","MMM","M\u{2181}","\u{2181}","\u{2181}M","\u{2181}MM","\u{2181}MMM","M\u{2182}"]
+     static let myr =
+       // u{2187}, le glyphe unicode pour 50 000 est inopérant. Il est remplacé ici par le D encadré 1F133
+       // u{2188}, le glyphe unicode pour 100 000 est inopérant. Il est remplacé ici par le M encadré 1F13C
+    ["","\u{2182}","\u{2182}\u{2182}","\u{2182}\u{2182}\u{2182}","\u{2182}\u{1F133}","\u{1F133}","\u{1F133}\u{2182}","\u{1F133}\u{2182}\u{2182}","\u{1F133}\u{2182}\u{2182}\u{2182}","\u{2182}\u{1F13C}"]
+     static let dizmyr =
+       // unique chiffre romain 100000
+       // u{2188}, le glyphe unicode pour 100 000 est inopérant. Il est remplacé ici par le M encadré 1F13C
+      ["","\u{1F13C}","\u{1F13C}\u{1F13C}","\u{1F13C}\u{1F13C}\u{1F13C}","","","","","",""]
+     
+     static func chiffre(_ maxpower:Int, _ power:Int, _ index:Int) -> String {
+      return clavier(maxpower - power)[index]
+     }
 }
 
 //=============================
@@ -327,14 +339,14 @@ struct Romain {
 //=============================
 struct Shadok {
  
- static func symbols(_ base:Int) -> [String] {
-  if base == 4 {
-   return ["Ga","Bu","Zo","Meu"]
-  } else {
-   // avec zérobinet
-   return ["\u{1F6B0}","Ga","Bu","Zo","Meu"]
-  }
- }
+     static func clavier(_ base:Int) -> [String] {
+      if base == 4 {
+       return ["Ga","Bu","Zo","Meu"]
+      } else {
+       // avec zérobinet
+       return ["\u{1F6B0}","Ga","Bu","Zo","Meu"]
+      }
+     }
 }
 
 // chiffres décimaux étendus de la numération moderne multibase

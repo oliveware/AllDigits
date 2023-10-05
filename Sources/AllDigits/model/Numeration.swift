@@ -115,6 +115,10 @@ public struct Numeration {
             return  Dekaval.devanagari
         case .farsi:
             return  Dekaval.farsi
+        case .far6old:
+            return OldPersian.base6
+        case .far10old:
+            return OldPersian.base10[power]
         case .gujarati:
             return  Dekaval.gujarati
         case .gurmukhi:
@@ -171,9 +175,9 @@ public struct Numeration {
         case .roman:
             return Romain.clavier(power)
         case .shadok:
-            return Shadok.symbols(4)
+            return Shadok.clavier(4)
         case .shadok5:
-            return Shadok.symbols(5)
+            return Shadok.clavier(5)
             
         case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
             return Mesopotamie.symbols(numicode)
@@ -229,11 +233,16 @@ public struct Numeration {
             isadditive = true
         case .alphabet:
             baserange = setbaserange(2, 26)
-        case .geshu, .sumer :
+        case .far6old, .geshu, .sumer :
             baserange = setbaserange(2, 6)
+        case .far10old:
+            baserange = setbaserange(2, 10)
         case .sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh:
-             baserange = setbaserange(2, 60)
+            baserange = setbaserange(2, 60)
             groupby = 3
+        case .babylon:
+            baserange = setbaserange(2, 60)
+            graphism = .babylon
         case .bibi:
             baserange = setbaserange(2, 16)
             graphism = .bibi
@@ -318,13 +327,15 @@ public struct Numeration {
             nativebase = 4
         case .shadok5:
             nativebase = 5
+        case .far6old, .geshu, .sumer:
+            nativebase = 6
         case .bibi:
             nativebase = 16
         case .maya:
             nativebase = 20
         case .yiking:
             nativebase = 64
-        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh:
+        case .babylon, .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh:
             nativebase = 60
         case .alphabet:
             nativebase = 26

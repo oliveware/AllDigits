@@ -26,9 +26,10 @@ public struct Numicodeset {
         name = LocalizedStringKey(type.rawValue)
         switch type {
         case .all:
-            set = Extended.codes + Dekaval.codes + Chinois.codes + Grec.codes + Mesopotamie.codes + [.global, .cister, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
+            set = Extended.codes + Dekaval.codes + Chinois.codes + Grec.codes + Mesopotamie.codes +
+            [.global, .aegypt, .far6old, .far10old, .cister, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
         case .antik:
-            set = [.roman] + Grec.codes + [.aegypt] + Mesopotamie.codes
+            set = [.roman] + Grec.codes + [.aegypt, .far6old, .far10old] + Mesopotamie.codes
         case .ancient:
             set = [.maya, .cister, .yiking] + Numicodeset(.antik).set
         case .artificial:
@@ -71,6 +72,7 @@ public enum Numicode: LocalizedStringKey {
     case cister     = "cistercian"
     case devanagari = "devanagarî"
     case farsi      = "farsi"
+    case far6old    = "old persian 6"
     case gujarati   = "gujarati"
     case gurmukhi   = "gurmukhi"
     case javanese   = "javanese"
@@ -104,11 +106,13 @@ public enum Numicode: LocalizedStringKey {
     case aegypt     = "aegypt"
     case alpha      = "alpha grec"   // alphabétique grec
     case attic      = "attic grec"   // acrophonique grec
+    case babylon    = "babylonian"
     case babyash    = "babylonian ash"
     case babydish   = "babylonian dish"
     case babygesh   = "babylonian gesh"
     case ash        = "cunei ash"
     case dish       = "cunei dish"
+    case far10old   = "old persian 10"
     case gesh2      = "cunei gesh"
     case geshu      = "cunei geshu"
     case roman      = "roman"
@@ -133,6 +137,7 @@ public enum Numicode: LocalizedStringKey {
 }
 
 public enum Graphism : String {
+    case babylon    = "babylonien"
     case bibi       = "bibi-binaire"
     // case aztek   = "aztèque"
     case maya       = "maya"

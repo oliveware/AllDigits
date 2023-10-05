@@ -55,6 +55,8 @@ public struct Chiffregraphic: View {
        
            switch graphism {
                // case aztek
+           case .babylon:
+               ChiffreBabylonien(index:index,config: config)
            case .bibi:
                Glyshape(index: index, color:config.fore,
                         weight:3,
