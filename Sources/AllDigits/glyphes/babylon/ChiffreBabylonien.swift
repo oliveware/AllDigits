@@ -13,9 +13,22 @@ struct ChiffreBabylonien: View {
     var config = Digiconfig().size(60,60)
     
     var body: some View {
-        VStack(alignment:.center){
-            ChiffreImage(name:"Babylon_\(index)",
-                         config:config.scale(0.2))
+        HStack(alignment:.center){
+            if index == 0 {
+                ChiffreImage(name:"Babylon_0",
+                             config:config.scale(0.2))
+            } else {
+            let unit = index % 10
+            let ten = (index - unit )
+            if ten > 0 {
+                ChiffreImage(name:"Babylon_\(ten)",
+                             config:config.scale(0.2))
+            }
+            if unit > 0 {
+                ChiffreImage(name:"Babylon_\(unit)",
+                                 config:config.scale(0.2))
+                }
+            }
         }
     }
 }
@@ -46,4 +59,8 @@ struct ChiffreBabylonien: View {
             }
         }
     }
+}
+
+#Preview {
+    ChiffreBabylonien(index:45)
 }

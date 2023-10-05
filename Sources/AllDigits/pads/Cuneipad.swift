@@ -51,7 +51,7 @@ struct Cuneipad: View {
                     }
                 }
                 .buttonStyle(Digit60())
-                .disabled(compose == 0 && graphism != nil)
+                .disabled(compose == 0 && graphism == nil)
             }.frame(width:width)
                 .padding(.top, 5)
                 .padding(.bottom,20)
