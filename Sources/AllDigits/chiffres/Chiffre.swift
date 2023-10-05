@@ -64,7 +64,7 @@ public struct Chiffregraphic: View {
                .frame(width: config.large, height: config.haut)
                .background(config.mid)
            case .maya:
-               ChiffreMaya(index: index, config: config.scale(0.15))
+               ChiffreMaya(index: index, config: config)
            case .yiking:
                ChiffreHexa(index, config.scale(0.9), .yijing)
            }
