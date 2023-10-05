@@ -14,7 +14,7 @@ struct ChiffreBabylonien: View {
     
     var body: some View {
         VStack(alignment:.center){
-            ChiffreImage(name:"Babylonian_\(index).svg",
+            ChiffreImage(name:"Babylon_\(index)",
                          config:config)
         }
     }

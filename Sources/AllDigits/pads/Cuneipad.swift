@@ -33,6 +33,8 @@ struct Cuneipad: View {
     var tens : [String] = Mesopotamie.sumer
     var units : [String] = Mesopotamie.ash
     
+    var graphism : Graphism?
+    
     @Binding var chiffres : Chiffres
     @State var compose = 0
     
@@ -56,15 +58,22 @@ struct Cuneipad: View {
                                 col in
                                 if line*2+col < 6 {
                                     Button( action: { seten(line*2+col) } )
-                                    {  Chiffreunicode(symbol:tens[line*2+col],
-                                                config: config.scale(0.7)
-                                            )
+                                    { if graphism != nil {
+                                        ChiffreBabylonien(
+                                            index:10*(line*2+col),
+                                            config:config)
+                                    } else {
+                                        Chiffreunicode(
+                                            symbol:tens[line*2+col],
+                                            config: config.scale(0.7)
+                                        )
+                                    }
                                     }
                                     .configTouch(config)
                                     //.modern(w: width/6, h:height/5)
                                     .disabled(compose > 9)
                                 }
-                                }
+                            }
                         }.padding(0)
                     }
                 }
@@ -75,23 +84,29 @@ struct Cuneipad: View {
                         HStack(spacing:2) {
                             ForEach(1...3, id: \.self) {
                                 col in
-                                    Button( action: { setunit(line*3+col) } )
-                                    {  Chiffreunicode(symbol:units[line*3+col],
-                                                config: config.scale(0.5)
-                                            )
+                                Button( action: {
+                                    setunit(line*3+col) } )
+                                {
+                                    if graphism != nil {
+                                        ChiffreBabylonien( index:line*3+col, config:config)
+                                    } else {
+                                        Chiffreunicode( symbol:units[line*3+col],
+                                                        config: config.scale(0.5)
+                                        )
                                     }
-                                    .configTouch(config)
-                                    //.modern(w: width/6, h:height/5)
-                                    .disabled(compose % 10 > 0)
-                                
                                 }
-                        }.padding(0)
-                    }
-                } .padding(5)
-            }.frame(width: width, height: height, alignment: .center)
-            .padding(0)
-           
-        }.padding(5)
+                                .configTouch(config)
+                                //.modern(w: width/6, h:height/5)
+                                .disabled(compose % 10 > 0)
+                                
+                            }.padding(0)
+                        }
+                    } .padding(5)
+                }.frame(width: width, height: height, alignment: .center)
+                    .padding(0)
+                
+            }.padding(5)
+        }
     }
     
     func seten(_ input:Int) {
