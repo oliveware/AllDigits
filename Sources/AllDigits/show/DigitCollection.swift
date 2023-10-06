@@ -46,7 +46,7 @@ public struct DigitCollection: View {
             } else {
                 VStack(alignment: .center,spacing:25) {
                     HStack(spacing:25) {
-                        VStack {
+                        if value > 0 {
                             Enchiffres(config, Chiffres(value, 20), Numeration(.maya,20), false)
                             Text("maya").font(.caption)
                         }
@@ -55,7 +55,7 @@ public struct DigitCollection: View {
                             .fontWeight(Font.Weight.bold)
                         .offset(x:0, y:10)
                         .foregroundColor(Color.green)
-                        VStack {
+                        if value > 0 {
                             Enchiffres(config, Chiffres(value, 20), Numeration(.aztek,20), false)
                             Text("aztek").font(.caption)
                         }

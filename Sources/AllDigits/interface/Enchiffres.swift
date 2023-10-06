@@ -26,7 +26,7 @@ public struct Enchiffres: View {
     
     public var body: some View {
         VStack (alignment:.trailing) {
-            if numeration.numicode == .maya {
+            if numeration.numicode == .maya || numeration.numicode == .aztek {
                 VStack {
                     ForEach(0..<chiffres.values.count, id:\.self) {
                         power in
@@ -69,9 +69,12 @@ public struct Enchiffres: View {
 
 #Preview {
     HStack {
-        Enchiffres(Digiconfig(30, 30, 10, .pink, .clear), Chiffres(578979, 20), Numeration(.maya,20))
         VStack {
-            Enchiffres(Digiconfig(80, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.hanzi,10))
+            Enchiffres(Digiconfig(30, 30, 10, .pink, .clear), Chiffres(5979, 20), Numeration(.maya,20))
+            Enchiffres(Digiconfig(30, 30, 10, .pink, .clear), Chiffres(8979, 20), Numeration(.aztek,20))
+        }
+        VStack {
+            Enchiffres(Digiconfig(80, 30, 5, .white, .black), Chiffres(579, 10), Numeration(.kor,10))
             Enchiffres(Digiconfig(80, 30, 10, .blue, .clear), Chiffres(578979, 10), Numeration(.brahmi,10))
         //    Enchiffres(Digiconfig(10, 20, 10, .cyan, .clear), Chiffres(8979, 5), Numeration(.shadok5,5))
             
@@ -81,6 +84,7 @@ public struct Enchiffres: View {
             Enchiffres(Digiconfig(60, 25, 10, .yellow, .clear), Chiffres(8972, 10), Numeration(.cister,10))
             Enchiffres(Digiconfig(30, 30, 10, .green, .clear), Chiffres(578979, 60), Numeration(.babylon,60))
         }.padding()
+        
     }
     
 }

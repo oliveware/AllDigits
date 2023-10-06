@@ -339,7 +339,7 @@ public struct Numeration {
             nativebase = 6
         case .bibi:
             nativebase = 16
-        case .maya:
+        case .maya, .aztek:
             nativebase = 20
         case .yiking:
             nativebase = 64
