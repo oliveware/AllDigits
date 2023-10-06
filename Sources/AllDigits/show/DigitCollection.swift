@@ -45,13 +45,24 @@ public struct DigitCollection: View {
                 }
             } else {
                 VStack(alignment: .center,spacing:25) {
-                    Text("\(value)")
-                        .font(config.scale(3).font)
-                        .fontWeight(Font.Weight.bold)
+                    HStack(spacing:25) {
+                        VStack {
+                            Enchiffres(config, Chiffres(value, 20), Numeration(.maya,20), false)
+                            Text("maya").font(.caption)
+                        }
+                        Text("\(value)")
+                            .font(config.scale(3).font)
+                            .fontWeight(Font.Weight.bold)
                         .offset(x:0, y:10)
+                        .foregroundColor(Color.green)
+                        VStack {
+                            Enchiffres(config, Chiffres(value, 20), Numeration(.aztek,20), false)
+                            Text("aztek").font(.caption)
+                        }
+                    }
                     
                 }.frame(width:width, height:height, alignment: .center)
-                    .foregroundColor(Color.green)
+                    
                 if value == 0 {
                     ForEach (crown([300], zero.count), id: \.self) { point in
                         VStack {

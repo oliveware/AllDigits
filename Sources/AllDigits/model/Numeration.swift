@@ -284,6 +284,9 @@ public struct Numeration {
             baserange = setbaserange(2, 10)
             // correspondingScript = .kor
             groupby = 4
+        case .aztek:
+            baserange = setbaserange(2, 20)
+            graphism = .aztek
         case .maya:
             baserange = setbaserange(2, 20)
             graphism = .maya

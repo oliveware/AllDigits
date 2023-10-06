@@ -27,17 +27,17 @@ public struct Numicodeset {
         switch type {
         case .all:
             set = Extended.codes + Dekaval.codes + Chinois.codes + Grec.codes + Mesopotamie.codes +
-            [.global, .aegypt, .far6old, .far10old, .cister, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
+            [.global, .aegypt, .far6old, .far10old, .cister, .aztek, .maya, .roman, .shadok,.shadok5, .yiking, .alphabet, .base72 ]
         case .antik:
             set = [.roman] + Grec.codes + [.aegypt, .far6old, .far10old] + Mesopotamie.codes
         case .ancient:
-            set = [.maya, .cister, .yiking] + Numicodeset(.antik).set
+            set = [.aztek, .maya, .cister, .yiking] + Numicodeset(.antik).set
         case .artificial:
             set = [.shadok, .shadok5, .alphabet, .base72]
         case .live:
             set = Dekaval.codes + Chinois.codes + [.bibi]
         case .zero:
-            set = Numicodeset(.live).set + [.yiking]
+            set = Numicodeset(.live).set + [.aztek, .maya, .yiking]
         }
     }
     
@@ -63,7 +63,7 @@ public enum Numicode: LocalizedStringKey {
     case global     = "global"
     case alphabet   = "alphabet"
     case arab       = "arab"
-    // case aztek   = "aztèque"
+    case aztek      = "aztèque"
     case bibi       = "bibi-binary"
     case bali       = "bali"
     case bengali    = "bengali"
@@ -137,6 +137,7 @@ public enum Numicode: LocalizedStringKey {
 }
 
 public enum Graphism : String {
+    case aztek      = "aztèque"
     case babylon    = "babylonien"
     case bibi       = "bibi-binaire"
     // case aztek   = "aztèque"

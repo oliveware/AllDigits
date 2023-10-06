@@ -2,32 +2,35 @@
 //  SwiftUIView.swift
 //  
 //
-//  Created by Herve Crespel on 05/10/2023.
+//  Created by Herve Crespel on 06/10/2023.
 //
 
 import SwiftUI
 import Digiconf
 
-struct Babylonians: View {
-    
+struct Azteks: View {
     var config = Digiconfig().size(60,60)
+    
+    func name(_ index:Int) -> String {
+        return "mayafacial\(index)"
+    }
     
     var units: some View {
         HStack {
-            ForEach(0..<10) {
+            ForEach(0..<5) {
                 unit in
                 Text("\(unit)")
-                    .frame(width:config.large*1.3)
+                    .frame(width:config.large)
                     .padding(0)
             }
         }
     }
     var tens: some View {
         VStack() {
-            ForEach(0..<6) {
+            ForEach(0..<4) {
                 ten in
-                Text("\(ten)")
-                    .frame(height:config.haut*0.53)
+                Text("\(ten*4+1)")
+                    .frame(height:config.haut)
                     .padding(0)
             }
         }.frame(alignment:.center)
@@ -39,13 +42,13 @@ struct Babylonians: View {
             tens
             VStack {
                 units
-                ForEach(0..<6) {
+                ForEach(0..<4) {
                     ten in
                     HStack {
-                        ForEach(0..<10) {
+                        ForEach(0..<5) {
                             unit in
-                            ChiffreBabylonien(10*ten+unit, config.scale(0.6))
-                                .frame(width:config.large * 1.3)
+                            ChiffreImage(name: name(5*ten+unit), config: config, original:true)
+                                .frame(width:config.large)
                         }
                     }
                 }
@@ -55,5 +58,5 @@ struct Babylonians: View {
 }
 
 #Preview {
-    Babylonians()
+    Azteks()
 }

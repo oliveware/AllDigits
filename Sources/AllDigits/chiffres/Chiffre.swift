@@ -54,7 +54,8 @@ public struct Chiffregraphic: View {
    public var body: some View {
        
            switch graphism {
-               // case aztek
+           case .aztek:
+               ChiffreImage(name: "mayafacial\(index)", config: config, original:true)
            case .babylon:
                ChiffreBabylonien(index, config)
                    .frame(width: config.large*1.7)
@@ -144,7 +145,8 @@ struct Chiffre_Previews: PreviewProvider {
             }.frame(width: 150)
             VStack {
                 ChiffreImage(name:"mayafacial0",config: Digiconfig(50,50),original:true)
-                
+                ChiffreImage(name:"mayafacial1",config: Digiconfig(50,50),original:true)
+                Chiffregraphic(graphism:.aztek, config: Digiconfig())
                 ChiffreBabylonien(47, Digiconfig())
             }
         }
