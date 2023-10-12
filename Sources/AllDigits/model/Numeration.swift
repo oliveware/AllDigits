@@ -47,7 +47,7 @@ public struct Numeration {
     
     // écriture correspondant au numicode
     // bro ne correspond à une aucun numicode
-   // public var correspondingScript = Ecriture.bro
+   // public var correspondingScript = Langue.bro
     
     public var isglobal10: Bool {
         numicode == .global && base == 10
@@ -418,8 +418,8 @@ public struct Numeration {
         }
     }
     
-  /*  func complangs()->[Ecriture]{
-        var complangs:[Ecriture] = []
+  /*  func complangs()->[Langue]{
+        var complangs:[Langue] = []
         for e in 0..<ecritures.count {
             let lgs = ecrinums[ecritures[e]]
             if lgs != nil {

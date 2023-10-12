@@ -43,7 +43,7 @@ public struct Enchiffres: View {
                 HStack(spacing:2) {
                     switch numeration.numicode {
                     case .cister :
-                        ForEach(chiffres.engroupes(4,10000), id:\.self) {
+                        ForEach(chiffres.grouper(par:4,10000), id:\.self) {
                             groupe in
                             Cistercien(groupe.values, config)
                         }

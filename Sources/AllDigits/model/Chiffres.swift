@@ -7,54 +7,6 @@
 
 import Foundation
 
-public struct Valuebase {
-    public let g10:Int
-    public let base:Int
-    
-    public init(_ value:Int, _ b:Int)
-    {
-        g10 = value
-        base = b
-    }
-}
-
-public struct Groupe : Hashable {
-    // valeurs des chiffres dans la base courante, dans l'ordre décroissant des puissances
-    var values : [Int] = []
-    // nombre max de chiffres du groupe
-    private var groupby: Int = 3
-    // base du groupe     (ex:80 en mangarévien, 1000 en global, 10 000 en chinois)
-    private var base: Int = 1000
-    // puissance du groupe
-    private var power: Int = 0
-    // valeur du groupe en base 10
-    internal var global10: Int = 0
-    
-    
-    public init(_ gb:Int, _ b: Int, _ p:Int) {
-        groupby = gb
-        base = b
-        power = p
-    }
-    
-    var empty:Bool {values.count == 0}
-    
-    func conv10() -> Int {
-        var decival = 0
-        var power = 1
-        for value in values.reversed() {
-            decival += value * power
-            power *= base
-        }
-       return decival
-    }
-    
-    mutating func add(_ value:Int) {
-        values.append(value)
-        global10 = conv10()
-    }
-
-}
 
 public struct Chiffres {
 
@@ -62,6 +14,8 @@ public struct Chiffres {
     internal var values : [Int] = []
     // base courante
     private var base: Int = 10
+    
+    var groupemnt:Groupement = .partrois
     
     
     // valeur du nombre en base 10
@@ -78,8 +32,38 @@ public struct Chiffres {
         global10 = decival
         conval(b)
     }
-    
-    public func engroupes(_ groupby:Int = 3,_ groupbase:Int = 1000) -> [Groupe] {
+    // groupby variable
+    func engroupes(_ groupement:Groupement) -> [Groupe] {
+        var groupes : [Groupe] = []
+        switch groupement {
+        case .chinois:
+            groupes = grouper(par: 4, 10000)
+        case .indien:
+            let nbv = values.count
+            var pardeux = Chiffres(0, base)
+            var mil = Groupe(3, 1000, 0)
+            if nbv < 4 {
+                for i in 0..<nbv { mil.add(values[i]) }
+                groupes = [mil]
+            } else {
+                for i in 0..<nbv {
+                    if i < nbv - 3 {
+                        pardeux.add(values[i])
+                    } else {
+                        mil.add(values[i])
+                    }
+                }
+                groupes = pardeux.grouper(par:2, 100)
+                for g in 0..<groupes.count { groupes[g].indianpower() }
+                groupes = groupes + [mil]
+            }
+        case .partrois:
+            groupes = grouper(par: 3, 1000)
+        }
+        return groupes
+    }
+    // groupby constant
+    public func grouper(par groupby:Int = 3,_ groupbase:Int = 1000) -> [Groupe] {
         var groupes : [Groupe] = []
         let nbv = values.count
         let reste = nbv % groupby
