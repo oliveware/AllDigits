@@ -15,8 +15,7 @@ struct Irish: Languedata{
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" 's a ",sp:" 's a haon"),
         ordizun: false,
         masculin : ["neoni", "aon", "dó", "trì", "ceathair", "cúig", "sé", "seacht", "ocht", "naoi","deich","aon déag"," dó dhéag"," trì déag","ceathair déag", "cúig déag", "sé déag", "seacht déag","ocht déag","naoi déag"],
-        feminin : [
-        ],
+        feminin : [],
         neutre: [],
         dizaines : ["fich", "triocha", "ceathracha", "caoga", "seasca", "seachtó", "ochtó", "nócha"],
         centaines : ["céad", "dó céad", "trì céad", "ceathair céad", "cúig céad", "sé céad", "seacht céad", "ocht céad", "naoi céad"],

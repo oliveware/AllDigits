@@ -14,15 +14,11 @@ struct Telugu: Languedata{
         ecriture:.telugu,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [
-        ],
-        feminin : [
-        ],
+        masculin : [],
+        feminin : [],
         neutre: [],
-        dizaines : [
-        ],
-        centaines : [
-        ],
+        dizaines : [],
+        centaines : [],
         mille :  ("",nil),
         grands : [("",nil), ("","")]
     )

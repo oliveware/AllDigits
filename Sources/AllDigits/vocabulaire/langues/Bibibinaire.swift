@@ -15,8 +15,7 @@ struct Bibibinaire : Languedata {
         ordizun: false,
         masculin : ["ho", "ha", "he", "hi", "bo", "ba", "be", "bi", "ko", "ka", "ke", "ki", "do", "da", "de", "di"
                    ],
-        feminin : [
-        ],
+        feminin : [],
         neutre: [],
         dizaines : [],
         centaines : [],

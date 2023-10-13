@@ -12,19 +12,15 @@ struct English: Languedata{
     let ecriture = Ecriture (
         langue: Langue.Code.en,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" and ", du:"-"),
         ordizun: false,
-        masculin : [
-        ],
-        feminin : [
-        ],
+        masculin : ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen","fourteen", "fifteen", "sixteen", "seventeen","eighteen","nineteen"],
+        feminin : [],
         neutre: [],
-        dizaines : [
-        ],
-        centaines : [
-        ],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"],
+        centaines : ["one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"],
+        mille :  ("one thousand","thousand"),
+        grands : [("one million","millions"), ("one billion","billions")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
