@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Basque: Languedata{
+struct Basque: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.bsq,
@@ -26,4 +26,11 @@ struct Basque: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 }

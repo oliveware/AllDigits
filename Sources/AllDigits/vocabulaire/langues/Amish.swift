@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Amish: Languedata{
+struct Amish: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.amh,
@@ -19,7 +19,7 @@ struct Amish: Languedata{
         feminin : [],
         neutre: [],
         dizaines : ["zwansich", "dreissich", "vazich", "fuffzich", "sechzich", "siwwezich", "achtzich", "neinzich"],
-        centaines : ["hunnert"],
+        centaines : ["hunnert", "zwee hunnert", "drei hunnert", "vier hunnert", "fimf hunnert", "sex hunnert", "siwwe hunnert", "acht hunnert", "nein hunnert"],
         mille :  ("dausend",nil),
         grands : [("en millyon","millyon"), ("en Milliard","Milliard")]
     )
@@ -27,4 +27,14 @@ struct Amish: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        if mcdu.diz > 2 && mcdu.unit == 1 { sp.unit = "een" }   // eenun
+        if mcdu.cent == 1 { sp.cent = "en" }
+        if mcdu.cent > 1 && mcdu.diz == 0 { sp.cent = ecriture.centaines[mcdu.cent].singulier + " un"}
+        return sp
+    }
 }

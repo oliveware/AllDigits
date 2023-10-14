@@ -55,6 +55,13 @@ struct Universal: Languedata {
             grands : [("",nil), ("","")]
         )
     }
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 
     mutating func makeunits() {
         let nd = doigts.count

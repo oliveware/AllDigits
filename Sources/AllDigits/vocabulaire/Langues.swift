@@ -7,7 +7,20 @@
 
 import Foundation
 
+protocol Languedata {
+
+    var ecriture:   Ecriture     { get }
+    var groupement: Groupement  { get }
+    var greatest:   Int         { get }
+    
+    init(_ kind:Langue.KindOfScript)
+    
+  //  mutating func ecrire(_ nombre:[Groupe], _ genre:Genre) -> String
+    func special(_ mcdu:Groupe.Mcdu) -> Ecriture.Special
+}
+
 public struct Langue {
+    var langue:Languedata
     var code: Code
     var romanise: Bool = false
     var special: Bool = false
@@ -205,109 +218,119 @@ public struct Langue {
         case romanise
         case special
     }
-    static func ecriture(_ code:Code, _ kind:KindOfScript = .native) -> Ecriture {
+    func ecrire(_ groupes:[Groupe],_ genre:Genre = .m) -> String {
+        var result = ""
+        for groupe in groupes {
+            result += langue.ecriture.ecrit(groupe, genre, langue.special(groupe.mcdu))
+        }
+        return result
+    }
+    init(_ code:Code, _ kind:KindOfScript = .native) {
+   // static func getlang( _ code:Code, _ kind:KindOfScript = .native) -> Languedata {
+      //  var langue: Languedata
         switch code {
         case .fr:
-            return Litteral<Francais>().ecriture
+            langue = Francais()
         case .el:
-            return Litteral<Ellenika>(kind).ecriture
+            langue = Ellinika(kind)
         case .en:
-            return Litteral<English>().ecriture
+            langue = English()
         case .de:
-            return Litteral<Deutsch>().ecriture
+            langue = Deutsch()
         case .it:
-            return Litteral<Italiano>().ecriture
+            langue = Italia()
         case .sp:
-            return Litteral<Espagnol>().ecriture
+            langue = Espana()
         case .nl, .fl:
-            return Litteral<Dutch>().ecriture
+            langue = Dutch()
         case .br:
-            return Litteral<Breizh>().ecriture
+            langue = Breizh()
         case .scg:
-            return Litteral<Scottish>().ecriture
+            langue = Scottish()
         case .irg:
-            return Litteral<Irish>().ecriture
+            langue = Irish()
         case .wag:
-            return Litteral<Cymru>().ecriture
+            langue = Cymru()
         case .bibi:
-            return Litteral<Bibibinaire>().ecriture
+            langue = Bibibinaire()
         case .bro:
-            return Litteral<Brooding>().ecriture
+            langue = Brooding()
         case .latin:
-            return Litteral<Latin>().ecriture
+            langue = Latin()
         case .bg:
-            return Litteral<Bulgare>(kind).ecriture
+            langue = Bulgare(kind)
         case .letton:
-            return Litteral<Letton>().ecriture
+            langue = Letton()
         case .litua:
-            return Litteral<Lituanie>().ecriture
+            langue = Portuges()
         case .esto:
-            return Litteral<Estonie>().ecriture
+            langue = Estonie()
         case .dan:
-            return Litteral<Danois>().ecriture
+            langue = Danois()
         case .isl:
-            return Litteral<Islande>().ecriture
+            langue = Islande()
         case .af:
-            return Litteral<Afrikaans>().ecriture
+            langue = Afrikaans()
         case .bok:
-            return Litteral<Bokmal>().ecriture
+            langue = Bokmal()
         case .ja:
-            return Litteral<Japan>(kind).ecriture
+            langue = Japan(kind)
         case .ru:
-            return Litteral<Russe>(kind).ecriture
+            langue = Russe(kind)
         case .bsq:
-            return Litteral<Basque>().ecriture
+            langue = Basque()
         case .srp:
-            return Litteral<Srpski>(kind).ecriture
+            langue = Srpski(kind)
         case .pic:
-            return Litteral<Picard>().ecriture
+            langue = Picard()
         case .far:
-            return Litteral<Persan>().ecriture
+            langue = Persan()
         case .ar:
-            return Litteral<Arabe>().ecriture
+            langue = Arabe()
         case .mapu:
-            return Litteral<Mapuche>().ecriture
+            langue = Mapuche()
         case .maya:
-            return Litteral<Maya>().ecriture
+            langue = Maya()
         case .turc:
-            return Litteral<Turc>().ecriture
+            langue = Turc()
         case .sue:
-            return Litteral<Suedois>().ecriture
+            langue = Suedois()
         case .tif:
-            return Litteral<Tifinagh>(kind).ecriture
+            langue = Tifinagh(kind)
         case .hy:
-            return Litteral<Armenien>(kind).ecriture
+            langue = Armenien(kind)
         case .amh:
-            return Litteral<Amish>().ecriture
+            langue = Amish()
         case .chol:
-            return Litteral<Chol>().ecriture
+            langue = Chol()
         case .als:
-            return Litteral<Alsacien>().ecriture
+            langue = Alsacien()
         case .mal:
-            return Litteral<Bahasa>(.special).ecriture
+            langue = Bahasa(.special)
         case .viet:
-            return Litteral<Viet>().ecriture
+            langue = Viet()
         case .zh:
-            return Litteral<Chineese>(kind).ecriture
+            langue = Chineese(kind)
         case .pol:
-            return Litteral<Polski>().ecriture
+            langue = Polski()
         case .kor:
-            return Litteral<Hangug>(kind).ecriture
+            langue = Hangug(kind)
         case .hnd:
-            return Litteral<Hindi>(kind).ecriture
+            langue = Hindi(kind)
         case .rhg:
-            return Litteral<Rohingya>(kind).ecriture
+            langue = Rohingya(kind)
         case .pt:
-            return Litteral<Portuguais>().ecriture
+            langue = Portuges()
         case .np:
-            return Litteral<Devanagari>(kind).ecriture
+            langue = Devanagari(kind)
         case .id:
-            return Litteral<Bahasa>(.native).ecriture
+            langue = Bahasa(.native)
         case .uni:
-            return Litteral<Universal>().ecriture
+            langue = Universal()
         case .uk:
-            return Litteral<Ukraine>(kind).ecriture
+            langue = Ukraine(kind)
         }
+        return langue
     }
     
     

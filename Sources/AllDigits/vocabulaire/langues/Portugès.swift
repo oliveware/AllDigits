@@ -7,23 +7,33 @@
 
 import Foundation
 
-struct Portuges: Languedata{
+struct Portuges: Languedata {
     
-    let ecriture = Ecriture (
+    var ecriture = Ecriture (
         langue: Langue.Code.pt,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" e ", du:" e "),
         ordizun: false,
-        masculin : [],
+        masculin : ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove","dez","onze","doze","treze","catorze", "quinze", "dezasseis", "dezzasete","dezoito","dezanove"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"],
+        centaines : ["cento", "duzentos", "trezentos", "quatro cento", "quinhentos", "seis cento", "sete cento", "oito cento", "nove cent0"],
+        mille :  ("mil",nil),
+        grands : [("milhão","milhões"), ("mil milhão","mil milhões"), ("bilhão","bilhões"), ("mil bilhão","mil bilhões")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        if mcdu.unit == 0 && mcdu.diz == 0 { sp.cent = "cem" }
+        return sp
+    }
 }
+
+

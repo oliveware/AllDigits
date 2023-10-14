@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Turc: Languedata{
+struct Turc: Languedata {
     
     let code = Langue.Code.el
     let ecriture = Ecriture (
@@ -15,16 +15,23 @@ struct Turc: Languedata{
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
+        masculin : ["sıfır", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz", "on", "on bir", "on iki", "on üç", "on dört", "on beş", "on altı", "on yedi", "on sekiz", "on dokuz"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"],
+        centaines : ["yüz"],
+        mille :  ("bin",nil),
+        grands : [("milyon",nil), ("milyard",""), ("trilyon",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 }

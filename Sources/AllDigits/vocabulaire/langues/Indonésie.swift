@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Helena: Languedata{
+struct Helena: Languedata {
     
     let code = Langue.Code.el
     let ecriture = Ecriture (
@@ -26,4 +26,11 @@ struct Helena: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 }

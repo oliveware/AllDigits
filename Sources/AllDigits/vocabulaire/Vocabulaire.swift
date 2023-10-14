@@ -11,14 +11,7 @@ import Foundation
 
 public var parle = true
 
-protocol Languedata {
 
-    var ecriture:   Ecriture     { get }
-    var groupement: Groupement  { get }
-    var greatest:   Int         { get }
-    
-    init(_ kind:Langue.KindOfScript)
-}
 
 struct Litteral<Langage:Languedata> {
     

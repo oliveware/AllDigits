@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Afrikaans: Languedata{
+struct Afrikaans: Languedata {
     
     let ecriture = Ecriture (
-        langue: Langue.Code.nl,
+        langue: Langue.Code.af,
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"-en-"),
         ordizun: true,
@@ -21,9 +21,17 @@ struct Afrikaans: Languedata{
         centaines : ["honderd"],
         mille :  ("duisend",nil),
         grands : [("miljoen",nil), ("miljard",""), ("biljoen",nil)]
+        //  moins = "minus"
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        
+        return sp
+    }
 }

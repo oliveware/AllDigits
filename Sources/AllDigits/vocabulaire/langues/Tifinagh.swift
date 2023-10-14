@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tifinagh: Languedata{
+struct Tifinagh: Languedata {
     
     let ecriture : Ecriture
     let tifinagh = Ecriture (
@@ -48,5 +48,12 @@ struct Tifinagh: Languedata{
         } else {
             ecriture = tamazight
         }
+    }
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Alsacien: Languedata{
+struct Alsacien: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.als,
@@ -27,4 +27,11 @@ struct Alsacien: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        if mcdu.diz > 2 && mcdu.unit == 1 { sp.unit = "ein" }   // eina
+        return sp
+    }
 }

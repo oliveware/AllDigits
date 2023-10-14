@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Telugu: Languedata{
+struct Telugu: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.tel,
@@ -26,4 +26,11 @@ struct Telugu: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 }

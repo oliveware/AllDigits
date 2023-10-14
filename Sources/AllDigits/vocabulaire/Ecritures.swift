@@ -77,16 +77,15 @@ struct Ecriture {
         let uc: String   // unité - centaine
         let cd: String   // centaine - dizaine
         let du: String   // dizaine - unité
-        let sp: String   // cas particulier
-        init(mu: String, uc: String, cd: String, du: String, sp:String = "") {
+        init(mu: String, uc: String, cd: String, du: String) {
             self.mu = mu
             self.uc = uc
             self.cd = cd
             self.du = du
-            self.sp = sp
         }
     }
     let liaison: Liaison
+    
     // ordre dizaine unité
     // true = dizaine séparateur unité (vingt-et-un)
     // false = unité séparateur dizaine (einundzwantzig)
@@ -191,35 +190,50 @@ struct Ecriture {
         }
         return lettres
     }*/
+    // préparation des cas particuliers
+    struct Special {
+        var unit: String? = nil
+        var diz: String? = nil
+        var cent: String? = nil
+        var mil: String? = nil
+    }
     
-    func ecrit(_ values: [Int],_ genre:Genre = .m) -> String {
+    // chaque langue fournit les cas particuliers, qui dépendent de values
+    func ecrit(_ groupe:Groupe,_ genre:Genre = .m, _ special:Special) -> String {
+        let values = groupe.values
+        let classifier = groupe.classifier(classifiers)
         switch values.count {
         case 1:
-            return unite(values[0], genre)
+            return unite(values[0], special, genre) + classifier
         case 2:
-            return dizunit(values[0],values[1], genre)
+            return dizunit(values[0],values[1], special, genre) + classifier
         case 3:
-            return centdizunit(values[0],values[1],values[2], genre)
+            return centdizunit(values[0],values[1],values[2], special, genre) + classifier
         case 4:
-            return mil(values[0],values[1],values[2],values[3], genre)
+            return mil(values[0],values[1],values[2],values[3], special, genre) + classifier
         default:
-            return "?g?"
+            return "?\(classifier)?"
         }
-            
-        
     }
     
     // unit est inférieur à la base
-    func unite(_ index:Int ,  _ genre: Genre) -> String {
-        let unites = unites
+    func unite(_ index:Int ,_ special:Special, _ genre: Genre) -> String {
         if index < unites.count {
-            return index == 0 ? "" : unites[index][genre]
+            if special.unit != nil {
+                return special.unit!
+            } else {
+                let unites = unites
+                if index < unites.count {
+                    return index == 0 ? "" : unites[index][genre]
+                } else {
+                    return "!0"
+                }
+            }
         } else {
-            return "!0"
+            return "u?"
         }
     }
-    func dizunit(_ diz:Int, _ unit:Int,  _ genre: Genre) -> String {
-
+    func dizunit(_ diz:Int, _ unit:Int,_ special:Special,  _ genre: Genre) -> String {
         if unit < unites.count && diz < dizaines.count {
             switch diz {
             case 0:
@@ -227,52 +241,47 @@ struct Ecriture {
             case 1:
                 return unites[unit + 10][genre]
             default:
-                let dizaine = dizaines[diz-2][true]
+                let dizaine = special.diz != nil ? special.diz! : dizaines[diz-2][true]
                 switch unit {
                 case 0:
                     return dizaine
                 default:
                     var lien = liaison.du
                     if ordizun {
-                        if (codelangue == .br || codelangue == .irg) && diz == 2 && unit > 0 { lien = liaison.sp }
-                        return dizaine + lien + unite(unit,genre)
+                        return dizaine + lien + unite(unit, special, genre)
                     } else {
-                        if (codelangue == .scg) && diz > 1 && (unit == 1 || unit == 8) { lien = liaison.sp }
-                        return unite(unit,genre) + liaison.du + dizaine
+                        return unite(unit, special,genre) + lien + dizaine
                     }
                 }
             }
         } else {
             return "du?"
         }
+        
     }
-    func centdizunit(_ cent:Int,_ diz:Int, _ unit:Int, _ genre:Genre) -> String {
-
-        let dizu = diz == 0 && unit == 0 ? "" : dizunit(diz, unit, genre)
+    func centdizunit(_ cent:Int,_ diz:Int, _ unit:Int,_ special:Special, _ genre:Genre) -> String {
+        let centaine = special.cent != nil ? special.cent! : centaines[cent-1].singulier
+        let dizu = diz == 0 && unit == 0 ? "" : dizunit(diz, unit, special, genre)
             switch cent {
             case 0:
                 return dizu
             case 1:
-                var lien = liaison.cd
-                if codelangue == .wag {
-                    lien = liaison.sp
-                }
-                return centaines[0].singulier + lien + dizu
+                return centaine + liaison.cd + dizu
             default:
-                return unites[cent][.m] + liaison.uc + centaines[cent-1].singulier + liaison.cd + dizu
+                return unites[cent][.m] + liaison.uc + centaine + liaison.cd + dizu
             }
     }
     
     
-    func mil(_ mil:Int, _ cent:Int,_ diz:Int, _ unit:Int, _ genre:Genre)->String{
-
+    func mil(_ mil:Int, _ cent:Int,_ diz:Int, _ unit:Int,_ special:Special, _ genre:Genre)->String{
+        let mille = special.mil != nil ? special.mil! : mille[mil>1]
         switch mil {
         case 0:
-            return cent == 0 && diz == 0 && unit == 0 ? "" : centdizunit(cent, diz, unit, genre)
+            return cent == 0 && diz == 0 && unit == 0 ? "" : centdizunit(cent, diz, unit, special, genre)
         case 1:
-            return mille[false] + liaison.mu + centdizunit(cent, diz, unit, genre)
+            return mille + liaison.mu + centdizunit(cent, diz, unit, special, genre)
         default:
-            return mille[true] + liaison.mu + centdizunit(cent, diz, unit, genre)
+            return mille + liaison.mu + centdizunit(cent, diz, unit, special, genre)
         }
     }
     

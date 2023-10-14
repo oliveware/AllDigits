@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Letton: Languedata{
+struct Letton: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.letton,
@@ -26,4 +26,11 @@ struct Letton: Languedata{
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
+    }
 }

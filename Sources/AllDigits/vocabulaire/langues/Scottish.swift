@@ -12,7 +12,7 @@ struct Scottish: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.scg,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" 's a ", sp:" 's a h-"),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" 's a "),
         ordizun: false,
         masculin : ["neoni", "aon", "dhà", "trì", "ceithir", "còig", "sia", "seachd", "ochd", "naoi","deich","h-aon deug"," dhà dheug"," trì deug","ceithir deug", "còig deug", "sia deug", "seachd deug","ochd deug","naoi deug"],
         feminin : [],
@@ -27,4 +27,15 @@ struct Scottish: Languedata {
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        if mcdu.mil == 2 { sp.mil = "dhà mhile"}
+        if mcdu.diz > 1 {
+            if mcdu.unit == 1 { sp.unit = "h-aon" }
+            if mcdu.unit == 8 { sp.unit = "h-ochd" }
+        }
+        return sp
+    }
 }

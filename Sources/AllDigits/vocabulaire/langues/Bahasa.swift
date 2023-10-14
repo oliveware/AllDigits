@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bahasa: Languedata{
+struct Bahasa: Languedata {
     
     let ecriture: Ecriture
     
@@ -46,5 +46,12 @@ struct Bahasa: Languedata{
         } else {
             ecriture = malais
         }
+    }
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
     }
 }

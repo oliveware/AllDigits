@@ -77,8 +77,37 @@ public struct Groupe : Hashable {
     }
     
     func enlettres(_ code:Langue.Code, _ kind:Langue.KindOfScript) -> String {
-        let ecriture = Langue.ecriture(code, kind)
-        return ecriture.ecrit(values, code)
+        return ""
+       // let ecriture = Langue.ecriture(code, kind)
+       // return ecriture.ecrit(values, code)
+    }
+    var mcdu : Mcdu { Mcdu(values) }
+    struct Mcdu {
+        var unit:Int = 0
+        var diz:Int = 0
+        var cent:Int = 0
+        var mil:Int = 0
+        
+        init(_ values: [Int]) {
+            switch values.count {
+            case 1:
+                unit = values[0]
+            case 2:
+                diz = values[0]
+                unit = values[1]
+            case 3:
+                cent = values[0]
+                diz = values[1]
+                unit = values[2]
+            case 4:
+                mil = values[0]
+                cent = values[1]
+                diz = values[2]
+                unit = values[3]
+            default:
+                break
+            }
+        }
     }
 
 }

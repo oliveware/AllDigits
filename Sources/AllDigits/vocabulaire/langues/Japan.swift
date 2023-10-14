@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Japan: Languedata{
+struct Japan: Languedata {
     
     let ecriture:Ecriture
     let romaji = Ecriture (
@@ -52,5 +52,12 @@ struct Japan: Languedata{
         } else {
             ecriture = romaji
         }
+    }
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
     }
 }

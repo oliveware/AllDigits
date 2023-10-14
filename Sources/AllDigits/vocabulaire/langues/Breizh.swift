@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Breizh: Languedata{
+struct Breizh: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.br,
@@ -21,11 +21,18 @@ struct Breizh: Languedata{
         neutre: [],
         dizaines : ["ugent", "tregont", "daou-ugent", "hanter-kant", "tri-ugent", "dek ha tri-ugent", "pevar-ugent", "dek ha pevar-ugent"],
         centaines : ["kant", "daou c'hant", "tri c'hant", "pevar c'hant", "pemp kant", "c'hwec'h kant", "seizh kant", "eizh kant", "nav c'hant"],
-        mille : ("mil","vil"),
+        mille : ("mil",nil),
         grands : [("ur million","million"), ("ur milliard","milliard")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
     
     init(_ kind:Langue.KindOfScript = .native) {}
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+        if mcdu.mil == 2 { sp.mil = "daou vil"}
+        return sp
+    }
 }

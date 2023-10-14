@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Hangug: Languedata{
+struct Hangug: Languedata {
     
     let ecriture:Ecriture
     
@@ -51,5 +51,12 @@ struct Hangug: Languedata{
         } else {
             ecriture = hanja
         }
+    }
+    
+    // traitement des cas particuliers
+    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+        var sp = Ecriture.Special()
+
+        return sp
     }
 }
