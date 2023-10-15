@@ -12,7 +12,7 @@ struct Alsacien: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.als,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"a", sp:"eina"),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"a"),
         ordizun: true,
         // quand il est suivi d'une dizaine, eins perd son s final (traité par sp:eina)
         masculin : ["null", "eins", "zwei", "drèï", "viar", "femf", "sex", "sewwa", "ååcht", "nîn","zeh","elf","zwelf","drize","viarze", "fùffze", "sæchze", "sewweze","åchtze","ninzeh"],

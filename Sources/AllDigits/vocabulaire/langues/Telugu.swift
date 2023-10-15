@@ -10,7 +10,7 @@ import Foundation
 struct Telugu: Languedata {
     
     let ecriture = Ecriture (
-        langue: Langue.Code.tel,
+        langue: Langue.Code.hnd,    // à rectifier
         ecriture:.telugu,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,

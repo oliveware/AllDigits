@@ -14,13 +14,14 @@ struct Eesti: Languedata {
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
+        masculin : ["null", "üks", "kaks", "kolm", "neli", "viis", "kuus", "seitse", "kaheksa", "üheksa", "kümme", "ükteist", "kaksteist", "kolmteist", "neliteist", "viisteist", "kuusteist", "seitseteist", "kaheksateist", "üheksateist"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["kakskümmend", "kolmkümmend", "nelikümmend", "viiskümmend", "kuuskümmend", "seitsekümmend", "kaheksakümmend", "üheksakümmend"],
+        centaines : ["sada"],
+        mille :  ("tuhat",nil),
+        grands : [("miljon","miljonit"), ("miljard","miljardit"), ("triljon","triljonit"), ("kvadriljon","kvadriljonit"), ("kvintiljon","kvintiljonit"), ("sextiljon","sextiljonit")]
+        //  moins = "miinus"
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

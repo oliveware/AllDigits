@@ -12,15 +12,16 @@ struct Dansk: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.dan,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
-        masculin : [],
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"og"),
+        ordizun: true,
+        masculin : ["null", "en", "to", "tre", "fire", "fem", "seks", "syv", "otte", "ni", "ti", "elleve", "tolv", "tretten", "fjorten", "femten", "seksten", "sytten", "atten", "nitten"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["tyve", "tredive", "fyrre", "halvtreds", "tres", "halvfjerds", "firs", "halvfems"],
+        centaines : ["hundred", "to hundrede", "tre hundrede", "fire hundrede", "fem hundrede", "seks hundrede", "syv hundrede", "otte hundrede", "ni hundrede"],
+        mille :  ("et tusind","tusinde"),
+        grands : [("en million","millioner"), ("en milliard","milliarder"), ("en billion","billioner"), ("en billiard","billiarder")]
+        //  moins = "minus"
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

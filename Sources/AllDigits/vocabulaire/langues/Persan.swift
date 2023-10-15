@@ -12,15 +12,15 @@ struct Farsi: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.far,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" o "),
         ordizun: false,
-        masculin : [],
+        masculin : ["sefr", "yek", "do", "se", "chahâr", "panj", "shesh", "haft", "hasht", "noh", "dah", "yâzdah", "davâzdah","sizdah","chahârdah", "poonzdah", "shoonzdah", "hifdah","hijdah","noozdah"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["bist", "si", "chehel", "panjâh", "shast", "haftâd", "hashtâd", "navad"],
+        centaines : ["sad", "devist", "sisad", "chahârsad", "pansad", "sheshsad", "heftsad", "heshtsad", "nehsad"],
+        mille :  ("hezâr",nil),
+        grands : [("meyeleyon",nil), ("meyeleyâr",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -13,7 +13,7 @@ struct Breizh: Languedata {
         langue: Langue.Code.br,
         ecriture:.latin,
         // cas particulier la liaison vingt - unité est "warn" (pris en compte par sp)
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"ha ", sp:"warn "),
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"ha "),
         ordizun: true,
         masculin : ["mann", "unan", "daou", "tri", "pevar", "pemp", "c'hwec'h", "seizh", "eizh", "nav","dek","unnek","daouzek","trizek","pevarzek", "pemzek", "c'hwezek", "seitek","triwec'h","naontek"],
         // 2,3 et quatre ont un féminin
@@ -33,6 +33,7 @@ struct Breizh: Languedata {
     func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
         var sp = Ecriture.Special()
         if mcdu.mil == 2 { sp.mil = "daou vil"}
+        // ajouter le cas sp:"warn "
         return sp
     }
 }

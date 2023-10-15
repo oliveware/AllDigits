@@ -14,13 +14,14 @@ struct Letton: Languedata {
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
-        feminin : [],
+        masculin : ["nulle", "viens", "divi", "trïs", "četri", "pieci", "seši", "septini", "astoni", "devini", "desmit", "vienpadsmit", "divpadsmit","trïspadsmitt"," četrpadsmit", "piecpadsmit", "sešpadsmit", "septinpadsmit","astonpadsmit","devinpadsmit"],
+        feminin : ["nulle", "viena", "divas", "trïs", "četras", "piecas", "sešas", "septinas", "astonas", "devinas", "desmit", "vienpadsmit", "divpadsmit","trïspadsmitt"," četrpadsmit", "piecpadsmit", "sešpadsmit", "septinpadsmit","astonpadsmit","devinpadsmit"],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["divdesmit", "trïsdesmit", "četrdesmit", "piecdesmit", "sešdesmit", "septindesmit", "astondesmit", "devindesmit"],
+        centaines : ["simts"],
+        mille :  ("tūkstoš","tūkstoši"),
+        grands : [("miljon","miljoni"), ("miljard","miljardi"), ("triljon","triljoni"), ("kvadriljon","kvadriljoni")]
+        //   moins = "mīnus"
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

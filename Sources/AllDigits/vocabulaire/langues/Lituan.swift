@@ -14,13 +14,14 @@ struct Lituanie: Languedata {
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
-        feminin : [],
+        masculin : ["nulis", "vienas", "du", "trys", "keturi", "penki", "šeši", "septyni", "aštuoni", "devyni", "dešimt", "vienuolika", "dvylika","trylika"," keturiolika", "penkiolika", "šešiolika", "septyniolika","aštuoniolika","devyniolika"],
+        feminin : ["nulis", "viena", "dvi", "trys", "keturios", "penkios", "šešios", "septynios", "aštunios", "devynios", "dešimt", "vienuolika", "dvylika","trylika"," keturiolika", "penkiolika", "šešiolika", "septyniolika","aštuoniolika","devyniolika"],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines : ["dvidešimt", "trisdešimt", "keturiadešimt", "penkiadešimt", "šešiasdešimt", "septyniadešimt", "astuoniadešimt", "devyniadešimt"],
+        centaines : ["šimtas", "du šimtai", "trys šimtai", "keturi šimtai", "penki šimtai", "šeši šimtai", "septyni šimtai", "aštuoni šimtai", "devyni šimtai"],
+        mille :  ("tūkstantis","tūkstančiai"),
+        grands : [("miljonas","miljonai"), ("miljardas","miljardai"), ("triljonas","triljonai"), ("kvadriljonas","kvadriljonai")]
+        //  moins = "minus"
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

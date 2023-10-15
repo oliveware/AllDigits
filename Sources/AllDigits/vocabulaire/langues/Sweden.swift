@@ -2,25 +2,25 @@
 //  File.swift
 //  
 //
-//  Created by Herve Crespel on 11/10/2023.
+//  Created by Herve Crespel on 15/10/2023.
 //
 
 import Foundation
 
-struct Helena: Languedata {
+struct Sweden: Languedata {
     
-    let code = Langue.Code.el
     let ecriture = Ecriture (
+        langue: Langue.Code.esto,
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
+        masculin : ["noll", "en", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "elva", "tolv", "tretton", "fjorton", "femton", "sexton", "sjutton", "arton", "nitton"],
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        dizaines :  ["tjugo", "trettio", "fyrtio", "femtio", "sextio", "sjuttio", "åttio", "nittio"],
+        centaines : ["hundra"],
+        mille :  ("tusen",nil),
+        grands : [("miljon","miljoner"), ("miljard","miljarder"), ("biljon","biljoner")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

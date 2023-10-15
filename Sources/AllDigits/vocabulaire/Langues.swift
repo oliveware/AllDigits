@@ -7,6 +7,8 @@
 
 import Foundation
 
+public var parle = true
+
 protocol Languedata {
 
     var ecriture:   Ecriture     { get }
@@ -21,7 +23,7 @@ protocol Languedata {
 
 public struct Langue {
     var langue:Languedata
-    var code: Code
+
     var romanise: Bool = false
     var special: Bool = false
     
@@ -226,111 +228,59 @@ public struct Langue {
         return result
     }
     init(_ code:Code, _ kind:KindOfScript = .native) {
-   // static func getlang( _ code:Code, _ kind:KindOfScript = .native) -> Languedata {
-      //  var langue: Languedata
         switch code {
-        case .fr:
-            langue = Francais()
-        case .el:
-            langue = Ellinika(kind)
-        case .en:
-            langue = English()
-        case .de:
-            langue = Deutsch()
-        case .it:
-            langue = Italia()
-        case .sp:
-            langue = Espana()
-        case .nl, .fl:
-            langue = Dutch()
-        case .br:
-            langue = Breizh()
-        case .scg:
-            langue = Scottish()
-        case .irg:
-            langue = Irish()
-        case .wag:
-            langue = Cymru()
-        case .bibi:
-            langue = Bibibinaire()
-        case .bro:
-            langue = Brooding()
-        case .latin:
-            langue = Latin()
-        case .bg:
-            langue = Bulgare(kind)
-        case .letton:
-            langue = Letton()
-        case .litua:
-            langue = Portuges()
-        case .esto:
-            langue = Estonie()
-        case .dan:
-            langue = Danois()
-        case .isl:
-            langue = Islande()
-        case .af:
-            langue = Afrikaans()
-        case .bok:
-            langue = Bokmal()
-        case .ja:
-            langue = Japan(kind)
-        case .ru:
-            langue = Russe(kind)
-        case .bsq:
-            langue = Basque()
-        case .srp:
-            langue = Srpski(kind)
-        case .pic:
-            langue = Picard()
-        case .far:
-            langue = Persan()
-        case .ar:
-            langue = Arabe()
-        case .mapu:
-            langue = Mapuche()
-        case .maya:
-            langue = Maya()
-        case .turc:
-            langue = Turc()
-        case .sue:
-            langue = Suedois()
-        case .tif:
-            langue = Tifinagh(kind)
-        case .hy:
-            langue = Armenien(kind)
-        case .amh:
-            langue = Amish()
-        case .chol:
-            langue = Chol()
-        case .als:
-            langue = Alsacien()
-        case .mal:
-            langue = Bahasa(.special)
-        case .viet:
-            langue = Viet()
-        case .zh:
-            langue = Chineese(kind)
-        case .pol:
-            langue = Polski()
-        case .kor:
-            langue = Hangug(kind)
-        case .hnd:
-            langue = Hindi(kind)
-        case .rhg:
-            langue = Rohingya(kind)
-        case .pt:
-            langue = Portuges()
-        case .np:
-            langue = Devanagari(kind)
-        case .id:
-            langue = Bahasa(.native)
-        case .uni:
-            langue = Universal()
-        case .uk:
-            langue = Ukraine(kind)
+        case .fr: langue = Francais()
+        case .el: langue = Ellinika(kind)
+        case .en: langue = English()
+        case .de: langue = Deutsch()
+        case .it: langue = Italia()
+        case .sp: langue = Espana()
+        case .nl, .fl: langue = Dutch()
+        case .br: langue = Breizh()
+        case .scg: langue = Scottish()
+        case .irg: langue = Irish()
+        case .wag: langue = Cymru()
+        case .bibi: langue = Bibibinaire()
+        case .bro: langue = Brooding()
+        case .latin: langue = Latin()
+        case .bg: langue = Bulgare(kind)
+        case .letton: langue = Letton()
+        case .litua: langue = Portuges()
+        case .esto: langue = Eesti()
+        case .dan: langue = Dansk()
+        case .isl: langue = Islande()
+        case .af: langue = Afrikaans()
+        case .bok: langue = Bokmal()
+        case .ja: langue = Japan(kind)
+        case .ru: langue = Russe(kind)
+        case .bsq: langue = Basque()
+        case .srp: langue = Srpski(kind)
+        case .pic: langue = Picard()
+   //     case .far: langue = Persan()
+        case .ar: langue = Arabe()
+   //     case .mapu: langue = Mapuche()
+   //     case .maya: langue = Maya()
+        case .turc: langue = Turc()
+        case .sue: langue = Sweden()
+        case .tif: langue = Tifinagh(kind)
+        case .hy: langue = Armenien(kind)
+        case .amh: langue = Amish()
+   //     case .chol: langue = Chol()
+        case .als: langue = Alsacien()
+        case .mal: langue = Bahasa(.special)
+        case .viet: langue = Viet()
+        case .zh: langue = Chineese(kind)
+        case .pol: langue = Polski()
+        case .kor: langue = Hangug(kind)
+   //     case .hnd: langue = Hindi(kind)
+        case .rhg: langue = Rohingya(kind)
+        case .pt: langue = Portuges()
+   //     case .np: langue = Devanagari(kind)
+        case .id: langue = Bahasa(.native)
+        case .uni: langue = Universal()
+        case .uk: langue = Ukraine(kind)
+        default: langue = Universal()
         }
-        return langue
     }
     
     

@@ -9,8 +9,20 @@ import Foundation
 
 struct Universal: Languedata {
     
-    let code = Langue.Code.uni
-    let ecriture : Ecriture
+
+    let ecriture = Ecriture (
+        langue:Langue.Code.uni,
+        ecriture:.latin,
+        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        ordizun: false,
+        masculin : [],
+        feminin : [],
+        neutre: [],
+        dizaines : [],
+        centaines : [],
+        mille :  ("",nil),
+        grands : [("",nil), ("","")]
+    )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
     
@@ -41,19 +53,7 @@ struct Universal: Languedata {
         }
        // print ("powords : ", powords)
         
-        ecriture = Ecriture (
-            langue:code,
-            ecriture:.latin,
-            liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-            ordizun: false,
-            masculin : units,
-            feminin : [],
-            neutre: [],
-            dizaines : [],
-            centaines : [],
-            mille :  ("",nil),
-            grands : [("",nil), ("","")]
-        )
+        
     }
     
     // traitement des cas particuliers
@@ -91,7 +91,7 @@ struct Universal: Languedata {
         }
     }
 
-    public func lit()->String {
+    public func lit(decival:Int)->String {
         if decival == 0 {
             return units[0]
         } else {
@@ -110,7 +110,7 @@ struct Universal: Languedata {
             return lit(digits)
         }
     }
-
+    let liaison = "-"
     public func lit(_ native:[Int])->String {
         let digits = native == [] ? [0] : native
 

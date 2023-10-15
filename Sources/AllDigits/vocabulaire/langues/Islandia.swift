@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct Helena: Languedata {
+struct Islande: Languedata {
     
     let ecriture = Ecriture (
         langue: Langue.Code.isl,
         ecriture:.latin,
         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
         ordizun: false,
-        masculin : [],
-        feminin : [],
-        neutre: [],
-        dizaines : [],
-        centaines : [],
-        mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        masculin : ["núll", "einn", "tveir", "þrír", "fjórir", "fimm", "sex", "sjö", "átta", "niu", "tíu", "ellefu", "tólf", " þréttán", "fjórtán", "fimmtán", "sextán", "sautján", "átján", "nitján"],
+        feminin : ["núll", "ein", "tvær", "þrjár", "fjórar", "fimm", "sex", "sjö", "átta", "niu", "tíu", "ellefu", "tólf", " þréttán", "fjórtán", "fimmtán", "sextán", "sautján", "átján", "nitján"],
+        neutre: ["núll", "eitt", "tvö", "þrjú", "fjögur", "fimm", "sex", "sjö", "átta", "niu", "tíu", "ellefu", "tólf", " þréttán", "fjórtán", "fimmtán", "sextán", "sautján", "átján", "nitján"],
+        dizaines : ["tuttugu", "þrjátíu", "fjórutíu", "fimmtíu", "sextíu", "sjötíu", "áttatíu", "níutíu"],
+        centaines : ["hundrað", "hundruð"],
+        mille :  ("þúsund","tusinde"),
+        grands : [("ein miljón","millioner"), ("einn miljarður","milliarder"), ("en biljón","billioner"), ("en biljarður","billiarder")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
