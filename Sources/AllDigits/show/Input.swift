@@ -8,7 +8,7 @@
 import SwiftUI
 import Digiconf
 
-public struct Show: View {
+public struct Input: View {
     
     @State var numeration = Numeration(.global,10)
     @State var scalar : Chiffres
@@ -72,6 +72,7 @@ public struct Show: View {
                 VStack {
                     Spacer()
                     Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
+                    
                     Spacer()
                     Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.8, height*0.6)
                 }
@@ -81,10 +82,10 @@ public struct Show: View {
     }
 }
 
-struct Show_Previews: PreviewProvider {
+struct Input_Previews: PreviewProvider {
     static var previews: some View {
-        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .global,10)
-        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .babyash,60)
-        Show(Digiconfig(90,40,10, .purple, .clear), Digiconfig(60,60,10), 51279, .maya,20)
+        Input(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .global,10)
+        Input(Digiconfig(90,40,10, .purple, .clear), Digiconfig(80,50), 51279, .babyash,60)
+        Input(Digiconfig(90,40,10, .purple, .clear), Digiconfig(60,60,10), 51279, .maya,20)
     }
 }

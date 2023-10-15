@@ -13,8 +13,8 @@ struct Breizh: Languedata {
         langue: Langue.Code.br,
         ecriture:.latin,
         // cas particulier la liaison vingt - unité est "warn" (pris en compte par sp)
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"ha "),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"ha "),
+        ordizun: false,
         masculin : ["mann", "unan", "daou", "tri", "pevar", "pemp", "c'hwec'h", "seizh", "eizh", "nav","dek","unnek","daouzek","trizek","pevarzek", "pemzek", "c'hwezek", "seitek","triwec'h","naontek"],
         // 2,3 et quatre ont un féminin
         feminin : ["mann", "unan", "div", "teir", "peder", "pemp", "c'hwec'h", "seizh", "eizh", "nav","dek","unnek","daouzek","trizek","pevarzek", "pemzek", "c'hwezek", "seitek","triwec'h","naontek"],

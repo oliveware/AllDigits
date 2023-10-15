@@ -12,8 +12,8 @@ struct Brooding: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.bro,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["zromed", "wen", "raich", "schlaum", "draugen", "klaut", "khlobed", "sken", "hoon", "saed", "thlad", "feyeed", "mawg", "braled", "graizeeg", "slathlaan"],
         feminin : [],
         neutre: [],

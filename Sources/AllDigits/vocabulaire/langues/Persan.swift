@@ -12,8 +12,8 @@ struct Farsi: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.far,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" o "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" o "),
+        ordizun: true,
         masculin : ["sefr", "yek", "do", "se", "chahâr", "panj", "shesh", "haft", "hasht", "noh", "dah", "yâzdah", "davâzdah","sizdah","chahârdah", "poonzdah", "shoonzdah", "hifdah","hijdah","noozdah"],
         feminin : [],
         neutre: [],

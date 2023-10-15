@@ -12,8 +12,8 @@ struct Telugu: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.hnd,    // à rectifier
         ecriture:.telugu,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : [],
         feminin : [],
         neutre: [],

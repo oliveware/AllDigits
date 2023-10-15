@@ -12,8 +12,8 @@ struct Cymru: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.wag,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["sero", "un", "dau", "tri", "pedvar", "pump", "chwech", "saith", "wyth", "naw","deg","undeg un","undeg dau","undeg tri","undeg pedvar", "undeg pump", "undeg chwech", "undeg saith","undeg wyth","undeg naw"],
         feminin : [],
         neutre: [],

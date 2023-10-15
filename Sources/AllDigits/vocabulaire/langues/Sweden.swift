@@ -12,8 +12,8 @@ struct Sweden: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.esto,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["noll", "en", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "elva", "tolv", "tretton", "fjorton", "femton", "sexton", "sjutton", "arton", "nitton"],
         feminin : [],
         neutre: [],

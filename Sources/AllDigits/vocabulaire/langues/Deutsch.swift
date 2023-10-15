@@ -12,8 +12,8 @@ struct Deutsch: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.de,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"und"),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"und"),
+        ordizun: false,
         // quand il est suivi d'une dizaine, eins perd son s final (traité par sp:einund)
         masculin : ["null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun","zehn","elf","zwölf","dreizehn","vierzehn", "fünfzehn", "sechzehn", "siebenzehn","achtzehn","neunzehn"],
         feminin : [],

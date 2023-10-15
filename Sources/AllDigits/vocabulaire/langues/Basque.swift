@@ -12,8 +12,8 @@ struct Basque: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.bsq,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:", ", cd:" eta ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:", ", cd:" eta ", du:" "),
+        ordizun: true,
         masculin : ["zero", "bat", "bi", "hiru", "lau", "bost", "sei", "zazpi", "zortzi", "bederatzi","hamar","hamaika","hamabi","hamahiru","hamalau", "hamabost", "hamasei", "hamazazpi","hemezortzi","hemeretzi"],
         feminin : [],
         neutre: [],

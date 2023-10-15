@@ -12,8 +12,8 @@ struct Arabe: Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.ar,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: false,
         masculin : ["sifr", "wahid", "ithnan", "thalatha", "arba'a", "khamsa", "sitta", "sab'a", "thamaniya", "tis'a",
                     "'ashra", "ahada 'ashar", "ithna 'ashar","thalatha 'ashar", "arba'a 'ashar", "khamsa 'ashar", "sitta 'ashar", "sab'a 'ashar", "thamaniya 'ashar", "tis'a 'ashar"],
         feminin : ["sifr", "wahid", "ithnan", "thalatha", "arba'a", "khamsa", "sitta", "sab'a", "thamaniya", "tis'a",

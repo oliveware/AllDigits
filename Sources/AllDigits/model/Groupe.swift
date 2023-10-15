@@ -19,14 +19,6 @@ public struct Valuebase {
     }
 }
 
-enum Groupement {
-    case indien
-    case chinois
-    case partrois
-    // case mangareva
-    // case yupana
-}
-
 public struct Groupe : Hashable {
     // valeurs des chiffres dans la base courante, dans l'ordre décroissant des puissances
     var values : [Int] = []
@@ -40,8 +32,16 @@ public struct Groupe : Hashable {
     mutating func indianpower() {if groupby == 2 { power += 1 } }
     
     func classifier(_ classifiers: [Mot]) -> String {
-        let singulier = values.count == 1 && values[0] == 1
-        return classifiers[power][!singulier]
+        if power == 0 {
+            return ""
+        } else {
+            if power == 1 && groupby == 3 {
+                return ""
+            } else {
+                let singulier = values.count == 1 && values[0] == 1
+                return classifiers[power][!singulier]
+            }
+        }
     }
     // valeur du groupe en base 10
     internal var global10: Int = 0
@@ -77,9 +77,8 @@ public struct Groupe : Hashable {
     }
     
     func enlettres(_ code:Langue.Code, _ kind:Langue.KindOfScript) -> String {
-        return ""
-       // let ecriture = Langue.ecriture(code, kind)
-       // return ecriture.ecrit(values, code)
+        let langue = Langue(code, kind)
+        return langue.ecrire([self])
     }
     var mcdu : Mcdu { Mcdu(values) }
     struct Mcdu {

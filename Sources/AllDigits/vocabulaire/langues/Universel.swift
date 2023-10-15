@@ -13,8 +13,8 @@ struct Universal: Languedata {
     let ecriture = Ecriture (
         langue:Langue.Code.uni,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : [],
         feminin : [],
         neutre: [],

@@ -12,8 +12,8 @@ struct Viet: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.viet,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["số không", "môt", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười"],
         feminin : [],
         neutre: [],

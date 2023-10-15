@@ -14,8 +14,8 @@ struct Hangug: Languedata {
     let hanja = Ecriture (
         langue: Langue.Code.kor,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["komé", "il", "i", "sam", "sa", "o", "yuk", "chil", "pal", "gu", "sip"],
         //  paire = "liǎng"  // paire : 两
         feminin : [],
@@ -30,8 +30,8 @@ struct Hangug: Languedata {
     let hangeul = Ecriture (
         langue: Langue.Code.kor,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["〇", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구", "십"],
         //  paire ?
         feminin : [],

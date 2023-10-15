@@ -12,8 +12,8 @@ struct Dansk: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.dan,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"og"),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"og"),
+        ordizun: false,
         masculin : ["null", "en", "to", "tre", "fire", "fem", "seks", "syv", "otte", "ni", "ti", "elleve", "tolv", "tretten", "fjorten", "femten", "seksten", "sytten", "atten", "nitten"],
         feminin : [],
         neutre: [],

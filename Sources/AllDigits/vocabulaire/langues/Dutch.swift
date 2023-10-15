@@ -12,8 +12,8 @@ struct Dutch: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.nl,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"n"),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"n"),
+        ordizun: false,
         masculin : ["nul", "één", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf", "dertien", "veertien", "vijftien", "zestien", "zeventien","achttien","negentien"],
         feminin : [],
         neutre: [],

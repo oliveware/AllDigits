@@ -12,8 +12,8 @@ struct Mapuche: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.litua,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["sero", "kiñe", "epu", "küla", "meli", "kechu", "kayu", "reqle", "pura", "aylla", "mari", "mari kiñe", "mari epu", "mari küla", "mari meli", "mari kechu", "mari kayu", "mari reqle", "mari pura", "mari aylla"],
         feminin : [],
         neutre: [],

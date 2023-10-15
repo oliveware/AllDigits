@@ -13,8 +13,8 @@ struct Maya: Languedata {
     let maya = Ecriture (
         langue: Langue.Code.maya,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: false,
         masculin : ["", "hun", "ca", "ox", "can", "ho", "uac", "uuc", "uaxac", "bolon", "lahun", "buluc", "lahca", "ox-lahun", "can-lahun", "ho-lahun", "uac-lahun", "uuc-lahun", "uaxac-lahun", "bolon-lahun"],
         feminin : [],
         neutre: [],
@@ -30,8 +30,8 @@ struct Maya: Languedata {
         langue: Langue.Code.maya,
         ecriture:.latin,
         
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" i "),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" i "),
+        ordizun: false,
         masculin : ["", "jump'ej", "cha'p'ej", "uxp'ej", "chänp'ej", "jo'p'ej", "wäcp'ej", "wucp'ej", "waxäp'ej", "bolomp'ej", "lujump'ej", "junlujump'ej", "lajchämp'ej", "uxlujump'ej", "chänlujump'ej", "jo'lujump'ej", "wäclujump'ej", "wuclujump'ej", "waxälujump'ej", "bolomlujump'ej"],
         feminin : [],
         neutre: [],

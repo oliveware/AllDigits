@@ -52,8 +52,8 @@ public struct Langue {
         case isl    = "islandais"
         case af     = "afrikaans"
         case bok    = "norvégien"       // bokmal
-        case ja   = "japonais"
-        case ru   = "russe"
+        case ja     = "japonais"
+        case ru     = "russe"
         case uk     = "ukrainien"
         case bsq    = "basque"
         case srp    = "srpski"              // serbe
@@ -82,47 +82,8 @@ public struct Langue {
         
         public var id : String {self.rawValue}
     }
+    static var chinois : [Code] = [.ja, .kor, .zh]
     
-    // mots de Locale.Script
-    enum CodeEcriture {
-        case adlam
-        case arabic
-        case arabicNastaliq
-        case armenian
-        case bangla
-        case cherokee
-        case cyrillic
-        case devanagari
-        case ethiopic
-        case georgian
-        case greek
-        case gujarati
-        case gurmukhi
-        case hanifiRohingya
-        case hanSimplified
-        case hanTraditional
-        case hebrew
-        case hiragana
-        case japanese
-        case kannada
-        case katakana
-        case khmer
-        case korean
-        case lao
-        case latin
-        case malayalam
-        case meiteiMayek
-        case myanmar
-        case odia
-        case olChiki
-        case sinhala
-        case syriac
-        case tamil
-        case telugu
-        case thaana
-        case thai
-        case tibetan
-    }
     public static var all : [Code] = [.af, .als, .amh, .ar, .hy, .bibi, .bok, .br, .bro, .bsq, .zh, .chol, .dan, .de, .en, .esto, .far, .fr, .hnd, .id, .irg, .isl, .it, .ja, .kor, .latin, .letton, .litua, .mal, .mapu, .nl, .np, .pic, .pol, .pt, .rhg, .ru, .scg, .sp, .srp, .sue, .tif, .turc, .viet, .wag ]
     
     public static var parlées : [Code] {

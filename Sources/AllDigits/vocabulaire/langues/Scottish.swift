@@ -12,8 +12,8 @@ struct Scottish: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.scg,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" 's a "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" 's a "),
+        ordizun: true,
         masculin : ["neoni", "aon", "dhà", "trì", "ceithir", "còig", "sia", "seachd", "ochd", "naoi","deich","h-aon deug"," dhà dheug"," trì deug","ceithir deug", "còig deug", "sia deug", "seachd deug","ochd deug","naoi deug"],
         feminin : [],
         neutre: [],

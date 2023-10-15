@@ -13,8 +13,8 @@ struct Ellinika: Languedata {
     let grec = Ecriture (
         langue: Langue.Code.el,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["midén", "éna", "dýo", "tria'", "téssera", "pénte", "éxi", "eptá", "októ", "néos", "déka", "énteka", "dódeka", "dekatria'", "dekatéssera", "dekapénte", "dekaéxi", "dekaeptá", "dekaochtó", "dekaennéa"],
         feminin : [],
         neutre: [],
@@ -26,8 +26,8 @@ struct Ellinika: Languedata {
     let ellinika = Ecriture (
         langue: Langue.Code.el,
         ecriture:.greek,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["μηδέν", "ένα", "δύο", "τρία", "τέσσερα", "πέντε", "έξι", "επτά", "οκτώ", "νέος", "δέκα", "έντεκα", "δώδεκα", "δεκατρία", "δεκατέσσερα", "δεκαπέντε", "δεκαέξι", "δεκαεπτά", "δεκαοχτώ", "δεκαεννέα"],
         feminin : [],
         neutre: [],

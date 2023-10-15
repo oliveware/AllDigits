@@ -12,8 +12,8 @@ struct Picard: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.pic,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:"-", du:"-"),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:"-", du:"-"),
+        ordizun: true,
         masculin : ["zéro", "un", "deus", "tros", "quate", "chinq", "sis", "sièt", "ût", "nué", "dich", "onze", "douze", "treize", "catorze", "qhinze", "seize", "dis-sèt", "dis-ût", "dis-nué"],
         feminin : [],
         neutre: [],

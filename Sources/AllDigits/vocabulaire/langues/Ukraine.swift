@@ -13,8 +13,8 @@ struct Ukraine: Languedata {
     let cyrillic = Ecriture (
         langue: Langue.Code.uk,
         ecriture:.cyrillic,
-        liaison: Ecriture.Liaison(mu:", ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:", ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["ноль", "один", "двa", "три", "чотири", "п’ять", "шість", "сім", "вісім", "дев’ять", "десять", "одиннадцять", "дванадцять", "тринадцять", "чотирнадцять", "п’ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев’ятнадцять"],
         feminin : [],
         neutre: [],
@@ -26,8 +26,8 @@ struct Ukraine: Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.uk,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:", ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:", ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["nol", "odin", "dva", "tri", "čotiri", "p'âtʹ", "šistʹ", "simʹ", "visimʹ", "dev'âtʹ", "desâtʹ", "odinnadcâtʹ", "dvanadcât'", "trinadcât'", "čotirnadcât'", "p'âtnadcâtʹ", "šistnadcâtʹ", "simnadcâtʹ", "visimnadcâtʹ", "dev'âtnadcâtʹ"],
         feminin : [],
         neutre: [],

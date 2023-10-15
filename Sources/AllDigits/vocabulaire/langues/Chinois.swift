@@ -14,14 +14,14 @@ struct Chineese: Languedata {
     let pinyin = Ecriture (
         langue: Langue.Code.zh,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
-        masculin : ["ling", "yī", "èr", "sān", "sì", "wǔ", "liù", "qī", "bā", "jiǔ", "shì"],
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
+        masculin : ["ling", "yī", "èr", "sān", "sì", "wǔ", "liù", "qī", "bā", "jiǔ", "shì", "shì yī", "shì èr", "shì sān", "shì sì", "shì wǔ", "shì liù", "shì qī", "shì bā", "shì jiǔ"],
         //  paire = "liǎng"  // paire : 两
         feminin : [],
         neutre: [],
-        dizaines : [],
-        centaines : ["bǎi"],
+        dizaines : ["èrshì","sānshì", "sìshì", "wǔshì", "liùshì", "qīshì", "bāshì", "jiǔshì"],
+        centaines : ["yībǎi", "èrbǎi", "sānbǎi", "sìbǎi", "wǔbǎi", "liùbǎi", "qībǎi", "bābǎi", "jiǔbǎi"],
         mille : ("qiān",nil),
         grands : [("wàn",nil), ("yì",nil),("gòu",nil), ("京",nil),("","垓")]
 
@@ -30,8 +30,8 @@ struct Chineese: Languedata {
     let hanzi = Ecriture (
         langue: Langue.Code.zh,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
         //  paire ?
         feminin : [],
@@ -45,8 +45,8 @@ struct Chineese: Languedata {
     let taiwan = Ecriture (
         langue: Langue.Code.zh,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["?", "chit", "ji", "sam", "su", "ngo", "liok", "chhit", "pat", "kiu", "chap"],
         //  paire ?
         feminin : [],

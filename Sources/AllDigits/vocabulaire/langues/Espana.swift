@@ -12,8 +12,8 @@ struct Espana: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.sp,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve","diez","once","doce","trece","catorce", "quince", "dieciséis", "diecisiete","dieciocho","diecinueve"],
         feminin : [],
         neutre: [],

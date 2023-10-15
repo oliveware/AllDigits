@@ -14,8 +14,8 @@ struct Srpski: Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.srp,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" i "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" i "),
+        ordizun: true,
         masculin : ["nula", "jedan", "dva", "tri", "četiri", "pet", "šest", "sedam", "osam", "devet", "deset", "jedanaest", "dvanaest","trinaest", "četrnaest", "petnaest", "šesnaest", "sedamnaest", "osamnaest", "devetnaest"],
         feminin : ["nula", "jedna", "dve", "tri", "četiri", "pet", "šest", "sedam", "osam", "devet", "deset", "jedanaest", "dvanaest","trinaest", "četrnaest", "petnaest", "šesnaest", "sedamnaest", "osamnaest", "devetnaest"],
         neutre: ["nula", "jedno", "dva", "tri", "četiri", "pet", "šest", "sedam", "osam", "devet", "deset", "jedanaest", "dvanaest","trinaest", "četrnaest", "petnaest", "šesnaest", "sedamnaest", "osamnaest", "devetnaest"],
@@ -29,8 +29,8 @@ struct Srpski: Languedata {
     let cyrillic = Ecriture (
         langue: Langue.Code.srp,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" и "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" и "),
+        ordizun: true,
         masculin : ["нула", "један", "двa", "три", "четири", "пет", "шест", "седaм", "осaм", "девет", "десет", "једанaесет", "двaнaесет", "тринаесет", "четирнаесет", "петнаесет", "шестнаесет", "седaмнаесет", "осaмнаесет", "деветнаесет"],
         feminin : ["нула", "једна", "двe", "три", "четири", "пет", "шест", "седaм", "осaм", "девет", "десет", "једанaесет", "двaнaесет", "тринаесет", "четирнаесет", "петнаесет", "шестнаесет", "седaмнаесет", "осaмнаесет", "деветнаесет"],
         neutre: ["нула", "једно", "двa", "три", "четири", "пет", "шест", "седaм", "осaм", "девет", "десет", "једанaесет", "двaнaесет", "тринаесет", "четирнаесет", "петнаесет", "шестнаесет", "седaмнаесет", "осaмнаесет", "деветнаесет"],

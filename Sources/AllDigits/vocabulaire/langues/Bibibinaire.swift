@@ -11,8 +11,8 @@ struct Bibibinaire : Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.bibi,
         ecriture:.bibi,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["ho", "ha", "he", "hi", "bo", "ba", "be", "bi", "ko", "ka", "ke", "ki", "do", "da", "de", "di"
                    ],
         feminin : [],

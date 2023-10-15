@@ -12,8 +12,8 @@ struct Bulgare : Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.bg,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" i "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" i "),
+        ordizun: true,
         masculin : ["nula", "edin", "dva", "tri", "chetiri", "pet", "shest", "sedem", "osem", "devet", "deset", "edinadeset", "dvanadeset","trinadeset","chetirinadeset", "petnadeset", "shestnadeset", "sedemnadeset","osemnadeset","devetnadeset" ],
         // un et deux ont un féminin
         feminin : ["nula", "edno", "dve", "tri", "chetiri", "pet", "shest", "sedem", "osem", "devet", "deset", "edinadeset", "dvanadeset","trinadeset","chetirinadeset", "petnadeset", "shestnadeset", "sedemnadeset","osemnadeset","devetnadeset"],
@@ -26,8 +26,8 @@ struct Bulgare : Languedata {
      let cyrillic = Ecriture (
         langue: Langue.Code.bg,
         ecriture:.cyrillic,
-         liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" и "),
-         ordizun: false,
+         liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" и "),
+         ordizun: true,
          masculin : ["нула", "еднн", "двa", "три", "четири", "пет", "шест", "седем", "осем", "девет", "десет", "еднонадесет", "двенадесет", "тринадесет", "четиринадесет", "петнадесет", "шестнадесет", "седемнадесет", "осемнадесет", "деветнадесет"],
          // un et deux ont un féminin
          feminin : ["нула", "едио", "двe", "три", "четири", "пет", "шест", "седем", "осем", "девет", "десет", "еднонадесет", "двенадесет", "тринадесет", "четиринадесет", "петнадесет", "шестнадесет", "седемнадесет", "осемнадесет", "деветнадесет"],

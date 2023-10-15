@@ -12,8 +12,8 @@ struct Letton: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.letton,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["nulle", "viens", "divi", "trïs", "četri", "pieci", "seši", "septini", "astoni", "devini", "desmit", "vienpadsmit", "divpadsmit","trïspadsmitt"," četrpadsmit", "piecpadsmit", "sešpadsmit", "septinpadsmit","astonpadsmit","devinpadsmit"],
         feminin : ["nulle", "viena", "divas", "trïs", "četras", "piecas", "sešas", "septinas", "astonas", "devinas", "desmit", "vienpadsmit", "divpadsmit","trïspadsmitt"," četrpadsmit", "piecpadsmit", "sešpadsmit", "septinpadsmit","astonpadsmit","devinpadsmit"],
         neutre: [],

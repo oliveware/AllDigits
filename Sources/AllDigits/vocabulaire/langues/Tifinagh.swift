@@ -13,8 +13,8 @@ struct Tifinagh: Languedata {
     let tifinagh = Ecriture (
         langue: Langue.Code.tif,
         ecriture:.tifinagh,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ⵏ ", cd:"", du:""),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ⵏ ", cd:"", du:""),
+        ordizun: true,
         masculin : ["ⴰⵎⵢⴰ", "ⵢⴰⵏ", "ⵙⵉⵏ", "ⴽⵕⴰⴹ", "ⴽⴽⵓⵣ", "ⵙⵎⵎⵓⵙ", "ⵚⴹⵉⵚ", "ⵙⴰ", "ⵜⴰⵎ", "ⵜⵥⴰ", "ⵎⵔⴰⵡ", "ⵢⴰⵏ ⴷ ⵎⵔⴰⵡ", "ⵙⵉⵏ ⴷ ⵎⵔⴰⵡ", "ⴽⵕⴰⴹ ⴷ ⵎⵔⴰⵡ", "ⴽⴽⵓⵣ ⴷ ⵎⵔⴰⵡ", "ⵙⵎⵎⵓⵙ ⴷ ⵎⵔⴰⵡ", "ⵚⴹⵉⵚ ⴷ ⵎⵔⴰⵡ", "ⵙⴰ ⴷ ⵎⵔⴰⵡ", "ⵜⴰⵎ ⴷ ⵎⵔⴰⵡ", "ⵜⵥⴰ ⴷ ⵎⵔⴰⵡ"],
         feminin : ["ⴰⵎⵢⴰ", "ⵢⴰⵜ", "ⵙⵏⴰⵜ", "ⴽⵕⴰⵟⵜ", "ⴽⴽⵓⵣⵜ", "ⵙⵎⵎⵓⵙⵜ", "ⵚⴹⵉⵚⵜ", "ⵙⴰⵜ", "ⵜⴰⵎⵜ", "ⵜⵥⴰⵜ", "ⵎⵔⴰⵡⵜ", "ⵢⴰⵏ ⴷ ⵎⵔⴰⵡⵜ", "ⵙⵉⵏ ⴷ ⵎⵔⴰⵡⵜ", "ⴽⵕⴰⴹ ⴷ ⵎⵔⴰⵡⵜ", "ⴽⴽⵓⵣ ⴷ ⵎⵔⴰⵡⵜ", "ⵙⵎⵎⵓⵙ ⴷ ⵎⵔⴰⵡⵜ", "ⵚⴹⵉⵚ ⴷ ⵎⵔⴰⵡⵜ", "ⵙⴰ ⴷ ⵎⵔⴰⵡⵜ", "ⵜⴰⵎ ⴷ ⵎⵔⴰⵡⵜ", "ⵜⵥⴰ ⴷ ⵎⵔⴰⵡⵜ"],
         neutre: [],
@@ -28,8 +28,8 @@ struct Tifinagh: Languedata {
     let tamazight = Ecriture (
         langue: Langue.Code.tif,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" n ", cd:"", du:""),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" n ", cd:"", du:""),
+        ordizun: true,
         masculin : ["amya", "yan", "sin", "krad", "kkuz", "smmus", "sdis", "sa", "tam", "tza", "mraw", "yan d mraw", "sin d mraw", "krad d mraw", "kkuz d mraw", "smmous d mraw", "sdis d mraw", "sa d mraw", "tam d mraw", "tza d mraw"],
         feminin : ["amya", "yat", "snat", "kratt", "kkuzt", "smmust", "sdist", "sat", "tamt", "tzat", "mrawt", "yan d mrawt", "sin d mrawt", "krad d mrawt", "kouz d mrawt", "smmous d mrawt", "sdis d mrawt", "sa d mrawt", "tam d mrawt", "tza d mrawt"],
         neutre: [],

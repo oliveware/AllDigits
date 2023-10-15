@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum Groupement {
+    case indien
+    case chinois
+    case partrois
+    // case mangareva
+    // case yupana
+}
 
 public struct Chiffres {
 
@@ -14,10 +21,9 @@ public struct Chiffres {
     internal var values : [Int] = []
     // base courante
     private var base: Int = 10
-    
-    var groupemnt:Groupement = .partrois
-    
-    
+
+   // var groupement:Groupement = .partrois
+
     // valeur du nombre en base 10
     internal var global10: Int = 0
     // puissance du chiffre le plus puissant
@@ -128,6 +134,11 @@ public struct Chiffres {
     mutating func clear() {
         values = []
         global10 = 0
+    }
+    
+    func enlettres(_ code:Langue.Code, _ kind:Langue.KindOfScript, _ groupement:Groupement) -> String {
+        let langue = Langue(code, kind)
+        return langue.ecrire(engroupes(groupement))
     }
 
 }

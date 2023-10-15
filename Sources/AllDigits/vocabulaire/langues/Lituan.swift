@@ -12,8 +12,8 @@ struct Lituanie: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.litua,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["nulis", "vienas", "du", "trys", "keturi", "penki", "šeši", "septyni", "aštuoni", "devyni", "dešimt", "vienuolika", "dvylika","trylika"," keturiolika", "penkiolika", "šešiolika", "septyniolika","aštuoniolika","devyniolika"],
         feminin : ["nulis", "viena", "dvi", "trys", "keturios", "penkios", "šešios", "septynios", "aštunios", "devynios", "dešimt", "vienuolika", "dvylika","trylika"," keturiolika", "penkiolika", "šešiolika", "septyniolika","aštuoniolika","devyniolika"],
         neutre: [],

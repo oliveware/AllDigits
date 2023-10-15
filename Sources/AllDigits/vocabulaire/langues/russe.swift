@@ -13,8 +13,8 @@ struct Russe: Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.ru,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" i "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" i "),
+        ordizun: true,
         masculin : ["nol", "odin", "dve", "tri", "četyre", "pâtʹ", "šestʹ", "semʹ", "vosemʹ", "devâtʹ", "desâtʹ", "odinnadcatʹ", "dvenadcat'", "trinadcat'", "četyrnadcat'", "pâtnadcatʹ", "šestnadcatʹ", "semnadcatʹ", "vosemnadcatʹ", "devâtnadcatʹ"],
         feminin : ["nol", "odna", "dve", "tri", "četyre", "pâtʹ", "šestʹ", "semʹ", "vosemʹ", "devâtʹ", "desâtʹ", "odinnadcatʹ", "dvenadcat'", "trinadcat'", "četyrnadcat'", "pâtnadcatʹ", "šestnadcatʹ", "semnadcatʹ", "vosemnadcatʹ", "devâtnadcatʹ"],
         neutre: [],
@@ -26,8 +26,8 @@ struct Russe: Languedata {
     let cyrillic = Ecriture (
         langue: Langue.Code.ru,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" и "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" и "),
+        ordizun: true,
         masculin : ["ноль", "один", "двe", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"],
         feminin : ["ноль", "одна́", "двe", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"],
         neutre: [],

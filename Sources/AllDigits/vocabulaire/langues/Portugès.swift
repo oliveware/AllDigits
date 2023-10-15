@@ -12,8 +12,8 @@ struct Portuges: Languedata {
     var ecriture = Ecriture (
         langue: Langue.Code.pt,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" e ", du:" e "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" e ", du:" e "),
+        ordizun: true,
         masculin : ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove","dez","onze","doze","treze","catorze", "quinze", "dezasseis", "dezzasete","dezoito","dezanove"],
         feminin : [],
         neutre: [],

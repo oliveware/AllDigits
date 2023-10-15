@@ -73,13 +73,11 @@ struct Ecriture {
     let classifiers:  [Mot]
 
     struct Liaison {
-        let mu: String   // millier - unité (- centaine)
-        let uc: String   // unité - centaine
+        let mc: String   // unité - centaine
         let cd: String   // centaine - dizaine
         let du: String   // dizaine - unité
-        init(mu: String, uc: String, cd: String, du: String) {
-            self.mu = mu
-            self.uc = uc
+        init(mc: String, cd: String, du: String) {
+            self.mc = mc
             self.cd = cd
             self.du = du
         }
@@ -123,7 +121,7 @@ struct Ecriture {
         self.centaines = enmots(centaines)
         self.mille = Mot(mille)
         
-        var classif: [Mot] = []
+        var classif: [Mot] = Langue.chinois.contains(codelangue) ? [] : [Mot(mille)]
         for index in 0..<grands.count {
             let m:(String,String?) = (grands[index])
            classif.append(Mot(m))
@@ -140,56 +138,7 @@ struct Ecriture {
         }
     }
 
-  /*  public func ecrit(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
-         var texte = ""
-        if chiffres.values == [] {
-            texte = unites[0][genre]
-        } else {
-            if chiffres.values.count == 1 && chiffres.values[0] == 0 {
-                texte = unites[0][genre]
-            } else {
-                switch groupement {
-                case .indien:
-                    texte = indien(chiffres, genre)
-                case .chinois:
-                    texte = chinois(chiffres, genre)
-                case .partrois:
-                    texte = partrois(chiffres, genre)
-                }
-            }
-        }
-        return texte
-     }
-    
-    func indien(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
-        var lettres = ""
-        let groupes = chiffres.engroupes(.indien)
-        let nbg = groupes.count
-        for g in 0..<nbg  {
-            if g == nbg - 1 {
-                lettres.append(centdizunit(groupes[g],genre) )
-            } else {
-                lettres.append(dizunit(groupes[g],genre) + groupes[g].classifier(classifiers))
-            }
-        }
-        return lettres
-    }
-    
-    func chinois(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
-        var lettres = ""
-        for groupe in chiffres.engroupes(.chinois) {
-            lettres.append(mil(groupe,genre) + groupe.classifier(classifiers))
-        }
-        return lettres
-    }
-    
-    func partrois(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
-        var lettres = ""
-        for groupe in chiffres.engroupes(.partrois) {
-            lettres.append(centdizunit(groupe,genre) + groupe.classifier(classifiers))
-        }
-        return lettres
-    }*/
+  
     // préparation des cas particuliers
     struct Special {
         var unit: String? = nil
@@ -246,7 +195,7 @@ struct Ecriture {
                 case 0:
                     return dizaine
                 default:
-                    var lien = liaison.du
+                    let lien = liaison.du
                     if ordizun {
                         return dizaine + lien + unite(unit, special, genre)
                     } else {
@@ -260,28 +209,25 @@ struct Ecriture {
         
     }
     func centdizunit(_ cent:Int,_ diz:Int, _ unit:Int,_ special:Special, _ genre:Genre) -> String {
-        let centaine = special.cent != nil ? special.cent! : centaines[cent-1].singulier
         let dizu = diz == 0 && unit == 0 ? "" : dizunit(diz, unit, special, genre)
-            switch cent {
-            case 0:
-                return dizu
-            case 1:
-                return centaine + liaison.cd + dizu
-            default:
-                return unites[cent][.m] + liaison.uc + centaine + liaison.cd + dizu
-            }
+        if cent == 0 {
+            return dizu
+        } else {
+            let centaine = special.cent != nil ? special.cent! : centaines[cent-1].singulier
+            return centaine + liaison.cd + dizu
+        }
     }
     
-    
+    // pour les groupes de quatre chiffres
     func mil(_ mil:Int, _ cent:Int,_ diz:Int, _ unit:Int,_ special:Special, _ genre:Genre)->String{
         let mille = special.mil != nil ? special.mil! : mille[mil>1]
         switch mil {
         case 0:
             return cent == 0 && diz == 0 && unit == 0 ? "" : centdizunit(cent, diz, unit, special, genre)
         case 1:
-            return mille + liaison.mu + centdizunit(cent, diz, unit, special, genre)
+            return mille + liaison.mc + centdizunit(cent, diz, unit, special, genre)
         default:
-            return mille + liaison.mu + centdizunit(cent, diz, unit, special, genre)
+            return mille + liaison.mc + centdizunit(cent, diz, unit, special, genre)
         }
     }
     
@@ -337,5 +283,56 @@ struct NomChiffre {
         }
     }
 }
+
+/*  public func ecrit(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
+       var texte = ""
+      if chiffres.values == [] {
+          texte = unites[0][genre]
+      } else {
+          if chiffres.values.count == 1 && chiffres.values[0] == 0 {
+              texte = unites[0][genre]
+          } else {
+              switch groupement {
+              case .indien:
+                  texte = indien(chiffres, genre)
+              case .chinois:
+                  texte = chinois(chiffres, genre)
+              case .partrois:
+                  texte = partrois(chiffres, genre)
+              }
+          }
+      }
+      return texte
+   }
+  
+  func indien(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
+      var lettres = ""
+      let groupes = chiffres.engroupes(.indien)
+      let nbg = groupes.count
+      for g in 0..<nbg  {
+          if g == nbg - 1 {
+              lettres.append(centdizunit(groupes[g],genre) )
+          } else {
+              lettres.append(dizunit(groupes[g],genre) + groupes[g].classifier(classifiers))
+          }
+      }
+      return lettres
+  }
+  
+  func chinois(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
+      var lettres = ""
+      for groupe in chiffres.engroupes(.chinois) {
+          lettres.append(mil(groupe,genre) + groupe.classifier(classifiers))
+      }
+      return lettres
+  }
+  
+  func partrois(_ chiffres:Chiffres, _ genre:Genre = .m) -> String {
+      var lettres = ""
+      for groupe in chiffres.engroupes(.partrois) {
+          lettres.append(centdizunit(groupe,genre) + groupe.classifier(classifiers))
+      }
+      return lettres
+  }*/
 
 

@@ -13,8 +13,8 @@ struct Japan: Languedata {
     let romaji = Ecriture (
         langue: Langue.Code.ja,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["rei", "ichi", "ni", "san", "yon", "go", "roku", "nana", "hachi", "kyū", "jū"],
         feminin : [],
         neutre: [],
@@ -28,8 +28,8 @@ struct Japan: Languedata {
     let kana = Ecriture (
         langue: Langue.Code.ja,
         ecriture:.japanese,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
+        ordizun: true,
         masculin : ["れい", "いち", "に", "さん", "よん", "ご", "ろく", "なな", "はち", "きゅう", "じゅう"],
         feminin : [],
         neutre: [],

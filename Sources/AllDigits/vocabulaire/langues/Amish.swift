@@ -12,8 +12,8 @@ struct Amish: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.amh,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"un"),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"un"),
+        ordizun: false,
         // quand il est suivi d'une dizaine, eens perd son s final (traité par sp:eenun)
         masculin : ["null", "eens", "zwee", "drei", "vier", "fimf", "sex", "siwwe", "acht", "nein","zehe","elf","zwelf","dreizeh","vazen", "fuffzeh", "sechzeh", "siwwezeh","achtzeh","neinzeh"],
         feminin : [],

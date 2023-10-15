@@ -12,8 +12,8 @@ struct English: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.en,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" and ", du:"-"),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" and ", du:"-"),
+        ordizun: true,
         masculin : ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten","eleven","twelve","thirteen","fourteen", "fifteen", "sixteen", "seventeen","eighteen","nineteen"],
         feminin : [],
         neutre: [],

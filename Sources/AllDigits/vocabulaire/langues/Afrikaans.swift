@@ -12,8 +12,8 @@ struct Afrikaans: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.af,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:"-en-"),
-        ordizun: true,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:"-en-"),
+        ordizun: false,
         masculin : ["nul", "een", "twee", "drie", "vier", "vyf", "ses", "sewe", "ag", "nege", "tien", "elf", "twaalf", "dertien", "veertien", "vyftien", "sestien", "sewentien","agtien","negentien"],
         feminin : [],
         neutre: [],

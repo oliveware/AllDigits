@@ -13,7 +13,7 @@ struct Armenien : Languedata {
     let romanise = Ecriture (
         langue: Langue.Code.hy,
         ecriture : .latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
         ordizun : true,
         masculin : ["zro", "mek", "erkow", "erek'", "čors", "hing", "vec'", "yot'", "owt'", "inë", "tas", "tasnmek", "tasnerkow", "tasnerek'", "tasnčors", "tasnhing", "tasnvec'", "tasnyot'", "tasnowt'", "tasninë"],
         feminin : [],
@@ -26,7 +26,7 @@ struct Armenien : Languedata {
     let hayeren = Ecriture (
         langue: Langue.Code.hy,
         ecriture:.armenian,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" "),
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" "),
         ordizun : true,
         masculin : ["zro", "մեկ", "երկու", "երեք", "չորս", "հինգ", "վեց", "յոթ", "ութ", "ինը", "տաս", "տասնմեկ", "տասներկու ", "տասներեք", "տասնչորս", "տասնհինգ", "տասնվեց", "տասնյոթ", "տասնութ", "տասնինը"],
         feminin : [],

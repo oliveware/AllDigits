@@ -12,8 +12,8 @@ struct Irish: Languedata {
     let ecriture = Ecriture (
         langue: Langue.Code.irg,
         ecriture:.latin,
-        liaison: Ecriture.Liaison(mu:" ", uc:" ", cd:" ", du:" 's a "),
-        ordizun: false,
+        liaison: Ecriture.Liaison(mc:" ", cd:" ", du:" 's a "),
+        ordizun: true,
         masculin : ["neoni", "aon", "dó", "trì", "ceathair", "cúig", "sé", "seacht", "ocht", "naoi","deich","aon déag"," dó dhéag"," trì déag","ceathair déag", "cúig déag", "sé déag", "seacht déag","ocht déag","naoi déag"],
         feminin : [],
         neutre: [],
