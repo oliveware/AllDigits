@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Lettres: View {
     
-    let scalar = Chiffres(1456237892, 10)
+    var scalar = Chiffres(1456237892, 10)
     let scripts: [Langue.Code] = [.fr, .en, .de, .nl]
     
     var body: some View {
