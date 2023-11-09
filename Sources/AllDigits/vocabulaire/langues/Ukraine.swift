@@ -50,8 +50,9 @@ struct Ukraine: Languedata {
     }
     let mil59:String
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
         var sp = Ecriture.Special()
+        let mcdu = groupe.mcdu
         if mcdu.mil > 4 { sp.mil = mil59}
         return sp
     }

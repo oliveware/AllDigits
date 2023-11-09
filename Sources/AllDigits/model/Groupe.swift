@@ -27,20 +27,16 @@ public struct Groupe : Hashable {
     // base du groupe     (ex:80 en mangarévien, 1000 en global, 10 000 en chinois)
     private var base: Int = 1000
     // puissance du groupe
-    private var power: Int = 0
+    var power: Int = 0
     
     mutating func indianpower() {if groupby == 2 { power += 1 } }
     
-    func classifier(_ classifiers: [Mot]) -> String {
+    func classifier(_ classifieurs: [Mot]) -> String {
         if power == 0 {
             return ""
         } else {
-            if power == 1 && groupby == 3 {
-                return ""
-            } else {
-                let singulier = values.count == 1 && values[0] == 1
-                return classifiers[power][!singulier]
-            }
+            let singulier = values.count == 1 && values[0] == 1
+            return classifieurs[power-1][!singulier]
         }
     }
     // valeur du groupe en base 10

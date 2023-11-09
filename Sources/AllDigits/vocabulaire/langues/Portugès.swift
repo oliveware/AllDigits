@@ -29,7 +29,8 @@ struct Portuges: Languedata {
     
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
+        let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
         if mcdu.unit == 0 && mcdu.diz == 0 { sp.cent = "cem" }
         return sp

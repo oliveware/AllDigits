@@ -31,7 +31,8 @@ struct Deutsch: Languedata {
     
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
+        let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
         if mcdu.diz > 2 && mcdu.unit == 1 { sp.unit = "ein"}
         return sp

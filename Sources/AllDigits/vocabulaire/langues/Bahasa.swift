@@ -49,7 +49,7 @@ struct Bahasa: Languedata {
     }
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
         var sp = Ecriture.Special()
 
         return sp

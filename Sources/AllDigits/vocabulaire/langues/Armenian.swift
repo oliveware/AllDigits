@@ -21,7 +21,7 @@ struct Armenien : Languedata {
         dizaines : ["k'san", "eresown'", "k'arasown", "hisown", "vat'sown", "yot'anasown", "owt'sown", "innsown"],
         centaines : ["haryowr", "erkow haryowr", "erek' haryowr", "čors haryowr", "hing haryowr", "vec' haryowr", "yot' haryowr", "owt' haryowr", "inë haryowr"],
         mille : ("hazar", nil),
-        grands: [("milion", nil), ("miliard", nil), ("trilion", nil)]
+        classifieurs: [("milion", nil), ("miliard", nil), ("trilion", nil)]
     )
     let hayeren = Ecriture (
         langue: Langue.Code.hy,
@@ -34,7 +34,7 @@ struct Armenien : Languedata {
         dizaines : ["քսան", "երեսուն", "քառասուն", "հիսուն", "վաթսուն", "յոթանասուն ", "ութսուն", "իննսուն"],
         centaines : ["հարյուր", "երկու հարյուր", "երեք հարյուր", "չորս հարյուր", "հինգ հարյուր", "վեց հարյուր", "յոթ հարյուր", "ութ հարյուր", "ինը հարյուր"],
         mille : ("հազար", nil),
-        grands: [("միլիոն", nil), ("միլիարդ", nil), ("տրիլիոն", nil)]
+        classifieurs: [("միլիոն", nil), ("միլիարդ", nil), ("տրիլիոն", nil)]
     )
     
     let ecriture:Ecriture
@@ -52,7 +52,7 @@ struct Armenien : Languedata {
     }
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
         var sp = Ecriture.Special()
 
         return sp

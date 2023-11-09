@@ -35,7 +35,8 @@ struct Arabe: Languedata {
     }
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
+        let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
         if mcdu.mil == 2 { sp.mil = "alfain" }  // forme duelle de mille
         if mcdu.diz > 1 { sp.diz = "wa-" + ecriture.dizaines[mcdu.diz-2].singulier }

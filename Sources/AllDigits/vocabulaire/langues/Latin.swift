@@ -28,9 +28,9 @@ struct Latin: Languedata {
     init(_ kind:Langue.KindOfScript = .native) {}
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
         var sp = Ecriture.Special()
-        
+        let mcdu = groupe.mcdu
         if mcdu.diz > 2 {
             let dizaine = ecriture.dizaines[mcdu.diz-1].singulier
             if mcdu.unit == 8 { sp.diz = "duode" ; sp.unit = dizaine }

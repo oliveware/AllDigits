@@ -29,9 +29,9 @@ struct Italia: Languedata {
     init(_ kind:Langue.KindOfScript = .native) {}
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
         var sp = Ecriture.Special()
-        
+        let mcdu = groupe.mcdu
         if mcdu.diz == 2 {
             if mcdu.unit == 1 { sp.diz = "ventuno" }
             if mcdu.unit == 3 { sp.diz = "ventitré" }

@@ -18,7 +18,7 @@ protocol Languedata {
     init(_ kind:Langue.KindOfScript)
     
   //  mutating func ecrire(_ nombre:[Groupe], _ genre:Genre) -> String
-    func special(_ mcdu:Groupe.Mcdu) -> Ecriture.Special
+    func special(_ groupe:Groupe) -> Ecriture.Special
 }
 
 public struct Langue {
@@ -81,6 +81,10 @@ public struct Langue {
         case uni    = "universel" 
         
         public var id : String {self.rawValue}
+        
+        func chinois() -> Bool {
+            [.ja, .kor, .zh].contains(self)
+        }
     }
     static var chinois : [Code] = [.ja, .kor, .zh]
     
@@ -184,7 +188,7 @@ public struct Langue {
     func ecrire(_ groupes:[Groupe],_ genre:Genre = .m) -> String {
         var result = ""
         for groupe in groupes {
-            result += langue.ecriture.ecrit(groupe, genre, langue.special(groupe.mcdu))
+            result += langue.ecriture.ecrit(groupe, genre, langue.special(groupe))
         }
         return result
     }

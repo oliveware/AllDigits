@@ -28,7 +28,8 @@ struct Picard: Languedata {
     init(_ kind:Langue.KindOfScript = .native) {}
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
+        let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
         if mcdu.diz > 1 && mcdu.unit == 1 { sp.diz = ecriture.dizaines[mcdu.diz-2].singulier + "-et" }
         return sp

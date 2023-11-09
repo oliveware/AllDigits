@@ -28,7 +28,8 @@ struct Polski: Languedata {
     init(_ kind:Langue.KindOfScript = .native) {}
     
     // traitement des cas particuliers
-    func special(_ mcdu: Groupe.Mcdu) -> Ecriture.Special {
+    func special(_ groupe: Groupe) -> Ecriture.Special {
+        let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
         if mcdu.mil > 4 { sp.mil = ecriture.unites[mcdu.mil].masculin.singulier + "tysięcy" }
         return sp

@@ -121,7 +121,7 @@ struct Ecriture {
         self.centaines = enmots(centaines)
         self.mille = Mot(mille)
         
-        var classif: [Mot] = Langue.chinois.contains(codelangue) ? [] : [Mot(mille)]
+        var classif: [Mot] = codelangue.chinois() ? [] : [Mot(mille)]
         for index in 0..<classifieurs.count {
             let m:(String,String?) = (classifieurs[index])
            classif.append(Mot(m))
@@ -151,17 +151,22 @@ struct Ecriture {
     // chaque langue fournit les cas particuliers, qui dépendent de values
     func ecrit(_ groupe:Groupe,_ genre:Genre = .m, _ special:Special) -> String {
         let values = groupe.values
-        let classifier = " " + groupe.classifier(classifiers) + " "
+        let classifier = groupe.classifier(classifiers) + " "
         print(values, classifier)
         switch values.count {
         case 1:
-            return unite(values[0], special, genre) + classifier
+            let value = values[0]
+            if value == 1 {
+                return classifier == "" ? unite(value, special, genre) : classifier + " "
+            } else {
+                return unite(value, special, genre) + " " + classifier + " "
+            }
         case 2:
-            return dizunit(values[0],values[1], special, genre) + classifier
+            return dizunit(values[0],values[1], special, genre) + " " + classifier + " "
         case 3:
-            return centdizunit(values[0],values[1],values[2], special, genre) + classifier
-        case 4:
-            return mil(values[0],values[1],values[2],values[3], special, genre) + classifier
+            return centdizunit(values[0],values[1],values[2], special, genre) + " " + classifier + " "
+        case 4: // chinois
+            return mil(values[0],values[1],values[2],values[3], special, genre) + " " + classifier + " "
         default:
             return "?\(classifier)?"
         }
@@ -185,7 +190,7 @@ struct Ecriture {
         }
     }
     func dizunit(_ diz:Int, _ unit:Int,_ special:Special,  _ genre: Genre) -> String {
-        if unit < unites.count && diz < dizaines.count {
+        if unit < unites.count && diz < dizaines.count + 2 {
             switch diz {
             case 0:
                 return unites[unit][genre]
@@ -197,7 +202,10 @@ struct Ecriture {
                 case 0:
                     return dizaine
                 default:
-                    let lien = liaison.du
+                    var lien = liaison.du
+                    if special.unit != nil {
+                        if special.unit == "" { lien = "" }
+                    }
                     if ordizun {
                         return dizaine + lien + unite(unit, special, genre)
                     } else {
