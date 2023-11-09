@@ -32,6 +32,7 @@ struct Francais: Languedata {
     func special(_ groupe: Groupe) -> Ecriture.Special {
         let mcdu = groupe.mcdu
         var sp = Ecriture.Special()
+        if mcdu.unit == 1 && groupe.values.count == 1 { sp.unit = ""}
         if mcdu.diz > 1 && mcdu.unit == 1 { sp.diz =  ecriture.dizaines[mcdu.diz-2].singulier + "-et" }
         if mcdu.diz == 7 || mcdu.diz == 9 {
             let dizaine = ecriture.dizaines[mcdu.diz-3].singulier

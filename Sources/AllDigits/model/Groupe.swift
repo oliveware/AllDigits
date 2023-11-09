@@ -29,10 +29,18 @@ public struct Groupe : Hashable {
     // puissance du groupe
     var power: Int = 0
     
+    var isnul:Bool {
+        var tot = 0
+        for val in values {
+            tot += val
+        }
+        return tot == 0
+    }
+    
     mutating func indianpower() {if groupby == 2 { power += 1 } }
     
     func classifier(_ classifieurs: [Mot]) -> String {
-        if power == 0 {
+        if power == 0 || isnul {
             return ""
         } else {
             let singulier = values.count == 1 && values[0] == 1
