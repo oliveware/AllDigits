@@ -72,7 +72,7 @@ public struct Input: View {
                 VStack {
                     Spacer()
                     Enchiffres(configshow, scalar, numeration).frame(height: configshow.haut*1.2)
-                    
+                    Text(scalar.enlettres(Langue.Code.fr, Langue.KindOfScript.native,  Groupement.partrois))
                     Spacer()
                     Pad(configtouch, $scalar, numeration, linear, clavieradditif, width*0.8, height*0.6)
                 }

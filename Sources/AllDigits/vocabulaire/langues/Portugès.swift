@@ -20,7 +20,7 @@ struct Portuges: Languedata {
         dizaines : ["vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"],
         centaines : ["cento", "duzentos", "trezentos", "quatro cento", "quinhentos", "seis cento", "sete cento", "oito cento", "nove cent0"],
         mille :  ("mil",nil),
-        grands : [("milhão","milhões"), ("mil milhão","mil milhões"), ("bilhão","bilhões"), ("mil bilhão","mil bilhões")]
+        classifieurs : [("milhão","milhões"), ("mil milhão","mil milhões"), ("bilhão","bilhões"), ("mil bilhão","mil bilhões")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

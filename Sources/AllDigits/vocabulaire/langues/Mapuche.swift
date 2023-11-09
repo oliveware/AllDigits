@@ -20,7 +20,7 @@ struct Mapuche: Languedata {
         dizaines : ["epu mari", "küla mari", "meli mari", "kechu mari", "kayu mari", "reqle mari", "pura mari", "aylla mari"],
         centaines : ["pataka", "epu pataka", "küla pataka", "meli pataka", "kechu pataka", "kayu pataka", "reqle pataka", "pura pataka", "aylla pataka"],
         mille :  ("warangka",nil),
-        grands : [("miliünka",nil), ("miliarka",nil), ("biliünka",nil), ("biliarka",nil)]
+        classifieurs : [("miliünka",nil), ("miliarka",nil), ("biliünka",nil), ("biliarka",nil)]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

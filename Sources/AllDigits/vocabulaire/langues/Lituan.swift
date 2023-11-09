@@ -20,7 +20,7 @@ struct Lituanie: Languedata {
         dizaines : ["dvidešimt", "trisdešimt", "keturiadešimt", "penkiadešimt", "šešiasdešimt", "septyniadešimt", "astuoniadešimt", "devyniadešimt"],
         centaines : ["šimtas", "du šimtai", "trys šimtai", "keturi šimtai", "penki šimtai", "šeši šimtai", "septyni šimtai", "aštuoni šimtai", "devyni šimtai"],
         mille :  ("tūkstantis","tūkstančiai"),
-        grands : [("miljonas","miljonai"), ("miljardas","miljardai"), ("triljonas","triljonai"), ("kvadriljonas","kvadriljonai")]
+        classifieurs : [("miljonas","miljonai"), ("miljardas","miljardai"), ("triljonas","triljonai"), ("kvadriljonas","kvadriljonai")]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

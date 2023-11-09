@@ -23,7 +23,7 @@ struct Hangug: Languedata {
         dizaines : [],
         centaines : ["baek"],
         mille : ("cheon",nil),
-        grands : [("man",nil), ("eok",nil),("jo",nil), ("gyeong",nil),("hae","")]
+        classifieurs : [("man",nil), ("eok",nil),("jo",nil), ("gyeong",nil),("hae","")]
 
         //  moins = "jiân"
     )
@@ -39,7 +39,7 @@ struct Hangug: Languedata {
         dizaines : [],
         centaines : ["백"],
         mille : ("천",nil),
-        grands : [("만",nil), ("억",nil),("조",nil), ("경",nil),("해",nil)]
+        classifieurs : [("만",nil), ("억",nil),("조",nil), ("경",nil),("해",nil)]
         //   moins = "減"
     )
     let groupement = Groupement.chinois

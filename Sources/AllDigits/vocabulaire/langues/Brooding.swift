@@ -20,7 +20,7 @@ struct Brooding: Languedata {
         dizaines : ["fluhn", "raichfluhn", "schlaumfluhn", "draugenfluhn", "klautfluhn", "khlobedfluhn", "skenfluhn", "hoonfluhn", "saedfluhn", "thladfluhn","feyeedfluhn","mawgfluhn","braledfluhn","graizeegfluhn", "slathlaanfluhn"],
         centaines : ["tegen"],
         mille :  ("stooraen",nil),
-        grands : [("sezmeg",nil), ("sixhuitera",nil)]
+        classifieurs : [("sezmeg",nil), ("sixhuitera",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

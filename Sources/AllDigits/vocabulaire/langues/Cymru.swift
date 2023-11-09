@@ -21,7 +21,7 @@ struct Cymru: Languedata {
         centaines : ["cant", "dau gant", "tri chant", "pedvar cant", "pump cant", "chwech cant", "saith cant", "wyth cant", "naw cant"],
         // pluriel uniquement pour dau vil
         mille :  ("mil",nil),
-        grands : [("miliwn","miliynau"), ("biliwn","biliynau")]
+        classifieurs : [("miliwn","miliynau"), ("biliwn","biliynau")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

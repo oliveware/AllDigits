@@ -20,7 +20,7 @@ struct Italia: Languedata {
         dizaines : ["venti", "trenta", "quuaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"],
         centaines : ["cento", "due centi", "tre centi", "quattro centi", "cinque centi", "sei centi", "sette centi", "otto centi", "nove centi"],
         mille :  ("mille","mila"),
-        grands : [("un milione","milioni"), ("un miliardo","miliardi"), ("un bilione","bilioni"), ("un biliardo","biliardi"), ("un trilione","trilioni"), ("un triliardo","triliardi"), ("un quattrilione","quattrilioni"), ("un quintiliardo","quintiliardi")]
+        classifieurs : [("un milione","milioni"), ("un miliardo","miliardi"), ("un bilione","bilioni"), ("un biliardo","biliardi"), ("un trilione","trilioni"), ("un triliardo","triliardi"), ("un quattrilione","quattrilioni"), ("un quintiliardo","quintiliardi")]
         //  moins = "meno"
     )
     let groupement = Groupement.partrois

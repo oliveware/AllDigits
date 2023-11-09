@@ -20,7 +20,7 @@ struct Irish: Languedata {
         dizaines : ["fich", "triocha", "ceathracha", "caoga", "seasca", "seachtó", "ochtó", "nócha"],
         centaines : ["céad", "dó céad", "trì céad", "ceathair céad", "cúig céad", "sé céad", "seacht céad", "ocht céad", "naoi céad"],
         mille : ("míle",nil),
-        grands : [("aon milliún","milliún"), ("míle milliún",nil)]
+        classifieurs : [("aon milliún","milliún"), ("míle milliún",nil)]
         //  moins = "lúide"
     )
     let groupement = Groupement.partrois

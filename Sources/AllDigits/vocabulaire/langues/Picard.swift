@@ -20,7 +20,7 @@ struct Picard: Languedata {
         dizaines : ["vint", "trente", "quarante", "chonquante", "sissante", "sétante", "ûtante", "novante"],
         centaines : ["chint", "deus chint", "tros chint", "quate chint", "chinq chint", "sis chint", "sièt chint", "ût chint", "nué chint"],
         mille :  ("eune milliasse","milliasses"),
-        grands : [("eune millionasse","millionasses"), ("eune milliardasse","milliardasses")]
+        classifieurs : [("eune millionasse","millionasses"), ("eune milliardasse","milliardasses")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

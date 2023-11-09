@@ -21,7 +21,7 @@ struct Turc: Languedata {
         dizaines : ["yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"],
         centaines : ["yüz"],
         mille :  ("bin",nil),
-        grands : [("milyon",nil), ("milyard",""), ("trilyon",nil)]
+        classifieurs : [("milyon",nil), ("milyard",""), ("trilyon",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

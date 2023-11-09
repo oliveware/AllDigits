@@ -23,7 +23,7 @@ struct Arabe: Languedata {
        /* centaines : ["mi'a", "miayatayn", "thalathimia", "'arbae mia", "khamsumiaya", "situmiaya", "sabeumiaya", "thamanimiaya", "tise miaya"],*/
         centaines : ["mi'a", "ithnan mi'a", "thalatha mi'a", "'arba'a' mi'a", "khamsa mi'a", "sitta mi'a", "sab'a mi'a", "thamaniya mi'a", "tis'a mi'a"],
         mille : ("alf", "alaaf"),
-        grands : [("malioun", "malâyîn"), ("maliâr","maliâr")]
+        classifieurs : [("malioun", "malâyîn"), ("maliâr","maliâr")]
     )
     let ecriture:Ecriture
     

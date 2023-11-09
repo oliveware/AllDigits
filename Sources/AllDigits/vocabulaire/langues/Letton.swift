@@ -20,7 +20,7 @@ struct Letton: Languedata {
         dizaines : ["divdesmit", "trïsdesmit", "četrdesmit", "piecdesmit", "sešdesmit", "septindesmit", "astondesmit", "devindesmit"],
         centaines : ["simts"],
         mille :  ("tūkstoš","tūkstoši"),
-        grands : [("miljon","miljoni"), ("miljard","miljardi"), ("triljon","triljoni"), ("kvadriljon","kvadriljoni")]
+        classifieurs : [("miljon","miljoni"), ("miljard","miljardi"), ("triljon","triljoni"), ("kvadriljon","kvadriljoni")]
         //   moins = "mīnus"
     )
     let groupement = Groupement.partrois

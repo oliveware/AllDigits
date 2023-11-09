@@ -22,7 +22,7 @@ struct Bahasa: Languedata {
         dizaines : ["dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"],
         centaines : ["seratus", "dua ratus", "tiga ratus", "empat ratus", "lima ratus", "enam ratus", "tujuh ratus", "delapan ratus", "sembilan ratus"],
         mille : ("seribu","ribu"),
-        grands : [("sejuta","juta"), ("semilyar","milyar")]
+        classifieurs : [("sejuta","juta"), ("semilyar","milyar")]
     )
     let malais = Ecriture (
         langue: Langue.Code.mal,
@@ -35,7 +35,7 @@ struct Bahasa: Languedata {
         dizaines : ["dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "lapan puluh", "sembilan puluh"],
         centaines : ["seratus", "dua ratus", "tiga ratus", "empat ratus", "lima ratus", "enam ratus", "tujuh ratus", "lapan ratus", "sembilan ratus"],
         mille : ("seribu","ribu"),
-        grands : [("sejuta","juta"), ("semilyar","milyar")]
+        classifieurs : [("sejuta","juta"), ("semilyar","milyar")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -21,7 +21,7 @@ struct Ellinika: Languedata {
         dizaines : ["eíkosi", "triánta", "saránta", "penínta", "exínta", "evdomínta", "ogdónta", "enenínta"],
         centaines : ["ekató", "diakósia", "triakósia", "tetrakósia", "pentakósia", "exakósia", "eftakósia", "ochtakósia", "enniakósia"],
         mille :  ("chília",nil),
-        grands : [("ekatommýrio","ekatommýria"), ("disekatommýrio","disekatommýria"), ("trisekatommýrio","trisekatommýria")]
+        classifieurs : [("ekatommýrio","ekatommýria"), ("disekatommýrio","disekatommýria"), ("trisekatommýrio","trisekatommýria")]
     )
     let ellinika = Ecriture (
         langue: Langue.Code.el,
@@ -34,7 +34,7 @@ struct Ellinika: Languedata {
         dizaines : ["είκοσι", "τριάντα", "σαράντα", "πενήντα", "εξήντα", "εβδομήντα", "ογδόντα", "ενενήντα"],
         centaines : ["εκατό", "διακόσια", "τριακόσια", "τετρακόσια", "πεντακόσια", "εξακόσια", "εφτακόσια", "οχτακόσια", "εννιακόσια"],
         mille :  ("χίλια","χιλιάδες"),
-        grands : [("εκατομμύριο","εκατομμύρια"), ("δισεκατομμύριο","δισεκατομμύρια"), ("τρισεκατομμύριο","τρισεκατομμύρια")]
+        classifieurs : [("εκατομμύριο","εκατομμύρια"), ("δισεκατομμύριο","δισεκατομμύρια"), ("τρισεκατομμύριο","τρισεκατομμύρια")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

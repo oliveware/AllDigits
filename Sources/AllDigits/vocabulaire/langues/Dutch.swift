@@ -20,7 +20,7 @@ struct Dutch: Languedata {
         dizaines : ["twintig", "dertig", "veertig", "vijftig", "zestig", "zeventig", "tachtig", "negentig"],
         centaines : ["honderd", "tweehonderd", "driehonderd", "vierhonderd", "vijfhonderd", "zeshonderd", "zevenhonderd", "achthonderd", "negenhonderd"],
         mille :  ("duizend",nil),
-        grands : [("een miljoen","miljoens"), ("een miljard","miljards"), ("een biljoen","biljoens"), ("een biljard","biljards")]
+        classifieurs : [("een miljoen","miljoens"), ("een miljard","miljards"), ("een biljoen","biljoens"), ("een biljard","biljards")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -23,7 +23,7 @@ struct Srpski: Languedata {
         // centaines au masculin
         centaines : ["sto", "dvesta", "trista", "četiristo", "petsto", "šeststo", "sedamsto", "osamsto", "devetsto"],
         mille :  ("hiljada",nil),
-        grands : [("milion","miliona"), ("milijarda","milijarde")]
+        classifieurs : [("milion","miliona"), ("milijarda","milijarde")]
     )
     
     let cyrillic = Ecriture (
@@ -38,7 +38,7 @@ struct Srpski: Languedata {
         // centaines au masculin
         centaines : ["сто","двеста","триста", "четиристотин", "петстотин", "шестстотин", "седемстотин", "осемстотин", "деветстотин"],
         mille :  ("хиљада",nil),
-        grands : [("милион","милиона"), ("милијарда","милиарда"), ("билион","билиона")]
+        classifieurs : [("милион","милиона"), ("милијарда","милиарда"), ("билион","билиона")]
     )
 
     // centaines au féminin

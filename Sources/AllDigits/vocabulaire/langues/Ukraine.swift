@@ -21,7 +21,7 @@ struct Ukraine: Languedata {
         dizaines : ["двадцять", "тридцять", "сорок", "п'ятдесят", "шiстдесят", "сiмдесят", "вiсiмдесят", "дев'яносто"],
         centaines : ["сто","двiстi","триста", "чотириста", "п'ятсот", "шiстсот", "сiмсот", "вiсiмсот", "дев'ятсот"],
         mille :  ("одна тисяча","тисячi"),
-        grands : [("мільйон",nil), ("мільярд",nil)]
+        classifieurs : [("мільйон",nil), ("мільярд",nil)]
     )
     let romanise = Ecriture (
         langue: Langue.Code.uk,
@@ -34,7 +34,7 @@ struct Ukraine: Languedata {
         dizaines : ["dvadcâtʹ", "tridcât'", "sorok", "p'âtdesât", "šistdesât", "simdesât", "visimdesât", "dev'ânosto"],
         centaines : ["sto", "dvisti", "trista", "čotirista", "p'âtsot", "šistsot", "simsot", "visimsot", "dev'âtsot"],
         mille :  ("odna tisâča","tisâči"),
-        grands : [("mil'jon",nil), ("mil'ârd",nil)]
+        classifieurs : [("mil'jon",nil), ("mil'ârd",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

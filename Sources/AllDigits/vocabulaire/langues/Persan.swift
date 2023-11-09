@@ -20,7 +20,7 @@ struct Farsi: Languedata {
         dizaines : ["bist", "si", "chehel", "panjâh", "shast", "haftâd", "hashtâd", "navad"],
         centaines : ["sad", "devist", "sisad", "chahârsad", "pansad", "sheshsad", "heftsad", "heshtsad", "nehsad"],
         mille :  ("hezâr",nil),
-        grands : [("meyeleyon",nil), ("meyeleyâr",nil)]
+        classifieurs : [("meyeleyon",nil), ("meyeleyâr",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

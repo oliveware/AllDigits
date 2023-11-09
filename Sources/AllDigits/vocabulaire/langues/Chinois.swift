@@ -23,7 +23,7 @@ struct Chineese: Languedata {
         dizaines : ["èrshì","sānshì", "sìshì", "wǔshì", "liùshì", "qīshì", "bāshì", "jiǔshì"],
         centaines : ["yībǎi", "èrbǎi", "sānbǎi", "sìbǎi", "wǔbǎi", "liùbǎi", "qībǎi", "bābǎi", "jiǔbǎi"],
         mille : ("qiān",nil),
-        grands : [("wàn",nil), ("yì",nil),("gòu",nil), ("京",nil),("","垓")]
+        classifieurs : [("wàn",nil), ("yì",nil),("gòu",nil), ("京",nil),("","垓")]
 
         //  moins = "jiân"
     )
@@ -39,7 +39,7 @@ struct Chineese: Languedata {
         dizaines : [],
         centaines : ["百"],
         mille : ("千",nil),
-        grands : [("万",nil), ("亿",nil),("兆",nil), ("京",nil),("","垓")]
+        classifieurs : [("万",nil), ("亿",nil),("兆",nil), ("京",nil),("","垓")]
         //   moins = "減"
     )
     let taiwan = Ecriture (
@@ -54,7 +54,7 @@ struct Chineese: Languedata {
         dizaines : [],
         centaines : ["pah"],
         mille : ("千",nil),
-        grands : [("万",nil), ("亿",nil),("兆",nil), ("京",nil),("","垓")]
+        classifieurs : [("万",nil), ("亿",nil),("兆",nil), ("京",nil),("","垓")]
     )
     let groupement = Groupement.chinois
     let greatest = 1000000 * 1000000 * 1000000

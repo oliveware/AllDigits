@@ -21,7 +21,7 @@ struct Amish: Languedata {
         dizaines : ["zwansich", "dreissich", "vazich", "fuffzich", "sechzich", "siwwezich", "achtzich", "neinzich"],
         centaines : ["hunnert", "zwee hunnert", "drei hunnert", "vier hunnert", "fimf hunnert", "sex hunnert", "siwwe hunnert", "acht hunnert", "nein hunnert"],
         mille :  ("dausend",nil),
-        grands : [("en millyon","millyon"), ("en Milliard","Milliard")]
+        classifieurs : [("en millyon","millyon"), ("en Milliard","Milliard")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -20,7 +20,7 @@ struct Afrikaans: Languedata {
         dizaines : ["twintig", "dertig", "veertig", "vyftig", "sestig", "sewentig", "tagtig", "neëntig"],
         centaines : ["honderd"],
         mille :  ("duisend",nil),
-        grands : [("miljoen",nil), ("miljard",""), ("biljoen",nil)]
+        classifieurs : [("miljoen",nil), ("miljard",""), ("biljoen",nil)]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

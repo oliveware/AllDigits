@@ -20,7 +20,7 @@ struct Islande: Languedata {
         dizaines : ["tuttugu", "þrjátíu", "fjórutíu", "fimmtíu", "sextíu", "sjötíu", "áttatíu", "níutíu"],
         centaines : ["hundrað", "hundruð"],
         mille :  ("þúsund","tusinde"),
-        grands : [("ein miljón","millioner"), ("einn miljarður","milliarder"), ("en biljón","billioner"), ("en biljarður","billiarder")]
+        classifieurs : [("ein miljón","millioner"), ("einn miljarður","milliarder"), ("en biljón","billioner"), ("en biljarður","billiarder")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -20,7 +20,7 @@ struct English: Languedata {
         dizaines : ["twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"],
         centaines : ["one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"],
         mille :  ("one thousand","thousand"),
-        grands : [("one million","millions"), ("one billion","billions")]
+        classifieurs : [("one million","millions"), ("one billion","billions")]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

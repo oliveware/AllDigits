@@ -22,7 +22,7 @@ struct Breizh: Languedata {
         dizaines : ["ugent", "tregont", "daou-ugent", "hanter-kant", "tri-ugent", "dek ha tri-ugent", "pevar-ugent", "dek ha pevar-ugent"],
         centaines : ["kant", "daou c'hant", "tri c'hant", "pevar c'hant", "pemp kant", "c'hwec'h kant", "seizh kant", "eizh kant", "nav c'hant"],
         mille : ("mil",nil),
-        grands : [("ur million","million"), ("ur milliard","milliard")]
+        classifieurs : [("ur million","million"), ("ur milliard","milliard")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

@@ -20,7 +20,7 @@ struct Dansk: Languedata {
         dizaines : ["tyve", "tredive", "fyrre", "halvtreds", "tres", "halvfjerds", "firs", "halvfems"],
         centaines : ["hundred", "to hundrede", "tre hundrede", "fire hundrede", "fem hundrede", "seks hundrede", "syv hundrede", "otte hundrede", "ni hundrede"],
         mille :  ("et tusind","tusinde"),
-        grands : [("en million","millioner"), ("en milliard","milliarder"), ("en billion","billioner"), ("en billiard","billiarder")]
+        classifieurs : [("en million","millioner"), ("en milliard","milliarder"), ("en billion","billioner"), ("en billiard","billiarder")]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

@@ -93,7 +93,7 @@ struct Ecriture {
          liaison:Liaison, ordizun: Bool,
          masculin: [String], feminin: [String], neutre: [String],
          dizaines: [String], centaines: [String],
-         mille: (String,String?), grands: [(String,String?)]
+         mille: (String,String?), classifieurs: [(String,String?)]
          
         ) {
         codelangue = langue
@@ -122,11 +122,12 @@ struct Ecriture {
         self.mille = Mot(mille)
         
         var classif: [Mot] = Langue.chinois.contains(codelangue) ? [] : [Mot(mille)]
-        for index in 0..<grands.count {
-            let m:(String,String?) = (grands[index])
+        for index in 0..<classifieurs.count {
+            let m:(String,String?) = (classifieurs[index])
            classif.append(Mot(m))
         }
         classifiers = classif
+      //  print (classifiers)
         
         func enmots(_ strings:[String]) -> [Mot] {
             var mots: [Mot] = []
@@ -150,7 +151,8 @@ struct Ecriture {
     // chaque langue fournit les cas particuliers, qui dépendent de values
     func ecrit(_ groupe:Groupe,_ genre:Genre = .m, _ special:Special) -> String {
         let values = groupe.values
-        let classifier = groupe.classifier(classifiers)
+        let classifier = " " + groupe.classifier(classifiers) + " "
+        print(values, classifier)
         switch values.count {
         case 1:
             return unite(values[0], special, genre) + classifier

@@ -22,7 +22,7 @@ struct Japan: Languedata {
         // les centaines 3,6 et 8 ont leur propre mot
         centaines : ["hyaku","ni hyaku", "sanbyaku", "yon hyaku", "go hyaku", "roppyaku","nana hyaku", "happyaku", "kyū hyaku"],
         mille : ("sen",nil),
-        grands : [("man",nil), ("oku",nil), ("chō",nil), ("kyō",nil ), ("gai",nil)]
+        classifieurs : [("man",nil), ("oku",nil), ("chō",nil), ("kyō",nil ), ("gai",nil)]
         //  moins = "mainasu"
     )
     let kana = Ecriture (
@@ -39,7 +39,7 @@ struct Japan: Languedata {
         mille : ("せん",nil),
         /// trois mille =  "さんぜん "
         /// huit mille = "はっせん "
-        grands : [("まん",nil), ("おく",nil), ("ちょう",nil), ("きょう",nil ), ("がい",nil)]
+        classifieurs : [("まん",nil), ("おく",nil), ("ちょう",nil), ("きょう",nil ), ("がい",nil)]
  
         //  moins = "マイナス"
     )

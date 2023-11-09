@@ -21,7 +21,7 @@ struct Alsacien: Languedata {
         dizaines : ["zwånzig", "drissig", "viarzig", "fùffzig", "sæchzig", "sewwezig", "åchzig", "nînzig"],
         centaines : ["hùnd’rt"],
         mille :  ("toisig",nil),
-        grands : [("e Million","Millione"), ("Milliard","Milliarde")]
+        classifieurs : [("e Million","Millione"), ("Milliard","Milliarde")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

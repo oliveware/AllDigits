@@ -20,7 +20,7 @@ struct Francais: Languedata {
         dizaines : ["vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt", "quatre-vingt-dix"],
         centaines : ["cent", "deux cents", "trois cents", "quatre cents", "cinq cents", "six cents", "sept cents", "huit cents", "neuf cents"],
         mille :  ("mille",nil),
-        grands : [("million","millions"), ("milliard","milliards"),("billion","billions"), ("billiard","billiards"),("trillion","trillions"), ("trilliard","trilliards"), ("quadrillion","quadrillions"), ("quadrilliard","quadrilliards"), ("quintillion","quintillions"), ("quintilliard","quintilliards")]
+        classifieurs : [("million","millions"), ("milliard","milliards"),("billion","billions"), ("billiard","billiards"),("trillion","trillions"), ("trilliard","trilliards"), ("quadrillion","quadrillions"), ("quadrilliard","quadrilliards"), ("quintillion","quintillions"), ("quintilliard","quintilliards")]
         //  moins = "moins"
     )
     let groupement = Groupement.partrois

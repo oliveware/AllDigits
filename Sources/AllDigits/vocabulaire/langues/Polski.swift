@@ -20,7 +20,7 @@ struct Polski: Languedata {
         dizaines : ["dwadzieścia", "trzydzieści", "czterdzieści", "pięćdziesiąt", "sześćdziesiąt", "siedemdziesiąt", "osiemdziesiąt", "dziewięćdziesiąt"],
         centaines : ["sto", "dwieście", "trzysta", "czterysta", "pięćset", "sześćset", "siedemset", "osiemset", "dziewięćset"],
         mille :  ("tysiąc","tysiące"),
-        grands : [("milion",nil), ("miliard",""), ("bilion",nil), ("biliard",""), ("trilion",nil), ("tryliard",""), ("kwadrylion",nil), ("kwadryliard","")]
+        classifieurs : [("milion",nil), ("miliard",""), ("bilion",nil), ("biliard",""), ("trilion",nil), ("tryliard",""), ("kwadrylion",nil), ("kwadryliard","")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

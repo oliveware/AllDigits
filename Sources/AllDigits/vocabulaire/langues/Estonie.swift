@@ -20,7 +20,7 @@ struct Eesti: Languedata {
         dizaines : ["kakskümmend", "kolmkümmend", "nelikümmend", "viiskümmend", "kuuskümmend", "seitsekümmend", "kaheksakümmend", "üheksakümmend"],
         centaines : ["sada"],
         mille :  ("tuhat",nil),
-        grands : [("miljon","miljonit"), ("miljard","miljardit"), ("triljon","triljonit"), ("kvadriljon","kvadriljonit"), ("kvintiljon","kvintiljonit"), ("sextiljon","sextiljonit")]
+        classifieurs : [("miljon","miljonit"), ("miljard","miljardit"), ("triljon","triljonit"), ("kvadriljon","kvadriljonit"), ("kvintiljon","kvintiljonit"), ("sextiljon","sextiljonit")]
         //  moins = "miinus"
     )
     let groupement = Groupement.partrois

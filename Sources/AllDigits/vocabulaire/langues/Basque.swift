@@ -20,7 +20,7 @@ struct Basque: Languedata {
         dizaines : ["hogei", "hogeita hamar", "berrogei", "berrogeita hamar", "hirurogei", "hirurogeita hamar", "laurogei", "laurogeita hamar"],
         centaines : ["ehun","berrehun", "hirurehun", "lauehun", "bostehun", "seiehun", "zazpiehun", "zortziehun", "bederatziehun"],
         mille : ("mila",nil),
-        grands : [("milioi",nil), ("miliar","")]
+        classifieurs : [("milioi",nil), ("miliar","")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

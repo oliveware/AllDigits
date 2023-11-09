@@ -21,7 +21,7 @@ struct Deutsch: Languedata {
         dizaines : ["zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achzig", "neunzig"],
         centaines : ["einhundert","zweihundert", "dreihundert", "vierhundert", "fünfhundert", "sechshundert", "siebenhundert", "achthundert", "neunhundert"],
         mille :  ("eintausend","tausend"),
-        grands : [("eine Million","Millionen"), ("eine Milliarde","Milliarden"), ("eine Billion","Billionen"), ("eine Billiarde","Billiarden"), ("eine Trillion","Trillionen"), ("eine Trilliarde","Billiarden")]
+        classifieurs : [("eine Million","Millionen"), ("eine Milliarde","Milliarden"), ("eine Billion","Billionen"), ("eine Billiarde","Billiarden"), ("eine Trillion","Trillionen"), ("eine Trilliarde","Billiarden")]
         //  moins = "minus"
     )
     let groupement = Groupement.partrois

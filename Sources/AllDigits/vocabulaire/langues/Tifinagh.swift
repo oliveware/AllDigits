@@ -22,7 +22,7 @@ struct Tifinagh: Languedata {
         // les centaines sont féminines
         centaines : ["ⵜⵉⵎⵉⴹⵉ", "ⵙⵏⴰⵜⵜⵉⵎⴰⴹ", "ⴽⵕⴰⵟⵜⵜⵉⵎⴰⴹ", "ⴽⴽⵓⵣⵜⵜⵉⵎⴰⴹ", "ⵙⵎⵎⵓⵙⵜⵜⵉⵎⴰⴹ", "ⵚⴹⵉⵚⵜⵜⵉⵎⴰⴹ", "ⵙⴰⵜⵜⵉⵎⴰⴹ", "ⵜⴰⵎⵜⵜⵉⵎⴰⴹ", "ⵜⵥⴰⵜⵜⵉⵎⴰⴹ"],
         mille : ("ⵉⴼⴹ","ⴰⴼⴹⴰⵏ"),
-        grands : [("ⵎⵍⵢⵓⵏ","ⵎⵍⵢⵓⴰⴹ"), ("ⵎⵍⵢⵔⴰⴹ","ⵎⵍⵢⵔⴰⴹⴰⵏ"), ("ⴱⵍⵢⵓⵏ","ⴱⵍⵢⵓⴰⴹ")]
+        classifieurs : [("ⵎⵍⵢⵓⵏ","ⵎⵍⵢⵓⴰⴹ"), ("ⵎⵍⵢⵔⴰⴹ","ⵎⵍⵢⵔⴰⴹⴰⵏ"), ("ⴱⵍⵢⵓⵏ","ⴱⵍⵢⵓⴰⴹ")]
     )
     // romanisé
     let tamazight = Ecriture (
@@ -37,7 +37,7 @@ struct Tifinagh: Languedata {
         // les centaines sont féminines
         centaines : ["timidi", "yattimad", "snattimad", "kratttimad", "kkuzttimad", "smmusttimad", "sdisttimad", "sattimad", "tamttimad"],
         mille : ("ifd","afdan"),
-        grands : [("mlyun","mlyunad"), ("mlyard","mlyardan"), ("blyun","blyunad")]
+        classifieurs : [("mlyun","mlyunad"), ("mlyard","mlyardan"), ("blyun","blyunad")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

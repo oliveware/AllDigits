@@ -20,7 +20,7 @@ struct Sweden: Languedata {
         dizaines :  ["tjugo", "trettio", "fyrtio", "femtio", "sextio", "sjuttio", "åttio", "nittio"],
         centaines : ["hundra"],
         mille :  ("tusen",nil),
-        grands : [("miljon","miljoner"), ("miljard","miljarder"), ("biljon","biljoner")]
+        classifieurs : [("miljon","miljoner"), ("miljard","miljarder"), ("biljon","biljoner")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

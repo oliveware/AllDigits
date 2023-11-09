@@ -71,20 +71,27 @@ public struct Chiffres {
     // groupby constant
     public func grouper(par groupby:Int = 3,_ groupbase:Int = 1000) -> [Groupe] {
         var groupes : [Groupe] = []
+        var chiffres = values
         let nbv = values.count
         let reste = nbv % groupby
         let nbfg = (nbv - reste) / groupby
         if reste > 0 {
             var groupe = Groupe(groupby, groupbase, nbfg)
-            for i in 0..<reste { groupe.add(values[i]) }
+            for _ in 0..<reste {
+                groupe.add(chiffres[0])
+                chiffres.remove(at: 0)
+            }
             groupes = [groupe]
         }
-        for g in 0..<nbfg {
-            var groupe = Groupe(groupby, groupbase, nbfg-g)
-            for i in 0..<groupby {
-                groupe.add(values[g*groupby + i])
+        if nbfg > 0 {
+            for g in 1...nbfg {
+                var groupe = Groupe(groupby, groupbase, nbfg-g)
+                for _ in 0..<groupby {
+                    groupe.add(chiffres[0])
+                    chiffres.remove(at: 0)
+                }
+                groupes.append(groupe)
             }
-            groupes.append(groupe)
         }
         return groupes
     }

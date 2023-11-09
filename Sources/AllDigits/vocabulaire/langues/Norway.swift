@@ -20,7 +20,7 @@ struct Bokmal: Languedata {
         dizaines : ["tjue", "tretti", "førti", "femti", "seksti", "sytti", "åtti", "nitti"],
         centaines : ["hundre"],
         mille :  ("tusen",nil),
-        grands : [("million","millioner"), ("milliard","milliarder"), ("billion","billioner"), ("billiard","billiarder")]
+        classifieurs : [("million","millioner"), ("milliard","milliarder"), ("billion","billioner"), ("billiard","billiarder")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

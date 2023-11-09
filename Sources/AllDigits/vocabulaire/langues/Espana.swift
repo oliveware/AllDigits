@@ -20,7 +20,7 @@ struct Espana: Languedata {
         dizaines : ["veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"],
         centaines : ["cien", "dos cientos", "tres cientos", "cuatro cientos", "cinco cientos", "seis cientos", "siete cientos", "ocho cientos", "nueve cientos"],
         mille :  ("mil",nil),
-        grands : [("un millon","millones"), ("mil millones",nil), ("un billon","billones"), ("mil billones",nil)]
+        classifieurs : [("un millon","millones"), ("mil millones",nil), ("un billon","billones"), ("mil billones",nil)]
         //moins = "menos"
     )
     let groupement = Groupement.partrois

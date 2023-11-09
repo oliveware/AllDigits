@@ -21,7 +21,7 @@ struct Bulgare : Languedata {
         dizaines : ["dvadeset", "trideset", "chetirideset", "petdeset", "shestdeset", "sedemdeset", "osemdeset", "devetdeset"],
         centaines : ["sto", "dvesta", "trista", "chetiristotin", "petstotin", "sheststotin", "sedenstotin", "osemstotin", "devetstotin"],
         mille : ("hilyada","hilyadi"),
-        grands : [("milion","milliona"), ("miliard","miliarda")]
+        classifieurs : [("milion","milliona"), ("miliard","miliarda")]
     )
      let cyrillic = Ecriture (
         langue: Langue.Code.bg,
@@ -35,7 +35,7 @@ struct Bulgare : Languedata {
          dizaines : ["двадесет", "тридесет", "четиридесет", "петдесет", "шестдесет", "седемдесет", "осемдесет", "деветдесет"],
          centaines : ["сто","двеста","триста", "четиристотин", "петстотин", "шестстотин", "седемстотин", "осемстотин", "деветстотин"],
          mille : ("хиляда","хиляди"),
-         grands : [("милион","милиона"), ("милиард","милиарда")]
+         classifieurs : [("милион","милиона"), ("милиард","милиарда")]
          //     moins = "минус"
      )
     

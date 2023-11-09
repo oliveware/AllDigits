@@ -21,7 +21,7 @@ struct Russe: Languedata {
         dizaines : ["dvadcatʹ", "tridcat'", "sorok", "pâtʹdesât", "šestʹdesât", "semʹdesât", "vosemʹdesât", "devânosto"],
         centaines : ["sto", "dvesti", "trista", "četyresta", "pâtʹsot", "šestʹsot", "sem'sot", "vosem'sot", "devâtʹsot"],
         mille :  ("tysâča","tysâči"),
-        grands : [("million",nil), ("milliard",nil)]
+        classifieurs : [("million",nil), ("milliard",nil)]
     )
     let cyrillic = Ecriture (
         langue: Langue.Code.ru,
@@ -34,7 +34,7 @@ struct Russe: Languedata {
         dizaines : ["двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"],
         centaines : ["сто","двести","триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"],
         mille :  ("тысяча","тысячи"),
-        grands : [("миллион",nil), ("миллиард",nil)]
+        classifieurs : [("миллион",nil), ("миллиард",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

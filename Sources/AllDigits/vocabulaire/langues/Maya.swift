@@ -24,7 +24,7 @@ struct Maya: Languedata {
         centaines : ["bak", "ca bak", "ox bak", "can bak", "ho bak", "uac bak", "uuc bak", "uaxac bak", "bolon bak", "lahun bak","buluc bak", "ox-lahun bak", "can-lahun bak", "ho-lahun bak", "uac-lahun bak", "uuc-lahun bak", "uaxac-lahun bak", "bolon-lahun bak"],
         // huitmille
         mille :  ("pic",nil),
-        grands : [("calab",nil), ("","")]
+        classifieurs : [("calab",nil), ("","")]
     )
     let chol = Ecriture (
         langue: Langue.Code.maya,
@@ -41,7 +41,7 @@ struct Maya: Languedata {
         centaines : ["jumbasc'", "cha'bajc'", "uxbajc'", "chänbajc'", "jo'bajc'", "wäcbajc'", "wucbajc'", "waxäbajc'", "bolombajc'", "lujumbajc'", "junlujumbajc'", "lajchämbajc'", "uxlujumbajc'", "chänlujumbajc'", "jo'lujumbajc'", "wäclujumbajc'", "wuclujumbajc'", "waxälujumbajc'", "bolomlujumbajc'"],
         // huitmille
         mille :  ("pic",nil),
-        grands : [("calab",nil), ("","")]
+        classifieurs : [("calab",nil), ("","")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

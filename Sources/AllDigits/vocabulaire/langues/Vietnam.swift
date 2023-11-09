@@ -20,7 +20,7 @@ struct Viet: Languedata {
         dizaines : [],
         centaines : ["trăm"],
         mille :  ("ngàn",nil),
-        grands : [("triệu",nil), ("tỷ",nil)]
+        classifieurs : [("triệu",nil), ("tỷ",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

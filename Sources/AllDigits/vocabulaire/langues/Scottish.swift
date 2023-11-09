@@ -21,7 +21,7 @@ struct Scottish: Languedata {
         centaines : ["ceud", "dhà ceud", "trì ceud", "ceithir ceud", "còig ceud", "sia ceud", "seachd ceud", "ochd ceud", "naoi ceud"],
         // pluriel uniquement pour dhà mhile
         mille : ("mile",nil),
-        grands : [("millean",nil), ("billean",nil)]
+        classifieurs : [("millean",nil), ("billean",nil)]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

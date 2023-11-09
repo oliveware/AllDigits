@@ -20,7 +20,7 @@ struct Rohingya: Languedata {
         dizaines : [],
         centaines : [],
         mille :  ("",nil),
-        grands : [("",nil), ("","")]
+        classifieurs : [("",nil), ("","")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000

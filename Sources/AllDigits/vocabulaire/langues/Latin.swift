@@ -20,7 +20,7 @@ struct Latin: Languedata {
         dizaines : ["viginti", "triginta", "quadraginta", "quinquaginta", "sexaginta", "septuaginta", "octoginta", "nonaginta"],
         centaines : ["centum", "duocenti", "tricenti", "quadrigenti", "quingenti", "sescenti", "septingenti", "octingenti", "nongenti"],
         mille :  ("mille","milia"),
-        grands : [("mille miliarum","milia miliarum"), ("mille miliarum miliarum","milia miliarum miliarum")]
+        classifieurs : [("mille miliarum","milia miliarum"), ("mille miliarum miliarum","milia miliarum miliarum")]
     )
     let groupement = Groupement.partrois
     let greatest = 1000000 * 1000000 * 1000000
