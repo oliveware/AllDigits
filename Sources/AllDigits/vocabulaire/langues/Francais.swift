@@ -43,7 +43,9 @@ struct Francais: Languedata {
             sp.diz = groupe.power == 0 ? "quatre-vingts" : "quatre-vingt"
         }
         if mcdu.diz == 0 && mcdu.unit == 0 && groupe.power == 0 {
-            sp.cent = ecriture.centaines[mcdu.cent - 1].singulier + "s"
+            if mcdu.diz > 0 {
+                sp.cent = ecriture.centaines[mcdu.cent - 1].singulier + "s"
+            }
         }
         return sp
     }
