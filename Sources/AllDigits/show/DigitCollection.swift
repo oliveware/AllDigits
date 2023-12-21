@@ -12,20 +12,20 @@ import Digiconf
 
 public struct DigitCollection: View {
     //var mesure = Mesure()
-    var width:CGFloat = 1200
+    var width:CGFloat = 1500
     var height:CGFloat = 800
     var cote:CGFloat = 30
-    var config = Digiconfig(70,50,0,.brown,.clear)
+    var config = Digiconfig(50,30,0,.brown,.clear)
     var greatest: Int = 59
     
-    @State var value = 0
+    @State var value = 2024
     @State var start = false
     
     var antik: [Numeration] { Numeration.set(.antik, [.global]) }
     var live: [Numeration] { Numeration.set(.live, [.global]) }
     var zero: [Numeration] { Numeration.set(.zero, [.global]) }
 
-    public init(w:CGFloat = 1200, h:CGFloat = 800, maxi:Int = 59) {
+    public init(w:CGFloat = 1600, h:CGFloat = 1000, maxi:Int = 2024) {
         width = w
         height = h
         start = true
@@ -45,30 +45,41 @@ public struct DigitCollection: View {
                 }
             } else {
                 VStack(alignment: .center,spacing:25) {
+                    VStack {
+                        Enchiffres(config.scale(2.2).colore([.orange]), Chiffres(value, 10), Numeration(.cister,10), false)
+                        Text("cistercien").font(.caption)
+                    }
                     HStack(spacing:25) {
                         if value > 0 {
                             VStack {
-                                Enchiffres(config, Chiffres(value, 20), Numeration(.maya,20), false)
+                                Enchiffres(config.colore([.orange]), Chiffres(value, 20), Numeration(.maya,20), false)
                                 Text("maya").font(.caption)
                             }
                         }
-                        Text("\(value)")
-                            .font(config.scale(3).font)
-                            .fontWeight(Font.Weight.bold)
-                        .offset(x:0, y:10)
+                        VStack {
+                            Text("\(value)")
+                                .font(config.scale(2.3).font)
+                                .fontWeight(Font.Weight.bold)
+                            //.offset(x:0, y:10)
+                            .padding(30)
                         .foregroundColor(Color.green)
+                            
+                        }
                         if value > 0 {
                             VStack {
-                                Enchiffres(config, Chiffres(value, 20), Numeration(.aztek,20), false)
+                                Enchiffres(config.scale(1.5), Chiffres(value, 20), Numeration(.aztek,20), false)
                                 Text("aztek").font(.caption)
                             }
                         }
                     }
-                    
+                    VStack {
+                        Enchiffres(config.colore([.orange]), Chiffres(value, 64), Numeration(.yiking,64), false)
+                        Text("yiking").font(.caption)
+                    }
                 }.frame(width:width, height:height, alignment: .center)
                     
                 if value == 0 {
-                    ForEach (crown([300], zero.count), id: \.self) { point in
+                    ForEach (crown([360], zero.count), id: \.self) { point in
                         VStack {
                             if zero[point.i].numicode == .cister {
                                 Cistercien([0,0,0,0], config)
@@ -84,16 +95,16 @@ public struct DigitCollection: View {
                         }.offset(x: point.x, y: point.y)
                     }
                 } else {
-                    ForEach (crown([210], antik.count), id: \.self) { point in
+                    ForEach (crown([260], antik.count), id: \.self) { point in
                         VStack {
                             Enchiffres(config, Chiffres(value, antik[point.i].base), antik[point.i], false)
                             Text(antik[point.i].numicode.rawValue).font(.caption)
                         }
                         .offset(x: point.x, y: point.y)
                     }
-                    ForEach (crown([340], live.count), id: \.self) { point in
+                    ForEach (crown([400], live.count), id: \.self) { point in
                         VStack {
-                            Enchiffres(config, Chiffres(value, live[point.i].base), live[point.i], false)
+                            Enchiffres(config.colore([.blue]), Chiffres(value, live[point.i].base), live[point.i], false)
                             Text(live[point.i].numicode.rawValue).font(.caption)
                         }
                         .offset(x: point.x, y: point.y)
@@ -172,5 +183,6 @@ public struct DigitCollection: View {
 
 #Preview {
     DigitCollection()
+   // DigitCollection(value:0)
 }
 
