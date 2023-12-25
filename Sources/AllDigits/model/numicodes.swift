@@ -35,7 +35,7 @@ public struct Numicodeset {
         case .artificial:
             set = [.shadok, .shadok5, .alphabet, .base72]
         case .live:
-            set = Dekaval.codes + Chinois.codes + [.bibi]
+            set = Dekaval.codes + Chinois.codes
         case .zero:
             set = Numicodeset(.live).set + [.aztek, .maya, .yiking]
         }

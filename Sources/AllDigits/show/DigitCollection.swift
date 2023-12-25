@@ -45,9 +45,15 @@ public struct DigitCollection: View {
                 }
             } else {
                 VStack(alignment: .center,spacing:25) {
-                    VStack {
-                        Enchiffres(config.scale(2.2).colore([.orange]), Chiffres(value, 10), Numeration(.cister,10), false)
-                        Text("cistercien").font(.caption)
+                    HStack (spacing:45) {
+                        VStack {
+                            Enchiffres(config.colore([.orange]), Chiffres(value, 16), Numeration(.bibi,16), false)
+                            Text("bibibinaire").font(.caption)
+                        }
+                        VStack {
+                            Enchiffres(config.scale(2.2).colore([.orange]), Chiffres(value, 10), Numeration(.cister,10), false)
+                            Text("cistercien").font(.caption)
+                        }
                     }
                     HStack(spacing:25) {
                         if value > 0 {
@@ -74,7 +80,7 @@ public struct DigitCollection: View {
                     }
                     VStack {
                         Enchiffres(config.colore([.orange]), Chiffres(value, 64), Numeration(.yiking,64), false)
-                        Text("yiking").font(.caption)
+                        Text("yi jing").font(.caption)
                     }
                 }.frame(width:width, height:height, alignment: .center)
                     
