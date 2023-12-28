@@ -47,15 +47,17 @@ struct Dekaval {
 
 struct Mesopotamie {
  
-    static let codes : [Numicode] = [.babylon, .babyash, .babydish, .babygesh, .sumerash, .sumerdish,.sumergesh]
+    static let codes : [Numicode] = [.babylon, .babyash, .babydish, .babygesh, .shar, .sumerash, .sumerdish,.sumergesh]
  
  //glyphes unités
- static let gesh2 = ["", "\u{12415}", "\u{12416}", "\u{12417}", "\u{12418}", "\u{12419}", "\u{1241A}", "\u{1241B}", "\u{1241C}", "\u{1241D}"]// GESH2
- static let ash = ["", "\u{12038}", "\u{12400}", "\u{12401}", "\u{12402}", "\u{12403}", "\u{12404}", "\u{12405}", "\u{12406}", "\u{12407}"] // ASH
- static let dish = ["", "\u{12470}", "\u{1222B}", "\u{12408}", "\u{12409}", "\u{1240A}", "\u{1240B}", "\u{1240C}", "\u{1240D}", "\u{1240E}"] // DISH
+    static let gesh2 = ["", "\u{12415}", "\u{12416}", "\u{12417}", "\u{12418}", "\u{12419}", "\u{1241A}", "\u{1241B}", "\u{1241C}", "\u{1241D}"]// GESH2
+    static let ash = ["", "\u{12038}", "\u{12400}", "\u{12401}", "\u{12402}", "\u{12403}", "\u{12404}", "\u{12405}", "\u{12406}", "\u{12407}"] // ASH
+    static let dish = ["", "\u{12470}", "\u{1222B}", "\u{12408}", "\u{12409}", "\u{1240A}", "\u{1240B}", "\u{1240C}", "\u{1240D}", "\u{1240E}"] // DISH
+    static let shar2 = ["", "\u{12415}", "\u{12423}", "\u{12424}", "\u{12426}", "\u{12427}", "\u{12428}", "\u{12429}", "\u{1242A}", "\u{1242B}"]// SHAR2
  //glyphes dizaines
- static let geshu = ["","\u{1241E}","\u{1241F}","\u{12420}","\u{12421}","\u{12422}"] // geshu
- static let sumer = ["","\u{1230B}","\u{12399}","\u{1230D}","\u{1240F}","\u{12410}",
+    static let geshu = ["","\u{1241E}","\u{1241F}","\u{12420}","\u{12421}","\u{12422}"] // geshu
+    static let sharu = ["","\u{1242C}","\u{1242D}","\u{1242E}","\u{12430}","\u{12431}"] // sharu
+    static let sumer = ["","\u{1230B}","\u{12399}","\u{1230D}","\u{1240F}","\u{12410}",
      "\u{12411}","\u{12412}", "\u{12413}","\u{12414}"]
    
  // les chiffres de la base 60 sont calculés par Numeration
@@ -85,10 +87,16 @@ struct Mesopotamie {
    return ash
   case .dish:
    return dish
+  case .shar2:
+      return shar2
   case .gesh2:
    return gesh2
   case .geshu:
    return geshu
+  case .sharu:
+      return sharu
+  case .shar:
+      return compose(sharu,shar2)
   case .sumer:
    return sumer
   case .sumerash:

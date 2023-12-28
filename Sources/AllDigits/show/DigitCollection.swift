@@ -103,14 +103,14 @@ public struct DigitCollection: View {
                 } else {
                     ForEach (crown([260], antik.count), id: \.self) { point in
                         VStack {
-                            Enchiffres(config, Chiffres(value, antik[point.i].base), antik[point.i], false)
+                            Enchiffres(config.scale(antik[point.i].scale), Chiffres(value, antik[point.i].base), antik[point.i], false)
                             Text(antik[point.i].numicode.rawValue).font(.caption)
                         }
                         .offset(x: point.x, y: point.y)
                     }
                     ForEach (crown([400], live.count), id: \.self) { point in
                         VStack {
-                            Enchiffres(config.colore([.blue]), Chiffres(value, live[point.i].base), live[point.i], false)
+                            Enchiffres(config.colore([.blue]).scale(live[point.i].scale), Chiffres(value, live[point.i].base), live[point.i], false)
                             Text(live[point.i].numicode.rawValue).font(.caption)
                         }
                         .offset(x: point.x, y: point.y)

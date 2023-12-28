@@ -181,7 +181,7 @@ public struct Numeration {
         case .shadok5:
             return Shadok.clavier(5)
             
-        case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
+        case .babyash, .babydish, .babygesh, .shar, .sharu, .shar2, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
             return Mesopotamie.symbols(numicode)
             
         default:
@@ -199,17 +199,19 @@ public struct Numeration {
     
     public var scale:CGFloat {
         switch numicode {
-        case .bali, .hanzi, .kanji:
-            return 0.7
+        case .bali, .hanzi, .kanji, .kor:
+            return 0.6
         case .shadok, .shadok5:
             return 0.5
         case .roman, .alpha, .attic:
-            return 0.4
+            return 0.7
         case .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh, .geshu, .sumer, .gesh2, .dish, .ash:
             return 0.7
+        case .shar, .shar2, .sharu:
+            return 0.4
         case .maya:
             return 0.9
-        case .aegypt:
+        case .aegypt, .tibetan:
             return 1.3
         default:
             return 1
@@ -237,12 +239,12 @@ public struct Numeration {
             isadditive = true
         case .alphabet:
             baserange = setbaserange(2, 26)
-        case .far6old, .geshu, .sumer :
+        case .far6old, .geshu, .sumer, .sharu :
             baserange = setbaserange(2, 6)
         case .far10old:
             baserange = setbaserange(2, 10)
             powermax = 3
-        case .sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh:
+        case .shar, .sumerash, .sumerdish, .sumergesh, .babyash, .babydish, .babygesh:
             baserange = setbaserange(2, 60)
             groupby = 3
         case .babylon:
@@ -343,7 +345,7 @@ public struct Numeration {
             nativebase = 20
         case .yiking:
             nativebase = 64
-        case .babylon, .babyash, .babydish, .babygesh, .sumerash, .sumerdish, .sumergesh:
+        case .babylon, .babyash, .babydish, .babygesh, .shar, .sumerash, .sumerdish, .sumergesh:
             nativebase = 60
         case .alphabet:
             nativebase = 26
