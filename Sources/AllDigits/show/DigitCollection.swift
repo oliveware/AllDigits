@@ -21,11 +21,11 @@ public struct DigitCollection: View {
     @State var value = 2024
     @State var start = false
     
-    var antik: [Numeration] { Numeration.set(.antik, [.global]) }
+    var antik: [Numeration] { Numeration.set(.antik, [.global, .babydish, .sumerdish, .far6old]) }
     var live: [Numeration] { Numeration.set(.live, [.global]) }
     var zero: [Numeration] { Numeration.set(.zero, [.global]) }
 
-    public init(w:CGFloat = 1600, h:CGFloat = 1000, maxi:Int = 2024) {
+    public init(w:CGFloat = 1600, h:CGFloat = 1000, maxi:Int = 2040) {
         width = w
         height = h
         start = true
