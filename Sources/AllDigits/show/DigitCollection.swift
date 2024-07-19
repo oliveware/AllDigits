@@ -18,7 +18,7 @@ public struct DigitCollection: View {
     var config = Digiconfig(50,30,0,.brown,.clear)
     var greatest: Int = 59
     
-    @State var value = 2024
+    @State var value = 4721
     @State var start = false
     
     var antik: [Numeration] { Numeration.set(.antik, [.global, .babydish, .sumerdish, .far6old]) }
